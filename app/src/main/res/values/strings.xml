@@ -3,6 +3,7 @@
 
     <string name="skip">Skip</string>
     <string name="btn_continue">Continue</string>
+    <string name="btn_get_started">Get started</string>
 
     <!-- Onboarding -->
     <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>

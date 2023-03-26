@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.ui.onboarding.OnboardingItemFragment">
+    tools:context=".presentation.ui.onboarding.OnBoardingItemFragment">
 
     <Space
         android:id="@+id/bottomSpace"
@@ -24,7 +24,7 @@
         android:fontFamily="@font/lato_regular"
         android:text="@string/slide_1_description"
         android:textColor="@color/text_black"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/bottomSpace"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="35dp"
         android:layout_marginBottom="24dp"
-        android:fontFamily="@font/lato_regular"
+        android:fontFamily="@font/lato_bold"
         android:text="@string/slide_1_title"
         android:textColor="@color/text_black"
         android:textSize="24sp"
@@ -49,12 +49,12 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="35dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_marginBottom="38dp"
         android:src="@drawable/ic_adopt_a_pet_cuate"
         app:layout_constraintBottom_toTopOf="@id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topSpace" />
 

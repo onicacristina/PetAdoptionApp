@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.onboarding.OnboardingFragment">
+    tools:context=".presentation.ui.onboarding.OnBoardingFragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/dots_indicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
@@ -18,9 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        app:dampingRatio="0.5"
         app:dotsColor="@color/grey"
         app:dotsCornerRadius="8dp"
-        app:dotsSize="16dp"
+        app:dotsSize="10dp"
         app:dotsSpacing="4dp"
         app:dotsWidthFactor="2.5"
         app:layout_constraintBottom_toTopOf="@id/buttonsSection"
@@ -61,7 +66,7 @@
             android:id="@+id/btnContinueGetStarted"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_gravity=""
+            android:layout_gravity="center"
             android:layout_marginHorizontal="35dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -82,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="35dp"
                 android:fontFamily="@font/lato_bold"
+                android:gravity="center"
                 android:text="@string/btn_continue"
                 android:textColor="@color/text_black"
                 android:textSize="16sp"
