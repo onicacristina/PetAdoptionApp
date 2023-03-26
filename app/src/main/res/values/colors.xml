@@ -13,4 +13,6 @@
     <color name="yellow">#FECE52</color>
     <color name="text_black">#242424</color>
     <color name="bg_white">#F8F6F2</color>
+    <color name="transparent">@android:color/transparent</color>
+
 </resources>

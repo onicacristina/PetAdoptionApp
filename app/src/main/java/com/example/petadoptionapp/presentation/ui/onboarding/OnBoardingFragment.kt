@@ -7,11 +7,11 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentOnboardingBinding
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnBoardingFragment : BaseViewBindingFragment<FragmentOnboardingBinding>(R.layout.fragment_onboarding) {
+class OnBoardingFragment :
+    BaseViewBindingFragment<FragmentOnboardingBinding>(R.layout.fragment_onboarding) {
 
     override val viewBinding: FragmentOnboardingBinding by viewBinding(FragmentOnboardingBinding::bind)
     private lateinit var viewPager: ViewPager2
@@ -26,7 +26,7 @@ class OnBoardingFragment : BaseViewBindingFragment<FragmentOnboardingBinding>(R.
 
     private fun setupViewPager() {
         adapter = OnBoardingViewPagerAdapter(this)
-        val dotsIndicator: DotsIndicator = viewBinding.dotsIndicator
+        val dotsIndicator = viewBinding.dotsIndicator
         viewPager = viewBinding.viewPager2
         viewPager.adapter = adapter
         dotsIndicator.attachTo(viewPager)
@@ -34,7 +34,7 @@ class OnBoardingFragment : BaseViewBindingFragment<FragmentOnboardingBinding>(R.
 
     private fun initListeners() {
         viewBinding.btnContinueGetStarted.setOnClickListener {
-            if (viewPager.currentItem == 2) {
+            if (viewPager.currentItem == EOnBoardingSliderType.values().size - 1) {
                 openSignIn()
             } else {
                 goToNextPage()
@@ -48,7 +48,7 @@ class OnBoardingFragment : BaseViewBindingFragment<FragmentOnboardingBinding>(R.
     private fun initViews() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                if (position == 2) {
+                if (position == EOnBoardingSliderType.values().size - 1) {
                     viewBinding.tvSkip.visibility = View.GONE
                     viewBinding.tvContinueGetStarted.text = getString(R.string.btn_get_started)
                 } else {

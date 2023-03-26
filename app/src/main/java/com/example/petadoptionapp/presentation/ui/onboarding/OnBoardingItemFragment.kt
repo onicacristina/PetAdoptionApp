@@ -34,7 +34,7 @@ class OnBoardingItemFragment :
     }
 
     private fun initViews() {
-        viewBinding.ivLogo.setImageResource(slide.logo)
+        viewBinding.ivImage.setImageResource(slide.logo)
         viewBinding.tvTitle.text = getString(slide.title)
         viewBinding.tvDescription.text = getString(slide.description)
     }

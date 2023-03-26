@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ui.onboarding.OnBoardingItemFragment">
 
     <Space
         android:id="@+id/bottomSpace"
         android:layout_width="match_parent"
-        android:layout_height="104dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+        app:layout_constraintTop_toBottomOf="@id/tvDescription"
+        app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/tvDescription"
@@ -22,14 +23,14 @@
         android:layout_marginHorizontal="35dp"
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/lato_regular"
-        android:text="@string/slide_1_description"
+        android:gravity="center"
         android:textColor="@color/text_black"
         android:textSize="16sp"
-        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/bottomSpace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        tools:text="@string/slide_1_description" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -38,34 +39,35 @@
         android:layout_marginHorizontal="35dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/lato_bold"
-        android:text="@string/slide_1_title"
+        android:gravity="center"
         android:textColor="@color/text_black"
         android:textSize="24sp"
-        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/tvDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+        app:layout_constraintTop_toBottomOf="@id/ivImage"
+        tools:text="@string/slide_1_title" />
 
     <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:layout_marginBottom="38dp"
-        android:src="@drawable/ic_adopt_a_pet_cuate"
+        android:id="@+id/ivImage"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/ic_adopt_a_pet_amico"
         app:layout_constraintBottom_toTopOf="@id/tvTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topSpace" />
+        app:layout_constraintTop_toBottomOf="@id/topSpace"
+        android:contentDescription="@null" />
 
     <Space
         android:id="@+id/topSpace"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/ivLogo"
+        app:layout_constraintBottom_toTopOf="@id/ivImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="5" />
+        app:layout_constraintVertical_weight="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
