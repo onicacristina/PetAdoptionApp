@@ -3,4 +3,12 @@
 
     <string name="skip">Skip</string>
     <string name="btn_continue">Continue</string>
+
+    <!-- Onboarding -->
+    <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>
+    <string name="slide_1_description">În fiecare an, mii de animale ajung în adăposturi unde au vieți complicate.</string>
+    <string name="slide_2_title">Găsiți-vă viitorii prieteni</string>
+    <string name="slide_2_description">Animalele de companie din adăposturi au atât de multă dragoste de oferit, și nu se vor opri niciodată să o ofere odată ce le lăsați în inima voastră!</string>
+    <string name="slide_3_title">Bun venit la Adopet</string>
+    <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
 </resources>
