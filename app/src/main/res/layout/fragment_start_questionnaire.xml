@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     tools:context=".presentation.ui.questionnaire.StartQuestionnaireFragment">
 
@@ -13,22 +13,24 @@
         android:gravity="center"
         android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:gravity="center"
 
-        <ImageView
-            android:id="@+id/imgLogoReset"
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:src="@drawable/ic_start_questionnaire"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgLogoReset"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:src="@drawable/ic_start_questionnaire"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvTitle"
@@ -38,13 +40,13 @@
             android:layout_marginBottom="24dp"
             android:fontFamily="@font/lato_bold"
             android:gravity="center"
+            android:text="@string/questionnaire"
             android:textColor="@color/text_black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/tvDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivImage"
-            android:text="@string/questionnaire" />
+            app:layout_constraintTop_toBottomOf="@id/ivImage" />
 
         <TextView
             android:id="@+id/tvDescription"
@@ -54,13 +56,13 @@
             android:layout_marginBottom="32dp"
             android:fontFamily="@font/lato_regular"
             android:gravity="center"
+            android:text="@string/questionnaire_description"
             android:textColor="@color/text_black"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/bottomSpace"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            android:text="@string/questionnaire_description" />
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +72,35 @@
             android:orientation="vertical">
 
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStartNow"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_rounded"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center"
+                android:text="@string/btn_start_now"
+                android:textAllCaps="false"
+                android:textColor="@color/text_black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cbTermsAndConditions" />
 
+            <TextView
+                android:id="@+id/tvAskMeLater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/lato_bold"
+                android:padding="10dp"
+                android:text="@string/btn_ask_me_later"
+                android:textColor="@color/blue_light"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>

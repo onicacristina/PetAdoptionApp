@@ -6,7 +6,7 @@ import androidx.fragment.app.viewModels
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentStartQuestionnaireBinding
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
-import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 
 class StartQuestionnaireFragment :
@@ -28,6 +28,11 @@ class StartQuestionnaireFragment :
     }
 
     private fun initListeners() {
-
+        viewBinding.btnStartNow.setOnDebounceClickListener {
+            //TODO
+        }
+        viewBinding.tvAskMeLater.setOnDebounceClickListener {
+            //TODO
+        }
     }
 }
