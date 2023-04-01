@@ -12,4 +12,10 @@
     <string name="slide_2_description">Animalele de companie din adăposturi au atât de multă dragoste de oferit, și nu se vor opri niciodată să o ofere odată ce le lăsați în inima voastră!</string>
     <string name="slide_3_title">Bun venit la Adopet</string>
     <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
+
+    <!-- Questionnaire -->
+    <string name="questionnaire">Chestionar</string>
+    <string name="questionnaire_description">Pentru a găsi cel mai bun animal de companie pentru tine, va trebui să răspunzi la câteva întrebări.</string>
+    <string name="btn_start_now">Începe acum</string>
+    <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
 </resources>
