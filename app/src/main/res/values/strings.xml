@@ -12,4 +12,10 @@
     <string name="slide_2_description">Animalele de companie din adăposturi au atât de multă dragoste de oferit, și nu se vor opri niciodată să o ofere odată ce le lăsați în inima voastră!</string>
     <string name="slide_3_title">Bun venit la Adopet</string>
     <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
+
+    <!-- Authentication -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="agree_to_the_terms_and_conditions">I Agree to the <u>Terms and conditions</u>.</string>
+
 </resources>

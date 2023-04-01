@@ -67,7 +67,8 @@ class OnBoardingFragment :
 //        AppStateFlagsPrefs().tutorialShown()
 //        navController.popBackStack()
 //        navController.navigate(R.id.navigation_sign_in)
-        navController.navigate(R.id.loginFragment)
+        navController.navigate(R.id.registerFragment)
+//        navController.navigate(R.id.loginFragment)
     }
 
 }
