@@ -18,4 +18,10 @@
     <string name="register">Register</string>
     <string name="agree_to_the_terms_and_conditions">I Agree to the <u>Terms and conditions</u>.</string>
 
+
+    <!-- Questionnaire -->
+    <string name="questionnaire">Chestionar</string>
+    <string name="questionnaire_description">Pentru a găsi cel mai bun animal de companie pentru tine, va trebui să răspunzi la câteva întrebări.</string>
+    <string name="btn_start_now">Începe acum</string>
+    <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
 </resources>
