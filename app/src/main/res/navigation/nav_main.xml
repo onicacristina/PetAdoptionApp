@@ -15,4 +15,9 @@
         android:name="com.example.petadoptionapp.presentation.ui.onboarding.OnBoardingFragment"
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding" />
+    <fragment
+        android:id="@+id/startQuestionnaireFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.questionnaire.StartQuestionnaireFragment"
+        android:label="fragment_start_questionnaire"
+        tools:layout="@layout/fragment_start_questionnaire" />
 </navigation>

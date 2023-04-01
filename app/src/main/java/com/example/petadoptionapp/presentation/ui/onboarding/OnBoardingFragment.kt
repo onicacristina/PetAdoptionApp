@@ -66,7 +66,7 @@ class OnBoardingFragment :
     private fun openSignIn() {
 //        AppStateFlagsPrefs().tutorialShown()
 //        navController.popBackStack()
-//        navController.navigate(R.id.navigation_sign_in)
+        navController.navigate(R.id.startQuestionnaireFragment)
     }
 
 }
