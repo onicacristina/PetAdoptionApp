@@ -1,6 +1,7 @@
 package com.example.petadoptionapp.presentation.ui.authentication.register
 
 import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,15 +18,15 @@ class RegisterViewModel @Inject constructor() : BaseViewModel() {
     var isPasswordVisible = false
     private var isAcceptedTermsAndConditions = false
 
-    protected val _buttonState: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    private val _buttonState: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val buttonState: Flow<Boolean>
         get() = _buttonState.asStateFlow()
 
-    fun isNotEmptyFirstName(): Boolean {
+    private fun isNotEmptyFirstName(): Boolean {
         return firstName.isNotEmpty()
     }
 
-    fun isNotEmptyLastName(): Boolean {
+    private fun isNotEmptyLastName(): Boolean {
         return lastName.isNotEmpty()
     }
 
@@ -35,6 +36,11 @@ class RegisterViewModel @Inject constructor() : BaseViewModel() {
 
     private fun isNotEmptyPassword(): Boolean {
         return password.isNotEmpty()
+    }
+
+    private fun isEmailValid(email: String): Boolean {
+        val pattern = Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
+        return pattern.matches(email)
     }
 
     private fun isOneUppercaseLetterInPassword(): Boolean {
@@ -83,11 +89,17 @@ class RegisterViewModel @Inject constructor() : BaseViewModel() {
 
     private fun validateFieldsNotEmpty() {
         _buttonState.value =
-            isNotEmptyFirstName() && isNotEmptyLastName() && isNotEmptyEmail() && validatePassword() && isAcceptedTermsAndConditions
+            isNotEmptyFirstName() && isNotEmptyLastName() && isNotEmptyEmail() && isNotEmptyPassword() && isAcceptedTermsAndConditions
     }
 
     fun validatePassword(): Boolean {
         return isNotEmptyPassword() && isOneUppercaseLetterInPassword() && isOneNumberInPassword() && hasMin8Chars()
+    }
+
+    fun getInputsErrors(): InfoOrErrorAuthentication{
+        if (!isEmailValid(email))
+            return InfoOrErrorAuthentication.EMAIL_INVALID
+        return InfoOrErrorAuthentication.NONE
     }
 
 //    fun onPasswordChanged(data: String) {

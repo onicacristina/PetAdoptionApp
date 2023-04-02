@@ -18,7 +18,7 @@
     <string name="register">Register</string>
     <string name="agree_to_the_terms_and_conditions">I Agree to the <u>Terms and conditions</u>.</string>
     <string name="terms_and_conditions">Terms and conditions</string>
-
+    <string name="invalid_email_address">Ați introdus o adresă de email invalidă!</string>
 
 
     <!-- Questionnaire -->

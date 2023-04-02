@@ -29,7 +29,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bg_info_or_error"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/tilFirstName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvIncorrectEmailOrPassword"
+            android:id="@+id/tvInfoOrError"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_custom_inputs"
             android:hint="Email"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:textColor="@android:color/black"
             android:textColorLink="@color/text_black" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -156,7 +156,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_custom_inputs"
             android:hint="Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textColor="@android:color/black"
             android:textColorLink="@color/text_black" />
     </com.google.android.material.textfield.TextInputLayout>
