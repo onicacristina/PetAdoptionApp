@@ -16,6 +16,9 @@
     <color name="transparent">@android:color/transparent</color>
     <color name="grey_input_text_hint">#ADB5BF</color>
     <color name="text_grey">#747980</color>
+    <color name="yellow_text">#C69214</color>
+    <color name="yellow_info">#F9F4E7</color>
+    <color name="yellow_info_border">#F1E4C4</color>
 
 
 </resources>
