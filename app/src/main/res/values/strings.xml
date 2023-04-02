@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Adopet</string>
 
-    <string name="skip">Skip</string>
-    <string name="btn_continue">Continue</string>
-    <string name="btn_get_started">Get started</string>
+    <string name="skip">Omite</string>
+    <string name="btn_continue">Continuă</string>
+    <string name="btn_get_started">Să începem</string>
 
     <!-- Onboarding -->
     <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>
@@ -14,11 +14,17 @@
     <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
 
     <!-- Authentication -->
-    <string name="login">Login</string>
-    <string name="register">Register</string>
-    <string name="agree_to_the_terms_and_conditions">I Agree to the <u>Terms and conditions</u>.</string>
-    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="login">Autentificare</string>
+    <string name="register">Înregistrează-te</string>
+    <string name="agree_to_the_terms_and_conditions">Sunt de acord cu <u>Termenii și condițiile</u>.</string>
+    <string name="terms_and_conditions">Termenii și condițiile</string>
     <string name="invalid_email_address">Ați introdus o adresă de email invalidă!</string>
+    <string name="password_length_rule">Parola trebuie să aibă cel puțin 8 caractere!</string>
+    <string name="password_rules">Parola trebuie să conțină cel puțin o literă mare și o cifră.</string>
+    <string name="first_name">Prenume</string>
+    <string name="last_name">Nume</string>
+    <string name="email">Email</string>
+    <string name="password">Parolă</string>
 
 
     <!-- Questionnaire -->

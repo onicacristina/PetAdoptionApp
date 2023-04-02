@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.authentication.register
 
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
+import com.example.petadoptionapp.presentation.utils.Constants.PATTERN
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,10 +12,10 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor() : BaseViewModel() {
 
-    var firstName = ""
-    var lastName = ""
-    var email = ""
-    var password = ""
+    private var firstName = ""
+    private var lastName = ""
+    private var email = ""
+    private var password = ""
     var isPasswordVisible = false
     private var isAcceptedTermsAndConditions = false
 
@@ -39,7 +40,7 @@ class RegisterViewModel @Inject constructor() : BaseViewModel() {
     }
 
     private fun isEmailValid(email: String): Boolean {
-        val pattern = Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
+        val pattern = Regex(pattern = PATTERN)
         return pattern.matches(email)
     }
 
@@ -81,6 +82,7 @@ class RegisterViewModel @Inject constructor() : BaseViewModel() {
         isAcceptedTermsAndConditions = data
         validateFieldsNotEmpty()
     }
+
 //    fun sendSignInEvent(event: ValidationEventSignIn){
 //        viewModelScope.launch {
 //            _event.send(event)
@@ -92,42 +94,18 @@ class RegisterViewModel @Inject constructor() : BaseViewModel() {
             isNotEmptyFirstName() && isNotEmptyLastName() && isNotEmptyEmail() && isNotEmptyPassword() && isAcceptedTermsAndConditions
     }
 
-    fun validatePassword(): Boolean {
+    private fun validatePassword(): Boolean {
         return isNotEmptyPassword() && isOneUppercaseLetterInPassword() && isOneNumberInPassword() && hasMin8Chars()
     }
 
-    fun getInputsErrors(): InfoOrErrorAuthentication{
+    fun getInputsErrors(): InfoOrErrorAuthentication {
         if (!isEmailValid(email))
             return InfoOrErrorAuthentication.EMAIL_INVALID
+        if (!hasMin8Chars())
+            return InfoOrErrorAuthentication.PASSWORD_LENGTH
+        if (!isOneNumberInPassword() && !isOneNumberInPassword())
+            return InfoOrErrorAuthentication.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER
         return InfoOrErrorAuthentication.NONE
-    }
-
-//    fun onPasswordChanged(data: String) {
-//        passwordValidationState()
-//        passwordLengthValidationState()
-//    }
-
-    private fun passwordValidationState() {
-//        if (isOneUppercaseLetterInPassword() && isOneNumberInPassword()) {
-//            _passwordUiState.value = EPasswordState.CORRECT
-//        } else {
-//            if (isOneUppercaseLetterInPassword()) {
-//                _passwordUiState.value = EPasswordState.ONE_UPPERCASE
-//            } else
-//                if (isOneNumberInPassword()) {
-//                    _passwordUiState.value = EPasswordState.ONE_NUMBER
-//                } else {
-//                    _passwordUiState.value = EPasswordState.INCORRECT
-//
-//                }
-//        }
-    }
-
-    private fun passwordLengthValidationState() {
-//        when (hasMin8Chars()) {
-//            true -> _passwordLengthUiState.value = EPasswordLengthState.HAS_8_CHARS
-//            false -> _passwordLengthUiState.value = EPasswordLengthState.HAS_NOT_8_CHARS
-//        }
     }
 
 }

@@ -113,6 +113,10 @@ class RegisterFragment :
         val someError: InfoOrErrorAuthentication = viewModel.getInputsErrors()
         when (someError) {
             InfoOrErrorAuthentication.EMAIL_INVALID -> showInfoOrError(someError)
+            InfoOrErrorAuthentication.PASSWORD_LENGTH -> showInfoOrError(someError)
+            InfoOrErrorAuthentication.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER -> showInfoOrError(
+                someError
+            )
             InfoOrErrorAuthentication.NONE -> hideInfoOrError()
         }
     }

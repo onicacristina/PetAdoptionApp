@@ -39,7 +39,7 @@
             android:id="@+id/ivXCircleError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="4dp"
+            android:layout_marginVertical="8dp"
             android:layout_marginStart="10dp"
             android:contentDescription="@null"
             android:src="@drawable/ic_alert_circle"
@@ -57,10 +57,11 @@
             android:textAlignment="center"
             android:textColor="@color/yellow_text"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/ivXCircleError"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivXCircleError"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivXCircleError"
+            tools:layout_editor_absoluteY="6dp"
             tools:text="Parola trebuie sa fie completa" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -81,9 +82,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFirstName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:background="@drawable/bg_custom_inputs"
-            android:hint="First name"
+            android:hint="@string/first_name"
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
             android:textColorLink="@color/text_black" />
@@ -105,9 +106,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLastName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:background="@drawable/bg_custom_inputs"
-            android:hint="Last name"
+            android:hint="@string/last_name"
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
             android:textColorLink="@color/text_black" />
@@ -129,9 +130,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:background="@drawable/bg_custom_inputs"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:textColor="@android:color/black"
             android:textColorLink="@color/text_black" />
@@ -153,9 +154,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:background="@drawable/bg_custom_inputs"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:textColor="@android:color/black"
             android:textColorLink="@color/text_black" />
@@ -164,7 +165,7 @@
     <ImageButton
         android:id="@+id/btnTogglePasswordMask"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="54dp"
         android:background="@drawable/btn_ripple_oval_mask"
         android:clickable="true"
         android:contentDescription="@null"
@@ -185,7 +186,7 @@
         android:fontFamily="@font/lato_regular"
         android:text="@string/agree_to_the_terms_and_conditions"
         android:textColor="@color/text_grey"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
