@@ -29,6 +29,7 @@ class StartQuestionnaireFragment :
 
     private fun initListeners() {
         viewBinding.btnStartNow.setOnDebounceClickListener {
+            navController.navigate(R.id.secondQuestionFragment)
             //TODO
         }
         viewBinding.tvAskMeLater.setOnDebounceClickListener {

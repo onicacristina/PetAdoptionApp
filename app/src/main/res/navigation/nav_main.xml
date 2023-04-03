@@ -20,4 +20,14 @@
         android:name="com.example.petadoptionapp.presentation.ui.questionnaire.StartQuestionnaireFragment"
         android:label="fragment_start_questionnaire"
         tools:layout="@layout/fragment_start_questionnaire" />
+    <fragment
+        android:id="@+id/firstQuestionFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.questionnaire.first_question.FirstQuestionFragment"
+        android:label="fragment_first_question"
+        tools:layout="@layout/fragment_first_question" />
+    <fragment
+        android:id="@+id/secondQuestionFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.questionnaire.second_question.SecondQuestionFragment"
+        android:label="fragment_second_question"
+        tools:layout="@layout/fragment_second_question" />
 </navigation>

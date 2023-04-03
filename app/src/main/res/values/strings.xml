@@ -25,4 +25,10 @@
     <string name="address">Adresă</string>
     <string name="tell_us_about_yourself">Spune-ne despre tine?</string>
     <string name="question_of">Întrebarea %1$s din %2$s</string>
+
+    <!-- Question 2 -->
+    <string name="question_2">Ce fel de animal de companie preferați?</string>
+    <string name="cat">Pisică</string>
+    <string name="dog">Câine</string>
+    <string name="other">Altul</string>
 </resources>

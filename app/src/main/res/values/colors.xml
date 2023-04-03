@@ -15,5 +15,6 @@
     <color name="bg_white">#F8F6F2</color>
     <color name="transparent">@android:color/transparent</color>
     <color name="text_grey">#747980</color>
+    <color name="grey_input_border">#E3EBF6</color>
 
 </resources>
