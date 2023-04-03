@@ -47,6 +47,14 @@ class RegisterFragment :
             //TODO("replace this")
             Toast.makeText(activity, "t&c", Toast.LENGTH_SHORT).show()
         }
+        viewBinding.goToLogin.addClickableLink(
+            fullText = getString(R.string.go_to_login),
+            linkText = SpannableString(getString(R.string.log_in)),
+            context = requireContext(),
+            textColor = R.color.blue_light
+        ) {
+            navController.navigate(R.id.loginFragment)
+        }
     }
 
     private fun initListeners() {
@@ -73,7 +81,6 @@ class RegisterFragment :
         initTogglePasswordMask()
 
         viewBinding.btnRegister.setOnDebounceClickListener {
-//            viewModel.validatePassword()
             onRegisterPressed()
         }
     }

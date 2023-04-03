@@ -7,5 +7,4 @@ enum class EPasswordState(val colorOne: Int, val colorTwo: Int) {
     INCORRECT(R.color.text_grey, R.color.text_grey),
     ONE_UPPERCASE(R.color.text_grey, R.color.blue_light),
     ONE_NUMBER(R.color.blue_light, R.color.text_grey)
-
 }

@@ -210,4 +210,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbTermsAndConditions" />
 
+    <TextView
+        android:id="@+id/goToLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="@color/text_black"
+        android:textSize="14sp"
+        android:layout_marginHorizontal="22dp"
+        android:text="@string/go_to_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        android:gravity="center"
+        android:layout_marginTop="26dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,8 @@
     <string name="last_name">Nume</string>
     <string name="email">Email</string>
     <string name="password">Parolă</string>
+    <string name="go_to_login">Aveți deja un cont? Înregistrați-vă</string>
+    <string name="log_in">Înregistrați-vă</string>
 
 
     <!-- Questionnaire -->
