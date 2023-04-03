@@ -49,7 +49,7 @@ class RegisterFragment :
         }
         viewBinding.goToLogin.addClickableLink(
             fullText = getString(R.string.go_to_login),
-            linkText = SpannableString(getString(R.string.log_in)),
+            linkText = SpannableString(getString(R.string.register_desc)),
             context = requireContext(),
             textColor = R.color.blue_light
         ) {
