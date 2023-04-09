@@ -14,9 +14,11 @@ class AuthApiInterfaceImplementation @Inject constructor(
         return authApiService.login(loginParams = loginParams)
     }
 
-    override suspend fun register(registerParams: RegisterParams): Call<RegisterResponse> {
-        return authApiService.register(registerParams = registerParams)
-    }
+    override suspend fun register(registerParams: RegisterParams) = authApiService.register(registerParams)
+
+//    override suspend fun register(registerParams: RegisterParams): Call<RegisterResponse> {
+//        return authApiService.register(registerParams = registerParams)
+//    }
 
 }
 

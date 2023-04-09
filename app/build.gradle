@@ -20,12 +20,25 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//    }
+
     buildTypes {
+        debug {
+            debuggable true
+            buildConfigField "String", 'BASE_API_URL', '"' + 'http://10.0.2.2:2893/' + '"'  // dev
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'BASE_API_URL', '"' + 'http://10.0.2.2.1:2893/' + '"'  // prod
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

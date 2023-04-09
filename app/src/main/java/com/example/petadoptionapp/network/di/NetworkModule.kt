@@ -1,6 +1,7 @@
 package com.example.petadoptionapp.network.di
 
 import android.content.Context
+import com.example.petadoptionapp.BuildConfig
 import com.example.petadoptionapp.network.interceptor.DefaultHeaderInterceptor
 import com.example.petadoptionapp.network.interceptor.JwtTokenInterceptor
 import com.example.petadoptionapp.network.interceptor.RefreshAuthenticator
@@ -19,8 +20,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Qualifier
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -88,6 +89,9 @@ object NetworkModule {
 //        return JwtTokenInterceptor(tokenLocalDatasource)
 //    }
 
+    @Provides
+    fun provideBaseUrl() = BuildConfig.BASE_API_URL + "api/"
+
     @Singleton
     @Provides
     fun provideOkHttpClient(
@@ -95,13 +99,13 @@ object NetworkModule {
         jwtTokenInterceptor: JwtTokenInterceptor,
         refreshAuthenticator: RefreshAuthenticator,
         loggingInterceptor: HttpLoggingInterceptor,
-    ) : OkHttpClient
-    { return OkHttpClient.Builder()
-        .authenticator(refreshAuthenticator)
-        .addInterceptor(defaultHeaderInterceptor)
-        .addInterceptor(jwtTokenInterceptor)
-        .addInterceptor(loggingInterceptor)
-        .connectTimeout(30, TimeUnit.SECONDS)
+    ): OkHttpClient {
+        return OkHttpClient.Builder()
+            .authenticator(refreshAuthenticator)
+            .addInterceptor(defaultHeaderInterceptor)
+            .addInterceptor(jwtTokenInterceptor)
+            .addInterceptor(loggingInterceptor)
+            .connectTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
             .retryOnConnectionFailure(true)
@@ -110,6 +114,7 @@ object NetworkModule {
             .build()
 
     }
+
 
     @Singleton
     @Provides
@@ -121,22 +126,42 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideAuthApiService(retrofit: Retrofit) = retrofit.create(AuthApiService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideAuthApiInterface(userApiInterface: AuthApiInterfaceImplementation): AuthApiInterface =
-        userApiInterface
-
-    @Provides
-    @Singleton
     fun provideJwtTokenInterceptor(tokenRepository: RefreshTokenRepository): JwtTokenInterceptor {
         return JwtTokenInterceptor(tokenRepository)
     }
 
     @Provides
     @Singleton
-    fun provideRefreshAuthenticator(refreshTokenEndpoint: RefreshTokenEndpoint, @ApplicationContext appContext: Context): RefreshAuthenticator {
+    fun provideRefreshAuthenticator(
+        refreshTokenEndpoint: RefreshTokenEndpoint,
+        @ApplicationContext appContext: Context
+    ): RefreshAuthenticator {
         return RefreshAuthenticator(refreshTokenEndpoint, appContext)
     }
+
+    @Provides
+    fun provideDefaultHeaderInterceptor(): DefaultHeaderInterceptor {
+        return DefaultHeaderInterceptor()
+    }
+
+    @Provides
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().apply {
+            level =
+                if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        }
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthApiService(retrofit: Retrofit): AuthApiService {
+        return retrofit.create(AuthApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthApiInterface(authApiInterface: AuthApiInterfaceImplementation): AuthApiInterface {
+        return authApiInterface
+    }
+
 }

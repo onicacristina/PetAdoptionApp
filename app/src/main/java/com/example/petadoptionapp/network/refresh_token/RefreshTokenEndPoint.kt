@@ -40,6 +40,7 @@ class RefreshTokenEndpoint @Inject constructor(
             .build()
 
         val retrofit: Retrofit = Retrofit.Builder()
+//            .baseUrl(Constants.BASE_API_URL)
             .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())

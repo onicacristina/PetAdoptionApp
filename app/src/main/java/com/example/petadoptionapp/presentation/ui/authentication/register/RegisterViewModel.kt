@@ -1,16 +1,23 @@
 package com.example.petadoptionapp.presentation.ui.authentication.register
 
+import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.RegisterParams
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import com.example.petadoptionapp.presentation.utils.Constants.PATTERN
+import com.example.petadoptionapp.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor() : BaseViewModel() {
+class RegisterViewModel @Inject constructor(
+    private val authRepository: AuthRepository
+) : BaseViewModel() {
 
     private var firstName = ""
     private var lastName = ""
@@ -106,6 +113,17 @@ class RegisterViewModel @Inject constructor() : BaseViewModel() {
         if (!isOneNumberInPassword() && !isOneNumberInPassword())
             return InfoOrErrorAuthentication.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER
         return InfoOrErrorAuthentication.NONE
+    }
+
+    fun registerUser(){
+        viewModelScope.launch {
+            val registerParams = RegisterParams(firstName, lastName, email, password)
+            authRepository.register(registerParams = registerParams).either({
+                Timber.e("error register")
+            }, {
+                Timber.e("succes register ")
+            })
+        }
     }
 
 }

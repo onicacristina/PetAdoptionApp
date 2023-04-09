@@ -124,7 +124,10 @@ class RegisterFragment :
             InfoOrErrorAuthentication.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER -> showInfoOrError(
                 someError
             )
-            InfoOrErrorAuthentication.NONE -> hideInfoOrError()
+            InfoOrErrorAuthentication.NONE -> {
+                hideInfoOrError()
+                viewModel.registerUser()
+            }
         }
     }
 

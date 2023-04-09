@@ -10,10 +10,10 @@ import retrofit2.http.POST
 
 interface AuthApiService {
 
-    @POST("user/auth/login")
+    @POST("auth/login")
     fun login(@Body loginParams: LoginParams) : Call<LoginResponse>
 
-    @POST("user/auth/register")
+    @POST("auth/register")
     fun register(@Body registerParams: RegisterParams) : Call<RegisterResponse>
 
 
