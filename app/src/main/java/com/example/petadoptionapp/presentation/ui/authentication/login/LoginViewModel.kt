@@ -1,13 +1,23 @@
 package com.example.petadoptionapp.presentation.ui.authentication.login
 
+import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.LoginParams
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import com.example.petadoptionapp.presentation.utils.Constants
+import com.example.petadoptionapp.repository.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import timber.log.Timber
+import javax.inject.Inject
 
-class LoginViewModel : BaseViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val authRepository: AuthRepository
+): BaseViewModel() {
     private var email = ""
     private var password = ""
     var isPasswordVisible = false
@@ -48,5 +58,19 @@ class LoginViewModel : BaseViewModel() {
         if (!isEmailValid(email))
             return InfoOrErrorAuthentication.EMAIL_INVALID
         return InfoOrErrorAuthentication.NONE
+    }
+
+    fun loginUser() {
+        viewModelScope.launch {
+            val loginParams = LoginParams(email, password)
+            authRepository.login(loginParams = loginParams).either(
+                {
+                    Timber.e("error login")
+                },
+                {
+                    Timber.e("succes login")
+                }
+            )
+        }
     }
 }

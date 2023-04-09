@@ -111,7 +111,6 @@ class RegisterFragment :
                         updateRegisterButton(isActive)
                     }
                 }
-
             }
         }
     }
