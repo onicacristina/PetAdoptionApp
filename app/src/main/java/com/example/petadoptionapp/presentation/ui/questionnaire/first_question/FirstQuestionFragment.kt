@@ -5,7 +5,11 @@ import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.View
 import android.widget.DatePicker
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentFirstQuestionBinding
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
@@ -14,18 +18,20 @@ import com.example.petadoptionapp.presentation.utils.TimeUtils
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FirstQuestionFragment :
-    BaseViewBindingFragment<FragmentFirstQuestionBinding>(R.layout.fragment_first_question), DatePickerDialog.OnDateSetListener {
+    BaseViewBindingFragment<FragmentFirstQuestionBinding>(R.layout.fragment_first_question),
+    DatePickerDialog.OnDateSetListener {
     override val viewBinding: FragmentFirstQuestionBinding by viewBinding(
         FragmentFirstQuestionBinding::bind
     )
     override val viewModel: FirstQuestionViewModel by viewModels()
     private val calendar = Calendar.getInstance()
-    private val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.US)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,7 +42,8 @@ class FirstQuestionFragment :
 
     private fun initViews() {
         viewBinding.toolbar.tvTitle.text = getString(R.string.questionnaire)
-        viewBinding.question.tvTitle.text = getString(R.string.question_of, Constants.FIRST_QUESTION, Constants.NUMBER_OF_QUESTIONS)
+        viewBinding.question.tvTitle.text =
+            getString(R.string.question_of, Constants.FIRST_QUESTION, Constants.NUMBER_OF_QUESTIONS)
     }
 
     private fun initListeners() {
@@ -44,10 +51,19 @@ class FirstQuestionFragment :
             navController.popBackStack()
         }
         viewBinding.btnContinue.setOnDebounceClickListener {
-//            navController.navigate()
+            navController.navigate(R.id.secondQuestionFragment)
         }
-        viewBinding.btnCalendar.setOnDebounceClickListener {
+        viewBinding.tvDateOfBirth.setOnDebounceClickListener {
             openDatePickerDialog()
+        }
+        viewBinding.etPhone.doAfterTextChanged { phone ->
+            viewModel.onPhoneNumberChanged(phone.toString())
+        }
+        viewBinding.etCity.doAfterTextChanged { city ->
+            viewModel.onCityChanged(city.toString())
+        }
+        viewBinding.etAddress.doAfterTextChanged { address ->
+            viewModel.onAddressChanged(address.toString())
         }
     }
 
@@ -65,16 +81,30 @@ class FirstQuestionFragment :
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         calendar.set(year, month, dayOfMonth)
+        viewModel.onDateOfBirthChanged(calendar.timeInMillis)
         displayFormattedDate(calendar.timeInMillis)
     }
 
     private fun displayFormattedDate(timestamp: Long) {
-//        viewBinding.etDateOfBirth.setText(TimeUtils)
-        viewBinding.etDateOfBirth.setText(formatter.format(timestamp))
+        viewBinding.tvDateOfBirth.text =
+            getString(R.string.date_of_birth, TimeUtils().convertTimestampToDateString(timestamp))
     }
 
-        private fun initObservers() {
+    private fun initObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                launch {
+                    viewModel.nextButtonState
+                        .distinctUntilChanged()
+                        .onEach { isEnabled -> updateNextButton(isEnabled) }
+                        .collect()
+                }
+            }
+        }
+    }
 
+    private fun updateNextButton(isEnabled: Boolean) {
+        viewBinding.btnContinue.isEnabled = isEnabled
     }
 
 }

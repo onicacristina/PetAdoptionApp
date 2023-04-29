@@ -19,7 +19,7 @@
     <string name="btn_start_now">Începe acum</string>
     <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
     <!-- Question 1 -->
-    <string name="date_of_birth">Data nașterii</string>
+    <string name="date_of_birth">Data nașterii: %1$s</string>
     <string name="phone">Telefon</string>
     <string name="city">Localitate</string>
     <string name="address">Adresă</string>

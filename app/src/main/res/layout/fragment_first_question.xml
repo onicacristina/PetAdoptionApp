@@ -38,28 +38,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/question" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilDateOfBirth"
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/tilDateOfBirth"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="20dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:boxStrokeWidth="0dp"-->
+<!--        app:boxStrokeWidthFocused="0dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvTitle">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/etDateOfBirth"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="54dp"-->
+<!--            android:background="@drawable/bg_custom_inputs"-->
+<!--            android:hint="@string/date_of_birth"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textColorLink="@color/text_black" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <TextView
+        android:id="@+id/tvDateOfBirth"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_height="54dp"
         android:layout_marginTop="20dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_custom_inputs"
+        android:fontFamily="@font/lato_regular"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/text_black"
+        android:textSize="14sp"
+        android:text="@string/date_of_birth"
+        app:drawableRightCompat="@drawable/ic_calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etDateOfBirth"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:background="@drawable/bg_custom_inputs"
-            android:hint="@string/date_of_birth"
-            android:inputType="textEmailAddress"
-            android:textColor="@android:color/black"
-            android:textColorLink="@color/text_black" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
         android:id="@+id/btnCalendar"
@@ -71,9 +90,9 @@
         android:focusable="true"
         android:padding="12dp"
         android:src="@drawable/ic_calendar"
-        app:layout_constraintBottom_toBottomOf="@id/tilDateOfBirth"
-        app:layout_constraintEnd_toEndOf="@id/tilDateOfBirth"
-        app:layout_constraintTop_toTopOf="@id/tilDateOfBirth"
+        app:layout_constraintBottom_toBottomOf="@id/tvDateOfBirth"
+        app:layout_constraintEnd_toEndOf="@id/tvDateOfBirth"
+        app:layout_constraintTop_toTopOf="@id/tvDateOfBirth"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +105,7 @@
         app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilDateOfBirth">
+        app:layout_constraintTop_toBottomOf="@+id/tvDateOfBirth">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPhone"
