@@ -10,11 +10,14 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentFirstQuestionBinding
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
 import com.example.petadoptionapp.presentation.utils.Constants
+import com.example.petadoptionapp.presentation.utils.TimeUtils
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class FirstQuestionFragment :
     BaseViewBindingFragment<FragmentFirstQuestionBinding>(R.layout.fragment_first_question), DatePickerDialog.OnDateSetListener {
     override val viewBinding: FragmentFirstQuestionBinding by viewBinding(
@@ -66,6 +69,7 @@ class FirstQuestionFragment :
     }
 
     private fun displayFormattedDate(timestamp: Long) {
+//        viewBinding.etDateOfBirth.setText(TimeUtils)
         viewBinding.etDateOfBirth.setText(formatter.format(timestamp))
     }
 
