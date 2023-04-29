@@ -20,8 +20,10 @@ import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuth
 import com.example.petadoptionapp.presentation.utils.extensions.addClickableLink
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginFragment : BaseViewBindingFragment<FragmentLoginBinding>(R.layout.fragment_login) {
     override val viewBinding: FragmentLoginBinding by viewBinding(FragmentLoginBinding::bind)
     override val viewModel: LoginViewModel by viewModels()
