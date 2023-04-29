@@ -30,12 +30,13 @@ android {
     buildTypes {
         debug {
             debuggable true
-            buildConfigField "String", 'BASE_API_URL', '"' + 'http://10.0.2.2:2893/' + '"'  // dev
+            buildConfigField "String", 'BASE_API_URL', '"' + 'http://adopet.duckdns.org:2893/' + '"'  // dev
         }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", 'BASE_API_URL', '"' + 'http://10.0.2.2.1:2893/' + '"'  // prod
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'BASE_API_URL', '"' + 'http://adopet.duckdns.org:2893/' + '"'  // prod
+//            buildConfigField "String", 'BASE_API_URL', '"' + 'http://10.0.2.2.1:2893/' + '"'  // prod
         }
     }
 

@@ -57,7 +57,7 @@ class LoginFragment : BaseViewBindingFragment<FragmentLoginBinding>(R.layout.fra
         initTogglePasswordMask()
 
         viewBinding.btnLogin.setOnDebounceClickListener {
-            onRegisterPressed()
+            onLoginPressed()
         }
     }
 
@@ -92,10 +92,14 @@ class LoginFragment : BaseViewBindingFragment<FragmentLoginBinding>(R.layout.fra
         editText.setSelection(editText.length())
     }
 
-    private fun onRegisterPressed() {
+    private fun onLoginPressed() {
         val someError: InfoOrErrorAuthentication = viewModel.getInputsErrors()
         when (someError) {
             InfoOrErrorAuthentication.EMAIL_INVALID -> showInfoOrError(someError)
+            InfoOrErrorAuthentication.NONE -> {
+                hideInfoOrError()
+                viewModel.loginUser()
+            }
             else -> hideInfoOrError()
         }
     }
