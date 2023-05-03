@@ -5,13 +5,14 @@ import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentOnboardingBinding
-import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class OnBoardingFragment :
-    BaseViewBindingFragment<FragmentOnboardingBinding>(R.layout.fragment_onboarding) {
+    NoBottomNavigationFragment<FragmentOnboardingBinding>(R.layout.fragment_onboarding) {
 
     override val viewBinding: FragmentOnboardingBinding by viewBinding(FragmentOnboardingBinding::bind)
     private lateinit var viewPager: ViewPager2
@@ -22,6 +23,7 @@ class OnBoardingFragment :
         setupViewPager()
         initViews()
         initListeners()
+        Timber.e("init onboarding")
     }
 
     private fun setupViewPager() {
