@@ -5,7 +5,7 @@ import android.content.Intent
 import com.example.petadoptionapp.network.refresh_token.AUTHENTICATION_REQUIRED
 import com.example.petadoptionapp.network.refresh_token.RefreshTokenEndpoint
 import com.example.petadoptionapp.presentation.ui.main.MainActivity
-import com.example.petadoptionapp.presentation.ui.main.REFRESH_TOKEN_EXPIRED
+import com.example.petadoptionapp.presentation.utils.Constants.REFRESH_TOKEN_EXPIRED
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
