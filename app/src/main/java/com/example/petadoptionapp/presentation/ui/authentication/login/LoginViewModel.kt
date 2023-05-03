@@ -4,12 +4,15 @@ import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.LoginParams
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -25,6 +28,10 @@ class LoginViewModel @Inject constructor(
     private val _buttonState: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val buttonState: Flow<Boolean>
         get() = _buttonState.asStateFlow()
+
+    private val _signedIn: Channel<Any> = Channel()
+    val signedIn: Flow<Any>
+        get() = _signedIn.receiveAsFlow()
 
     private fun isNotEmptyEmail(): Boolean {
         return email.isNotEmpty()
@@ -69,6 +76,8 @@ class LoginViewModel @Inject constructor(
                 },
                 {
                     Timber.e("succes login")
+                    ProfilePrefs().saveProfile(it.user)
+                    _signedIn.send(Any())
                 }
             )
         }

@@ -6,6 +6,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentOnboardingBinding
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.utils.AppStateFlagsPrefs
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -37,13 +38,13 @@ class OnBoardingFragment :
     private fun initListeners() {
         viewBinding.btnContinueGetStarted.setOnClickListener {
             if (viewPager.currentItem == EOnBoardingSliderType.values().size - 1) {
-                openSignIn()
+                openLogin()
             } else {
                 goToNextPage()
             }
         }
         viewBinding.tvSkip.setOnClickListener {
-            openSignIn()
+            openLogin()
         }
     }
 
@@ -65,12 +66,18 @@ class OnBoardingFragment :
         viewPager.setCurrentItem(viewPager.currentItem + 1, false)
     }
 
-    private fun openSignIn() {
+//    private fun openSignIn() {
 //        AppStateFlagsPrefs().tutorialShown()
 //        navController.popBackStack()
 //        navController.navigate(R.id.navigation_sign_in)
-        navController.navigate(R.id.registerFragment)
+//        navController.navigate(R.id.registerFragment)
 //        navController.navigate(R.id.loginFragment)
+//    }
+
+    private fun openLogin() {
+        AppStateFlagsPrefs().tutorialShown()
+        navController.popBackStack()
+        navController.navigate(R.id.loginFragment)
     }
 
 }

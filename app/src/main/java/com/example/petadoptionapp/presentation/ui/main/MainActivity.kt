@@ -9,7 +9,10 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.ActivityMainBinding
 import com.example.petadoptionapp.presentation.base.BaseActivity
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
+import com.example.petadoptionapp.presentation.utils.AppStateFlagsPrefs
 import com.example.petadoptionapp.presentation.utils.Constants.REFRESH_TOKEN_EXPIRED
+import com.example.petadoptionapp.presentation.utils.LogoutUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -35,17 +38,17 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
         initNavigation()
         //TODO("add refresh token if needed")
-//        solveRefreshTokenIfNeeded()
+        solveRefreshTokenIfNeeded()
     }
 
     private fun initNavigation() {
         val graph = navController.navInflater.inflate(R.navigation.nav_main)
-//        val startDestination = when {
-//            ProfilePrefs().isLoggedIn() -> R.id.navigation_home
-//            !AppStateFlagsPrefs().showTutorial() -> R.id.navigation_sign_in
-//            else -> R.id.navigation_language
-//        }
-        val startDestination = R.id.onBoardingFragment
+        val startDestination = when {
+            ProfilePrefs().isLoggedIn() -> R.id.homeFragment
+            !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
+            else -> R.id.onBoardingFragment
+        }
+//        val startDestination = R.id.onBoardingFragment
         graph.setStartDestination(startDestination)
         navController.setGraph(graph, null)
 
@@ -58,11 +61,11 @@ class MainActivity : BaseActivity() {
     }
 
     private fun solveRefreshTokenIfNeeded() {
-//        val restart = intent?.getBooleanExtra(REFRESH_TOKEN_EXPIRED, false) ?: false
-//        if (restart) {
-//            LogoutUtils().logout()
-//            navController.popBackStack(R.id.navigation_sign_in, true)
-//        }
+        val restart = intent?.getBooleanExtra(REFRESH_TOKEN_EXPIRED, false) ?: false
+        if (restart) {
+            LogoutUtils().logout()
+            navController.popBackStack(R.id.loginFragment, true)
+        }
     }
 
 }

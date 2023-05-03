@@ -69,7 +69,11 @@ class LoginFragment : NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.
                         updateLoginButton(isActive)
                     }
                 }
-
+                launch {
+                    viewModel.signedIn.collect {
+                        openHome()
+                    }
+                }
             }
         }
     }
@@ -115,6 +119,10 @@ class LoginFragment : NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.
 
     private fun hideInfoOrError() {
         viewBinding.clInfoOrError.isVisible = false
+    }
+
+    private fun openHome(){
+        navController.navigate(R.id.homeFragment)
     }
 
 }
