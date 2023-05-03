@@ -15,7 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentLoginBinding
-import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import com.example.petadoptionapp.presentation.utils.extensions.addClickableLink
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
@@ -24,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class LoginFragment : BaseViewBindingFragment<FragmentLoginBinding>(R.layout.fragment_login) {
+class LoginFragment : NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.fragment_login) {
     override val viewBinding: FragmentLoginBinding by viewBinding(FragmentLoginBinding::bind)
     override val viewModel: LoginViewModel by viewModels()
 

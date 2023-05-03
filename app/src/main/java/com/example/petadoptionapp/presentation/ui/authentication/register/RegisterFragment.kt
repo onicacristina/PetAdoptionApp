@@ -16,7 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentRegisterBinding
-import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import com.example.petadoptionapp.presentation.utils.extensions.addClickableLink
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RegisterFragment :
-    BaseViewBindingFragment<FragmentRegisterBinding>(R.layout.fragment_register) {
+    NoBottomNavigationFragment<FragmentRegisterBinding>(R.layout.fragment_register) {
     override val viewBinding: FragmentRegisterBinding by viewBinding(FragmentRegisterBinding::bind)
     override val viewModel: RegisterViewModel by viewModels()
 
