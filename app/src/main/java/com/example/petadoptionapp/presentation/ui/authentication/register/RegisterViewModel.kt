@@ -7,9 +7,11 @@ import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuth
 import com.example.petadoptionapp.presentation.utils.Constants.PATTERN
 import com.example.petadoptionapp.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -29,6 +31,10 @@ class RegisterViewModel @Inject constructor(
     private val _buttonState: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val buttonState: Flow<Boolean>
         get() = _buttonState.asStateFlow()
+
+    private val _signedUp: Channel<Any> = Channel()
+    val signedUp: Flow<Any>
+        get() = _signedUp.receiveAsFlow()
 
     private fun isNotEmptyFirstName(): Boolean {
         return firstName.isNotEmpty()
@@ -115,13 +121,14 @@ class RegisterViewModel @Inject constructor(
         return InfoOrErrorAuthentication.NONE
     }
 
-    fun registerUser(){
+    fun registerUser() {
         viewModelScope.launch {
             val registerParams = RegisterParams(firstName, lastName, email, password)
             authRepository.register(registerParams = registerParams).either({
                 Timber.e("error register")
             }, {
                 Timber.e("succes register ")
+                _signedUp.send(Any())
             })
         }
     }

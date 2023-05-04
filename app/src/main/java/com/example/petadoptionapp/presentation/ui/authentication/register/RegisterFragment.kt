@@ -111,6 +111,11 @@ class RegisterFragment :
                         updateRegisterButton(isActive)
                     }
                 }
+                launch {
+                    viewModel.signedUp.collect {
+                        openLoginScreen()
+                    }
+                }
             }
         }
     }
@@ -141,6 +146,10 @@ class RegisterFragment :
 
     private fun hideInfoOrError() {
         viewBinding.clInfoOrError.isVisible = false
+    }
+
+    private fun openLoginScreen() {
+        navController.navigate(R.id.loginFragment)
     }
 
 }
