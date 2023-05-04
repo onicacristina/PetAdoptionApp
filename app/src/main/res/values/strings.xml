@@ -36,4 +36,11 @@
     <string name="questionnaire_description">Pentru a găsi cel mai bun animal de companie pentru tine, va trebui să răspunzi la câteva întrebări.</string>
     <string name="btn_start_now">Începe acum</string>
     <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
+
+    <!-- Home -->
+    <string name="all_pet_category">All</string>
+    <string name="cat_pet_category">Cat</string>
+    <string name="dog_pet_category">Dog</string>
+    <string name="bird_pet_category">Bird</string>
+    <string name="rabbit_pet_category">Rabbit</string>
 </resources>
