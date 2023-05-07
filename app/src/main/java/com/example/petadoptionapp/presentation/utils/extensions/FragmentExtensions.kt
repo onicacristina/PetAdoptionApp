@@ -2,6 +2,8 @@
 
 package com.example.petadoptionapp.presentation.utils.extensions
 
+import android.content.Intent
+import android.net.Uri
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
@@ -19,4 +21,25 @@ fun <T : Any> Fragment.argument(key: String, default: T): Lazy<T> = lazy {
 
 fun <T : Any> Fragment.argumentOrNull(key: String): Lazy<T?> = lazy {
     arguments?.get(key) as? T
+}
+
+fun Fragment.showDialer(tel: String) {
+    try {
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:$tel")
+        startActivity(intent)
+    } catch (e: java.lang.Exception) {
+        e.printStackTrace()
+    }
+}
+
+fun Fragment.openEmail(email: String) {
+    try {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "plain/text"
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+        startActivity(Intent.createChooser(intent, ""))
+    } catch (e: java.lang.Exception) {
+        e.printStackTrace()
+    }
 }
