@@ -52,11 +52,11 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
                     viewModel.petCategoryObservable.collect { value ->
                         setPetCategoryList(value)
                     }
+                }
 
-                    launch {
-                        viewModel.state.withPrevious().collect { value ->
-                            renderState(value.previous, value.current)
-                        }
+                launch {
+                    viewModel.state.withPrevious().collect { value ->
+                        renderState(value.previous, value.current)
                     }
                 }
             }
