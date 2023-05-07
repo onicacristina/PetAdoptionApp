@@ -6,8 +6,11 @@ import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : BaseViewModel() {
@@ -34,6 +37,16 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
             State.Loading
         )
 
+    init {
+        getPets()
+    }
+
+    private fun getPets(){
+        viewModelScope.launch {
+            delay(10.seconds)
+            petsResource.value = Resource.Value(emptyList())
+        }
+    }
     private fun getPetCategoryList(): List<PetCategoryModel> {
         return listOf(
             PetCategoryModel(
