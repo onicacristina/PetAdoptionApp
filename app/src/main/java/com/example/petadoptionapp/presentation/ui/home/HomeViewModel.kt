@@ -41,6 +41,10 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
         getPets()
     }
 
+    fun refresh() {
+        getPets()
+    }
+
     private fun getPets(){
         viewModelScope.launch {
             delay(10.seconds)

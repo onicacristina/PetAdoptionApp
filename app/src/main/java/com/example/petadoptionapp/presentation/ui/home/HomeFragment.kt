@@ -39,6 +39,7 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
     private fun initViews() {
         setupCategoryRecyclerView()
         setupPetsRecyclerView()
+        initPullToRefresh()
     }
 
     private fun initListeners() {
@@ -93,6 +94,20 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
 
     private fun setList(data: List<AnimalResponse>) {
         petsAdapter.submitList(data)
+        viewBinding.swipeRefreshLayout.isRefreshing = false
+    }
+
+    private fun initPullToRefresh() {
+        viewBinding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.refresh()
+            viewBinding.swipeRefreshLayout.isRefreshing = false// TODO after remove dummy data set it true
+        }
+        viewBinding.swipeRefreshLayout.setColorSchemeResources(
+            R.color.black,
+            R.color.black,
+            R.color.black,
+            R.color.black
+        )
     }
 
     private fun renderState(
@@ -104,6 +119,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             viewBinding.rvPets.isVisible = false
             viewBinding.noDataFound.container.isVisible = true
             viewBinding.pbLoading.isVisible = false
+            viewBinding.swipeRefreshLayout.isVisible = true
+            viewBinding.swipeRefreshLayout.isRefreshing = true
             setList(emptyList())
         }
 
@@ -111,6 +128,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             viewBinding.rvPets.isVisible = true
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = false
+            viewBinding.swipeRefreshLayout.isVisible = true
+            viewBinding.swipeRefreshLayout.isRefreshing = true
             setList(data)
         }
 
@@ -118,6 +137,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             viewBinding.rvPets.isVisible = false
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = true
+            viewBinding.swipeRefreshLayout.isVisible = false
+            viewBinding.swipeRefreshLayout.isRefreshing = false
         }
 
         if (previous?.javaClass != state.javaClass) {
