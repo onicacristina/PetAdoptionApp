@@ -21,9 +21,21 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
                 EPetCategory.ALL.stringResource,
                 true
             ),
-            PetCategoryModel(1L, EPetCategory.DOG.iconResource, EPetCategory.DOG.stringResource),
-            PetCategoryModel(2L, EPetCategory.CAT.iconResource, EPetCategory.CAT.stringResource),
-            PetCategoryModel(3L, EPetCategory.BIRD.iconResource, EPetCategory.BIRD.stringResource),
+            PetCategoryModel(
+                1L,
+                EPetCategory.DOG.iconResource,
+                EPetCategory.DOG.stringResource
+            ),
+            PetCategoryModel(
+                2L,
+                EPetCategory.CAT.iconResource,
+                EPetCategory.CAT.stringResource
+            ),
+            PetCategoryModel(
+                3L,
+                EPetCategory.BIRD.iconResource,
+                EPetCategory.BIRD.stringResource
+            ),
             PetCategoryModel(
                 4L,
                 EPetCategory.RABBIT.iconResource,
