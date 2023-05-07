@@ -1,9 +1,12 @@
 package com.example.petadoptionapp.presentation.ui.home
 
+import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -12,6 +15,24 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
         MutableStateFlow(getPetCategoryList())
     val petCategoryObservable: Flow<List<PetCategoryModel>>
         get() = _petCategoryObservable
+
+    private val petsResource: MutableStateFlow<Resource<List<AnimalResponse>>> =
+        MutableStateFlow(Resource.Loading)
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val state: StateFlow<State> = petsResource
+        .flatMapLatest { value ->
+            when (value) {
+                is Resource.Value -> flowOf(PageUpdate.Value(value.data))
+                else -> emptyFlow()
+            }
+        }
+        .map { value -> generateState(value) }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(),
+            State.Loading
+        )
 
     private fun getPetCategoryList(): List<PetCategoryModel> {
         return listOf(
@@ -51,5 +72,23 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
             value.copy(isSelected = isSelected)
         }
         _petCategoryObservable.value = newData
+    }
+
+    private fun generateState(data: PageUpdate): State {
+        return when (data) {
+            is PageUpdate.Loading -> State.Loading
+            is PageUpdate.Value -> {
+                if (data.dataUpdate.isEmpty())
+                    return State.Empty
+                State.Value(data.dataUpdate)
+            }
+            else -> State.Empty
+        }
+    }
+
+    sealed class State {
+        object Loading : State()
+        object Empty : State()
+        data class Value(val petsList: List<AnimalResponse>) : State()
     }
 }
