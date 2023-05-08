@@ -110,26 +110,62 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         )
     }
 
-    private fun renderState(
-        previous: HomeViewModel.State?,
-        state: HomeViewModel.State
-    ) {
+//    private fun renderState(
+//        previous: HomeViewModel.State?,
+//        state: HomeViewModel.State
+//    ) {
+//
+//        fun renderEmptyState() {
+//            viewBinding.rvPets.isVisible = false
+//            viewBinding.noDataFound.container.isVisible = true
+//            viewBinding.pbLoading.isVisible = false
+//            viewBinding.swipeRefreshLayout.isVisible = true
+//            viewBinding.swipeRefreshLayout.isRefreshing = true
+//            setList(emptyList())
+//        }
+//
+//        fun renderListState(data: List<AnimalResponse>) {
+//            viewBinding.rvPets.isVisible = true
+//            viewBinding.noDataFound.container.isVisible = false
+//            viewBinding.pbLoading.isVisible = false
+//            viewBinding.swipeRefreshLayout.isVisible = true
+//            viewBinding.swipeRefreshLayout.isRefreshing = true
+//            setList(data)
+//        }
+//
+//        fun renderLoadingState() {
+//            viewBinding.rvPets.isVisible = false
+//            viewBinding.noDataFound.container.isVisible = false
+//            viewBinding.pbLoading.isVisible = true
+//            viewBinding.swipeRefreshLayout.isVisible = false
+//            viewBinding.swipeRefreshLayout.isRefreshing = false
+//        }
+//
+//        if (previous?.javaClass != state.javaClass) {
+//            TransitionManager.beginDelayedTransition(viewBinding.root)
+//        }
+//
+//        when (state) {
+//            is HomeViewModel.State.Value -> renderListState(state.petsList)
+//            is HomeViewModel.State.Loading -> renderLoadingState()
+//            else -> renderEmptyState()
+//        }
+//    }
 
+    private fun renderState(previous: HomeViewModel.State?, state: HomeViewModel.State) {
         fun renderEmptyState() {
             viewBinding.rvPets.isVisible = false
             viewBinding.noDataFound.container.isVisible = true
             viewBinding.pbLoading.isVisible = false
-            viewBinding.swipeRefreshLayout.isVisible = true
-            viewBinding.swipeRefreshLayout.isRefreshing = true
-            setList(emptyList())
+            viewBinding.swipeRefreshLayout.isRefreshing = false
+            setList(emptyList()) // Clear the list when in empty state
         }
 
         fun renderListState(data: List<AnimalResponse>) {
             viewBinding.rvPets.isVisible = true
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = false
-            viewBinding.swipeRefreshLayout.isVisible = true
-            viewBinding.swipeRefreshLayout.isRefreshing = true
+            viewBinding.swipeRefreshLayout.isRefreshing = false
             setList(data)
         }
 
@@ -137,8 +173,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             viewBinding.rvPets.isVisible = false
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = true
-            viewBinding.swipeRefreshLayout.isVisible = false
             viewBinding.swipeRefreshLayout.isRefreshing = false
+            setList(emptyList()) // Clear the list when in loading state
         }
 
         if (previous?.javaClass != state.javaClass) {
@@ -151,4 +187,6 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             else -> renderEmptyState()
         }
     }
+
+
 }

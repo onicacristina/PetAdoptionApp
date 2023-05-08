@@ -62,12 +62,34 @@ class HomeViewModel @Inject constructor(
         }
         _petCategoryObservable.value = newData
         specieSelected = EPetCategory.getPetCategoryByIcon(petCategoryModel.iconDrawable)
-        petsResource.value = Resource.Loading
+//        petsResource.value = Resource.Loading // Trigger the loading state
         getPetsBySpecie(specieSelected)
     }
 
+
+//    private fun getPetsBySpecie(specie: EPetCategory) {
+//        viewModelScope.launch {
+//            delay(2.seconds)
+//            val response = if (specie != EPetCategory.ALL) {
+//                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
+//            } else {
+//                animalsRepository.getAllAnimals()
+//            }
+//            response.either(
+//                {
+//                    Timber.e("Failed to fetch pets for specie: $specie")
+//                },
+//                { pets ->
+//                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
+//                    petsResource.value = Resource.Value(pets)
+//                }
+//            )
+//        }
+//    }
+
     private fun getPetsBySpecie(specie: EPetCategory) {
         viewModelScope.launch {
+            petsResource.value = Resource.Loading // Set the loading state before making the API request
             delay(2.seconds)
             val response = if (specie != EPetCategory.ALL) {
                 animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
@@ -75,12 +97,13 @@ class HomeViewModel @Inject constructor(
                 animalsRepository.getAllAnimals()
             }
             response.either(
-                {
-                    Timber.e("Failed to fetch pets for specie: $specie")
+                { error ->
+                    Timber.e("Failed to fetch pets for specie: $specie, error: $error")
+                    petsResource.value = Resource.Value(emptyList()) // Set the empty state in case of failure
                 },
                 { pets ->
                     Timber.e("Fetched pets for specie: $specie, pets: $pets")
-                    petsResource.value = Resource.Value(pets)
+                    petsResource.value = Resource.Value(pets) // Set the value state with the fetched pets
                 }
             )
         }
