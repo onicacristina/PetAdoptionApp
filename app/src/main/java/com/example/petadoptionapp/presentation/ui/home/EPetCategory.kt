@@ -21,5 +21,15 @@ enum class EPetCategory(val stringResource: Int, val iconResource: Int) {
             }
             return ALL
         }
+
+        fun getPetCategoryByIcon(iconResource: Int): EPetCategory {
+            for (category in EPetCategory.values()) {
+                if (category.iconResource == iconResource) {
+                    return category
+                }
+            }
+            return ALL
+        }
+
     }
 }

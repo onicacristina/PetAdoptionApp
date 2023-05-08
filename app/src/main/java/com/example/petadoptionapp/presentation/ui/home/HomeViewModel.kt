@@ -27,6 +27,8 @@ class HomeViewModel @Inject constructor(
     private val petsResource: MutableStateFlow<Resource<List<AnimalResponse>>> =
         MutableStateFlow(Resource.Loading)
 
+    private var specieSelected: EPetCategory = EPetCategory.ALL
+
     @OptIn(ExperimentalCoroutinesApi::class)
     val state: StateFlow<State> = petsResource
         .flatMapLatest { value ->
@@ -43,27 +45,72 @@ class HomeViewModel @Inject constructor(
         )
 
     init {
-        getPets()
+//        getPets()
+        getPetsBySpecie(specieSelected)
     }
 
     fun refresh() {
-        getPets()
+//        getPets()
+        getPetsBySpecie(specieSelected)
     }
 
-    private fun getPets() {
+    fun selectPetCategory(petCategoryModel: PetCategoryModel) {
+        val oldData = _petCategoryObservable.value
+        val newData = oldData.map { value ->
+            val isSelected = value.id == petCategoryModel.id
+            value.copy(isSelected = isSelected)
+        }
+        _petCategoryObservable.value = newData
+        specieSelected = EPetCategory.getPetCategoryByIcon(petCategoryModel.iconDrawable)
+        petsResource.value = Resource.Loading
+        getPetsBySpecie(specieSelected)
+    }
+
+    private fun getPetsBySpecie(specie: EPetCategory) {
         viewModelScope.launch {
-            delay(10.seconds)
-            animalsRepository.getAllAnimals().either(
+            delay(2.seconds)
+            val response = if (specie != EPetCategory.ALL) {
+                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
+            } else {
+                animalsRepository.getAllAnimals()
+            }
+            response.either(
                 {
-                    Timber.e("failure get all animals")
+                    Timber.e("Failed to fetch pets for specie: $specie")
                 },
-                {
-                    Timber.e("success get all animals")
+                { pets ->
+                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
+                    petsResource.value = Resource.Value(pets)
                 }
             )
-            petsResource.value = Resource.Value(emptyList())
         }
     }
+
+//    private fun getPets() {
+//        viewModelScope.launch {
+//            delay(10.seconds)
+//            if (specieSelected != EPetCategory.ALL) {
+//                animalsRepository.getAnimalsBySpecie(specieSelected.getPetCategoryString()).either(
+//                    {
+//                        Timber.e("failure get all animals")
+//                    },
+//                    {
+//                        Timber.e("success get all animals: $it")
+//                    }
+//                )
+//            } else {
+//                animalsRepository.getAllAnimals().either(
+//                    {
+//                        Timber.e("failure get all animals")
+//                    },
+//                    {
+//                        Timber.e("success get all animals: $it")
+//                    }
+//                )
+//            }
+//            petsResource.value = Resource.Value(emptyList())
+//        }
+//    }
 
     private fun getPetCategoryList(): List<PetCategoryModel> {
         return listOf(
@@ -96,14 +143,15 @@ class HomeViewModel @Inject constructor(
         )
     }
 
-    fun selectPetCategory(petCategoryModel: PetCategoryModel) {
-        val oldData = _petCategoryObservable.value
-        val newData = oldData.map { value ->
-            val isSelected = value.id == petCategoryModel.id
-            value.copy(isSelected = isSelected)
-        }
-        _petCategoryObservable.value = newData
-    }
+//    fun selectPetCategory(petCategoryModel: PetCategoryModel) {
+//        val oldData = _petCategoryObservable.value
+//        val newData = oldData.map { value ->
+//            val isSelected = value.id == petCategoryModel.id
+//            value.copy(isSelected = isSelected)
+//        }
+//        _petCategoryObservable.value = newData
+//        specieSelected = EPetCategory.getPetCategoryByIcon(petCategoryModel.iconDrawable)
+//    }
 
     private fun generateState(data: PageUpdate): State {
         return when (data) {
