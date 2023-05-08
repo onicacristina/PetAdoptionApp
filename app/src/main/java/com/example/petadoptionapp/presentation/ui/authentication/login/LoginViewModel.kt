@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.authentication.login
 
 import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.LoginParams
+import com.example.petadoptionapp.network.refresh_token.RefreshTokenRepository
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
@@ -19,7 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val refreshTokenRepository: RefreshTokenRepository
 ): BaseViewModel() {
     private var email = ""
     private var password = ""
@@ -75,11 +77,16 @@ class LoginViewModel @Inject constructor(
                     Timber.e("error login")
                 },
                 {
-                    Timber.e("succes login")
+                    Timber.e("success login")
                     ProfilePrefs().saveProfile(it.user)
+                    it.refreshToken?.let { refreshToken ->
+                        refreshTokenRepository.saveRefreshToken(refreshToken)
+                    }
+                    refreshTokenRepository.saveAccessToken(it.token)
                     _signedIn.send(Any())
                 }
             )
         }
     }
+
 }
