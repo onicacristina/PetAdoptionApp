@@ -173,6 +173,8 @@ object NetworkModule {
         return retrofit.create(AnimalsApiService::class.java)
     }
 
+    @Provides
+    @Singleton
     fun provideAnimalsApiInterface(animalsApiInterface: AnimalsApiInterfaceImplementation): AnimalsApiInterface {
         return animalsApiInterface
     }

@@ -11,5 +11,5 @@ interface AuthRepositoryInterface {
 
     suspend fun register(registerParams: RegisterParams): Result<Failure, RegisterResponse>
 
-    suspend fun login(loginParams: LoginParams): com.example.petadoptionapp.repository.extensions.Result<Failure, LoginResponse>
+    suspend fun login(loginParams: LoginParams): Result<Failure, LoginResponse>
 }

@@ -1,12 +1,9 @@
 package com.example.petadoptionapp.network.models.response
 
-import com.example.petadoptionapp.presentation.ui.home.EPetCategory
-import com.example.petadoptionapp.presentation.ui.home.EPetGender
-
-data class AnimalResponse(
+data class NAnimalResponse(
     val id: String,
-    val specie: EPetCategory,
-    val gender: EPetGender,
+    val specie: String,
+    val gender: String,
     val name: String,
     val breed: String,
     val age: Int,
@@ -14,4 +11,5 @@ data class AnimalResponse(
     val neutered: Boolean,
     val story: String,
     val imageUrl: String,
-)
+) {
+}

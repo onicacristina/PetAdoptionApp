@@ -4,16 +4,21 @@ import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.utils.Resource
+import com.example.petadoptionapp.repository.AnimalsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : BaseViewModel() {
+class HomeViewModel @Inject constructor(
+    private val animalsRepository: AnimalsRepository
+) : BaseViewModel() {
+
     private val _petCategoryObservable: MutableStateFlow<List<PetCategoryModel>> =
         MutableStateFlow(getPetCategoryList())
     val petCategoryObservable: Flow<List<PetCategoryModel>>
@@ -45,12 +50,21 @@ class HomeViewModel @Inject constructor() : BaseViewModel() {
         getPets()
     }
 
-    private fun getPets(){
+    private fun getPets() {
         viewModelScope.launch {
             delay(10.seconds)
+            animalsRepository.getAllAnimals().either(
+                {
+                    Timber.e("failure get all animals")
+                },
+                {
+                    Timber.e("success get all animals")
+                }
+            )
             petsResource.value = Resource.Value(emptyList())
         }
     }
+
     private fun getPetCategoryList(): List<PetCategoryModel> {
         return listOf(
             PetCategoryModel(
