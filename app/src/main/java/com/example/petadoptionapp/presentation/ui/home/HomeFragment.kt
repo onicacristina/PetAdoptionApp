@@ -15,7 +15,7 @@ import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
 import com.example.petadoptionapp.presentation.ui.home.adapter.HomePetsAdapter
 import com.example.petadoptionapp.presentation.ui.home.adapter.HomePetsDiffutils
-import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryAdapter
+import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryAdapterNew
 import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryDiffUtils
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import com.example.petadoptionapp.presentation.utils.extensions.withPrevious
@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override val viewBinding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
     override val viewModel: HomeViewModel by viewModels()
-    private lateinit var petCategoryAdapter: PetCategoryAdapter
+    private lateinit var petCategoryAdapter: PetCategoryAdapterNew
     private lateinit var petsAdapter: HomePetsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,7 +68,7 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         val recyclerView = viewBinding.rvPetCategory
         recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        petCategoryAdapter = PetCategoryAdapter(
+        petCategoryAdapter = PetCategoryAdapterNew(
             PetCategoryDiffUtils(),
             onItemClickListener = {
                 viewModel.selectPetCategory(it)
@@ -100,7 +100,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
     private fun initPullToRefresh() {
         viewBinding.swipeRefreshLayout.setOnRefreshListener {
             viewModel.refresh()
-            viewBinding.swipeRefreshLayout.isRefreshing = false// TODO after remove dummy data set it true
+            viewBinding.swipeRefreshLayout.isRefreshing =
+                false// TODO after remove dummy data set it true
         }
         viewBinding.swipeRefreshLayout.setColorSchemeResources(
             R.color.black,
@@ -187,6 +188,5 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             else -> renderEmptyState()
         }
     }
-
 
 }
