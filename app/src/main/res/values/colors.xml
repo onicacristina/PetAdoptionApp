@@ -21,5 +21,8 @@
     <color name="yellow_info">#F9F4E7</color>
     <color name="yellow_info_border">#F1E4C4</color>
 
+    <color name="blue_bg">#227C8F</color>
+    <color name="red_bg">#97150D</color>
+
 
 </resources>

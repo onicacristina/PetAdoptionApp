@@ -43,4 +43,12 @@
     <string name="dog_pet_category">Dog</string>
     <string name="bird_pet_category">Bird</string>
     <string name="rabbit_pet_category">Rabbit</string>
+    
+    <string name="pet_puppy">Puppy</string>
+    <string name="pet_kitten">Kitten</string>
+    <string name="pet_chick">Chick</string>
+    <string name="pet_bunny">Bunny</string>
+    <string name="pet_young">Young</string>
+    <string name="pet_adult">Adult</string>
+    <string name="pet_senior">Senior</string>
 </resources>

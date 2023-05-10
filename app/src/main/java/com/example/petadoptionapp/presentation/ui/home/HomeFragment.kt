@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.TransitionManager
 import com.example.petadoptionapp.R
@@ -21,6 +22,7 @@ import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import com.example.petadoptionapp.presentation.utils.extensions.withPrevious
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -82,7 +84,17 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
 
     private fun setupPetsRecyclerView() {
         val recyclerView = viewBinding.rvPets
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        // setting grid layout manager to implement grid view.
+        // in this method '2' represents number of columns to be displayed in grid view.
+        // setting grid layout manager to implement grid view.
+        // in this method '2' represents number of columns to be displayed in grid view.
+//        val layoutManager = GridLayoutManager(this, 2)
+
+        // at last set adapter to recycler view.
+
+        // at last set adapter to recycler view.
+//        recyclerView.layoutManager = layoutManager
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         petsAdapter = HomePetsAdapter(
             HomePetsDiffutils(),
             onItemPetClickListener = {

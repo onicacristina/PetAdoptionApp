@@ -41,6 +41,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPets"
+            android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="visible"
