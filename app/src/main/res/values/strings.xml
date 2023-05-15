@@ -51,6 +51,7 @@
     <string name="pet_young">Young</string>
     <string name="pet_adult">Adult</string>
     <string name="pet_senior">Senior</string>
+    <string name="breed_age">%1$s • %2$s</string>
 
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>

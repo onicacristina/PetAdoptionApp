@@ -23,6 +23,9 @@
 
     <color name="blue_bg">#227C8F</color>
     <color name="red_bg">#97150D</color>
+    <color name="green_background">#E9F3ED</color>
+    <color name="red_background">#FCA09D</color>
+
 
 
 </resources>
