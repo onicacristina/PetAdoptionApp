@@ -84,16 +84,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
 
     private fun setupPetsRecyclerView() {
         val recyclerView = viewBinding.rvPets
-        // setting grid layout manager to implement grid view.
-        // in this method '2' represents number of columns to be displayed in grid view.
-        // setting grid layout manager to implement grid view.
-        // in this method '2' represents number of columns to be displayed in grid view.
-//        val layoutManager = GridLayoutManager(this, 2)
-
-        // at last set adapter to recycler view.
-
-        // at last set adapter to recycler view.
-//        recyclerView.layoutManager = layoutManager
+        // setting grid layout manager to implement grid view
+        // in this method '2' represents number of columns to be displayed in grid view
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         petsAdapter = HomePetsAdapter(
             HomePetsDiffutils(),
