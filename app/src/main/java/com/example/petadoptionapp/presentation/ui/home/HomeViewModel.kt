@@ -7,12 +7,10 @@ import com.example.petadoptionapp.presentation.utils.Resource
 import com.example.petadoptionapp.repository.AnimalsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
-import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
@@ -89,8 +87,8 @@ class HomeViewModel @Inject constructor(
 
     private fun getPetsBySpecie(specie: EPetCategory) {
         viewModelScope.launch {
-            petsResource.value = Resource.Loading // Set the loading state before making the API request
-            delay(2.seconds)
+            petsResource.value =
+                Resource.Loading // Set the loading state before making the API request
             val response = if (specie != EPetCategory.ALL) {
                 animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
             } else {
@@ -99,11 +97,13 @@ class HomeViewModel @Inject constructor(
             response.fold(
                 onFailure = { error ->
                     Timber.e("Failed to fetch pets for specie: $specie, error: $error")
-                    petsResource.value = Resource.Value(emptyList()) // Set the empty state in case of failure
+                    petsResource.value =
+                        Resource.Value(emptyList()) // Set the empty state in case of failure
                 },
                 onSuccess = { pets ->
                     Timber.e("Fetched pets for specie: $specie, pets: $pets")
-                    petsResource.value = Resource.Value(pets) // Set the value state with the fetched pets
+                    petsResource.value =
+                        Resource.Value(pets) // Set the value state with the fetched pets
                 }
             )
         }
