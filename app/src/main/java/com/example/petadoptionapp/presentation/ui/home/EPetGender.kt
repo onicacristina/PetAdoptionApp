@@ -1,8 +1,10 @@
 package com.example.petadoptionapp.presentation.ui.home
 
-enum class EPetGender {
-    MALE,
-    FEMALE;
+import com.example.petadoptionapp.R
+
+enum class EPetGender (val iconResource: Int) {
+    MALE(R.drawable.ic_male_gender_symbol),
+    FEMALE(R.drawable.ic_female_gender_symbol);
 
     fun getPetGenderString(): String {
         return name.lowercase()
