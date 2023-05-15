@@ -129,8 +129,9 @@ class RegisterViewModel @Inject constructor(
                     Timber.e("succes register ")
                     _signedUp.send(Any())
                 },
-                onFailure = {
+                onFailure = { error ->
                     Timber.e("error register")
+                    showError(error)
                 }
             )
         }

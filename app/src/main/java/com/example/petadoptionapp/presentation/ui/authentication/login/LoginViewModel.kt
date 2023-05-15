@@ -21,7 +21,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository,
-    private val refreshTokenRepository: RefreshTokenRepository) : BaseViewModel() {
+    private val refreshTokenRepository: RefreshTokenRepository
+) : BaseViewModel() {
     private var email = ""
     private var password = ""
     var isPasswordVisible = false
@@ -81,8 +82,9 @@ class LoginViewModel @Inject constructor(
                     refreshTokenRepository.saveAccessToken(it.token)
                     _signedIn.send(Any())
                 },
-                onFailure = {
+                onFailure = { error ->
                     Timber.e("error login")
+                    showError(error)
                 })
         }
     }

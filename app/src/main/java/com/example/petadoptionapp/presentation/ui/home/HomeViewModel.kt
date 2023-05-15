@@ -192,5 +192,6 @@ class HomeViewModel @Inject constructor(
         object Loading : State()
         object Empty : State()
         data class Value(val petsList: List<AnimalResponse>) : State()
+        //TODO: error state
     }
 }
