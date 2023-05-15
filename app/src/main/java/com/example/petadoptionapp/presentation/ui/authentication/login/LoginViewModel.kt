@@ -21,8 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository,
-    private val refreshTokenRepository: RefreshTokenRepository
-): BaseViewModel() {
+    private val refreshTokenRepository: RefreshTokenRepository) : BaseViewModel() {
     private var email = ""
     private var password = ""
     var isPasswordVisible = false
@@ -72,11 +71,8 @@ class LoginViewModel @Inject constructor(
     fun loginUser() {
         viewModelScope.launch {
             val loginParams = LoginParams(email, password)
-            authRepository.login(loginParams = loginParams).either(
-                {
-                    Timber.e("error login")
-                },
-                {
+            authRepository.login(loginParams = loginParams).fold(
+                onSuccess = {
                     Timber.e("success login")
                     ProfilePrefs().saveProfile(it.user)
                     it.refreshToken?.let { refreshToken ->
@@ -84,8 +80,10 @@ class LoginViewModel @Inject constructor(
                     }
                     refreshTokenRepository.saveAccessToken(it.token)
                     _signedIn.send(Any())
-                }
-            )
+                },
+                onFailure = {
+                    Timber.e("error login")
+                })
         }
     }
 

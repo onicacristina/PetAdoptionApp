@@ -124,12 +124,15 @@ class RegisterViewModel @Inject constructor(
     fun registerUser() {
         viewModelScope.launch {
             val registerParams = RegisterParams(firstName, lastName, email, password)
-            authRepository.register(registerParams = registerParams).either({
-                Timber.e("error register")
-            }, {
-                Timber.e("succes register ")
-                _signedUp.send(Any())
-            })
+            authRepository.register(registerParams = registerParams).fold(
+                onSuccess = {
+                    Timber.e("succes register ")
+                    _signedUp.send(Any())
+                },
+                onFailure = {
+                    Timber.e("error register")
+                }
+            )
         }
     }
 

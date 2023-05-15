@@ -96,12 +96,12 @@ class HomeViewModel @Inject constructor(
             } else {
                 animalsRepository.getAllAnimals()
             }
-            response.either(
-                { error ->
+            response.fold(
+                onFailure = { error ->
                     Timber.e("Failed to fetch pets for specie: $specie, error: $error")
                     petsResource.value = Resource.Value(emptyList()) // Set the empty state in case of failure
                 },
-                { pets ->
+                onSuccess = { pets ->
                     Timber.e("Fetched pets for specie: $specie, pets: $pets")
                     petsResource.value = Resource.Value(pets) // Set the value state with the fetched pets
                 }
