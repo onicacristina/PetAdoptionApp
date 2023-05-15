@@ -4,17 +4,15 @@ import com.example.petadoptionapp.network.models.LoginParams
 import com.example.petadoptionapp.network.models.RegisterParams
 import com.example.petadoptionapp.network.models.response.LoginResponse
 import com.example.petadoptionapp.network.models.response.RegisterResponse
-import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface AuthApiService {
 
     @POST("auth/login")
-    fun login(@Body loginParams: LoginParams) : Call<LoginResponse>
+    suspend fun login(@Body loginParams: LoginParams): LoginResponse
 
     @POST("auth/register")
-    fun register(@Body registerParams: RegisterParams) : Call<RegisterResponse>
-
+    suspend fun register(@Body registerParams: RegisterParams): RegisterResponse
 
 }

@@ -30,68 +30,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-//    @Qualifier
-//    @Retention(AnnotationRetention.BINARY)
-//    annotation class AppOkHttpClient
-//
-//    @Qualifier
-//    @Retention(AnnotationRetention.BINARY)
-//    annotation class AppRetrofitClient
-
-//    @AppRetrofitClient
-//    @Provides
-//    fun provideAppRetrofitClient(
-//        @AppOkHttpClient okHttpClient: OkHttpClient,
-//        gson: Gson,
-//    ): Retrofit {
-//        return Retrofit.Builder()
-//            .baseUrl(Constants.BASE_API_URL)
-//            .client(okHttpClient)
-//            .addConverterFactory(GsonConverterFactory.create(gson))
-//            .build()
-//    }
-//
-//    @AppOkHttpClient
-//    @Provides
-//    fun provideAppOkHttpClient(
-//        defaultHeaderInterceptor: DefaultHeaderInterceptor,
-//        loggingInterceptor: HttpLoggingInterceptor,
-//        networkInterceptor: NetworkInterceptor,
-//        jwtTokenInterceptor: JwtTokenInterceptor,
-//        refreshAuthenticator: RefreshAuthenticator,
-//    ): OkHttpClient {
-//        return OkHttpClient.Builder()
-//            .authenticator(refreshAuthenticator)
-//            .addInterceptor(defaultHeaderInterceptor)
-//            .addInterceptor(jwtTokenInterceptor)
-//            .addInterceptor(loggingInterceptor)
-//            .addInterceptor(networkInterceptor)
-//            .connectTimeout(30, TimeUnit.SECONDS)
-//            .writeTimeout(10, TimeUnit.SECONDS)
-//            .readTimeout(10, TimeUnit.SECONDS)
-//            .retryOnConnectionFailure(true)
-//            .protocols(listOf(Protocol.HTTP_1_1))
-//            .connectionPool(ConnectionPool(0, 2, TimeUnit.MINUTES))
-//            .build()
-//    }
-//
-//    @Provides
-//    fun provideNetworkInterceptor(connectivityManager: ConnectivityManager): NetworkInterceptor {
-//        return NetworkInterceptor(NetworkMonitorImpl(connectivityManager))
-//    }
-//
-//    @Provides
-//    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-//        return HttpLoggingInterceptor().apply {
-//            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-//        }
-//    }
-//
-//    @Provides
-//    fun provideJwtTokenInterceptor(tokenLocalDatasource: TokenLocalDatasource): JwtTokenInterceptor {
-//        return JwtTokenInterceptor(tokenLocalDatasource)
-//    }
-
     @Provides
     fun provideBaseUrl() = BuildConfig.BASE_API_URL + "api/"
 
