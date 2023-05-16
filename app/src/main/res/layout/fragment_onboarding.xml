@@ -23,13 +23,13 @@
         android:id="@+id/dots_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         app:dotsColor="@color/yellow"
         app:dotsCornerRadius="8dp"
         app:dotsSize="12dp"
         app:dotsSpacing="4dp"
         app:dotsStrokeColor="@color/yellow"
         app:dotsStrokeWidth="2dp"
-        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@id/buttonsSection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="35dp"
+            android:layout_marginHorizontal="35dp"
             android:fontFamily="@font/lato_bold"
             android:padding="10dp"
             android:text="@string/skip"
@@ -68,9 +68,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btnContinueGetStarted"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginHorizontal="35dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/btn_rounded"
@@ -88,6 +87,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="35dp"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                android:drawablePadding="8dp"
                 android:fontFamily="@font/lato_bold"
                 android:gravity="center"
                 android:text="@string/btn_continue"
@@ -97,19 +98,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/ivGoogle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_arrow_right"
-                app:layout_constraintBottom_toBottomOf="@+id/tvContinueGetStarted"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tvContinueGetStarted"
-                app:layout_constraintTop_toTopOf="@+id/tvContinueGetStarted" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

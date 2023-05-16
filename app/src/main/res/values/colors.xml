@@ -8,11 +8,24 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#CFCFCF</color>
+    <color name="grey_bg_unselected">#E8E6E6</color>
 
     <color name="blue_light">#35A2F1</color>
     <color name="yellow">#FECE52</color>
     <color name="text_black">#242424</color>
     <color name="bg_white">#F8F6F2</color>
     <color name="transparent">@android:color/transparent</color>
+    <color name="grey_input_text_hint">#ADB5BF</color>
+    <color name="text_grey">#747980</color>
+    <color name="yellow_text">#C69214</color>
+    <color name="yellow_info">#F9F4E7</color>
+    <color name="yellow_info_border">#F1E4C4</color>
+
+    <color name="blue_bg">#227C8F</color>
+    <color name="red_bg">#97150D</color>
+    <color name="green_background">#E9F3ED</color>
+    <color name="red_background">#FCA09D</color>
+
+
 
 </resources>

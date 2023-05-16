@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Adopet</string>
 
-    <string name="skip">Skip</string>
-    <string name="btn_continue">Continue</string>
-    <string name="btn_get_started">Get started</string>
+    <string name="skip">Omite</string>
+    <string name="btn_continue">Continuă</string>
+    <string name="btn_get_started">Să începem</string>
 
     <!-- Onboarding -->
     <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>
@@ -13,9 +13,48 @@
     <string name="slide_3_title">Bun venit la Adopet</string>
     <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
 
+    <!-- Authentication -->
+    <string name="login">Autentificare</string>
+    <string name="register">Înregistrează-te</string>
+    <string name="agree_to_the_terms_and_conditions">Sunt de acord cu <u>Termenii și condițiile</u>.</string>
+    <string name="terms_and_conditions">Termenii și condițiile</string>
+    <string name="invalid_email_address">Ați introdus o adresă de email invalidă!</string>
+    <string name="password_length_rule">Parola trebuie să aibă cel puțin 8 caractere!</string>
+    <string name="password_rules">Parola trebuie să conțină cel puțin o literă mare și o cifră.</string>
+    <string name="first_name">Prenume</string>
+    <string name="last_name">Nume</string>
+    <string name="email">Email</string>
+    <string name="password">Parolă</string>
+    <string name="go_to_login">Aveți deja un cont? Conectați-vă</string>
+    <string name="register_desc">Conectați-vă</string>
+    <string name="log_in">Înregistrați-vă</string>
+    <string name="go_to_register">Înca nu aveți cont? Înregistrați-vă</string>
+
+
     <!-- Questionnaire -->
     <string name="questionnaire">Chestionar</string>
     <string name="questionnaire_description">Pentru a găsi cel mai bun animal de companie pentru tine, va trebui să răspunzi la câteva întrebări.</string>
     <string name="btn_start_now">Începe acum</string>
     <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
+
+    <!-- Home -->
+    <string name="all_pet_category">All</string>
+    <string name="cat_pet_category">Cat</string>
+    <string name="dog_pet_category">Dog</string>
+    <string name="bird_pet_category">Bird</string>
+    <string name="rabbit_pet_category">Rabbit</string>
+    
+    <string name="pet_puppy">Puppy</string>
+    <string name="pet_kitten">Kitten</string>
+    <string name="pet_chick">Chick</string>
+    <string name="pet_bunny">Bunny</string>
+    <string name="pet_young">Young</string>
+    <string name="pet_adult">Adult</string>
+    <string name="pet_senior">Senior</string>
+    <string name="breed_age">%1$s • %2$s</string>
+
+    <!-- popup -->
+    <string name="something_went_wrong">Ceva nu a mers bine</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Inchide</string>
 </resources>

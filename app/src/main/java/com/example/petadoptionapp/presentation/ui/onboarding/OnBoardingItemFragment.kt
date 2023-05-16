@@ -5,13 +5,13 @@ import android.view.View
 import androidx.core.os.bundleOf
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentOnboardingItemBinding
-import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 
 const val ID = "id"
 
 class OnBoardingItemFragment :
-    BaseViewBindingFragment<FragmentOnboardingItemBinding>(R.layout.fragment_onboarding_item) {
+    NoBottomNavigationFragment<FragmentOnboardingItemBinding>(R.layout.fragment_onboarding_item) {
 
     override val viewBinding: FragmentOnboardingItemBinding by viewBinding(
         FragmentOnboardingItemBinding::bind
