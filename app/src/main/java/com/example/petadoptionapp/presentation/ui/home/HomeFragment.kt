@@ -38,6 +38,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         initObservers()
     }
 
+
+
     private fun initViews() {
         setupCategoryRecyclerView()
         setupPetsRecyclerView()
