@@ -7,6 +7,6 @@ data class NAdoptionCenterResponse(
     val phone: String,
     val address: String,
     val city: String,
-    val availableStart: Long,
-    val availableEnd: Long,
+    val availableStart: String,
+    val availableEnd: String,
 )

@@ -39,8 +39,6 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         initObservers()
     }
 
-
-
     private fun initViews() {
         setupCategoryRecyclerView()
         setupPetsRecyclerView()
@@ -96,7 +94,11 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         petsAdapter = HomePetsAdapter(
             HomePetsDiffutils(),
             onItemPetClickListener = {
-                //TODO
+                val bundle = Bundle()
+                bundle.putString("adoptionCenterId", it.adoptionCenterId) // Replace "key" with your desired key and "value" with the actual data to be passed
+//                val destinationFragment = DestinationFragment()
+//                destinationFragment.arguments = bundle
+                navController.navigate(R.id.toPetDetailsFragment, bundle)
             }
         )
         recyclerView.adapter = petsAdapter

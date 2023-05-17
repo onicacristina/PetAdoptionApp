@@ -26,7 +26,7 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_petDetailsFragment"
+            android:id="@+id/toPetDetailsFragment"
             app:destination="@id/petDetailsFragment" />
     </fragment>
     <fragment
@@ -45,15 +45,24 @@
         android:label="fragment_pet_details"
         tools:layout="@layout/fragment_pet_details">
 
-<!--        <argument-->
-<!--            android:name="petId"-->
-<!--            app:argType="string" />-->
-
+        <!--        <argument-->
+        <!--            android:name="petId"-->
+        <!--            app:argType="string" />-->
 
 <!--        <argument-->
 <!--            android:name="petDetails"-->
 <!--            android:defaultValue="@null"-->
-<!--            app:nullable="true"-->
-<!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse" />-->
+<!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
+<!--            app:nullable="true" />-->
     </fragment>
+
+<!--    <action-->
+<!--        android:id="@+id/startPetDetails"-->
+<!--        app:destination="@+id/petDetailsFragment">-->
+<!--        <argument-->
+<!--            android:name="petDetails"-->
+<!--            android:defaultValue="@null"-->
+<!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
+<!--            app:nullable="true" />-->
+<!--    </action>-->
 </navigation>

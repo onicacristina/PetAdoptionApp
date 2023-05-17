@@ -7,10 +7,14 @@ data class AdoptionCenter(
     val phone: String,
     val address: String,
     val city: String,
-    val availableStart: Long,
-    val availableEnd: Long,
+    val availableStart: String,
+    val availableEnd: String,
 ) {
     fun getFullAddress(): String {
         return "$address, $city"
+    }
+
+    companion object {
+        val default = AdoptionCenter( "", "", "", "", "", "", "", "")
     }
 }
