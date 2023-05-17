@@ -74,12 +74,12 @@ class LoginViewModel @Inject constructor(
             val loginParams = LoginParams(email, password)
             authRepository.login(loginParams = loginParams).fold(
                 onSuccess = {
-                    Timber.e("success login")
                     ProfilePrefs().saveProfile(it.user)
-                    it.refreshToken?.let { refreshToken ->
-                        refreshTokenRepository.saveRefreshToken(refreshToken)
-                    }
+                    Timber.e("user: ${it}")
+                    refreshTokenRepository.saveRefreshToken(it.refreshToken)
+                    Timber.e("refresh token: ${it.refreshToken}")
                     refreshTokenRepository.saveAccessToken(it.token)
+                    Timber.e("success login")
                     _signedIn.send(Any())
                 },
                 onFailure = { error ->
