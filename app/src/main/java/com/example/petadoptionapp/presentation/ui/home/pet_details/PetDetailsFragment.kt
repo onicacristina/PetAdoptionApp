@@ -3,6 +3,7 @@ package com.example.petadoptionapp.presentation.ui.home.pet_details
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentHomeBinding
 import com.example.petadoptionapp.databinding.FragmentPetDetailsBinding
@@ -17,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PetDetailsFragment : BaseViewBindingFragment<FragmentPetDetailsBinding>(R.layout.fragment_pet_details) {
     override val viewBinding: FragmentPetDetailsBinding by viewBinding(FragmentPetDetailsBinding::bind)
     override val viewModel: PetDetailsViewModel by viewModels()
+//    private val args: PetDetailsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

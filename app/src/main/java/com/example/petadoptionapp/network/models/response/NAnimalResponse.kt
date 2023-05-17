@@ -11,5 +11,5 @@ data class NAnimalResponse(
     val neutered: Boolean,
     val story: String,
     val imageUrl: String,
-) {
-}
+    val adoptionCenterId: String,
+)
