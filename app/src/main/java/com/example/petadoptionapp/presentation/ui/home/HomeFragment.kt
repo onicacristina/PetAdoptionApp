@@ -14,6 +14,7 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentHomeBinding
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.home.adapter.HomePetsAdapter
 import com.example.petadoptionapp.presentation.ui.home.adapter.HomePetsDiffutils
 import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryAdapterNew
@@ -44,6 +45,9 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         setupCategoryRecyclerView()
         setupPetsRecyclerView()
         initPullToRefresh()
+        viewBinding.title.text = getString(R.string.hello_user,
+            ProfilePrefs().getProfile()?.firstName ?: ""
+        )
     }
 
     private fun initListeners() {
