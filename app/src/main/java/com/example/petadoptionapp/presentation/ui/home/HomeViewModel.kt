@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.utils.Resource
-import com.example.petadoptionapp.repository.AnimalsRepository
+import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*

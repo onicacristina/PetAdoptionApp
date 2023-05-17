@@ -7,6 +7,9 @@ import com.example.petadoptionapp.network.interceptor.JwtTokenInterceptor
 import com.example.petadoptionapp.network.interceptor.RefreshAuthenticator
 import com.example.petadoptionapp.network.refresh_token.RefreshTokenEndpoint
 import com.example.petadoptionapp.network.refresh_token.RefreshTokenRepository
+import com.example.petadoptionapp.network.services.adoption_center.AdoptionCenterApiInterface
+import com.example.petadoptionapp.network.services.adoption_center.AdoptionCenterApiInterfaceImplementation
+import com.example.petadoptionapp.network.services.adoption_center.AdoptionCenterService
 import com.example.petadoptionapp.network.services.animals.AnimalsApiInterface
 import com.example.petadoptionapp.network.services.animals.AnimalsApiInterfaceImplementation
 import com.example.petadoptionapp.network.services.animals.AnimalsApiService
@@ -117,5 +120,16 @@ object NetworkModule {
         return animalsApiInterface
     }
 
+    @Provides
+    @Singleton
+    fun provideAdoptionCentersApiService(retrofit: Retrofit): AdoptionCenterService {
+        return retrofit.create(AdoptionCenterService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAdoptionCentersApiInterface(adoptionCenterApiInterface: AdoptionCenterApiInterfaceImplementation) : AdoptionCenterApiInterface {
+        return adoptionCenterApiInterface
+    }
 
 }

@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.ui.home.pet_details.PetDetailsFragment">
 
-    <TextView
+    <ImageView
+        android:id="@+id/ivPetImage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="300dp"
+        android:contentDescription="@null"
+        android:src="@drawable/pet_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/ivCall"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_call"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPetImage" />
+
+    <ImageView
+        android:id="@+id/ivMailTo"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_mail_to"
+        app:layout_constraintStart_toEndOf="@+id/ivCall"
+        app:layout_constraintTop_toBottomOf="@+id/ivPetImage" />
+
+    <ImageView
+        android:id="@+id/ivlocation"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_location_pin"
+        app:layout_constraintStart_toEndOf="@+id/ivMailTo"
+        app:layout_constraintTop_toBottomOf="@+id/ivPetImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

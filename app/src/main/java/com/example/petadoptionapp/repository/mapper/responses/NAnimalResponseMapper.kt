@@ -6,7 +6,7 @@ import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.repository.mapper.ModelMapper
 
-class NAnimalResponseMapper: ModelMapper<NAnimalResponse, AnimalResponse> {
+class NAnimalResponseMapper : ModelMapper<NAnimalResponse, AnimalResponse> {
     override fun map(model: NAnimalResponse): AnimalResponse {
         return AnimalResponse(
             model.id,

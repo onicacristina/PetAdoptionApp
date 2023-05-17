@@ -1,4 +1,4 @@
-package com.example.petadoptionapp.repository
+package com.example.petadoptionapp.repository.animals_repository
 
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 
