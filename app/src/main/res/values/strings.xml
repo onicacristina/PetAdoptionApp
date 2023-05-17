@@ -29,6 +29,8 @@
     <string name="register_desc">Conectați-vă</string>
     <string name="log_in">Înregistrați-vă</string>
     <string name="go_to_register">Înca nu aveți cont? Înregistrați-vă</string>
+    <string name="login_subtitle">Pentru a putea intra în contul dumneavoastră, vă rugăm să introduceți parola și email-ul</string>
+    <string name="register_subtitle">Vă rugăm să vă introduceți datele pentru a vă crea un cont în aplicație</string>
 
 
     <!-- Questionnaire -->

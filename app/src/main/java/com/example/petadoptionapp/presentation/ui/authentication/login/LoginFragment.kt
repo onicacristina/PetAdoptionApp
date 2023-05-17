@@ -40,6 +40,7 @@ class LoginFragment : NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.
             fullText = getString(R.string.go_to_register),
             linkText = SpannableString(getString(R.string.log_in)),
             context = requireContext(),
+            isBolded = true,
             textColor = R.color.blue_light
         ) {
             navController.navigate(R.id.registerFragment)
@@ -110,6 +111,7 @@ class LoginFragment : NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.
 
     private fun updateLoginButton(isActive: Boolean) {
         viewBinding.btnLogin.isEnabled = isActive
+        viewBinding.btnLogin.alpha = if (isActive) 1f else .6f
     }
 
     private fun showInfoOrError(infoOrError: InfoOrErrorAuthentication) {

@@ -42,6 +42,7 @@ class RegisterFragment :
             fullText = getString(R.string.agree_to_the_terms_and_conditions),
             linkText = SpannableString(getString(R.string.terms_and_conditions)),
             context = requireContext(),
+            isBolded = true,
             textColor = R.color.blue_light
         ) {
             //TODO("replace this")
@@ -51,6 +52,7 @@ class RegisterFragment :
             fullText = getString(R.string.go_to_login),
             linkText = SpannableString(getString(R.string.register_desc)),
             context = requireContext(),
+            isBolded = true,
             textColor = R.color.blue_light
         ) {
             navController.navigate(R.id.loginFragment)
@@ -137,6 +139,7 @@ class RegisterFragment :
 
     private fun updateRegisterButton(isActive: Boolean) {
         viewBinding.btnRegister.isEnabled = isActive
+        viewBinding.btnRegister.alpha = if (isActive) 1f else .6f
     }
 
     private fun showInfoOrError(infoOrError: InfoOrErrorAuthentication) {
