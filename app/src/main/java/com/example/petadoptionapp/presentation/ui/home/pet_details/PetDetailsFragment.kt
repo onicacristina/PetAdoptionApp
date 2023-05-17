@@ -1,5 +1,7 @@
 package com.example.petadoptionapp.presentation.ui.home.pet_details
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -47,7 +49,20 @@ class PetDetailsFragment :
         viewBinding.ivMailTo.setOnDebounceClickListener {
             openEmail(viewModel.adoptionCenterData.email)
         }
+//        viewBinding.ivlocation.setOnDebounceClickListener {
+//            // todo open google maps at a location
+//        }
 
+        viewBinding.ivlocation.setOnDebounceClickListener {
+//            val address = "1600 Amphitheatre Parkway, Mountain View, CA"
+            val address = viewModel.adoptionCenterData.getFullAddress()
+            val encodedAddress = Uri.encode(address)
+            val uri = "geo:0,0?q=$encodedAddress"
+
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            intent.setPackage("com.google.android.apps.maps")
+            startActivity(intent)
+        }
     }
 
     private fun initObservers() {
