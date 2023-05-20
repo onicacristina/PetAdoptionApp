@@ -57,6 +57,15 @@
     <string name="hello_user">Hello, %1$s</string>
     <string name="pet_categories">Pet categories</string>
 
+    <!-- Pet Details -->
+    <string name="vaccinated">• Vaccinated</string>
+    <string name="neutered">• Neutered</string>
+    <string name="adopt_now">Adopt now</string>
+    <string name="pet_story">Pet story</string>
+    <string name="adoption_center">Adoption center</string>
+    <string name="pet_health">Health</string>
+    <string name="adoption_center_name">Name: %1$s</string>
+
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>
     <string name="btn_ok">OK</string>
