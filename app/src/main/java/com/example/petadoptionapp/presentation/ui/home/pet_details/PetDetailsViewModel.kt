@@ -20,6 +20,8 @@ class PetDetailsViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     var adoptionCenterData: AdoptionCenter = AdoptionCenter.default
+    var animalData: AnimalResponse = AnimalResponse.default
+
     private val _adoptionCenterObservable: MutableStateFlow<AdoptionCenter?> =
         MutableStateFlow(null)
     val adoptionCenterObservable: Flow<AdoptionCenter?>
@@ -50,6 +52,7 @@ class PetDetailsViewModel @Inject constructor(
             val response = animalsRepository.getOneAnimalById(id).fold(
                 onSuccess = { animal ->
                     _animalObservable.value = animal
+                    animalData = animal
                     Timber.e("success get animal $animal")
 
                 },

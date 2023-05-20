@@ -52,6 +52,11 @@ class PetDetailsFragment :
     }
 
     private fun initListeners() {
+        viewBinding.ivPetImage.setOnDebounceClickListener {
+            val bundle = Bundle()
+            bundle.putString(Constants.PET_IMAGE_URL, viewModel.animalData.imageUrl)
+            navController.navigate(R.id.action_petDetailsFragment_to_petImageDetailsFragment, bundle)
+        }
         viewBinding.ivBack.setOnDebounceClickListener {
             navController.popBackStack()
         }

@@ -16,8 +16,7 @@ data class AnimalResponse(
     val story: String,
     val imageUrl: String,
     val adoptionCenterId: String,
-)
-{
+) {
     fun getAgeCategory(animal: AnimalResponse): AgeCategory {
         return when (animal.specie) {
             EPetCategory.DOG -> {
@@ -54,6 +53,22 @@ data class AnimalResponse(
             }
             else -> throw IllegalArgumentException("Unknown category")
         }
+    }
+
+    companion object {
+        val default = AnimalResponse(
+            "",
+            EPetCategory.ALL,
+            EPetGender.FEMALE,
+            "",
+            "",
+            0,
+            false,
+            false,
+            "",
+            "",
+            ""
+        )
     }
 
 }

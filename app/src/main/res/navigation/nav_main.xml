@@ -54,9 +54,17 @@
 <!--            android:defaultValue="@null"-->
 <!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
 <!--            app:nullable="true" />-->
+        <action
+            android:id="@+id/action_petDetailsFragment_to_petImageDetailsFragment"
+            app:destination="@id/petImageDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/petImageDetailsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.pet_image_details.PetImageDetailsFragment"
+        android:label="fragment_pet_image_details"
+        tools:layout="@layout/fragment_pet_image_details" />
 
-<!--    <action-->
+    <!--    <action-->
 <!--        android:id="@+id/startPetDetails"-->
 <!--        app:destination="@+id/petDetailsFragment">-->
 <!--        <argument-->

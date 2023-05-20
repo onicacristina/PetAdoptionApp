@@ -15,6 +15,6 @@ data class AdoptionCenter(
     }
 
     companion object {
-        val default = AdoptionCenter( "", "", "", "", "", "", "", "")
+        val default = AdoptionCenter("", "", "", "", "", "", "", "")
     }
 }

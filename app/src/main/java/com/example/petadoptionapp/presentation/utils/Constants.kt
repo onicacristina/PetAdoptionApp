@@ -8,5 +8,6 @@ object Constants {
     const val REFRESH_TOKEN_EXPIRED = "REFRESH_TOKEN_EXPIRED"
     const val PET_ID = "pet_id"
     const val ADOPTION_CENTER_ID = "adoption_center_id"
+    const val PET_IMAGE_URL = "pet_image_url"
 
 }
