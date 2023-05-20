@@ -19,7 +19,7 @@ class PetDetailsViewModel @Inject constructor(
     private val adoptionCenterRepository: AdoptionCenterRepository
 ) : BaseViewModel() {
 
-    var adoptionCenterData : AdoptionCenter = AdoptionCenter.default
+    var adoptionCenterData: AdoptionCenter = AdoptionCenter.default
     private val _adoptionCenterObservable: MutableStateFlow<AdoptionCenter?> =
         MutableStateFlow(null)
     val adoptionCenterObservable: Flow<AdoptionCenter?>
@@ -29,7 +29,7 @@ class PetDetailsViewModel @Inject constructor(
     val animalObservable: Flow<AnimalResponse?>
         get() = _animalObservable
 
-     fun getAdoptionCenterById(id: String) {
+    fun getAdoptionCenterById(id: String) {
         viewModelScope.launch {
             val response = adoptionCenterRepository.getOneAdoptionCenterById(id).fold(
                 onSuccess = { adoptionCenter ->
@@ -45,7 +45,7 @@ class PetDetailsViewModel @Inject constructor(
         }
     }
 
-     fun getAnimalDetails(id: String) {
+    fun getAnimalDetails(id: String) {
         viewModelScope.launch {
             val response = animalsRepository.getOneAnimalById(id).fold(
                 onSuccess = { animal ->
@@ -53,7 +53,7 @@ class PetDetailsViewModel @Inject constructor(
                     Timber.e("success get animal $animal")
 
                 },
-                onFailure = {error->
+                onFailure = { error ->
                     Timber.e("error get animal")
                     showError(error)
                 }

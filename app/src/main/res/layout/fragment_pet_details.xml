@@ -21,9 +21,10 @@
             <ImageView
                 android:id="@+id/ivPetImage"
                 android:layout_width="match_parent"
-                android:layout_height="295dp"
+                android:layout_height="350dp"
                 android:contentDescription="@null"
                 android:src="@drawable/pet_image"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -254,7 +255,7 @@
                     tools:text="Name: Adotion Center nr 2" />
 
                 <TextView
-                    android:id="@+id/tvAddress"
+                    android:id="@+id/tvAdoptionCenterAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"

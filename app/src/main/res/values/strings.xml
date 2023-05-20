@@ -65,6 +65,9 @@
     <string name="adoption_center">Adoption center</string>
     <string name="pet_health">Health</string>
     <string name="adoption_center_name">Name: %1$s</string>
+    <string name="pet_age_in_months">%1$s months</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
 
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>

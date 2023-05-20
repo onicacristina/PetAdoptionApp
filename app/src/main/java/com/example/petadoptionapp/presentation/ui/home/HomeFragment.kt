@@ -19,6 +19,7 @@ import com.example.petadoptionapp.presentation.ui.home.adapter.HomePetsAdapter
 import com.example.petadoptionapp.presentation.ui.home.adapter.HomePetsDiffutils
 import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryAdapterNew
 import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryDiffUtils
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import com.example.petadoptionapp.presentation.utils.extensions.withPrevious
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,7 +44,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         setupCategoryRecyclerView()
         setupPetsRecyclerView()
         initPullToRefresh()
-        viewBinding.title.text = getString(R.string.hello_user,
+        viewBinding.title.text = getString(
+            R.string.hello_user,
             ProfilePrefs().getProfile()?.firstName ?: ""
         )
     }
@@ -95,9 +97,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             HomePetsDiffutils(),
             onItemPetClickListener = {
                 val bundle = Bundle()
-                bundle.putString("adoptionCenterId", it.adoptionCenterId) // Replace "key" with your desired key and "value" with the actual data to be passed
-//                val destinationFragment = DestinationFragment()
-//                destinationFragment.arguments = bundle
+                bundle.putString(Constants.ADOPTION_CENTER_ID, it.adoptionCenterId)
+                bundle.putString(Constants.PET_ID, it.id)
                 navController.navigate(R.id.toPetDetailsFragment, bundle)
             }
         )
