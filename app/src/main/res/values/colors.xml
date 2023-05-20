@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_transparent">#B7FFFFFF</color>
     <color name="grey">#CFCFCF</color>
     <color name="grey_bg_unselected">#E8E6E6</color>
 
@@ -24,7 +25,7 @@
     <color name="blue_bg">#227C8F</color>
     <color name="red_bg">#97150D</color>
     <color name="green_background">#E9F3ED</color>
-    <color name="red_background">#FCA09D</color>
+    <color name="red_background">#FDC4C1</color>
 
 
 
