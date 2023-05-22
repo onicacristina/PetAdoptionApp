@@ -69,6 +69,8 @@
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
 
+    <string name="confirm_schedule">Confirm schedule</string>
+
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>
     <string name="btn_ok">OK</string>

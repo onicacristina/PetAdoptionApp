@@ -70,7 +70,7 @@ class PetDetailsFragment :
             openEmail(viewModel.adoptionCenterData.email)
         }
         viewBinding.btnAdoptNow.setOnDebounceClickListener {
-            //todo
+            navController.navigate(R.id.action_petDetailsFragment_to_bookAppointmentFragment)
         }
         viewBinding.tvAdoptionCenter.setOnDebounceClickListener {
             //todo
