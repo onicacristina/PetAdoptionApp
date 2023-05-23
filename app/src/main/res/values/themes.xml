@@ -15,6 +15,32 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+<!--        &lt;!&ndash; Stilizare CalendarView &ndash;&gt;-->
+<!--        <item name="android:calendarViewStyle">@style/CalendarViewCustom</item>-->
+    </style>
+
+<!--    <style name="Theme.Custom" parent="@android:Theme">-->
+<!--        <item name="android:calendarViewStyle">@style/Widget.CalendarView.Custom</item>-->
+<!--    </style>-->
+
+<!--    <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">-->
+<!--        <item name="android:focusedMonthDateColor">@color/cs_textcolor</item>-->
+<!--        <item name="android:weekNumberColor">@color/red</item>-->
+<!--        <item name="android:weekDayTextAppearance">@style/TextAppearance.Medium</item>-->
+<!--        <item name="android:dateTextAppearance">@style/TextAppearance.Medium</item>-->
+<!--    </style>-->
+
+<!--    <style name="CalendarViewCustom" parent="android:Widget.CalendarView">-->
+
+<!--        &lt;!&ndash; Modificări de stil aici &ndash;&gt;-->
+<!--        <item name="android:selectedWeekBackgroundColor">@color/blue_light</item>-->
+<!--        <item name="android:weekSeparatorLineColor">@android:color/darker_gray</item>-->
+<!--        <item name="android:dateTextAppearance">@style/CalendarDateTextAppearance</item>-->
+<!--    </style>-->
+
+    <style name="CalendarDateTextAppearance" parent="TextAppearance.AppCompat">
+        <!-- Stilizare text dată selectată -->
+        <item name="android:textColor">@color/text_black</item>
     </style>
 
     <style name="Theme.Adopet.Splash" parent="Theme.SplashScreen">
@@ -41,10 +67,10 @@
         <item name="android:textStyle">normal</item>
     </style>
 
-    <style name="CalenderViewCustom" parent="Theme.AppCompat">
-        <item name="colorAccent">@color/blue_light</item>
-        <item name="colorPrimary">@android:color/darker_gray</item>
-        <item name="android:textColorPrimary">@color/text_black</item>
-    </style>
+<!--    <style name="CalendarViewCustom" parent="Theme.AppCompat">-->
+<!--        <item name="colorAccent">@color/blue_light</item>-->
+<!--        <item name="colorPrimary">@android:color/darker_gray</item>-->
+<!--        <item name="android:textColorPrimary">@color/text_black</item>-->
+<!--    </style>-->
 
 </resources>

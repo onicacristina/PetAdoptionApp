@@ -28,7 +28,6 @@
 
     <CalendarView
         android:id="@+id/calendarView"
-        style="@style/CalenderViewCustom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="14dp"
@@ -36,7 +35,8 @@
         app:layout_constraintBottom_toTopOf="@id/tvAvailableTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        />
 
     <TextView
         android:id="@+id/tvAvailableTime"
