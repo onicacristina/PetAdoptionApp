@@ -19,6 +19,9 @@ import com.example.petadoptionapp.network.services.auth.AuthApiService
 import com.example.petadoptionapp.network.services.bookings.BookingApiInterface
 import com.example.petadoptionapp.network.services.bookings.BookingApiInterfaceImplementation
 import com.example.petadoptionapp.network.services.bookings.BookingApiService
+import com.example.petadoptionapp.network.services.user.UserApiInterface
+import com.example.petadoptionapp.network.services.user.UserApiInterfaceImplementation
+import com.example.petadoptionapp.network.services.user.UserApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -145,5 +148,17 @@ object NetworkModule {
     @Singleton
     fun provideBookingApiInterface(bookingApiInterface: BookingApiInterfaceImplementation): BookingApiInterface {
         return bookingApiInterface
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserApiService(retrofit: Retrofit): UserApiService {
+        return retrofit.create(UserApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserApiInterface(userApiInterface: UserApiInterfaceImplementation): UserApiInterface {
+        return userApiInterface
     }
 }
