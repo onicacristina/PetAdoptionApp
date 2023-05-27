@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="edittext_height">54dp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
 </resources>

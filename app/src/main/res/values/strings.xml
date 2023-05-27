@@ -5,6 +5,12 @@
     <string name="btn_continue">Continuă</string>
     <string name="btn_get_started">Să începem</string>
 
+    <!-- Language -->
+    <string name="welcome">Welcome!</string>
+    <string name="choose_language_app">Choose the language of the application</string>
+    <string name="english_language">English</string>
+    <string name="romanian_language">Română</string>
+
     <!-- Onboarding -->
     <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>
     <string name="slide_1_description">În fiecare an, mii de animale ajung în adăposturi unde au vieți complicate.</string>
