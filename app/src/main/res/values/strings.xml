@@ -1,49 +1,48 @@
 <resources>
     <string name="app_name">Adopet</string>
 
-    <string name="skip">Omite</string>
-    <string name="btn_continue">Continuă</string>
-    <string name="btn_get_started">Să începem</string>
+    <string name="skip">Skip</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_get_started">Get Started</string>
 
     <!-- Language -->
     <string name="welcome">Welcome!</string>
     <string name="choose_language_app">Choose the language of the application</string>
     <string name="english_language">English</string>
-    <string name="romanian_language">Română</string>
+    <string name="romanian_language">Romanian</string>
 
     <!-- Onboarding -->
-    <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>
-    <string name="slide_1_description">În fiecare an, mii de animale ajung în adăposturi unde au vieți complicate.</string>
-    <string name="slide_2_title">Găsiți-vă viitorii prieteni</string>
-    <string name="slide_2_description">Animalele de companie din adăposturi au atât de multă dragoste de oferit, și nu se vor opri niciodată să o ofere odată ce le lăsați în inima voastră!</string>
-    <string name="slide_3_title">Bun venit la Adopet</string>
-    <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
+    <string name="slide_1_title">Every pet deserves a home</string>
+    <string name="slide_1_description">Every year, thousands of animals end up in shelters where they have complicated lives.</string>
+    <string name="slide_2_title">Find your future companions</string>
+    <string name="slide_2_description">Shelter pets have so much love to give, and they will never stop offering it once you let them into your heart!</string>
+    <string name="slide_3_title">Welcome to Adopet</string>
+    <string name="slide_3_description">We help you find your new best friend who fits your lifestyle and personality.</string>
 
     <!-- Authentication -->
-    <string name="login">Autentificare</string>
-    <string name="register">Înregistrează-te</string>
-    <string name="agree_to_the_terms_and_conditions">Sunt de acord cu <u>Termenii și condițiile</u>.</string>
-    <string name="terms_and_conditions">Termenii și condițiile</string>
-    <string name="invalid_email_address">Ați introdus o adresă de email invalidă!</string>
-    <string name="password_length_rule">Parola trebuie să aibă cel puțin 8 caractere!</string>
-    <string name="password_rules">Parola trebuie să conțină cel puțin o literă mare și o cifră.</string>
-    <string name="first_name">Prenume</string>
-    <string name="last_name">Nume</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="agree_to_the_terms_and_conditions">I agree to the <u>Terms and Conditions</u>.</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="invalid_email_address">You entered an invalid email address!</string>
+    <string name="password_length_rule">The password must be at least 8 characters long!</string>
+    <string name="password_rules">The password must contain at least one uppercase letter and one digit.</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
     <string name="email">Email</string>
-    <string name="password">Parolă</string>
-    <string name="go_to_login">Aveți deja un cont? Conectați-vă</string>
-    <string name="register_desc">Conectați-vă</string>
-    <string name="log_in">Înregistrați-vă</string>
-    <string name="go_to_register">Înca nu aveți cont? Înregistrați-vă</string>
-    <string name="login_subtitle">Pentru a putea intra în contul dumneavoastră, vă rugăm să introduceți parola și email-ul</string>
-    <string name="register_subtitle">Vă rugăm să vă introduceți datele pentru a vă crea un cont în aplicație</string>
-
+    <string name="password">Password</string>
+    <string name="go_to_login">Already have an account? Log in</string>
+    <string name="register_desc">Log In</string>
+    <string name="log_in">Register</string>
+    <string name="go_to_register">Don\'t have an account yet? Register</string>
+    <string name="login_subtitle">To access your account, please enter your password and email</string>
+    <string name="register_subtitle">Please enter your details to create an account in the application</string>
 
     <!-- Questionnaire -->
-    <string name="questionnaire">Chestionar</string>
-    <string name="questionnaire_description">Pentru a găsi cel mai bun animal de companie pentru tine, va trebui să răspunzi la câteva întrebări.</string>
-    <string name="btn_start_now">Începe acum</string>
-    <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
+    <string name="questionnaire">Questionnaire</string>
+    <string name="questionnaire_description">To find the best pet for you, you will need to answer a few questions.</string>
+    <string name="btn_start_now">Start Now</string>
+    <string name="btn_ask_me_later">Ask Me Later</string>
 
     <!-- Home -->
     <string name="all_pet_category">All</string>
@@ -51,7 +50,7 @@
     <string name="dog_pet_category">Dog</string>
     <string name="bird_pet_category">Bird</string>
     <string name="rabbit_pet_category">Rabbit</string>
-    
+
     <string name="pet_puppy">Puppy</string>
     <string name="pet_kitten">Kitten</string>
     <string name="pet_chick">Chick</string>
@@ -61,24 +60,25 @@
     <string name="pet_senior">Senior</string>
     <string name="breed_age">%1$s • %2$s</string>
     <string name="hello_user">Hello, %1$s</string>
-    <string name="pet_categories">Pet categories</string>
+    <string name="pet_categories">Pet Categories</string>
 
     <!-- Pet Details -->
     <string name="vaccinated">• Vaccinated</string>
     <string name="neutered">• Neutered</string>
-    <string name="adopt_now">Adopt now</string>
-    <string name="pet_story">Pet story</string>
-    <string name="adoption_center">Adoption center</string>
+    <string name="adopt_now">Adopt Now</string>
+    <string name="pet_story">Pet Story</string>
+    <string name="adoption_center">Adoption Center</string>
     <string name="pet_health">Health</string>
     <string name="adoption_center_name">Name: %1$s</string>
     <string name="pet_age_in_months">%1$s months</string>
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
 
-    <string name="confirm_schedule">Confirm schedule</string>
+    <string name="confirm_schedule">Confirm Schedule</string>
 
     <!-- popup -->
-    <string name="something_went_wrong">Ceva nu a mers bine</string>
+    <string name="something_went_wrong">Something went wrong</string>
     <string name="btn_ok">OK</string>
-    <string name="btn_cancel">Inchide</string>
+    <string name="btn_cancel">Close</string>
+
 </resources>

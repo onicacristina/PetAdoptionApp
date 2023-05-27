@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Adopet</string>
+
+    <string name="skip">Omite</string>
+    <string name="btn_continue">Continuă</string>
+    <string name="btn_get_started">Începeți</string>
+
+    <!-- Language -->
+    <string name="welcome">Bun venit!</string>
+    <string name="choose_language_app">Alegeți limba aplicației</string>
+    <string name="english_language">Engleză</string>
+    <string name="romanian_language">Română</string>
+
+    <!-- Onboarding -->
+    <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>
+    <string name="slide_1_description">În fiecare an, mii de animale ajung în adăposturi unde au vieți complicate.</string>
+    <string name="slide_2_title">Găsiți-vă viitorii prieteni</string>
+    <string name="slide_2_description">Animalele de companie din adăposturi au atât de multă dragoste de oferit, și nu se vor opri niciodată să o ofere odată ce le lăsați în inima voastră!</string>
+    <string name="slide_3_title">Bun venit la Adopet</string>
+    <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
+
+    <!-- Authentication -->
+    <string name="login">Autentificare</string>
+    <string name="register">Înregistrare</string>
+    <string name="agree_to_the_terms_and_conditions">Sunt de acord cu <u>Termenii și condițiile</u>.</string>
+    <string name="terms_and_conditions">Termenii și condițiile</string>
+    <string name="invalid_email_address">Ați introdus o adresă de email invalidă!</string>
+    <string name="password_length_rule">Parola trebuie să aibă cel puțin 8 caractere!</string>
+    <string name="password_rules">Parola trebuie să conțină cel puțin o literă mare și o cifră.</string>
+    <string name="first_name">Prenume</string>
+    <string name="last_name">Nume</string>
+    <string name="email">Email</string>
+    <string name="password">Parolă</string>
+    <string name="go_to_login">Aveți deja un cont? Conectați-vă</string>
+    <string name="register_desc">Conectați-vă</string>
+    <string name="log_in">Înregistrați-vă</string>
+    <string name="go_to_register">Încă nu aveți cont? Înregistrați-vă</string>
+    <string name="login_subtitle">Pentru a putea intra în contul dumneavoastră, vă rugăm să introduceți parola și adresa de email</string>
+    <string name="register_subtitle">Vă rugăm să introduceți datele pentru a vă crea un cont în aplicație</string>
+
+    <!-- Questionnaire -->
+    <string name="questionnaire">Chestionar</string>
+    <string name="questionnaire_description">Pentru a găsi cel mai bun animal de companie pentru tine, va trebui să răspunzi la câteva întrebări.</string>
+    <string name="btn_start_now">Începeți acum</string>
+    <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
+
+    <!-- Home -->
+    <string name="all_pet_category">Toate</string>
+    <string name="cat_pet_category">Pisică</string>
+    <string name="dog_pet_category">Câine</string>
+    <string name="bird_pet_category">Pasăre</string>
+    <string name="rabbit_pet_category">Iepure</string>
+
+    <string name="pet_puppy">Cățeluș</string>
+    <string name="pet_kitten">Pui de pisică</string>
+    <string name="pet_chick">Pui de pasăre</string>
+    <string name="pet_bunny">Iepuraș</string>
+    <string name="pet_young">Tânăr</string>
+    <string name="pet_adult">Adult</string>
+    <string name="pet_senior">Bătrân</string>
+    <string name="breed_age">%1$s • %2$s</string>
+    <string name="hello_user">Bună, %1$s</string>
+    <string name="pet_categories">Categorii de animale de companie</string>
+
+    <!-- Pet Details -->
+    <string name="vaccinated">• Vaccinat</string>
+    <string name="neutered">• Sterilizat</string>
+    <string name="adopt_now">Adoptă acum</string>
+    <string name="pet_story">Povestea animalului</string>
+    <string name="adoption_center">Centru de adopție</string>
+    <string name="pet_health">Sănătate</string>
+    <string name="adoption_center_name">Nume: %1$s</string>
+    <string name="pet_age_in_months">%1$s luni</string>
+    <string name="gender_male">Masculin</string>
+    <string name="gender_female">Feminin</string>
+
+    <string name="confirm_schedule">Confirmă programarea</string>
+
+    <!-- popup -->
+    <string name="something_went_wrong">Ceva nu a mers bine</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Închide</string>
+
+</resources>
