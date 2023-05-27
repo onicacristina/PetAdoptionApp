@@ -66,14 +66,6 @@ class OnBoardingFragment :
         viewPager.setCurrentItem(viewPager.currentItem + 1, false)
     }
 
-//    private fun openSignIn() {
-//        AppStateFlagsPrefs().tutorialShown()
-//        navController.popBackStack()
-//        navController.navigate(R.id.navigation_sign_in)
-//        navController.navigate(R.id.registerFragment)
-//        navController.navigate(R.id.loginFragment)
-//    }
-
     private fun openLogin() {
         AppStateFlagsPrefs().tutorialShown()
         navController.popBackStack()

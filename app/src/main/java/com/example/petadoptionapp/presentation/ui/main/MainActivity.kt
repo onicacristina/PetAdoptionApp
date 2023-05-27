@@ -46,9 +46,9 @@ class MainActivity : BaseActivity() {
         val startDestination = when {
             ProfilePrefs().isLoggedIn() -> R.id.homeFragment
             !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
-            else -> R.id.onBoardingFragment
+            else -> R.id.languageFragment
         }
-//        val startDestination = R.id.onBoardingFragment
+
         graph.setStartDestination(startDestination)
         navController.setGraph(graph, null)
 

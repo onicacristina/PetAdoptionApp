@@ -9,7 +9,7 @@
     <string name="welcome">Welcome!</string>
     <string name="choose_language_app">Choose the language of the application</string>
     <string name="english_language">English</string>
-    <string name="romanian_language">Romanian</string>
+    <string name="romanian_language">Română</string>
 
     <!-- Onboarding -->
     <string name="slide_1_title">Every pet deserves a home</string>
@@ -31,7 +31,7 @@
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="go_to_login">Already have an account? Log in</string>
+    <string name="go_to_login">Already have an account? Login</string>
     <string name="register_desc">Log In</string>
     <string name="log_in">Register</string>
     <string name="go_to_register">Don\'t have an account yet? Register</string>

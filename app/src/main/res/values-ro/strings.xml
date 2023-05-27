@@ -9,7 +9,7 @@
     <!-- Language -->
     <string name="welcome">Bun venit!</string>
     <string name="choose_language_app">Alegeți limba aplicației</string>
-    <string name="english_language">Engleză</string>
+    <string name="english_language">English</string>
     <string name="romanian_language">Română</string>
 
     <!-- Onboarding -->
