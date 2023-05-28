@@ -97,4 +97,9 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
 
+    <string name="save_changes">Save changes</string>
+    <string name="language_settings">Language settings</string>
+    <string name="change_the_system_language">You can change the system language of this app here.</string>
+
+
 </resources>
