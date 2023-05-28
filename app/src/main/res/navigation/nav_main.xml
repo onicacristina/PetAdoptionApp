@@ -95,12 +95,21 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.petadoptionapp.presentation.ui.profile.settings.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_languageSettingsFragment"
+            app:destination="@id/languageSettingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.example.petadoptionapp.presentation.ui.profile.edit_profile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/languageSettingsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.settings.language_settings.LanguageSettingsFragment"
+        android:label="fragment_language_settings"
+        tools:layout="@layout/fragment_language_settings" />
 
     <!--    <action-->
 <!--        android:id="@+id/startPetDetails"-->
