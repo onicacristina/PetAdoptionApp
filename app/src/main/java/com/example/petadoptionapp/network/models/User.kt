@@ -8,4 +8,17 @@ data class User(
     val phone: String? = null,
     val email: String? = null,
     val createdAt: String? = null
-)
+) {
+    fun getFullName():String {
+        return "$firstName $lastName"
+    }
+
+    fun getInitials(): String {
+        val initials = StringBuilder()
+
+        firstName?.let { initials.append(it.first().uppercase()) }
+        lastName?.let { initials.append(".").append(it.first().uppercase()).append(".") }
+
+        return initials.toString()
+    }
+}
