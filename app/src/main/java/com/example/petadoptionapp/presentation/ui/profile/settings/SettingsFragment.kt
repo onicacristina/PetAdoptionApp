@@ -54,7 +54,7 @@ class SettingsFragment :
             //todo
         }
         viewBinding.viewLanguage.container.setOnDebounceClickListener {
-            //todo
+            navController.navigate(R.id.action_settingsFragment_to_languageSettingsFragment)
         }
         viewBinding.viewTerms.container.setOnDebounceClickListener {
             //todo
