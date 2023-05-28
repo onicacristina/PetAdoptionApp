@@ -11,10 +11,12 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentProfileBinding
 import com.example.petadoptionapp.network.models.User
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.utils.LocaleHelper
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
@@ -96,6 +98,7 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
         viewBinding.tvAvatar.text = user.getInitials()
         viewBinding.tvFullName.text = user.getFullName()
         viewBinding.tvEmail.text = user.email
+        Timber.e("joined ${user.getFormattedCreationDate(LocaleHelper.getLocale().locale)}")
     }
 
 }
