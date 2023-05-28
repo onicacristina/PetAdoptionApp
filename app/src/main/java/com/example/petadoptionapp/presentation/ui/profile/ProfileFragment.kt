@@ -22,7 +22,7 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
     }
 
     private fun initViews() {
-
+        viewBinding.toolbar.tvTitle.text = getString(R.string.profile)
     }
 
     private fun initListeners() {

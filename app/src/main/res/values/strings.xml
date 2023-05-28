@@ -81,4 +81,8 @@
     <string name="btn_ok">OK</string>
     <string name="btn_cancel">Close</string>
 
+    <!-- Profile -->
+    <string name="profile">Profile</string>
+    <string name="edit_profile">Edit profile</string>
+
 </resources>
