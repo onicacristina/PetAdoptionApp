@@ -6,11 +6,9 @@ import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.repository.user.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -36,8 +34,8 @@ class ProfileViewModel @Inject constructor(
                     onSuccess = { value ->
                         Timber.d("user response: $value")
                         _userProfile.value = value
-        //                    userRepository.saveUser(value)
-        //                    getOfflineUser()
+                        //                    userRepository.saveUser(value)
+                        //                    getOfflineUser()
                     },
                     onFailure = { error ->
                         Timber.e("user failure")
