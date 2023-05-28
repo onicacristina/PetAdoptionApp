@@ -11,6 +11,7 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentProfileBinding
 import com.example.petadoptionapp.network.models.User
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -47,6 +48,18 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
     }
 
     private fun initListeners() {
+        viewBinding.btnEditProfile.setOnDebounceClickListener {
+            navController.navigate(R.id.action_profileFragment_to_editProfileFragment)
+        }
+        viewBinding.viewChangePassword.container.setOnDebounceClickListener {
+            navController.navigate(R.id.action_profileFragment_to_changePasswordFragment)
+        }
+        viewBinding.viewSettings.container.setOnDebounceClickListener {
+            navController.navigate(R.id.action_profileFragment_to_settingsFragment)
+        }
+        viewBinding.viewLogOut.container.setOnDebounceClickListener {
+            viewModel.logOut()
+        }
     }
 
     private fun initObservers() {
@@ -59,8 +72,24 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
                         }
                     }
                 }
+                launch {
+                    viewModel.event.collect { value ->
+                        onEvent(value)
+                    }
+                }
             }
         }
+    }
+
+    private fun onEvent(event: ProfileViewModel.Event) {
+        when (event) {
+            ProfileViewModel.Event.SIGNED_OUT -> signedOut()
+        }
+    }
+
+    private fun signedOut() {
+        navController.popBackStack()
+        navController.navigate(R.id.loginFragment)
     }
 
     private fun initProfile(user: User) {

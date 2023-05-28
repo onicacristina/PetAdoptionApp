@@ -38,7 +38,17 @@
         android:id="@+id/profileFragment"
         android:name="com.example.petadoptionapp.presentation.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/petDetailsFragment"
         android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.PetDetailsFragment"
@@ -76,6 +86,21 @@
         android:name="com.example.petadoptionapp.presentation.ui.language.LanguageFragment"
         android:label="fragment_language"
         tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.change_password.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.edit_profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
     <!--    <action-->
 <!--        android:id="@+id/startPetDetails"-->

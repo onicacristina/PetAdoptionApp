@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.User
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
+import com.example.petadoptionapp.presentation.utils.*
 import com.example.petadoptionapp.repository.user.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +16,9 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val userRepository: UserRepository
-) : BaseViewModel() {
+) : BaseViewModel(),
+    StateDelegate<ProfileViewModel.State> by DefaultStateDelegate(State.Loading),
+    EventDelegate<ProfileViewModel.Event> by DefaultEventDelegate() {
 
     private val _userProfile: MutableStateFlow<User?> =
         MutableStateFlow(null)
@@ -44,5 +47,21 @@ class ProfileViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    fun logOut(){
+        LogoutUtils().logout()
+        sendEvent(Event.SIGNED_OUT)
+    }
+
+    sealed class State {
+
+        object Loading : State()
+        object Empty : State()
+//        data class Value(val licensePlates: List<LicensePlate>) : State()
+    }
+
+    enum class Event {
+        SIGNED_OUT
     }
 }
