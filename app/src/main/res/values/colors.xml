@@ -12,6 +12,8 @@
     <color name="grey_bg_unselected">#E8E6E6</color>
     <color name="silver_grey">#A5A5A5</color>
 
+    <color name="divider">#E9E9E9</color>
+
 
     <color name="blue_light">#35A2F1</color>
     <color name="yellow">#FECE52</color>
@@ -28,6 +30,8 @@
     <color name="red_bg">#97150D</color>
     <color name="green_background">#E9F3ED</color>
     <color name="red_background">#FDC4C1</color>
+    <color name="btn_red">#F9423A</color>
+
 
 
 

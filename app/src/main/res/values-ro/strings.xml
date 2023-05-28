@@ -82,4 +82,20 @@
     <string name="btn_ok">OK</string>
     <string name="btn_cancel">Închide</string>
 
+    <!-- Profile -->
+    <string name="profile">Profil</string>
+    <string name="edit_profile">Editează profilul</string>
+    <string name="change_password">Schimbă parola</string>
+    <string name="settings">Setări</string>
+    <string name="log_out">Deconectare</string>
+
+    <!-- Settings -->
+    <string name="dark_mode">Mod întunecat</string>
+    <string name="language">Limba</string>
+    <string name="delete_account">Șterge contul</string>
+    <string name="version">Versiunea %1$s</string>
+    <string name="delete_account_subtitle">Sigur doriți să ștergeți contul? Această acțiune nu poate fi anulată.</string>
+    <string name="cancel">Anulează</string>
+    <string name="delete">Șterge</string>
+
 </resources>
