@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_bold"
         android:textSize="@dimen/text_24"
+        android:textColor="@color/blue_light"
         app:layout_constraintBottom_toBottomOf="@id/viewAvatar"
         app:layout_constraintEnd_toEndOf="@id/viewAvatar"
         app:layout_constraintStart_toStartOf="@id/viewAvatar"
