@@ -98,4 +98,9 @@
     <string name="cancel">Anulează</string>
     <string name="delete">Șterge</string>
 
+    <!-- Language -->
+    <string name="save_changes">Salvează modificările</string>
+    <string name="language_settings">Setări limbă</string>
+    <string name="change_the_system_language">Aici poți schimba limba sistemului pentru această aplicație.</string>
+
 </resources>
