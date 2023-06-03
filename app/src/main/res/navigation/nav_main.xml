@@ -9,7 +9,11 @@
         android:id="@+id/registerFragment"
         android:name="com.example.petadoptionapp.presentation.ui.authentication.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_termsAndConditionsFragment"
+            app:destination="@id/termsAndConditionsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
         android:name="com.example.petadoptionapp.presentation.ui.onboarding.OnBoardingFragment"
@@ -99,6 +103,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_languageSettingsFragment"
             app:destination="@id/languageSettingsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_termsAndConditionsFragment"
+            app:destination="@id/termsAndConditionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
@@ -110,6 +117,11 @@
         android:name="com.example.petadoptionapp.presentation.ui.profile.settings.language_settings.LanguageSettingsFragment"
         android:label="fragment_language_settings"
         tools:layout="@layout/fragment_language_settings" />
+    <fragment
+        android:id="@+id/termsAndConditionsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.settings.terms_and_conditions.TermsAndConditionsFragment"
+        android:label="fragment_terms_and_conditions"
+        tools:layout="@layout/fragment_terms_and_conditions" />
 
     <!--    <action-->
 <!--        android:id="@+id/startPetDetails"-->

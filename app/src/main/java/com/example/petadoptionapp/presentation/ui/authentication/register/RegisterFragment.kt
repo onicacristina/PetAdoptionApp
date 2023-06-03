@@ -7,7 +7,6 @@ import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
@@ -45,8 +44,8 @@ class RegisterFragment :
             isBolded = true,
             textColor = R.color.blue_light
         ) {
-            //TODO("replace this")
-            Toast.makeText(activity, "t&c", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(activity, "t&c", Toast.LENGTH_SHORT).show()
+            openTermsAndConditions()
         }
         viewBinding.goToLogin.addClickableLink(
             fullText = getString(R.string.go_to_login),
@@ -85,6 +84,10 @@ class RegisterFragment :
         viewBinding.btnRegister.setOnDebounceClickListener {
             onRegisterPressed()
         }
+    }
+
+    private fun openTermsAndConditions() {
+        navController.navigate(R.id.action_registerFragment_to_termsAndConditionsFragment)
     }
 
     private fun initTogglePasswordMask() {

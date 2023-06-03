@@ -37,6 +37,7 @@ class SettingsFragment :
     private fun initToolbar() {
         viewBinding.toolbar.tvTitle.text = getString(R.string.settings)
     }
+
     private fun initSettingsOptions() {
         viewBinding.viewLanguage.tvOption.text = getString(R.string.language)
         viewBinding.viewLanguage.ivIcon.setImageResource(R.drawable.ic_language)
@@ -57,7 +58,7 @@ class SettingsFragment :
             navController.navigate(R.id.action_settingsFragment_to_languageSettingsFragment)
         }
         viewBinding.viewTerms.container.setOnDebounceClickListener {
-            //todo
+            navController.navigate(R.id.action_settingsFragment_to_termsAndConditionsFragment)
         }
         viewBinding.viewDeleteAccount.container.setOnDebounceClickListener {
             showDeleteDialog()
