@@ -11,6 +11,7 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.ActivityMainBinding
 import com.example.petadoptionapp.presentation.base.BaseActivity
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
+import com.example.petadoptionapp.presentation.ui.profile.settings.EAppTheme
 import com.example.petadoptionapp.presentation.utils.AppStateFlagsPrefs
 import com.example.petadoptionapp.presentation.utils.Constants.REFRESH_TOKEN_EXPIRED
 import com.example.petadoptionapp.presentation.utils.LogoutUtils
@@ -38,6 +39,7 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigation()
+        setAppMode()
         //TODO("add refresh token if needed")
         solveRefreshTokenIfNeeded()
     }
@@ -69,15 +71,16 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    fun setAppMode(darkMode: Boolean) {
-        if (!darkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    fun setAppMode() {
+        when (getAppThemeFromPrefs()) {
+            EAppTheme.LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            EAppTheme.DARK -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            EAppTheme.SYSTEM_DEFAULT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-        else
-        {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-        ProfilePrefs().setAppMode(darkMode)
+    }
+
+    private fun getAppThemeFromPrefs(): EAppTheme {
+        return ProfilePrefs().getAppTheme()
     }
 
 }

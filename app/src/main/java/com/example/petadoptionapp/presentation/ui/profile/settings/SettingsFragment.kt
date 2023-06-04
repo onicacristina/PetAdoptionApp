@@ -65,12 +65,17 @@ class SettingsFragment :
         viewBinding.viewDeleteAccount.container.setOnDebounceClickListener {
             showDeleteDialog()
         }
-        changeSwitchListener()
+        initSwitchListener()
     }
 
-    private fun changeSwitchListener() {
-        viewBinding.viewDarkMode.btnSwitch.setOnCheckedChangeListener { button, isChecked ->
-            getMainActivity()?.setAppMode(isChecked)
+    private fun initSwitchListener() {
+        viewBinding.viewDarkMode.btnSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                ProfilePrefs().setAppTheme(EAppTheme.DARK)
+            } else {
+                ProfilePrefs().setAppTheme(EAppTheme.LIGHT)
+            }
+            getMainActivity()?.setAppMode()
         }
     }
 
@@ -79,8 +84,10 @@ class SettingsFragment :
     }
 
     private fun initSwitch() {
-        viewBinding.viewDarkMode.btnSwitch.isChecked = ProfilePrefs().getAppMode()
+        val appTheme = ProfilePrefs().getAppTheme()
+        viewBinding.viewDarkMode.btnSwitch.isChecked = EAppTheme.LIGHT != appTheme
     }
+
 
     @SuppressLint("SetTextI18n")
     private fun getVersionNumber() {
