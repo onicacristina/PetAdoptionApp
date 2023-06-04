@@ -7,9 +7,9 @@ import java.util.*
 data class User(
     val id: String = "",
     val role: Int = 0,
-    val firstName: String? = null,
-    val lastName: String? = null ,
-    val phone: String? = null,
+    var firstName: String? = null,
+    var lastName: String? = null,
+    var phone: String? = null,
     val email: String? = null,
     val createdAt: String? = null
 ) {

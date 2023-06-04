@@ -29,7 +29,7 @@ class ProfileViewModel @Inject constructor(
         getUser()
     }
 
-    private fun getUser() {
+    fun getUser() {
         viewModelScope.launch {
             val userId = ProfilePrefs().getProfile()?.id
             val response = userId?.let {
@@ -49,7 +49,7 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    fun logOut(){
+    fun logOut() {
         LogoutUtils().logout()
         sendEvent(Event.SIGNED_OUT)
     }

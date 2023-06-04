@@ -89,6 +89,10 @@
     <string name="settings">Setări</string>
     <string name="log_out">Deconectare</string>
 
+    <!-- Edit profile -->
+    <string name="phone_number">Număr de telefon</string>
+    <string name="joined">Înregistrat la</string>
+
     <!-- Settings -->
     <string name="dark_mode">Mod întunecat</string>
     <string name="language">Limba</string>

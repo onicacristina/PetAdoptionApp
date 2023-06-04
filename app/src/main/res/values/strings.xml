@@ -90,7 +90,7 @@
 
     <!-- Edit Profile -->
     <string name="phone_number">Phone number</string>
-    <string name="joined">Joined</string>
+    <string name="joined">Joined at</string>
 
     <!-- Settings -->
     <string name="dark_mode">Dark mode</string>

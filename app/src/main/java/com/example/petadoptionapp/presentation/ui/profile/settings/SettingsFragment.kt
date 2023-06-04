@@ -53,9 +53,6 @@ class SettingsFragment :
         viewBinding.toolbar.ivBack.setOnDebounceClickListener {
             navController.popBackStack()
         }
-        viewBinding.viewDarkMode.btnSwitch.setOnClickListener {
-            //todo
-        }
         viewBinding.viewLanguage.container.setOnDebounceClickListener {
             navController.navigate(R.id.action_settingsFragment_to_languageSettingsFragment)
         }

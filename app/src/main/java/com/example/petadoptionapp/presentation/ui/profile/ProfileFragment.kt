@@ -101,4 +101,9 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
         Timber.e("joined ${user.getFormattedCreationDate(LocaleHelper.getLocale().locale)}")
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getUser()
+    }
+
 }
