@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.PetAdoptionApp.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <!-- your custom type style here -->
+    </style>
+</resources>

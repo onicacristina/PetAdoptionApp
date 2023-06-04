@@ -8,6 +8,7 @@ import com.example.petadoptionapp.BuildConfig
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentSettingsBinding
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import com.example.petadoptionapp.presentation.utils.showDialog
@@ -45,6 +46,7 @@ class SettingsFragment :
         viewBinding.viewTerms.ivIcon.setImageResource(R.drawable.ic_terms)
         viewBinding.viewDeleteAccount.tvOption.text = getString(R.string.delete_account)
         viewBinding.viewDeleteAccount.ivIcon.setImageResource(R.drawable.ic_delete)
+        initSwitch()
     }
 
     private fun initListeners() {
@@ -63,10 +65,21 @@ class SettingsFragment :
         viewBinding.viewDeleteAccount.container.setOnDebounceClickListener {
             showDeleteDialog()
         }
+        changeSwitchListener()
+    }
+
+    private fun changeSwitchListener() {
+        viewBinding.viewDarkMode.btnSwitch.setOnCheckedChangeListener { button, isChecked ->
+            getMainActivity()?.setAppMode(isChecked)
+        }
     }
 
     private fun initObservers() {
 
+    }
+
+    private fun initSwitch() {
+        viewBinding.viewDarkMode.btnSwitch.isChecked = ProfilePrefs().getAppMode()
     }
 
     @SuppressLint("SetTextI18n")

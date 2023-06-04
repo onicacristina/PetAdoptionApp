@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.main
 
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -66,6 +67,17 @@ class MainActivity : BaseActivity() {
             LogoutUtils().logout()
             navController.popBackStack(R.id.loginFragment, true)
         }
+    }
+
+    fun setAppMode(darkMode: Boolean) {
+        if (!darkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+        else
+        {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        ProfilePrefs().setAppMode(darkMode)
     }
 
 }

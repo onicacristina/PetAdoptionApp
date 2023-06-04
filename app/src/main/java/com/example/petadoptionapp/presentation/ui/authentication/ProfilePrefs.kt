@@ -5,6 +5,7 @@ import com.orhanobut.hawk.Hawk
 
 
 private const val USER_PROFILE_KEY = "user_profile"
+private const val APP_MODE = "app_mode"
 
 class ProfilePrefs {
 
@@ -22,5 +23,13 @@ class ProfilePrefs {
 
     fun isLoggedIn(): Boolean {
         return getProfile() != null
+    }
+
+    fun setAppMode(darkMode: Boolean) {
+        Hawk.put(APP_MODE, darkMode)
+    }
+
+    fun getAppMode(): Boolean {
+        return Hawk.get(APP_MODE, false)
     }
 }

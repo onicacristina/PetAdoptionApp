@@ -88,6 +88,10 @@
     <string name="settings">Settings</string>
     <string name="log_out">Log out</string>
 
+    <!-- Edit Profile -->
+    <string name="phone_number">Phone number</string>
+    <string name="joined">Joined</string>
+
     <!-- Settings -->
     <string name="dark_mode">Dark mode</string>
     <string name="language">Language</string>
