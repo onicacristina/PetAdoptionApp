@@ -93,6 +93,12 @@
     <string name="phone_number">Număr de telefon</string>
     <string name="joined">Înregistrat la</string>
 
+    <!-- Change password -->
+    <string name="current_password">Parola actuală</string>
+    <string name="new_password">Parolă nouă</string>
+    <string name="confirm_new_password">Confirmă parola nouă</string>
+    <string name="save">Salvează</string>
+
     <!-- Settings -->
     <string name="dark_mode">Mod întunecat</string>
     <string name="language">Limba</string>
