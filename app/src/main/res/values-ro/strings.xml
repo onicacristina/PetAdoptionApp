@@ -98,6 +98,8 @@
     <string name="new_password">Parolă nouă</string>
     <string name="confirm_new_password">Confirmă parola nouă</string>
     <string name="save">Salvează</string>
+    <string name="passwords_do_not_match">Parolele nu se potrivesc</string>
+
 
     <!-- Settings -->
     <string name="dark_mode">Mod întunecat</string>

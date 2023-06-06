@@ -97,6 +97,7 @@
     <string name="new_password">New password</string>
     <string name="confirm_new_password">Confirm new password</string>
     <string name="save">Save</string>
+    <string name="passwords_do_not_match">The passwords do not match</string>
 
     <!-- Settings -->
     <string name="dark_mode">Dark mode</string>

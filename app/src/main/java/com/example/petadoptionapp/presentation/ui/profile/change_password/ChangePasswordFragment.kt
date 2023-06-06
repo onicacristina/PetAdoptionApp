@@ -53,6 +53,7 @@ class ChangePasswordFragment :
 
         viewBinding.btnSave.setOnDebounceClickListener {
             //todo
+            viewModel.changePassword()
         }
     }
 
@@ -73,12 +74,21 @@ class ChangePasswordFragment :
         }
     }
 
-    private fun onEvent(value: ChangePasswordViewModel.Event) {
-
+    private fun onEvent(event: ChangePasswordViewModel.Event) {
+        when(event) {
+            ChangePasswordViewModel.Event.SUCCESS -> {
+                hideInfoOrError()
+                navController.popBackStack()
+            }
+            ChangePasswordViewModel.Event.SHORT_PASSWORD -> showInfoOrError(getString(R.string.password_length_rule))
+            ChangePasswordViewModel.Event.NO_MATCH_PASSWORD -> showInfoOrError(getString(R.string.passwords_do_not_match))
+            ChangePasswordViewModel.Event.CHANGE_FAILURE -> TODO()
+            ChangePasswordViewModel.Event.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER -> showInfoOrError(getString(R.string.password_rules))
+        }
     }
 
-    private fun render(value: ChangePasswordViewModel.State) {
-        TODO("Not yet implemented")
+    private fun render(state: ChangePasswordViewModel.State) {
+        updateSaveButton(state.isEnabledSaveButton)
     }
 
     private fun updateSaveButton(isActive: Boolean) {
@@ -86,9 +96,9 @@ class ChangePasswordFragment :
         viewBinding.btnSave.alpha = if (isActive) 1f else .6f
     }
 
-    private fun showInfoOrError(infoOrError: InfoOrErrorAuthentication) {
+    private fun showInfoOrError(error: String) {
         viewBinding.clInfoOrError.isVisible = true
-        viewBinding.tvInfoOrError.text = infoOrError.stringResource?.let { getString(it) }
+        viewBinding.tvInfoOrError.text = error
     }
 
     private fun hideInfoOrError() {
