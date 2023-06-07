@@ -63,6 +63,9 @@
     <string name="hello_user">Bună, %1$s</string>
     <string name="pet_categories">Categorii de animale de companie</string>
 
+    <string name="search_by_name">Caută după nume</string>
+
+
     <!-- Pet Details -->
     <string name="vaccinated">• Vaccinat</string>
     <string name="neutered">• Sterilizat</string>

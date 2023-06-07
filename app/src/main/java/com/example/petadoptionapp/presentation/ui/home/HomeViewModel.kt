@@ -3,11 +3,14 @@ package com.example.petadoptionapp.presentation.ui.home
 import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
-import com.example.petadoptionapp.presentation.utils.*
+import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
+import com.example.petadoptionapp.presentation.utils.DefaultStateDelegate
+import com.example.petadoptionapp.presentation.utils.EventDelegate
+import com.example.petadoptionapp.presentation.utils.StateDelegate
 import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -28,7 +31,8 @@ class HomeViewModel @Inject constructor(
 
     private val searchQueryObservable: MutableStateFlow<String> = MutableStateFlow("")
 
-    private val _searchResults: MutableStateFlow<List<AnimalResponse>> = MutableStateFlow(emptyList())
+    private val _searchResults: MutableStateFlow<List<AnimalResponse>> =
+        MutableStateFlow(emptyList())
     val searchResults: Flow<List<AnimalResponse>>
         get() = _searchResults
 
@@ -42,18 +46,11 @@ class HomeViewModel @Inject constructor(
         getPetsBySpecie(specieSelected, data)
 
     }
+
     fun refresh() {
         getPetsBySpecie(specieSelected)
     }
 
-//    fun filterPets(){
-//        val pets =
-//        val filteredPets = if (searchQueryObservable.value.isNotBlank()) {
-//            .filter { it.name.contains(searchQuery, ignoreCase = true) }
-//        } else {
-//            pets
-//        }
-//    }
     fun selectPetCategory(petCategoryModel: PetCategoryModel) {
         val oldData = _petCategoryObservable.value
         val newData = oldData.map { value ->
@@ -84,32 +81,13 @@ class HomeViewModel @Inject constructor(
                         pets
                     }
                     Timber.e("Fetched pets for specie: $specie, pets: $filteredPets")
-                    currentState = if (filteredPets.isEmpty()) State.Empty else State.Value(filteredPets)
+                    currentState =
+                        if (filteredPets.isEmpty()) State.Empty else State.Value(filteredPets)
                     _searchResults.value = filteredPets
                 }
             )
         }
     }
-
-//    private fun getPetsBySpecie(specie: EPetCategory) {
-//        viewModelScope.launch {
-//            currentState = State.Loading
-//            val response = if (specie != EPetCategory.ALL) {
-//                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
-//            } else {
-//                animalsRepository.getAllAnimals()
-//            }
-//            response.fold(
-//                onFailure = { error ->
-//                    Timber.e("Failed to fetch pets for specie: $specie, error: $error")
-//                },
-//                onSuccess = { pets ->
-//                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
-//                    currentState = if (pets.isEmpty()) State.Empty else State.Value(pets)
-//                }
-//            )
-//        }
-//    }
 
     private fun getPetCategoryList(): List<PetCategoryModel> {
         return listOf(

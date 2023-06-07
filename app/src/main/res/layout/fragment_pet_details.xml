@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:contentDescription="@null"
-                android:src="@drawable/pet_image"
+                tools:src="@drawable/pet_image"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

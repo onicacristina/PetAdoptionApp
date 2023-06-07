@@ -62,6 +62,8 @@
     <string name="hello_user">Hello, %1$s</string>
     <string name="pet_categories">Pet Categories</string>
 
+    <string name="search_by_name">Search by name</string>
+
     <!-- Pet Details -->
     <string name="vaccinated">• Vaccinated</string>
     <string name="neutered">• Neutered</string>
