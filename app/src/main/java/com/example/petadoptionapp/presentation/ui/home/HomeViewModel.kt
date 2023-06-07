@@ -3,7 +3,7 @@ package com.example.petadoptionapp.presentation.ui.home
 import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
-import com.example.petadoptionapp.presentation.utils.Resource
+import com.example.petadoptionapp.presentation.utils.*
 import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -15,7 +15,9 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val animalsRepository: AnimalsRepository
-) : BaseViewModel() {
+) : BaseViewModel(),
+    StateDelegate<HomeViewModel.State> by DefaultStateDelegate(State.Loading),
+    EventDelegate<HomeViewModel.Event> by DefaultEventDelegate() {
 
     private val _petCategoryObservable: MutableStateFlow<List<PetCategoryModel>> =
         MutableStateFlow(getPetCategoryList())
@@ -27,20 +29,20 @@ class HomeViewModel @Inject constructor(
 
     private var specieSelected: EPetCategory = EPetCategory.ALL
 
-    @OptIn(ExperimentalCoroutinesApi::class)
-    val state: StateFlow<State> = petsResource
-        .flatMapLatest { value ->
-            when (value) {
-                is Resource.Value -> flowOf(PageUpdate.Value(value.data))
-                else -> emptyFlow()
-            }
-        }
-        .map { value -> generateState(value) }
-        .stateIn(
-            viewModelScope,
-            SharingStarted.WhileSubscribed(),
-            State.Loading
-        )
+//    @OptIn(ExperimentalCoroutinesApi::class)
+//    val state: StateFlow<State> = petsResource
+//        .flatMapLatest { value ->
+//            when (value) {
+//                is Resource.Value -> flowOf(PageUpdate.Value(value.data))
+//                else -> emptyFlow()
+//            }
+//        }
+//        .map { value -> generateState(value) }
+//        .stateIn(
+//            viewModelScope,
+//            SharingStarted.WhileSubscribed(),
+//            State.Loading
+//        )
 
     init {
 //        getPets()
@@ -87,8 +89,8 @@ class HomeViewModel @Inject constructor(
 
     private fun getPetsBySpecie(specie: EPetCategory) {
         viewModelScope.launch {
-            petsResource.value =
-                Resource.Loading // Set the loading state before making the API request
+            currentState = State.Loading
+//            petsResource.value = Resource.Loading // Set the loading state before making the API request
             val response = if (specie != EPetCategory.ALL) {
                 animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
             } else {
@@ -97,13 +99,13 @@ class HomeViewModel @Inject constructor(
             response.fold(
                 onFailure = { error ->
                     Timber.e("Failed to fetch pets for specie: $specie, error: $error")
-                    petsResource.value =
-                        Resource.Value(emptyList()) // Set the empty state in case of failure
+//                    petsResource.value = Resource.Value(emptyList()) // Set the empty state in case of failure
                 },
                 onSuccess = { pets ->
                     Timber.e("Fetched pets for specie: $specie, pets: $pets")
-                    petsResource.value =
-                        Resource.Value(pets) // Set the value state with the fetched pets
+//                    petsResource.value = Resource.Value(pets) // Set the value state with the fetched pets
+
+                    currentState = if (pets.isEmpty()) State.Empty else State.Value(pets)
                 }
             )
         }
@@ -193,5 +195,9 @@ class HomeViewModel @Inject constructor(
         object Empty : State()
         data class Value(val petsList: List<AnimalResponse>) : State()
         //TODO: error state
+    }
+
+    enum class Event {
+        FINISH
     }
 }
