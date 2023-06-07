@@ -78,6 +78,11 @@
 
     <string name="confirm_schedule">Confirm Schedule</string>
 
+    <!-- Favorite -->
+    <string name="you_do_not_have_favorite">You don\'t have anything in your favorites list yet</string>
+    <string name="find_pets">Find pets</string>
+    <string name="favorites">Favorites</string>
+
     <!-- popup -->
     <string name="something_went_wrong">Something went wrong</string>
     <string name="btn_ok">OK</string>

@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.favorite
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentFavoriteBinding
@@ -24,7 +25,12 @@ class FavoriteFragment :
     }
 
     private fun initViews() {
+        initToolbar()
+    }
 
+    private fun initToolbar() {
+        viewBinding.toolbar.tvTitle.text = getString(R.string.favorites)
+        viewBinding.toolbar.ivBack.isVisible = false
     }
 
     private fun initListeners() {

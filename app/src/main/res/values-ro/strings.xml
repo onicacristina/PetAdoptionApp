@@ -80,6 +80,12 @@
 
     <string name="confirm_schedule">Confirmă programarea</string>
 
+    <!-- Favorite -->
+    <string name="you_do_not_have_favorite">Încă nu aveți nimic în lista de favorite</string>
+    <string name="find_pets">Găsiți animale de companie</string>
+    <string name="favorites">Favorite</string>
+
+
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>
     <string name="btn_ok">OK</string>
