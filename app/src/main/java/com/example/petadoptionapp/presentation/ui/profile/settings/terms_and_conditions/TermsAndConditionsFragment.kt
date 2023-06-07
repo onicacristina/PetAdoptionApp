@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentTermsAndConditionsBinding
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 
 
@@ -20,18 +21,15 @@ class TermsAndConditionsFragment :
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initListeners()
-        initObservers()
     }
 
     private fun initViews() {
-
+        viewBinding.toolbar.tvTitle.text = getString(R.string.terms_and_conditions)
     }
 
     private fun initListeners() {
-
-    }
-
-    private fun initObservers() {
-
+        viewBinding.toolbar.ivBack.setOnDebounceClickListener {
+            navController.popBackStack()
+        }
     }
 }

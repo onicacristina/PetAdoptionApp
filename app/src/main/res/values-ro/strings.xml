@@ -118,4 +118,18 @@
     <string name="language_settings">Setări limbă</string>
     <string name="change_the_system_language">Aici poți schimba limba sistemului pentru această aplicație.</string>
 
+    <!-- Terms and conditions -->
+    <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>
+    <string name="purpose_of_the_application_title">1. Scopul aplicației:</string>
+    <string name="purpose_of_the_application_description">•  Aplicația noastră facilitează procesul de adopție a animalelor de companie. Ne asumăm angajamentul de a conecta persoanele interesate de adopție cu animalele disponibile pentru adopție în adăposturile partenere.</string>
+    <string name="responsibilities_and_obligations_title">2. Responsabilități și obligații:</string>
+    <string name="responsibilities_and_obligations_description">•  Utilizatorii trebuie să furnizeze informații corecte și valide în timpul procesului de înregistrare și adopție.\n\n•  Utilizatorii trebuie să trateze animalele cu respect și să le ofere îngrijire adecvată.\n\n•  Aplicația nu își asumă responsabilitatea pentru comportamentul sau acțiunile utilizatorilor.</string>
+    <string name="adoption_process_title">3. Procesul de adopție:</string>
+    <string name="adoption_process_description">•  Utilizatorii trebuie să respecte procedurile și regulile stabilite de adăpostul partenere în timpul procesului de adopție.\n\n•  Aplicația nu garantează disponibilitatea animalelor și nu este responsabilă pentru rezultatele procesului de adopție.</string>
+    <string name="privacy_title">4. Confidențialitate:</string>
+    <string name="privacy_description">•  Aplicația colectează și stochează informații personale în conformitate cu politica sa de confidențialitate.\n\n•  Informațiile personale nu vor fi distribuite terților fără acordul utilizatorului.</string>
+    <string name="copyright_title">5. Drepturi de autor:</string>
+    <string name="copyright_description">•  Conținutul aplicației, inclusiv texte, imagini și logo-uri, este protejat de drepturile de autor și nu poate fi utilizat în scopuri comerciale fără permisiunea noastră.</string>
+    <string name="terms_general_description2">Vă rugăm să rețineți că acești termeni și condiții pot fi actualizați periodic. Utilizarea continuă a aplicației după modificările termenilor și condițiilor reprezintă acceptul dumneavoastră pentru noile prevederi.\n\nVă mulțumim pentru utilizarea aplicației noastre și vă dorim o experiență plăcută în procesul de adopție a animalelor!
+    </string>
 </resources>

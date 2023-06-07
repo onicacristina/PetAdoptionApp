@@ -115,5 +115,17 @@
     <string name="language_settings">Language settings</string>
     <string name="change_the_system_language">You can change the system language of this app here.</string>
 
-
+    <!-- Terms and conditions -->
+    <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>
+    <string name="purpose_of_the_application_title">1. Purpose of the Application:</string>
+    <string name="purpose_of_the_application_description">•  Our application facilitates the process of pet adoption. We are committed to connecting individuals interested in adoption with the animals available for adoption in our partner shelters.</string>
+    <string name="responsibilities_and_obligations_title">2. Responsibilities and Obligations:</string>
+    <string name="responsibilities_and_obligations_description">•  Users must provide accurate and valid information during the registration and adoption process.\n\n•  Users must treat the animals with respect and provide them with proper care.\n\n•  The application is not responsible for the behavior or actions of the users.</string>
+    <string name="adoption_process_title">3. Adoption Process:</string>
+    <string name="adoption_process_description">•  Users must comply with the procedures and rules established by our partner shelters during the adoption process.\n\n•  The application does not guarantee the availability of animals and is not responsible for the outcomes of the adoption process.</string>
+    <string name="privacy_title">4. Privacy:</string>
+    <string name="privacy_description">•  The application collects and stores personal information in accordance with its privacy policy. \n\n•  Personal information will not be shared with third parties without the user\'s consent.</string>
+    <string name="copyright_title">5. Copyright:</string>
+    <string name="copyright_description">•  The content of the application, including text, images, and logos, is protected by copyright and may not be used for commercial purposes without our permission.</string>
+    <string name="terms_general_description2">Please note that these terms and conditions may be updated periodically. Your continued use of the application after the changes to the terms and conditions constitutes your acceptance of the new provisions.\n\nThank you for using our application, and we wish you a pleasant experience in the pet adoption process!</string>
 </resources>
