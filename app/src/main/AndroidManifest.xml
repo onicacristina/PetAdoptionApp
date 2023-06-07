@@ -27,7 +27,9 @@
             android:name=".presentation.ui.main.MainActivity"
             android:configChanges="locale|layoutDirection"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
