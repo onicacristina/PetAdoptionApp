@@ -16,6 +16,7 @@ data class AnimalResponse(
     val story: String,
     val imageUrl: String,
     val adoptionCenterId: String,
+    val isSaved: Boolean = false
 ) {
     fun getAgeCategory(animal: AnimalResponse): AgeCategory {
         return when (animal.specie) {
