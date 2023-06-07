@@ -9,7 +9,7 @@
         android:id="@+id/registerFragment"
         android:name="com.example.petadoptionapp.presentation.ui.authentication.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_termsAndConditionsFragment"
             app:destination="@id/termsAndConditionsFragment" />
@@ -37,12 +37,16 @@
         android:id="@+id/favoriteFragment"
         android:name="com.example.petadoptionapp.presentation.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/toPetDetailsFragment"
+            app:destination="@id/petDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.petadoptionapp.presentation.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_changePasswordFragment"
             app:destination="@id/changePasswordFragment" />
@@ -63,11 +67,11 @@
         <!--            android:name="petId"-->
         <!--            app:argType="string" />-->
 
-<!--        <argument-->
-<!--            android:name="petDetails"-->
-<!--            android:defaultValue="@null"-->
-<!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
-<!--            app:nullable="true" />-->
+        <!--        <argument-->
+        <!--            android:name="petDetails"-->
+        <!--            android:defaultValue="@null"-->
+        <!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
+        <!--            app:nullable="true" />-->
         <action
             android:id="@+id/action_petDetailsFragment_to_petImageDetailsFragment"
             app:destination="@id/petImageDetailsFragment" />
@@ -99,7 +103,7 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.petadoptionapp.presentation.ui.profile.settings.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_languageSettingsFragment"
             app:destination="@id/languageSettingsFragment" />
@@ -124,12 +128,12 @@
         tools:layout="@layout/fragment_terms_and_conditions" />
 
     <!--    <action-->
-<!--        android:id="@+id/startPetDetails"-->
-<!--        app:destination="@+id/petDetailsFragment">-->
-<!--        <argument-->
-<!--            android:name="petDetails"-->
-<!--            android:defaultValue="@null"-->
-<!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
-<!--            app:nullable="true" />-->
-<!--    </action>-->
+    <!--        android:id="@+id/startPetDetails"-->
+    <!--        app:destination="@+id/petDetailsFragment">-->
+    <!--        <argument-->
+    <!--            android:name="petDetails"-->
+    <!--            android:defaultValue="@null"-->
+    <!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
+    <!--            app:nullable="true" />-->
+    <!--    </action>-->
 </navigation>

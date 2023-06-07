@@ -14,6 +14,7 @@ import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
 import com.example.petadoptionapp.presentation.ui.favorite.adapter.FavoritesAdapter
 import com.example.petadoptionapp.presentation.ui.favorite.adapter.FavoritesDiffUtils
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,7 +71,10 @@ class FavoriteFragment :
         adapter = FavoritesAdapter(
             FavoritesDiffUtils(),
             onItemPetClickListener = {
-
+                val bundle = Bundle()
+                bundle.putString(Constants.ADOPTION_CENTER_ID, it.adoptionCenterId)
+                bundle.putString(Constants.PET_ID, it.id)
+                navController.navigate(R.id.toPetDetailsFragment, bundle)
             },
             onFavoriteButtonClickListener = {
 
