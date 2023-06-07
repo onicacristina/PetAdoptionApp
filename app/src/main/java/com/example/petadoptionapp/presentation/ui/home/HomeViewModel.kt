@@ -24,36 +24,36 @@ class HomeViewModel @Inject constructor(
     val petCategoryObservable: Flow<List<PetCategoryModel>>
         get() = _petCategoryObservable
 
-    private val petsResource: MutableStateFlow<Resource<List<AnimalResponse>>> =
-        MutableStateFlow(Resource.Loading)
-
     private var specieSelected: EPetCategory = EPetCategory.ALL
 
-//    @OptIn(ExperimentalCoroutinesApi::class)
-//    val state: StateFlow<State> = petsResource
-//        .flatMapLatest { value ->
-//            when (value) {
-//                is Resource.Value -> flowOf(PageUpdate.Value(value.data))
-//                else -> emptyFlow()
-//            }
-//        }
-//        .map { value -> generateState(value) }
-//        .stateIn(
-//            viewModelScope,
-//            SharingStarted.WhileSubscribed(),
-//            State.Loading
-//        )
+    private val searchQueryObservable: MutableStateFlow<String> = MutableStateFlow("")
+
+    private val _searchResults: MutableStateFlow<List<AnimalResponse>> = MutableStateFlow(emptyList())
+    val searchResults: Flow<List<AnimalResponse>>
+        get() = _searchResults
+
 
     init {
-//        getPets()
         getPetsBySpecie(specieSelected)
     }
 
+    fun onSearchChanged(data: String) {
+        searchQueryObservable.value = data
+        getPetsBySpecie(specieSelected, data)
+
+    }
     fun refresh() {
-//        getPets()
         getPetsBySpecie(specieSelected)
     }
 
+//    fun filterPets(){
+//        val pets =
+//        val filteredPets = if (searchQueryObservable.value.isNotBlank()) {
+//            .filter { it.name.contains(searchQuery, ignoreCase = true) }
+//        } else {
+//            pets
+//        }
+//    }
     fun selectPetCategory(petCategoryModel: PetCategoryModel) {
         val oldData = _petCategoryObservable.value
         val newData = oldData.map { value ->
@@ -62,35 +62,12 @@ class HomeViewModel @Inject constructor(
         }
         _petCategoryObservable.value = newData
         specieSelected = EPetCategory.getPetCategoryByIcon(petCategoryModel.iconDrawable)
-//        petsResource.value = Resource.Loading // Trigger the loading state
         getPetsBySpecie(specieSelected)
     }
 
-
-//    private fun getPetsBySpecie(specie: EPetCategory) {
-//        viewModelScope.launch {
-//            delay(2.seconds)
-//            val response = if (specie != EPetCategory.ALL) {
-//                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
-//            } else {
-//                animalsRepository.getAllAnimals()
-//            }
-//            response.either(
-//                {
-//                    Timber.e("Failed to fetch pets for specie: $specie")
-//                },
-//                { pets ->
-//                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
-//                    petsResource.value = Resource.Value(pets)
-//                }
-//            )
-//        }
-//    }
-
-    private fun getPetsBySpecie(specie: EPetCategory) {
+    private fun getPetsBySpecie(specie: EPetCategory, searchQuery: String = "") {
         viewModelScope.launch {
             currentState = State.Loading
-//            petsResource.value = Resource.Loading // Set the loading state before making the API request
             val response = if (specie != EPetCategory.ALL) {
                 animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
             } else {
@@ -99,41 +76,38 @@ class HomeViewModel @Inject constructor(
             response.fold(
                 onFailure = { error ->
                     Timber.e("Failed to fetch pets for specie: $specie, error: $error")
-//                    petsResource.value = Resource.Value(emptyList()) // Set the empty state in case of failure
                 },
                 onSuccess = { pets ->
-                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
-//                    petsResource.value = Resource.Value(pets) // Set the value state with the fetched pets
-
-                    currentState = if (pets.isEmpty()) State.Empty else State.Value(pets)
+                    val filteredPets = if (searchQuery.isNotBlank()) {
+                        pets.filter { it.name.contains(searchQuery, ignoreCase = true) }
+                    } else {
+                        pets
+                    }
+                    Timber.e("Fetched pets for specie: $specie, pets: $filteredPets")
+                    currentState = if (filteredPets.isEmpty()) State.Empty else State.Value(filteredPets)
+                    _searchResults.value = filteredPets
                 }
             )
         }
     }
 
-//    private fun getPets() {
+//    private fun getPetsBySpecie(specie: EPetCategory) {
 //        viewModelScope.launch {
-//            delay(10.seconds)
-//            if (specieSelected != EPetCategory.ALL) {
-//                animalsRepository.getAnimalsBySpecie(specieSelected.getPetCategoryString()).either(
-//                    {
-//                        Timber.e("failure get all animals")
-//                    },
-//                    {
-//                        Timber.e("success get all animals: $it")
-//                    }
-//                )
+//            currentState = State.Loading
+//            val response = if (specie != EPetCategory.ALL) {
+//                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
 //            } else {
-//                animalsRepository.getAllAnimals().either(
-//                    {
-//                        Timber.e("failure get all animals")
-//                    },
-//                    {
-//                        Timber.e("success get all animals: $it")
-//                    }
-//                )
+//                animalsRepository.getAllAnimals()
 //            }
-//            petsResource.value = Resource.Value(emptyList())
+//            response.fold(
+//                onFailure = { error ->
+//                    Timber.e("Failed to fetch pets for specie: $specie, error: $error")
+//                },
+//                onSuccess = { pets ->
+//                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
+//                    currentState = if (pets.isEmpty()) State.Empty else State.Value(pets)
+//                }
+//            )
 //        }
 //    }
 
@@ -166,28 +140,6 @@ class HomeViewModel @Inject constructor(
                 EPetCategory.RABBIT.stringResource
             ),
         )
-    }
-
-//    fun selectPetCategory(petCategoryModel: PetCategoryModel) {
-//        val oldData = _petCategoryObservable.value
-//        val newData = oldData.map { value ->
-//            val isSelected = value.id == petCategoryModel.id
-//            value.copy(isSelected = isSelected)
-//        }
-//        _petCategoryObservable.value = newData
-//        specieSelected = EPetCategory.getPetCategoryByIcon(petCategoryModel.iconDrawable)
-//    }
-
-    private fun generateState(data: PageUpdate): State {
-        return when (data) {
-            is PageUpdate.Loading -> State.Loading
-            is PageUpdate.Value -> {
-                if (data.dataUpdate.isEmpty())
-                    return State.Empty
-                State.Value(data.dataUpdate)
-            }
-            else -> State.Empty
-        }
     }
 
     sealed class State {
