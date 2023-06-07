@@ -45,7 +45,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ivNoDataFound" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnEditProfile"
+            android:id="@+id/btnFindPets"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginHorizontal="@dimen/margin_40"

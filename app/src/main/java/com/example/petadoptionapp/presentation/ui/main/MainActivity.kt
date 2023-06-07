@@ -44,7 +44,7 @@ class MainActivity : BaseActivity() {
         solveRefreshTokenIfNeeded()
     }
 
-    private fun initNavigation() {
+    fun initNavigation() {
         val graph = navController.navInflater.inflate(R.navigation.nav_main)
         val startDestination = when {
             ProfilePrefs().isLoggedIn() -> R.id.homeFragment

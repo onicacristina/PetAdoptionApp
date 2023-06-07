@@ -44,7 +44,6 @@ class HomeViewModel @Inject constructor(
     fun onSearchChanged(data: String) {
         searchQueryObservable.value = data
         getPetsBySpecie(specieSelected, data)
-
     }
 
     fun refresh() {
