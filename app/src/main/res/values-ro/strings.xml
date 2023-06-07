@@ -78,7 +78,6 @@
     <string name="gender_male">Masculin</string>
     <string name="gender_female">Feminin</string>
 
-    <string name="confirm_schedule">Confirmă programarea</string>
 
     <!-- Favorite -->
     <string name="you_do_not_have_favorite">Încă nu aveți nimic în lista de favorite</string>
@@ -123,6 +122,12 @@
     <string name="save_changes">Salvează modificările</string>
     <string name="language_settings">Setări limbă</string>
     <string name="change_the_system_language">Aici poți schimba limba sistemului pentru această aplicație.</string>
+
+    <!-- Book appointments -->
+    <string name="book_appointment">Rezervă programare</string>
+    <string name="available_time">Timp disponibil</string>
+    <string name="confirm_schedule">Confirmă programarea</string>
+
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>

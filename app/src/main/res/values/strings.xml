@@ -76,7 +76,6 @@
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
 
-    <string name="confirm_schedule">Confirm Schedule</string>
 
     <!-- Favorite -->
     <string name="you_do_not_have_favorite">You don\'t have anything in your favorites list yet</string>
@@ -119,6 +118,11 @@
     <string name="save_changes">Save changes</string>
     <string name="language_settings">Language settings</string>
     <string name="change_the_system_language">You can change the system language of this app here.</string>
+
+    <!-- Book appointments -->
+    <string name="book_appointment">Book appointment</string>
+    <string name="available_time">Available time</string>
+    <string name="confirm_schedule">Confirm Schedule</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>
