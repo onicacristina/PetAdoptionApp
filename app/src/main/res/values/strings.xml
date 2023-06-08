@@ -32,7 +32,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="go_to_login">Already have an account? Login</string>
-    <string name="register_desc">Log In</string>
+    <string name="register_desc">Login</string>
     <string name="log_in">Register</string>
     <string name="go_to_register">Don\'t have an account yet? Register</string>
     <string name="login_subtitle">To access your account, please enter your password and email</string>
