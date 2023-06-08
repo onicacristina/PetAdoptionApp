@@ -88,7 +88,11 @@
         android:id="@+id/bookAppointmentFragment"
         android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.BookAppointmentFragment"
         android:label="fragment_book_appointment"
-        tools:layout="@layout/fragment_book_appointment" />
+        tools:layout="@layout/fragment_book_appointment">
+        <action
+            android:id="@+id/action_bookAppointmentFragment_to_bookingAppointmentFinalFragment"
+            app:destination="@id/bookingAppointmentFinalFragment" />
+    </fragment>
     <fragment
         android:id="@+id/languageFragment"
         android:name="com.example.petadoptionapp.presentation.ui.language.LanguageFragment"
@@ -126,6 +130,19 @@
         android:name="com.example.petadoptionapp.presentation.ui.profile.settings.terms_and_conditions.TermsAndConditionsFragment"
         android:label="fragment_terms_and_conditions"
         tools:layout="@layout/fragment_terms_and_conditions" />
+    <fragment
+        android:id="@+id/bookingAppointmentFinalFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.succes_appointment.BookingAppointmentFinalFragment"
+        android:label="fragment_booking_appointment_final"
+        tools:layout="@layout/fragment_booking_appointment_final">
+
+        <argument
+            android:name="petName"
+            app:argType="string" />
+        <argument
+            android:name="appointmentTime"
+            app:argType="string" />
+    </fragment>
 
     <!--    <action-->
     <!--        android:id="@+id/startPetDetails"-->

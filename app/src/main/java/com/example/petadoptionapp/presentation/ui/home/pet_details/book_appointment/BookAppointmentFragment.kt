@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.home.pet_details.book_appoint
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -13,6 +14,7 @@ import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
 import com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.adapter.AvailableAppointmentsHoursAdapter
 import com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.adapter.AvailableAppointmentsHoursDiffUtils
 import com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.model.AvailableHour
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,6 +54,9 @@ class BookAppointmentFragment :
     private fun initListeners() {
         viewBinding.toolbar.ivBack.setOnDebounceClickListener {
             navController.popBackStack()
+        }
+        viewBinding.btnConfirm.setOnDebounceClickListener {
+            openSuccessBookingAppointmentScreen("name", "time")
         }
     }
 
@@ -95,5 +100,12 @@ class BookAppointmentFragment :
             is BookAppointmentViewModel.State.Loading -> {}
             else -> {}
         }
+    }
+
+    private fun openSuccessBookingAppointmentScreen(petName: String, bookingTime: String) {
+        navController.navigate(
+            R.id.bookingAppointmentFinalFragment,
+            bundleOf(Constants.PET_NAME to petName, Constants.BOOKING_TIME  to bookingTime)
+        )
     }
 }
