@@ -89,6 +89,18 @@
         android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.BookAppointmentFragment"
         android:label="fragment_book_appointment"
         tools:layout="@layout/fragment_book_appointment">
+
+        <argument
+            android:name="pet"
+            android:defaultValue="@null"
+            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"
+            app:nullable="true" />
+        <argument
+            android:name="adoptionCenter"
+            android:defaultValue="@null"
+            app:argType="com.example.petadoptionapp.network.models.AdoptionCenter"
+            app:nullable="true" />
+
         <action
             android:id="@+id/action_bookAppointmentFragment_to_bookingAppointmentFinalFragment"
             app:destination="@id/bookingAppointmentFinalFragment" />
@@ -142,6 +154,10 @@
             app:argType="string" />
         <argument
             android:name="appointmentTime"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="appointmentLocation"
             android:defaultValue=""
             app:argType="string" />
     </fragment>

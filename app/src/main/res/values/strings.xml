@@ -128,6 +128,12 @@
     <string name="booking_time">%1$s at %2$s</string>
     <string name="add_appointment_to_google_calendar">+ Add appointment to calendar</string>
     <string name="go_to_my_appointments">Go to my appointments</string>
+    <string name="calendar_appointment_title">Pet Viewing Appointment</string>
+    <string name="calendar_appointment_description">Appointment for viewing the pet as part of the adoption process. Pet name: %1$s</string>
+    <string name="event_added_to_calendar">Event added to calendar</string>
+    <string name="failed_to_add_event_to_calendar">Failed to add event to calendar</string>
+    <string name="invalid_start_time_format">Invalid start time format</string>
+    <string name="calendar_permission_denied">Calendar permission denied</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>

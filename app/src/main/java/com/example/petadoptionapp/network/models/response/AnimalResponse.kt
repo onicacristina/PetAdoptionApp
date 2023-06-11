@@ -1,9 +1,12 @@
 package com.example.petadoptionapp.network.models.response
 
+import android.os.Parcelable
 import com.example.petadoptionapp.presentation.ui.home.AgeCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class AnimalResponse(
     val id: String,
     val specie: EPetCategory,
@@ -17,7 +20,7 @@ data class AnimalResponse(
     val imageUrl: String,
     val adoptionCenterId: String,
     val isSaved: Boolean = false
-) {
+) : Parcelable {
     fun getAgeCategory(animal: AnimalResponse): AgeCategory {
         return when (animal.specie) {
             EPetCategory.DOG -> {

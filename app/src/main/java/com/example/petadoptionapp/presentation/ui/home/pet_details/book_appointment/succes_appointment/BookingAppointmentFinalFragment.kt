@@ -35,6 +35,7 @@ class BookingAppointmentFinalFragment :
     override val viewModel: BookingAppointmentFinalViewModel by viewModels()
     private lateinit var startTime: String
     private lateinit var petName: String
+    private lateinit var appointmentLocation : String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -72,10 +73,11 @@ class BookingAppointmentFinalFragment :
     private fun render(state: BookingAppointmentFinalViewModel.State) {
         startTime = state.appointmentTime
         petName = state.petName
-        viewBinding.tvTime.text = state.appointmentTime
+        appointmentLocation = state.appointmentLocation
+        viewBinding.tvTime.text = startTime
         viewBinding.tvSubtitle.addClickableLink(
-            fullText = getString(R.string.waiting_for_you, state.petName),
-            linkText = SpannableString(state.petName),
+            fullText = getString(R.string.waiting_for_you, petName),
+            linkText = SpannableString(petName),
             context = requireContext(),
             isBolded = true,
             isUnderlined = false,
@@ -97,8 +99,9 @@ class BookingAppointmentFinalFragment :
             val startTimeInMillis = calendar.timeInMillis
             calendar.add(Calendar.MINUTE, 30)
             val endTimeInMillis = calendar.timeInMillis
-            val title = "Meet pet"
-            val description = "This is a sample event"
+            val title = getString(R.string.calendar_appointment_title)
+            val description = getString(R.string.calendar_appointment_description)
+            val location = appointmentLocation
             // Insert the event
             val values = ContentValues().apply {
                 put(CalendarContract.Events.CALENDAR_ID, 1)
@@ -107,7 +110,7 @@ class BookingAppointmentFinalFragment :
                 put(CalendarContract.Events.DTSTART, startTimeInMillis)
                 put(CalendarContract.Events.DTEND, endTimeInMillis)
                 //todo add location
-//                contentValues.put(CalendarContract.Events.EVENT_LOCATION, location)
+                put(CalendarContract.Events.EVENT_LOCATION, location)
                 put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().id)
             }
 
@@ -119,22 +122,20 @@ class BookingAppointmentFinalFragment :
                 if (eventId != null) {
                     addNotifications(contentResolver, eventId)
                 }
-                Toast.makeText(requireContext(), "Event added to calendar", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), getString(R.string.event_added_to_calendar), Toast.LENGTH_SHORT)
                     .show()
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Failed to add event to calendar",
+                    getString(R.string.failed_to_add_event_to_calendar),
                     Toast.LENGTH_SHORT
                 ).show()
             }
 
         } catch (e: ParseException) {
             // Error handling if the string cannot be converted to a valid date
-            Toast.makeText(requireContext(), "Invalid start time format", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.invalid_start_time_format), Toast.LENGTH_SHORT).show()
         }
-
-
     }
 
 
@@ -167,7 +168,7 @@ class BookingAppointmentFinalFragment :
                 insertEventToCalendar()
             } else {
                 // Calendar permission was not granted
-                Toast.makeText(requireContext(), "Calendar permission denied", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), getString(R.string.calendar_permission_denied), Toast.LENGTH_SHORT)
                     .show()
             }
         }

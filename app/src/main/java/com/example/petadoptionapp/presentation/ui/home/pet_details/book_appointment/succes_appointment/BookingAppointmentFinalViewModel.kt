@@ -26,15 +26,16 @@ class BookingAppointmentFinalViewModel @Inject constructor(
 
     private fun getAppointmentsDetails() {
         currentState =
-            currentState.copy(petName = navArgs.petName, appointmentTime = navArgs.appointmentTime)
+            currentState.copy(petName = navArgs.petName, appointmentTime = navArgs.appointmentTime, appointmentLocation = navArgs.appointmentLocation)
     }
 
     data class State(
         val petName: String,
-        val appointmentTime: String
+        val appointmentTime: String,
+        val appointmentLocation: String
     ) {
         companion object {
-            val default = State("", "")
+            val default = State("", "", "")
         }
     }
 

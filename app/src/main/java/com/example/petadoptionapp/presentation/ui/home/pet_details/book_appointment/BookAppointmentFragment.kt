@@ -30,7 +30,7 @@ class BookAppointmentFragment :
     )
     override val viewModel: BookAppointmentViewModel by viewModels()
     private lateinit var adapter: AvailableAppointmentsHoursAdapter
-    val calendar: Calendar = Calendar.getInstance()
+   private val calendar: Calendar = Calendar.getInstance()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,7 +56,7 @@ class BookAppointmentFragment :
             navController.popBackStack()
         }
         viewBinding.btnConfirm.setOnDebounceClickListener {
-            openSuccessBookingAppointmentScreen("name", "2023-07-01 09:00")
+            openSuccessBookingAppointmentScreen("name", "2023-07-01 09:00", "location")
         }
     }
 
@@ -102,10 +102,18 @@ class BookAppointmentFragment :
         }
     }
 
-    private fun openSuccessBookingAppointmentScreen(petName: String, bookingTime: String) {
+    private fun openSuccessBookingAppointmentScreen(
+        petName: String,
+        bookingTime: String,
+        location: String
+    ) {
         navController.navigate(
             R.id.bookingAppointmentFinalFragment,
-            bundleOf(Constants.PET_NAME to petName, Constants.BOOKING_TIME  to bookingTime)
+            bundleOf(
+                Constants.PET_NAME to petName,
+                Constants.BOOKING_TIME to bookingTime,
+                Constants.APPOINTMENT_LOCATION to location
+            )
         )
     }
 }
