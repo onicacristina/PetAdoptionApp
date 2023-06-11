@@ -127,6 +127,11 @@
     <string name="book_appointment">Rezervă programare</string>
     <string name="available_time">Timp disponibil</string>
     <string name="confirm_schedule">Confirmă programarea</string>
+    <string name="your_appointment_has_been_booked">Programarea dvs. a fost rezervată</string>
+    <string name="waiting_for_you">%1$s vă așteaptă</string>
+    <string name="booking_time">%1$s la %2$s</string>
+    <string name="add_appointment_to_google_calendar">+ Adăugați programarea în calendar</string>
+    <string name="go_to_my_appointments">Accesați programările mele</string>
 
 
     <!-- Terms and conditions -->

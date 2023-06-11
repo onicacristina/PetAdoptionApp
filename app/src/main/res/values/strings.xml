@@ -126,7 +126,7 @@
     <string name="your_appointment_has_been_booked">Your appointments has been booked</string>
     <string name="waiting_for_you">%1$s will be waiting for you</string>
     <string name="booking_time">%1$s at %2$s</string>
-    <string name="add_appointment_to_google_calendar"></string>
+    <string name="add_appointment_to_google_calendar">+ Add appointment to calendar</string>
     <string name="go_to_my_appointments">Go to my appointments</string>
 
     <!-- Terms and conditions -->
