@@ -20,6 +20,7 @@ import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceCli
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.util.*
 
 @AndroidEntryPoint
@@ -58,11 +59,7 @@ class BookAppointmentFragment :
             navController.popBackStack()
         }
         viewBinding.btnConfirm.setOnDebounceClickListener {
-            openSuccessBookingAppointmentScreen(
-                petName = args.pet?.name ?: "",
-                bookingTime = "2023-07-01 09:00",
-                location = args.adoptionCenter?.getFullAddress() ?: ""
-            )
+            viewModel.checkSelectedHour()
         }
         viewBinding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val selectedDate = Calendar.getInstance().apply {
@@ -81,6 +78,31 @@ class BookAppointmentFragment :
                         renderState(value)
                     }
                 }
+                launch {
+                    viewModel.event.collect { event ->
+                        onEvent(event)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun onEvent(event: BookAppointmentViewModel.Event) {
+        when(event) {
+            BookAppointmentViewModel.Event.SUCCESS -> {
+                openSuccessBookingAppointmentScreen(
+                    petName = args.pet?.name ?: "",
+                    bookingTime = viewModel.appointmentTimeFinal,
+                    location = args.adoptionCenter?.getFullAddress() ?: ""
+                )
+            }
+            BookAppointmentViewModel.Event.FAILURE -> { }
+            BookAppointmentViewModel.Event.SELECT_HOUR -> {
+                showErrorPopup(getString(R.string.error_select_hour))
+            }
+            BookAppointmentViewModel.Event.TIME_SELECTED -> {
+//                viewModel.addBooking()
+                Timber.e("yay booking")
             }
         }
     }

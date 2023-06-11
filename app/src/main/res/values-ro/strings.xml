@@ -138,6 +138,8 @@
     <string name="failed_to_add_event_to_calendar">Nu s-a reușit adăugarea evenimentului în calendar</string>
     <string name="invalid_start_time_format">Formatul de începere invalid al timpului</string>
     <string name="calendar_permission_denied">Permisiunea pentru calendar a fost refuzată</string>
+    <string name="error_select_hour">Vă rugăm să selectați o oră pentru programare.</string>
+
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>

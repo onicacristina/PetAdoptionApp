@@ -134,6 +134,8 @@
     <string name="failed_to_add_event_to_calendar">Failed to add event to calendar</string>
     <string name="invalid_start_time_format">Invalid start time format</string>
     <string name="calendar_permission_denied">Calendar permission denied</string>
+    <string name="error_select_hour">Please select an appointment time.</string>
+
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>

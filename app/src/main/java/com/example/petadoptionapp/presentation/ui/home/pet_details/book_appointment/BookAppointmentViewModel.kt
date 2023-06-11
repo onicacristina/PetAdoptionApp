@@ -1,7 +1,10 @@
 package com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.request.NBookingParams
 import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.model.AvailableHour
 import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
 import com.example.petadoptionapp.presentation.utils.DefaultStateDelegate
@@ -11,6 +14,7 @@ import com.example.petadoptionapp.repository.booking.BookingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
@@ -35,7 +39,7 @@ class BookAppointmentViewModel @Inject constructor(
 
     private var appointmentDate: Date = Calendar.getInstance().time
     private var selectedHour: AvailableHour = AvailableHour("")
-    private var appointmentTimeFinal: String = ""
+    var appointmentTimeFinal: String = ""
 
     init {
         getAvailableTimes()
@@ -96,13 +100,57 @@ class BookAppointmentViewModel @Inject constructor(
         _hoursList.value = newData
         currentState = State.Value(newData)
         selectedHour = availableHour
+        appointmentTimeFinal = getAppointmentTime()
     }
 
     private fun getAppointmentTime(): String {
-        val appointmentDateFormat = SimpleDateFormat("MMM d, yyyy, HH:mm:ss", Locale.getDefault())
+        val appointmentDateFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
         val formattedAppointmentDate = appointmentDateFormat.format(appointmentDate)
         // Combine the formatted date with the selected time
         return "$formattedAppointmentDate, ${selectedHour.hour}"
+    }
+
+    fun addBooking() {
+        val userId = ProfilePrefs().getProfile()?.id
+        val adoptionCenterId = navArgs.adoptionCenter?.id
+        val timestamp = getAppointmentTime()
+
+        viewModelScope.launch {
+            userId?.let { userId ->
+                adoptionCenterId?.let { adoptionCenterId ->
+                    NBookingParams(
+                        userId = userId,
+                        adoptionCenterId = adoptionCenterId,
+                        timestamp = timestamp
+                    )
+                }
+            }
+                ?.let {
+                    bookingRepository.addBooking(it).fold(
+                        onSuccess = {
+                            sendEvent(Event.SUCCESS)
+                            Timber.e("booking success")
+                        },
+                        onFailure = { error ->
+                            Timber.e("booking failure")
+                            showError(error)
+                        }
+                    )
+                }
+        }
+    }
+
+    fun checkSelectedHour () {
+        if (isHourSelected()) {
+            sendEvent(Event.TIME_SELECTED)
+            sendEvent(Event.SUCCESS)
+        }
+        else
+            sendEvent(Event.SELECT_HOUR)
+    }
+
+   private fun isHourSelected(): Boolean {
+        return selectedHour.hour.isNotEmpty()
     }
 
     sealed class State {
@@ -112,6 +160,9 @@ class BookAppointmentViewModel @Inject constructor(
     }
 
     enum class Event {
-        FINISH
+        SUCCESS,
+        FAILURE,
+        SELECT_HOUR,
+        TIME_SELECTED
     }
 }
