@@ -23,9 +23,7 @@ import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import kotlinx.coroutines.launch
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -39,7 +37,7 @@ class BookingAppointmentFinalFragment :
     override val viewModel: BookingAppointmentFinalViewModel by viewModels()
     private lateinit var startTime: String
     private lateinit var petName: String
-    private lateinit var appointmentLocation : String
+    private lateinit var appointmentLocation: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -126,7 +124,11 @@ class BookingAppointmentFinalFragment :
                 if (eventId != null) {
                     addNotifications(contentResolver, eventId)
                 }
-                Toast.makeText(requireContext(), getString(R.string.event_added_to_calendar), Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.event_added_to_calendar),
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             } else {
                 Toast.makeText(
@@ -138,7 +140,11 @@ class BookingAppointmentFinalFragment :
 
         } catch (e: ParseException) {
             // Error handling if the string cannot be converted to a valid date
-            Toast.makeText(requireContext(), getString(R.string.invalid_start_time_format), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.invalid_start_time_format),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -172,7 +178,11 @@ class BookingAppointmentFinalFragment :
                 insertEventToCalendar()
             } else {
                 // Calendar permission was not granted
-                Toast.makeText(requireContext(), getString(R.string.calendar_permission_denied), Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.calendar_permission_denied),
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }
