@@ -9,6 +9,8 @@ import com.example.petadoptionapp.presentation.utils.EventDelegate
 import com.example.petadoptionapp.presentation.utils.StateDelegate
 import com.example.petadoptionapp.repository.booking.BookingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,6 +28,14 @@ class BookAppointmentViewModel @Inject constructor(
         BookAppointmentFragmentArgs.fromSavedStateHandle(savedStateHandle)
     }
 
+    private val _hoursList: MutableStateFlow<List<AvailableHour>> =
+        MutableStateFlow(emptyList())
+    val hoursList: Flow<List<AvailableHour>>
+        get() = _hoursList
+
+    //    private var appointmentDate: Date = Calendar.ge
+    private var selectedHour: AvailableHour = AvailableHour("")
+
     init {
         getAvailableTimes()
         Timber.e("adoption center : ${navArgs.adoptionCenter}")
@@ -35,59 +45,49 @@ class BookAppointmentViewModel @Inject constructor(
         val startTimeString = navArgs.adoptionCenter?.availableStart
         val endTimeString = navArgs.adoptionCenter?.availableEnd
 
-        val startTime =
-            startTimeString?.substring(11, 16) // Extragem doar partea corespunzătoare orei (09:00)
-        val endTime =
-            endTimeString?.substring(11, 16) // Extragem doar partea corespunzătoare orei (16:00)
+        // We extract only the part corresponding to the time (ex. 09:00)
+        val startTime = startTimeString?.substring(11, 16)
+        // We extract only the part corresponding to the time (ex. 16:00)
+        val endTime = endTimeString?.substring(11, 16)
 
         val availableHours = generateAvailableHours(startTime, endTime)
         currentState = State.Value(availableHours)
+        _hoursList.value = availableHours
     }
 
+    // Function to generate the list of available hours
     private fun generateAvailableHours(startTime: String?, endTime: String?): List<AvailableHour> {
         val availableHours = mutableListOf<AvailableHour>()
+        // Set the time format
         val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
 
+        // We set the time interval for appointments
         val startCalendar = Calendar.getInstance()
         startCalendar.time = timeFormat.parse(startTime)
 
         val endCalendar = Calendar.getInstance()
         endCalendar.time = timeFormat.parse(endTime)
 
+        // Loop through the timeslot and add the available times to the list
         while (startCalendar.before(endCalendar)) {
             val hour = timeFormat.format(startCalendar.time)
             availableHours.add(AvailableHour(hour))
+            // Add 30 minutes to the current time
             startCalendar.add(Calendar.MINUTE, 30)
         }
 
         return availableHours
     }
 
-
-    // Funcția pentru a genera lista de ore disponibile
-    fun generateAvailableHours3(startDate: Date, endDate: Date): List<AvailableHour> {
-        val availableHours = ArrayList<AvailableHour>()
-
-        // Setăm formatul orei
-        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-
-        // Setăm intervalul de timp pentru programări
-        val startCalendar = Calendar.getInstance()
-        startCalendar.time = startDate
-
-        val endCalendar = Calendar.getInstance()
-        endCalendar.time = endDate
-
-        // Parcurgem intervalul de timp și adăugăm orele disponibile în listă
-        while (startCalendar.before(endCalendar)) {
-            val hour = timeFormat.format(startCalendar.time)
-            availableHours.add(AvailableHour(hour))
-
-            // Adăugăm 30 de minute la ora curentă
-            startCalendar.add(Calendar.MINUTE, 30)
+    fun selectHour(availableHour: AvailableHour) {
+        val oldData = _hoursList.value
+        val newData = oldData.map { value ->
+            val isSelected = value.hour == availableHour.hour
+            value.copy(isSelected = isSelected)
         }
-
-        return availableHours
+        _hoursList.value = newData
+        currentState = State.Value(newData)
+        selectedHour = availableHour
     }
 
     sealed class State {

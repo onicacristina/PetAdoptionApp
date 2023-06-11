@@ -85,7 +85,7 @@ class BookAppointmentFragment :
         adapter = AvailableAppointmentsHoursAdapter(
             AvailableAppointmentsHoursDiffUtils(),
             onItemClickListener = {
-//                viewModel.selectPetCategory(it)
+                viewModel.selectHour(it)
             })
         recyclerView.adapter = adapter
     }
