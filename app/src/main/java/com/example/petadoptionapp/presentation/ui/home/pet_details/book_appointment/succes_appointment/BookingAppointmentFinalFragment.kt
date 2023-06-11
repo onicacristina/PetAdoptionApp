@@ -100,7 +100,7 @@ class BookingAppointmentFinalFragment :
             calendar.add(Calendar.MINUTE, 30)
             val endTimeInMillis = calendar.timeInMillis
             val title = getString(R.string.calendar_appointment_title)
-            val description = getString(R.string.calendar_appointment_description)
+            val description = getString(R.string.calendar_appointment_description, petName)
             val location = appointmentLocation
             // Insert the event
             val values = ContentValues().apply {

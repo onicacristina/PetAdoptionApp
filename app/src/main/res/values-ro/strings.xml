@@ -133,7 +133,7 @@
     <string name="add_appointment_to_google_calendar">+ Adăugați programarea în calendar</string>
     <string name="go_to_my_appointments">Accesați programările mele</string>
     <string name="calendar_appointment_title">Programare vizionare animal de companie</string>
-    <string name="calendar_appointment_description">Programare pentru vizionarea animalului de companie în cadrul procesului de adopție. Numele animalului de companie: %1$s</string>
+    <string name="calendar_appointment_description">Programare pentru vizionarea animalului de companie în cadrul procesului de adopție.\n\nNumele animalului de companie: %1$s</string>
     <string name="event_added_to_calendar">Eveniment adăugat în calendar</string>
     <string name="failed_to_add_event_to_calendar">Nu s-a reușit adăugarea evenimentului în calendar</string>
     <string name="invalid_start_time_format">Formatul de începere invalid al timpului</string>

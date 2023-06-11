@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentBookAppointmentBinding
@@ -31,6 +32,7 @@ class BookAppointmentFragment :
     override val viewModel: BookAppointmentViewModel by viewModels()
     private lateinit var adapter: AvailableAppointmentsHoursAdapter
    private val calendar: Calendar = Calendar.getInstance()
+    private val args: BookAppointmentFragmentArgs by navArgs()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,7 +58,7 @@ class BookAppointmentFragment :
             navController.popBackStack()
         }
         viewBinding.btnConfirm.setOnDebounceClickListener {
-            openSuccessBookingAppointmentScreen("name", "2023-07-01 09:00", "location")
+            openSuccessBookingAppointmentScreen(petName = args.pet?.name ?:"", bookingTime = "2023-07-01 09:00", location = args.adoptionCenter?.getFullAddress() ?:"")
         }
     }
 
