@@ -56,7 +56,7 @@ class BookAppointmentFragment :
             navController.popBackStack()
         }
         viewBinding.btnConfirm.setOnDebounceClickListener {
-            openSuccessBookingAppointmentScreen("name", "time")
+            openSuccessBookingAppointmentScreen("name", "2023-07-01 09:00")
         }
     }
 
