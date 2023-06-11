@@ -23,6 +23,10 @@ import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import kotlinx.coroutines.launch
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 private const val CALENDAR_PERMISSION_REQUEST = 100
@@ -94,7 +98,7 @@ class BookingAppointmentFinalFragment :
         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 
         try {
-            val startTime: Date = dateFormat.parse(startTime)
+            val startTime: Date = dateFormat.parse(transformDateFormat(startTime))
             calendar.time = startTime
             val startTimeInMillis = calendar.timeInMillis
             calendar.add(Calendar.MINUTE, 30)
@@ -191,5 +195,12 @@ class BookingAppointmentFinalFragment :
             put(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT)
         }
         contentResolver.insert(CalendarContract.Reminders.CONTENT_URI, reminderValues2)
+    }
+
+    private fun transformDateFormat(inputDate: String): String {
+        val inputFormatter = DateTimeFormatter.ofPattern("MMM dd, yyyy, HH:mm")
+        val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val localDateTime = LocalDateTime.parse(inputDate, inputFormatter)
+        return localDateTime.format(outputFormatter)
     }
 }
