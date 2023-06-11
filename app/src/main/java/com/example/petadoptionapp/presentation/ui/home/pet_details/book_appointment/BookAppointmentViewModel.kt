@@ -33,12 +33,20 @@ class BookAppointmentViewModel @Inject constructor(
     val hoursList: Flow<List<AvailableHour>>
         get() = _hoursList
 
-    //    private var appointmentDate: Date = Calendar.ge
+    private var appointmentDate: Date = Calendar.getInstance().time
     private var selectedHour: AvailableHour = AvailableHour("")
+    private var appointmentTimeFinal: String = ""
 
     init {
         getAvailableTimes()
         Timber.e("adoption center : ${navArgs.adoptionCenter}")
+        Timber.e("selected date: $appointmentDate")
+
+    }
+
+    fun onSelectedDate(date: Date) {
+        appointmentDate = date
+        Timber.e("selected date: $appointmentDate")
     }
 
     private fun getAvailableTimes() {
@@ -88,6 +96,13 @@ class BookAppointmentViewModel @Inject constructor(
         _hoursList.value = newData
         currentState = State.Value(newData)
         selectedHour = availableHour
+    }
+
+    private fun getAppointmentTime(): String {
+        val appointmentDateFormat = SimpleDateFormat("MMM d, yyyy, HH:mm:ss", Locale.getDefault())
+        val formattedAppointmentDate = appointmentDateFormat.format(appointmentDate)
+        // Combine the formatted date with the selected time
+        return "$formattedAppointmentDate, ${selectedHour.hour}"
     }
 
     sealed class State {

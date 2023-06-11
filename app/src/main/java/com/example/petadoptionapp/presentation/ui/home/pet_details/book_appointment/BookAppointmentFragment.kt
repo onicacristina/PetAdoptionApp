@@ -64,6 +64,13 @@ class BookAppointmentFragment :
                 location = args.adoptionCenter?.getFullAddress() ?: ""
             )
         }
+        viewBinding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            val selectedDate = Calendar.getInstance().apply {
+                set(year, month, dayOfMonth)
+            }.time
+
+            viewModel.onSelectedDate(selectedDate)
+        }
     }
 
     private fun initObservers() {
