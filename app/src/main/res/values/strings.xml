@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Adopet</string>
 
+    <string name="discover">Discover</string>
+
     <string name="skip">Skip</string>
     <string name="btn_continue">Continue</string>
     <string name="btn_get_started">Get Started</string>
@@ -136,6 +138,10 @@
     <string name="calendar_permission_denied">Calendar permission denied</string>
     <string name="error_select_hour">Please select an appointment time.</string>
 
+    <!-- Appointments -->
+    <string name="appointments">Appointments</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="past">Past</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>

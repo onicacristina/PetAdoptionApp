@@ -161,6 +161,10 @@
             android:defaultValue=""
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/appointmentsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.appointments.AppointmentsFragment"
+        android:label="AppointmentsFragment" />
 
     <!--    <action-->
     <!--        android:id="@+id/startPetDetails"-->

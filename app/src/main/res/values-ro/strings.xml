@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">Adopet</string>
 
+    <string name="discover">Descoperă</string>
+
     <string name="skip">Omite</string>
     <string name="btn_continue">Continuă</string>
     <string name="btn_get_started">Începeți</string>
@@ -140,6 +142,10 @@
     <string name="calendar_permission_denied">Permisiunea pentru calendar a fost refuzată</string>
     <string name="error_select_hour">Vă rugăm să selectați o oră pentru programare.</string>
 
+    <!-- Appointments -->
+    <string name="appointments">Programări</string>
+    <string name="upcoming">Viitoare</string>
+    <string name="past">Trecute</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>
