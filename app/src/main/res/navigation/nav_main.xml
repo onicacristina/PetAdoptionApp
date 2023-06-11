@@ -138,9 +138,11 @@
 
         <argument
             android:name="petName"
+            android:defaultValue=""
             app:argType="string" />
         <argument
             android:name="appointmentTime"
+            android:defaultValue=""
             app:argType="string" />
     </fragment>
 

@@ -9,6 +9,6 @@ object Constants {
     const val PET_ID = "pet_id"
     const val ADOPTION_CENTER_ID = "adoption_center_id"
     const val PET_IMAGE_URL = "pet_image_url"
-    const val PET_NAME = "pet_name"
-    const val BOOKING_TIME = "booking_time"
+    const val PET_NAME = "petName"
+    const val BOOKING_TIME = "appointmentTime"
 }
