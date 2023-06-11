@@ -31,7 +31,7 @@ class BookAppointmentFragment :
     )
     override val viewModel: BookAppointmentViewModel by viewModels()
     private lateinit var adapter: AvailableAppointmentsHoursAdapter
-   private val calendar: Calendar = Calendar.getInstance()
+    private val calendar: Calendar = Calendar.getInstance()
     private val args: BookAppointmentFragmentArgs by navArgs()
 
 
@@ -44,11 +44,11 @@ class BookAppointmentFragment :
 
     private fun initViews() {
         viewBinding.toolbar.tvTitle.text = getString(R.string.book_appointment)
-        //desabling privious date
-        // calendarView.setMinDate(System.currentTimeMillis() - 1000);
         calendar.set(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_WEEK)
-        val minDate: Long = calendar.timeInMillis
-        viewBinding.calendarView.minDate = minDate
+        val currentDate = Calendar.getInstance()
+
+        // Set the current date as the minimum date in the CalendarView
+        viewBinding.calendarView.minDate = currentDate.timeInMillis
 
         setupRecyclerView()
     }
@@ -58,7 +58,11 @@ class BookAppointmentFragment :
             navController.popBackStack()
         }
         viewBinding.btnConfirm.setOnDebounceClickListener {
-            openSuccessBookingAppointmentScreen(petName = args.pet?.name ?:"", bookingTime = "2023-07-01 09:00", location = args.adoptionCenter?.getFullAddress() ?:"")
+            openSuccessBookingAppointmentScreen(
+                petName = args.pet?.name ?: "",
+                bookingTime = "2023-07-01 09:00",
+                location = args.adoptionCenter?.getFullAddress() ?: ""
+            )
         }
     }
 
