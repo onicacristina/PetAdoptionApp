@@ -5,7 +5,9 @@ import com.example.petadoptionapp.presentation.ui.home.AgeCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Parcelize
 data class AnimalResponse(
     val id: String,

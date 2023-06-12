@@ -77,7 +77,7 @@ class FavoriteFragment :
                 navController.navigate(R.id.toPetDetailsFragment, bundle)
             },
             onFavoriteButtonClickListener = {
-
+                viewModel.deleteFromFavoritesList(it)
             }
         )
         recyclerView.adapter = adapter

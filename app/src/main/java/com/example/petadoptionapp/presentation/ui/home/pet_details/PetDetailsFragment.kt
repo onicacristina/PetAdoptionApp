@@ -68,6 +68,7 @@ class PetDetailsFragment :
         }
         viewBinding.ivFavorite.setOnDebounceClickListener {
             //TODO
+            viewModel.addToFavoritesList()
         }
         viewBinding.ivCall.setOnDebounceClickListener {
             showDialer(viewModel.adoptionCenterData.phone)

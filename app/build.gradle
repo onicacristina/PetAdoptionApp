@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-parcelize'
+    id 'kotlinx-serialization'
 }
 
 android {
@@ -117,6 +118,9 @@ dependencies {
     //google calendar
 //    implementation 'com.google.api-client:google-api-client-android:1.31.5'
 //    implementation 'com.google.apis:google-api-services-calendar:v3-rev305-1.25.0'
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+
 
 
 }

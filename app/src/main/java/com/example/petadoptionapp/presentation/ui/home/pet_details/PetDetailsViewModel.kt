@@ -6,6 +6,7 @@ import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.repository.adoption_center_repository.AdoptionCenterRepository
 import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
+import com.example.petadoptionapp.repository.favorites_repository.FavoritesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class PetDetailsViewModel @Inject constructor(
     private val animalsRepository: AnimalsRepository,
-    private val adoptionCenterRepository: AdoptionCenterRepository
+    private val adoptionCenterRepository: AdoptionCenterRepository,
+    private val favoritesRepository: FavoritesRepository
 ) : BaseViewModel() {
 
     var adoptionCenterData: AdoptionCenter = AdoptionCenter.default
@@ -30,6 +32,10 @@ class PetDetailsViewModel @Inject constructor(
     private val _animalObservable: MutableStateFlow<AnimalResponse?> = MutableStateFlow(null)
     val animalObservable: Flow<AnimalResponse?>
         get() = _animalObservable
+
+    fun addToFavoritesList() {
+        favoritesRepository.saveToFavorites(animalData)
+    }
 
     fun getAdoptionCenterById(id: String) {
         viewModelScope.launch {
