@@ -127,7 +127,9 @@
 
     <!-- Book appointments -->
     <string name="book_appointment">Book appointment</string>
-    <string name="available_time">Available time</string>
+    <string name="appointment_date">Date</string>
+    <string name="pet">Pet</string>
+    <string name="available_time">Available hours</string>
     <string name="confirm_schedule">Confirm Schedule</string>
     <string name="your_appointment_has_been_booked">Your appointments has been booked</string>
     <string name="waiting_for_you">%1$s will be waiting for you</string>

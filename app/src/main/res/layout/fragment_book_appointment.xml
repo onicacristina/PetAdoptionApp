@@ -11,17 +11,20 @@
         layout="@layout/layout_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/calendarView"
+        app:layout_constraintBottom_toTopOf="@id/tvDate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <DatePicker
+    <TextView
+        android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
-        android:spinnersShown="false"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/rvAvailableTime"
+        android:layout_margin="@dimen/margin_12"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/appointment_date"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_20"
+        app:layout_constraintBottom_toTopOf="@id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -35,7 +38,7 @@
         app:layout_constraintBottom_toTopOf="@id/tvAvailableTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
     <TextView
         android:id="@+id/tvAvailableTime"

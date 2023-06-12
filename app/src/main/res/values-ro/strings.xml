@@ -129,7 +129,9 @@
 
     <!-- Book appointments -->
     <string name="book_appointment">Rezervă programare</string>
-    <string name="available_time">Timp disponibil</string>
+    <string name="appointment_date">Data</string>
+    <string name="available_time">Ore disponibile</string>
+    <string name="pet">Animal de companie</string>
     <string name="confirm_schedule">Confirmă programarea</string>
     <string name="your_appointment_has_been_booked">Programarea dvs. a fost rezervată</string>
     <string name="waiting_for_you">%1$s vă așteaptă</string>
