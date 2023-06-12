@@ -4,6 +4,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.AdoptionCenter
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
+import com.example.petadoptionapp.presentation.utils.EventDelegate
 import com.example.petadoptionapp.repository.adoption_center_repository.AdoptionCenterRepository
 import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import com.example.petadoptionapp.repository.favorites_repository.FavoritesRepository
@@ -19,7 +21,8 @@ class PetDetailsViewModel @Inject constructor(
     private val animalsRepository: AnimalsRepository,
     private val adoptionCenterRepository: AdoptionCenterRepository,
     private val favoritesRepository: FavoritesRepository
-) : BaseViewModel() {
+) : BaseViewModel(),
+    EventDelegate<PetDetailsViewModel.Event> by DefaultEventDelegate() {
 
     var adoptionCenterData: AdoptionCenter = AdoptionCenter.default
     var animalData: AnimalResponse = AnimalResponse.default
@@ -33,8 +36,49 @@ class PetDetailsViewModel @Inject constructor(
     val animalObservable: Flow<AnimalResponse?>
         get() = _animalObservable
 
+    private val _isSavedToFavorites: MutableStateFlow<Boolean?> = MutableStateFlow(null)
+    val isSavedToFavorites: Flow<Boolean?>
+        get() = _isSavedToFavorites
+
+
+    init {
+        favoritesRepository.getFavoritesList()
+//        checkIsSavedToFavoritesList()
+    }
+
+    fun onIsSavedToFavoriteChanged() {
+        _isSavedToFavorites.value = !_isSavedToFavorites.value!!
+    }
+
+    private fun checkIsSavedToFavoritesList() {
+        viewModelScope.launch {
+            _isSavedToFavorites.value = favoritesRepository.isSavedToFavoritesList(animalData)
+            Timber.e("issaved ${_isSavedToFavorites.value}")
+        }
+    }
+
+
+    fun onFavoriteClicked() {
+        if (_isSavedToFavorites.value == true) {
+            // Animalul este deja salvat în lista de favorite
+            removeFromFavoritesList()
+            sendEvent(Event.REMOVED_FROM_FAVORITES)
+            onIsSavedToFavoriteChanged()
+        } else {
+            // Animalul nu este salvat în lista de favorite
+            addToFavoritesList()
+            sendEvent(Event.SAVED_TO_FAVORITES)
+            onIsSavedToFavoriteChanged()
+        }
+    }
+
+
     fun addToFavoritesList() {
         favoritesRepository.saveToFavorites(animalData)
+    }
+
+    fun removeFromFavoritesList() {
+        favoritesRepository.deleteFromFavoritesList(animalData)
     }
 
     fun getAdoptionCenterById(id: String) {
@@ -59,6 +103,7 @@ class PetDetailsViewModel @Inject constructor(
                 onSuccess = { animal ->
                     _animalObservable.value = animal
                     animalData = animal
+                    checkIsSavedToFavoritesList()
                     Timber.e("success get animal $animal")
 
                 },
@@ -68,5 +113,10 @@ class PetDetailsViewModel @Inject constructor(
                 }
             )
         }
+    }
+
+    enum class Event {
+        SAVED_TO_FAVORITES,
+        REMOVED_FROM_FAVORITES
     }
 }

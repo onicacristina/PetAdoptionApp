@@ -36,7 +36,7 @@ class FavoritesAdapter(
             bindPetName(data)
             bindPetBreedAndAge(data)
             bindPetGender(data)
-            bindFavorite(data)
+//            bindFavorite(data)
             bindItemClick(data)
             bindFavoriteButtonClick(data)
         }

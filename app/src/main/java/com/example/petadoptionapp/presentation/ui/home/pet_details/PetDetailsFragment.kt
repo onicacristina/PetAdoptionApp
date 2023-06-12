@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -67,8 +68,8 @@ class PetDetailsFragment :
             navController.popBackStack()
         }
         viewBinding.ivFavorite.setOnDebounceClickListener {
-            //TODO
-            viewModel.addToFavoritesList()
+//            viewModel.addToFavoritesList()
+            viewModel.onFavoriteClicked()
         }
         viewBinding.ivCall.setOnDebounceClickListener {
             showDialer(viewModel.adoptionCenterData.phone)
@@ -110,8 +111,43 @@ class PetDetailsFragment :
                         data?.let { initPetDetails(it) }
                     }
                 }
+                launch {
+                    viewModel.isSavedToFavorites.collect { data ->
+                        data?.let { initPetFavoriteIcon(it) }
+                    }
+                }
+                launch {
+                    viewModel.event.collect { event ->
+                        onEvent(event)
+                    }
+                }
             }
         }
+    }
+
+    private fun onEvent(event: PetDetailsViewModel.Event) {
+        when (event) {
+            PetDetailsViewModel.Event.SAVED_TO_FAVORITES -> onSavedToFavorites()
+            PetDetailsViewModel.Event.REMOVED_FROM_FAVORITES -> onRemovedFromFavorites()
+        }
+    }
+
+    private fun onSavedToFavorites() {
+        viewModel.onIsSavedToFavoriteChanged()
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.animal_added_to_favorites),
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    private fun onRemovedFromFavorites() {
+        viewModel.onIsSavedToFavoriteChanged()
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.animal_removed_from_favorites),
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     private fun openBookAppointmentScreen(pet: AnimalResponse, adoptionCenter: AdoptionCenter) {
@@ -133,6 +169,10 @@ class PetDetailsFragment :
         initPetGender(data)
         initPetHealth(data)
         initPetStory(data)
+    }
+
+    private fun initPetFavoriteIcon(isFavorite: Boolean) {
+        viewBinding.ivFavorite.setImageResource(if (isFavorite) R.drawable.ic_favorite_selected else R.drawable.ic_favorite)
     }
 
     private fun initAdoptionCenterDetails(data: AdoptionCenter) {

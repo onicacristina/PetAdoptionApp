@@ -50,6 +50,10 @@ class FavoriteViewModel @Inject constructor(
         }
     }
 
+    fun clearFavoritesList() {
+        favoritesRepository.clearAllFavoritesList()
+    }
+
     private fun getFavoritesList() {
 //        val favorites =  emptyList<AnimalResponse>()
         val favorites = listOf<AnimalResponse>(

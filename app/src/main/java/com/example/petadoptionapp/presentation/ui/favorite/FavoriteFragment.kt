@@ -49,6 +49,9 @@ class FavoriteFragment :
         viewBinding.noDataFound.btnFindPets.setOnDebounceClickListener {
             getMainActivity()?.initNavigation()
         }
+        viewBinding.btnClearFavorites.setOnDebounceClickListener {
+            viewModel.clearFavoritesList()
+        }
     }
 
     private fun initObservers() {
@@ -92,6 +95,7 @@ class FavoriteFragment :
             viewBinding.rvFavorites.isVisible = false
             viewBinding.noDataFound.container.isVisible = true
             viewBinding.pbLoading.isVisible = false
+            viewBinding.btnClearFavorites.isVisible = false
             setList(emptyList()) // Clear the list when in empty state
         }
 
@@ -99,6 +103,7 @@ class FavoriteFragment :
             viewBinding.rvFavorites.isVisible = true
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = false
+            viewBinding.btnClearFavorites.isVisible = true
             setList(data)
         }
 
@@ -106,6 +111,7 @@ class FavoriteFragment :
             viewBinding.rvFavorites.isVisible = false
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = true
+            viewBinding.btnClearFavorites.isVisible = false
             setList(emptyList()) // Clear the list when in loading state
         }
 

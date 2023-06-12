@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -55,4 +56,11 @@ class FavoritesRepository @Inject constructor(
         val newData = oldData.filter { value -> value.id != element.id }
         setFavoritesList(newData)
     }
+
+    fun isSavedToFavoritesList(animalResponse: AnimalResponse): Boolean {
+        val favoritesList = getFavoritesList()
+        Timber.e("este salvat: ${favoritesList.any { it.id == animalResponse.id }}")
+        return favoritesList.any { it.id == animalResponse.id }
+    }
+
 }

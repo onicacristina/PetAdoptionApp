@@ -99,7 +99,7 @@
                 android:contentDescription="@null"
                 android:focusable="true"
                 android:padding="@dimen/margin_4"
-                android:src="@drawable/ic_favorite"
+                android:src="@drawable/ic_delete"
                 app:layout_constraintBottom_toBottomOf="@+id/ivPetImage"
                 app:layout_constraintEnd_toEndOf="@+id/ivPetImage"
                 app:layout_constraintHorizontal_bias="1.0"

@@ -83,6 +83,10 @@
     <string name="you_do_not_have_favorite">You don\'t have anything in your favorites list yet</string>
     <string name="find_pets">Find pets</string>
     <string name="favorites">Favorites</string>
+    <string name="animal_added_to_favorites">Animal added to favorites</string>
+    <string name="animal_removed_from_favorites">Animal removed from favorites</string>
+    <string name="clear_favorites">Clear Favorites</string>
+
 
     <!-- popup -->
     <string name="something_went_wrong">Something went wrong</string>

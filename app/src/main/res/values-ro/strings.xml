@@ -85,7 +85,9 @@
     <string name="you_do_not_have_favorite">Încă nu aveți nimic în lista de favorite</string>
     <string name="find_pets">Găsiți animale de companie</string>
     <string name="favorites">Favorite</string>
-
+    <string name="animal_added_to_favorites">Animal adăugat la favorite</string>
+    <string name="animal_removed_from_favorites">Animal scos din favorite</string>
+    <string name="clear_favorites">Golește Lista de Favorite</string>
 
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>

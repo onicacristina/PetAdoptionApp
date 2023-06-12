@@ -20,12 +20,31 @@
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/margin_20"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnClearFavorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:itemCount="4"
         tools:listitem="@layout/item_pets" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnClearFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginHorizontal="@dimen/margin_40"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:background="@drawable/btn_rounded"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:paddingHorizontal="24dp"
+        android:text="@string/clear_favorites"
+        android:textAllCaps="false"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <include
         android:id="@+id/noDataFound"
