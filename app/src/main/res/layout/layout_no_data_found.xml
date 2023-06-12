@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_no_data_found"
+            android:src="@drawable/ic_no_data"
             app:layout_constraintBottom_toTopOf="@+id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,12 +36,12 @@
             android:fontFamily="@font/lato_bold"
             android:gravity="center"
             android:textColor="@color/text_black"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivNoDataFound"
-            tools:text="No data found" />
+            android:text="@string/no_data_found" />
     </LinearLayout>
 
 </LinearLayout>

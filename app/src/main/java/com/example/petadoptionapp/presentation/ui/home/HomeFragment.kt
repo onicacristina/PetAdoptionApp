@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.transition.TransitionManager
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentHomeBinding
 import com.example.petadoptionapp.network.models.response.AnimalResponse
@@ -22,7 +21,6 @@ import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryAdapte
 import com.example.petadoptionapp.presentation.ui.home.adapter.PetCategoryDiffUtils
 import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
-import com.example.petadoptionapp.presentation.utils.extensions.withPrevious
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -68,8 +66,8 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
                 }
 
                 launch {
-                    viewModel.state.withPrevious().collect { value ->
-                        renderState(value.previous, value.current)
+                    viewModel.state.collect { value ->
+                        renderState(value)
                     }
                 }
             }
@@ -84,6 +82,7 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             PetCategoryDiffUtils(),
             onItemClickListener = {
                 viewModel.selectPetCategory(it)
+                recyclerView.scrollToPosition(it.id.toInt())
             })
         recyclerView.adapter = petCategoryAdapter
     }
@@ -128,49 +127,7 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
         )
     }
 
-//    private fun renderState(
-//        previous: HomeViewModel.State?,
-//        state: HomeViewModel.State
-//    ) {
-//
-//        fun renderEmptyState() {
-//            viewBinding.rvPets.isVisible = false
-//            viewBinding.noDataFound.container.isVisible = true
-//            viewBinding.pbLoading.isVisible = false
-//            viewBinding.swipeRefreshLayout.isVisible = true
-//            viewBinding.swipeRefreshLayout.isRefreshing = true
-//            setList(emptyList())
-//        }
-//
-//        fun renderListState(data: List<AnimalResponse>) {
-//            viewBinding.rvPets.isVisible = true
-//            viewBinding.noDataFound.container.isVisible = false
-//            viewBinding.pbLoading.isVisible = false
-//            viewBinding.swipeRefreshLayout.isVisible = true
-//            viewBinding.swipeRefreshLayout.isRefreshing = true
-//            setList(data)
-//        }
-//
-//        fun renderLoadingState() {
-//            viewBinding.rvPets.isVisible = false
-//            viewBinding.noDataFound.container.isVisible = false
-//            viewBinding.pbLoading.isVisible = true
-//            viewBinding.swipeRefreshLayout.isVisible = false
-//            viewBinding.swipeRefreshLayout.isRefreshing = false
-//        }
-//
-//        if (previous?.javaClass != state.javaClass) {
-//            TransitionManager.beginDelayedTransition(viewBinding.root)
-//        }
-//
-//        when (state) {
-//            is HomeViewModel.State.Value -> renderListState(state.petsList)
-//            is HomeViewModel.State.Loading -> renderLoadingState()
-//            else -> renderEmptyState()
-//        }
-//    }
-
-    private fun renderState(previous: HomeViewModel.State?, state: HomeViewModel.State) {
+    private fun renderState(state: HomeViewModel.State) {
         fun renderEmptyState() {
             viewBinding.rvPets.isVisible = false
             viewBinding.noDataFound.container.isVisible = true
@@ -192,11 +149,6 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = true
             viewBinding.swipeRefreshLayout.isRefreshing = false
-            setList(emptyList()) // Clear the list when in loading state
-        }
-
-        if (previous?.javaClass != state.javaClass) {
-            TransitionManager.beginDelayedTransition(viewBinding.root)
         }
 
         when (state) {

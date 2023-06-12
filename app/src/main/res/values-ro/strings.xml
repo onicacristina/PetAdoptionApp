@@ -8,6 +8,9 @@
     <string name="btn_continue">Continuă</string>
     <string name="btn_get_started">Începeți</string>
 
+    <string name="no_data_found">Nu au fost găsite date</string>
+
+
     <!-- Language -->
     <string name="welcome">Bun venit!</string>
     <string name="choose_language_app">Alegeți limba aplicației</string>
