@@ -133,7 +133,6 @@ class PetDetailsFragment :
     }
 
     private fun onSavedToFavorites() {
-        viewModel.onIsSavedToFavoriteChanged()
         Toast.makeText(
             requireContext(),
             getString(R.string.animal_added_to_favorites),
@@ -142,7 +141,6 @@ class PetDetailsFragment :
     }
 
     private fun onRemovedFromFavorites() {
-        viewModel.onIsSavedToFavoriteChanged()
         Toast.makeText(
             requireContext(),
             getString(R.string.animal_removed_from_favorites),
