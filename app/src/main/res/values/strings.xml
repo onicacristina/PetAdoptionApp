@@ -150,6 +150,8 @@
     <string name="appointments">Appointments</string>
     <string name="upcoming">Upcoming</string>
     <string name="past">Past</string>
+    <string name="no_appointmnets">You don\'t have any appointments yet</string>
+    <string name="view_details">View details</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>
