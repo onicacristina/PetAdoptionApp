@@ -63,7 +63,7 @@ class HomeViewModel @Inject constructor(
 
     private fun getPetsBySpecie(specie: EPetCategory, searchQuery: String = "") {
         viewModelScope.launch {
-            currentState = State.Loading
+//            currentState = State.Loading
             val response = if (specie != EPetCategory.ALL) {
                 animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
             } else {
