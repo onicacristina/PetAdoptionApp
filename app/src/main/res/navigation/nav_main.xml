@@ -164,7 +164,20 @@
     <fragment
         android:id="@+id/appointmentsFragment"
         android:name="com.example.petadoptionapp.presentation.ui.appointments.AppointmentsFragment"
-        android:label="AppointmentsFragment" />
+        android:label="AppointmentsFragment" >
+        <action
+            android:id="@+id/action_appointmentsFragment_to_petDetailsFragment"
+            app:destination="@id/petDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upcomingAppointmentsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.appointments.upcoming_appointments.UpcomingAppointmentsFragment"
+        android:label="fragment_upcoming_appointments"
+        tools:layout="@layout/fragment_upcoming_appointments" >
+        <action
+            android:id="@+id/action_upcomingAppointmentsFragment_to_petDetailsFragment"
+            app:destination="@id/petDetailsFragment" />
+    </fragment>
 
     <!--    <action-->
     <!--        android:id="@+id/startPetDetails"-->
