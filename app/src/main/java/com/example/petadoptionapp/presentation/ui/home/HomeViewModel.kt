@@ -3,11 +3,14 @@ package com.example.petadoptionapp.presentation.ui.home
 import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.BaseViewModel
-import com.example.petadoptionapp.presentation.utils.Resource
+import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
+import com.example.petadoptionapp.presentation.utils.DefaultStateDelegate
+import com.example.petadoptionapp.presentation.utils.EventDelegate
+import com.example.petadoptionapp.presentation.utils.StateDelegate
 import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -15,40 +18,35 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val animalsRepository: AnimalsRepository
-) : BaseViewModel() {
+) : BaseViewModel(),
+    StateDelegate<HomeViewModel.State> by DefaultStateDelegate(State.Loading),
+    EventDelegate<HomeViewModel.Event> by DefaultEventDelegate() {
 
     private val _petCategoryObservable: MutableStateFlow<List<PetCategoryModel>> =
         MutableStateFlow(getPetCategoryList())
     val petCategoryObservable: Flow<List<PetCategoryModel>>
         get() = _petCategoryObservable
 
-    private val petsResource: MutableStateFlow<Resource<List<AnimalResponse>>> =
-        MutableStateFlow(Resource.Loading)
-
     private var specieSelected: EPetCategory = EPetCategory.ALL
 
-    @OptIn(ExperimentalCoroutinesApi::class)
-    val state: StateFlow<State> = petsResource
-        .flatMapLatest { value ->
-            when (value) {
-                is Resource.Value -> flowOf(PageUpdate.Value(value.data))
-                else -> emptyFlow()
-            }
-        }
-        .map { value -> generateState(value) }
-        .stateIn(
-            viewModelScope,
-            SharingStarted.WhileSubscribed(),
-            State.Loading
-        )
+    private val searchQueryObservable: MutableStateFlow<String> = MutableStateFlow("")
+
+    private val _searchResults: MutableStateFlow<List<AnimalResponse>> =
+        MutableStateFlow(emptyList())
+    val searchResults: Flow<List<AnimalResponse>>
+        get() = _searchResults
+
 
     init {
-//        getPets()
         getPetsBySpecie(specieSelected)
     }
 
+    fun onSearchChanged(data: String) {
+        searchQueryObservable.value = data
+        getPetsBySpecie(specieSelected, data)
+    }
+
     fun refresh() {
-//        getPets()
         getPetsBySpecie(specieSelected)
     }
 
@@ -60,35 +58,12 @@ class HomeViewModel @Inject constructor(
         }
         _petCategoryObservable.value = newData
         specieSelected = EPetCategory.getPetCategoryByIcon(petCategoryModel.iconDrawable)
-//        petsResource.value = Resource.Loading // Trigger the loading state
         getPetsBySpecie(specieSelected)
     }
 
-
-//    private fun getPetsBySpecie(specie: EPetCategory) {
-//        viewModelScope.launch {
-//            delay(2.seconds)
-//            val response = if (specie != EPetCategory.ALL) {
-//                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
-//            } else {
-//                animalsRepository.getAllAnimals()
-//            }
-//            response.either(
-//                {
-//                    Timber.e("Failed to fetch pets for specie: $specie")
-//                },
-//                { pets ->
-//                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
-//                    petsResource.value = Resource.Value(pets)
-//                }
-//            )
-//        }
-//    }
-
-    private fun getPetsBySpecie(specie: EPetCategory) {
+    private fun getPetsBySpecie(specie: EPetCategory, searchQuery: String = "") {
         viewModelScope.launch {
-            petsResource.value =
-                Resource.Loading // Set the loading state before making the API request
+//            currentState = State.Loading
             val response = if (specie != EPetCategory.ALL) {
                 animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
             } else {
@@ -97,43 +72,21 @@ class HomeViewModel @Inject constructor(
             response.fold(
                 onFailure = { error ->
                     Timber.e("Failed to fetch pets for specie: $specie, error: $error")
-                    petsResource.value =
-                        Resource.Value(emptyList()) // Set the empty state in case of failure
                 },
                 onSuccess = { pets ->
-                    Timber.e("Fetched pets for specie: $specie, pets: $pets")
-                    petsResource.value =
-                        Resource.Value(pets) // Set the value state with the fetched pets
+                    val filteredPets = if (searchQuery.isNotBlank()) {
+                        pets.filter { it.name.contains(searchQuery, ignoreCase = true) }
+                    } else {
+                        pets
+                    }
+                    Timber.e("Fetched pets for specie: $specie, pets: $filteredPets")
+                    currentState =
+                        if (filteredPets.isEmpty()) State.Empty else State.Value(filteredPets)
+                    _searchResults.value = filteredPets
                 }
             )
         }
     }
-
-//    private fun getPets() {
-//        viewModelScope.launch {
-//            delay(10.seconds)
-//            if (specieSelected != EPetCategory.ALL) {
-//                animalsRepository.getAnimalsBySpecie(specieSelected.getPetCategoryString()).either(
-//                    {
-//                        Timber.e("failure get all animals")
-//                    },
-//                    {
-//                        Timber.e("success get all animals: $it")
-//                    }
-//                )
-//            } else {
-//                animalsRepository.getAllAnimals().either(
-//                    {
-//                        Timber.e("failure get all animals")
-//                    },
-//                    {
-//                        Timber.e("success get all animals: $it")
-//                    }
-//                )
-//            }
-//            petsResource.value = Resource.Value(emptyList())
-//        }
-//    }
 
     private fun getPetCategoryList(): List<PetCategoryModel> {
         return listOf(
@@ -166,32 +119,14 @@ class HomeViewModel @Inject constructor(
         )
     }
 
-//    fun selectPetCategory(petCategoryModel: PetCategoryModel) {
-//        val oldData = _petCategoryObservable.value
-//        val newData = oldData.map { value ->
-//            val isSelected = value.id == petCategoryModel.id
-//            value.copy(isSelected = isSelected)
-//        }
-//        _petCategoryObservable.value = newData
-//        specieSelected = EPetCategory.getPetCategoryByIcon(petCategoryModel.iconDrawable)
-//    }
-
-    private fun generateState(data: PageUpdate): State {
-        return when (data) {
-            is PageUpdate.Loading -> State.Loading
-            is PageUpdate.Value -> {
-                if (data.dataUpdate.isEmpty())
-                    return State.Empty
-                State.Value(data.dataUpdate)
-            }
-            else -> State.Empty
-        }
-    }
-
     sealed class State {
         object Loading : State()
         object Empty : State()
         data class Value(val petsList: List<AnimalResponse>) : State()
         //TODO: error state
+    }
+
+    enum class Event {
+        FINISH
     }
 }

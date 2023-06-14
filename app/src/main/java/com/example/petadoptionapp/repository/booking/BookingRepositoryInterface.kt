@@ -8,4 +8,6 @@ interface BookingRepositoryInterface {
     suspend fun getOneBookingById(id: String): Result<Booking>
     suspend fun getBookingsByUserId(userId: String): Result<List<Booking>>
     suspend fun addBooking(data: NBookingParams): Result<NPostBookingResponse>
+
+    suspend fun deleteBooking(id: String): Result<Any>
 }

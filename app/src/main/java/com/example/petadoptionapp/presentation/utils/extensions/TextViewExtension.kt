@@ -29,9 +29,8 @@ fun TextView.addClickableLink(
         override fun updateDrawState(ds: TextPaint) {
             super.updateDrawState(ds)
             ds.color = ContextCompat.getColor(context, textColor)
-            if (isUnderlined == true) {
-                ds.isUnderlineText = true // Show links with underlines
-            }
+            ds.isUnderlineText = isUnderlined ?: false
+
             if (isBolded == true) {
                 ds.typeface = Typeface.DEFAULT_BOLD // show the text bolded
             }

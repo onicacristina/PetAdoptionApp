@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -30,6 +32,8 @@ class PetDetailsFragment :
     NoBottomNavigationFragment<FragmentPetDetailsBinding>(R.layout.fragment_pet_details) {
     override val viewBinding: FragmentPetDetailsBinding by viewBinding(FragmentPetDetailsBinding::bind)
     override val viewModel: PetDetailsViewModel by viewModels()
+    private lateinit var pet: AnimalResponse
+    private lateinit var adoptionCenter: AdoptionCenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,13 +59,17 @@ class PetDetailsFragment :
         viewBinding.ivPetImage.setOnDebounceClickListener {
             val bundle = Bundle()
             bundle.putString(Constants.PET_IMAGE_URL, viewModel.animalData.imageUrl)
-            navController.navigate(R.id.action_petDetailsFragment_to_petImageDetailsFragment, bundle)
+            navController.navigate(
+                R.id.action_petDetailsFragment_to_petImageDetailsFragment,
+                bundle
+            )
         }
         viewBinding.ivBack.setOnDebounceClickListener {
             navController.popBackStack()
         }
         viewBinding.ivFavorite.setOnDebounceClickListener {
-            //TODO
+//            viewModel.addToFavoritesList()
+            viewModel.onFavoriteClicked()
         }
         viewBinding.ivCall.setOnDebounceClickListener {
             showDialer(viewModel.adoptionCenterData.phone)
@@ -70,7 +78,8 @@ class PetDetailsFragment :
             openEmail(viewModel.adoptionCenterData.email)
         }
         viewBinding.btnAdoptNow.setOnDebounceClickListener {
-            navController.navigate(R.id.action_petDetailsFragment_to_bookAppointmentFragment)
+            openBookAppointmentScreen(pet = pet, adoptionCenter = adoptionCenter)
+//            navController.navigate(R.id.action_petDetailsFragment_to_bookAppointmentFragment)
         }
         viewBinding.tvAdoptionCenter.setOnDebounceClickListener {
             //todo
@@ -102,11 +111,55 @@ class PetDetailsFragment :
                         data?.let { initPetDetails(it) }
                     }
                 }
+                launch {
+                    viewModel.isSavedToFavorites.collect { data ->
+                        data?.let { initPetFavoriteIcon(it) }
+                    }
+                }
+                launch {
+                    viewModel.event.collect { event ->
+                        onEvent(event)
+                    }
+                }
             }
         }
     }
 
+    private fun onEvent(event: PetDetailsViewModel.Event) {
+        when (event) {
+            PetDetailsViewModel.Event.SAVED_TO_FAVORITES -> onSavedToFavorites()
+            PetDetailsViewModel.Event.REMOVED_FROM_FAVORITES -> onRemovedFromFavorites()
+        }
+    }
+
+    private fun onSavedToFavorites() {
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.animal_added_to_favorites),
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    private fun onRemovedFromFavorites() {
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.animal_removed_from_favorites),
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    private fun openBookAppointmentScreen(pet: AnimalResponse, adoptionCenter: AdoptionCenter) {
+        navController.navigate(
+            R.id.action_petDetailsFragment_to_bookAppointmentFragment,
+            bundleOf(
+                Constants.PET to pet,
+                Constants.ADOPTION_CENTER to adoptionCenter
+            )
+        )
+    }
+
     private fun initPetDetails(data: AnimalResponse) {
+        pet = data
         initPetImage(data)
         initPetName(data)
         initPetBreed(data)
@@ -116,7 +169,12 @@ class PetDetailsFragment :
         initPetStory(data)
     }
 
+    private fun initPetFavoriteIcon(isFavorite: Boolean) {
+        viewBinding.ivFavorite.setImageResource(if (isFavorite) R.drawable.ic_favorite_selected else R.drawable.ic_favorite)
+    }
+
     private fun initAdoptionCenterDetails(data: AdoptionCenter) {
+        adoptionCenter = data
         initAdoptionCenterName(data)
         initAdoptionCenterFullAddress(data)
     }

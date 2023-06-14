@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.profile.settings.terms_and_conditions.TermsAndConditionsFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scrollView"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_24"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/generalDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/terms_general_description"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:id="@+id/tvPurpose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:layout_marginTop="@dimen/margin_24"
+                android:text="@string/purpose_of_the_application_title"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/text_18" />
+
+            <TextView
+                android:id="@+id/tvPurposeDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/purpose_of_the_application_description"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:id="@+id/tvResponsibilities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:layout_marginTop="@dimen/margin_24"
+                android:text="@string/responsibilities_and_obligations_title"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/text_18" />
+
+            <TextView
+                android:id="@+id/tvResponsibilitiesDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/responsibilities_and_obligations_description"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:id="@+id/tvAdoptionProcess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:layout_marginTop="@dimen/margin_24"
+                android:text="@string/adoption_process_title"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/text_18" />
+
+            <TextView
+                android:id="@+id/tvAdoptionProcessDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/adoption_process_description"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:id="@+id/tvPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:layout_marginTop="@dimen/margin_24"
+                android:text="@string/privacy_title"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/text_18" />
+
+            <TextView
+                android:id="@+id/tvPrivacyDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/privacy_description"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:id="@+id/tvCopyright"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:layout_marginTop="@dimen/margin_24"
+                android:text="@string/copyright_title"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/text_18" />
+
+            <TextView
+                android:id="@+id/tvCopyrightDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/copyright_description"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:id="@+id/generalDescriptionBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="@dimen/margin_30"
+                android:layout_marginBottom="@dimen/margin_40"
+                android:text="@string/terms_general_description2"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

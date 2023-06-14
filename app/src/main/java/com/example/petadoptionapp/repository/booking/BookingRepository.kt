@@ -41,4 +41,12 @@ class BookingRepository @Inject constructor(
             }
         }
     }
+
+    override suspend fun deleteBooking(id: String): Result<Any> {
+        return withContext(Dispatchers.IO) {
+            kotlin.runCatching {
+                apiBookingInterface.deleteBooking(id)
+            }
+        }
+    }
 }

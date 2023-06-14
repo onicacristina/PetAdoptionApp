@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivNoFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_favorite_2"
+            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:text="@string/you_do_not_have_favorite"
+            android:textColor="@color/text_black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivNoDataFound" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFindPets"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="@dimen/margin_40"
+            android:layout_marginTop="@dimen/margin_20"
+            android:background="@drawable/btn_rounded"
+            android:fontFamily="@font/lato_bold"
+            android:gravity="center"
+            android:paddingHorizontal="24dp"
+            android:text="@string/find_pets"
+            android:textAllCaps="false"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_16" />
+    </LinearLayout>
+
+</LinearLayout>

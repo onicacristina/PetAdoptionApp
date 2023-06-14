@@ -45,7 +45,7 @@ class LanguageAdapter(
             bindSelected(item)
         }
 
-        fun bindSelected(data: Language) {
+        private fun bindSelected(data: Language) {
             if (data.isSelected)
                 binding.ivArrow.setImageResource(R.drawable.ic_language_checked)
             else

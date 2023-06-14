@@ -2,9 +2,14 @@
 <resources>
     <string name="app_name">Adopet</string>
 
+    <string name="discover">Descoperă</string>
+
     <string name="skip">Omite</string>
     <string name="btn_continue">Continuă</string>
     <string name="btn_get_started">Începeți</string>
+
+    <string name="no_data_found">Nu au fost găsite date</string>
+
 
     <!-- Language -->
     <string name="welcome">Bun venit!</string>
@@ -63,6 +68,9 @@
     <string name="hello_user">Bună, %1$s</string>
     <string name="pet_categories">Categorii de animale de companie</string>
 
+    <string name="search_by_name">Caută după nume</string>
+
+
     <!-- Pet Details -->
     <string name="vaccinated">• Vaccinat</string>
     <string name="neutered">• Sterilizat</string>
@@ -75,7 +83,14 @@
     <string name="gender_male">Masculin</string>
     <string name="gender_female">Feminin</string>
 
-    <string name="confirm_schedule">Confirmă programarea</string>
+
+    <!-- Favorite -->
+    <string name="you_do_not_have_favorite">Încă nu aveți nimic în lista de favorite</string>
+    <string name="find_pets">Găsiți animale de companie</string>
+    <string name="favorites">Favorite</string>
+    <string name="animal_added_to_favorites">Animal adăugat la favorite</string>
+    <string name="animal_removed_from_favorites">Animal scos din favorite</string>
+    <string name="clear_favorites">Golește Lista de Favorite</string>
 
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>
@@ -89,6 +104,18 @@
     <string name="settings">Setări</string>
     <string name="log_out">Deconectare</string>
 
+    <!-- Edit profile -->
+    <string name="phone_number">Număr de telefon</string>
+    <string name="joined">Înregistrat la</string>
+
+    <!-- Change password -->
+    <string name="current_password">Parola actuală</string>
+    <string name="new_password">Parolă nouă</string>
+    <string name="confirm_new_password">Confirmă parola nouă</string>
+    <string name="save">Salvează</string>
+    <string name="passwords_do_not_match">Parolele nu se potrivesc</string>
+
+
     <!-- Settings -->
     <string name="dark_mode">Mod întunecat</string>
     <string name="language">Limba</string>
@@ -98,4 +125,51 @@
     <string name="cancel">Anulează</string>
     <string name="delete">Șterge</string>
 
+    <!-- Language -->
+    <string name="save_changes">Salvează modificările</string>
+    <string name="language_settings">Setări limbă</string>
+    <string name="change_the_system_language">Aici poți schimba limba sistemului pentru această aplicație.</string>
+
+    <!-- Book appointments -->
+    <string name="book_appointment">Rezervă programare</string>
+    <string name="appointment_date">Data</string>
+    <string name="available_time">Ore disponibile</string>
+    <string name="pet">Animal de companie</string>
+    <string name="confirm_schedule">Confirmă programarea</string>
+    <string name="your_appointment_has_been_booked">Programarea dvs. a fost rezervată</string>
+    <string name="waiting_for_you">%1$s vă așteaptă</string>
+    <string name="booking_time">%1$s la %2$s</string>
+    <string name="add_appointment_to_google_calendar">+ Adăugați programarea în calendar</string>
+    <string name="go_to_my_appointments">Accesați programările mele</string>
+    <string name="calendar_appointment_title">Programare vizionare animal de companie</string>
+    <string name="calendar_appointment_description">Programare pentru vizionarea animalului de companie în cadrul procesului de adopție.\n\nNumele animalului de companie: %1$s</string>
+    <string name="event_added_to_calendar">Eveniment adăugat în calendar</string>
+    <string name="failed_to_add_event_to_calendar">Nu s-a reușit adăugarea evenimentului în calendar</string>
+    <string name="invalid_start_time_format">Formatul de începere invalid al timpului</string>
+    <string name="calendar_permission_denied">Permisiunea pentru calendar a fost refuzată</string>
+    <string name="error_select_hour">Vă rugăm să selectați o oră pentru programare.</string>
+
+    <!-- Appointments -->
+    <string name="appointments">Programări</string>
+    <string name="upcoming">Viitoare</string>
+    <string name="past">Trecute</string>
+    <string name="no_appointmnets">Nu aveți încă programări înregistrate</string>
+    <string name="view_details">Vezi detalii</string>
+    <string name="delete_appointment">Ștergeți programarea</string>
+    <string name="delete_appointment_description">Sunteți sigur că doriți să ștergeți această programare?</string>
+
+    <!-- Terms and conditions -->
+    <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>
+    <string name="purpose_of_the_application_title">1. Scopul aplicației:</string>
+    <string name="purpose_of_the_application_description">•  Aplicația noastră facilitează procesul de adopție a animalelor de companie. Ne asumăm angajamentul de a conecta persoanele interesate de adopție cu animalele disponibile pentru adopție în adăposturile partenere.</string>
+    <string name="responsibilities_and_obligations_title">2. Responsabilități și obligații:</string>
+    <string name="responsibilities_and_obligations_description">•  Utilizatorii trebuie să furnizeze informații corecte și valide în timpul procesului de înregistrare și adopție.\n\n•  Utilizatorii trebuie să trateze animalele cu respect și să le ofere îngrijire adecvată.\n\n•  Aplicația nu își asumă responsabilitatea pentru comportamentul sau acțiunile utilizatorilor.</string>
+    <string name="adoption_process_title">3. Procesul de adopție:</string>
+    <string name="adoption_process_description">•  Utilizatorii trebuie să respecte procedurile și regulile stabilite de adăpostul partenere în timpul procesului de adopție.\n\n•  Aplicația nu garantează disponibilitatea animalelor și nu este responsabilă pentru rezultatele procesului de adopție.</string>
+    <string name="privacy_title">4. Confidențialitate:</string>
+    <string name="privacy_description">•  Aplicația colectează și stochează informații personale în conformitate cu politica sa de confidențialitate.\n\n•  Informațiile personale nu vor fi distribuite terților fără acordul utilizatorului.</string>
+    <string name="copyright_title">5. Drepturi de autor:</string>
+    <string name="copyright_description">•  Conținutul aplicației, inclusiv texte, imagini și logo-uri, este protejat de drepturile de autor și nu poate fi utilizat în scopuri comerciale fără permisiunea noastră.</string>
+    <string name="terms_general_description2">Vă rugăm să rețineți că acești termeni și condiții pot fi actualizați periodic. Utilizarea continuă a aplicației după modificările termenilor și condițiilor reprezintă acceptul dumneavoastră pentru noile prevederi.\n\nVă mulțumim pentru utilizarea aplicației noastre și vă dorim o experiență plăcută în procesul de adopție a animalelor!
+    </string>
 </resources>

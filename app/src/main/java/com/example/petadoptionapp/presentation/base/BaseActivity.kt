@@ -8,7 +8,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        hideNavigationUI()
+//        hideNavigationUI()
     }
     private fun hideNavigationUI() {
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
