@@ -8,7 +8,7 @@ class NBookingResponseMapper : ModelMapper<NBookingResponse, Booking> {
     override fun map(model: NBookingResponse): Booking {
         return Booking(
             model.id,
-            model.userid,
+//            model.userId,
             model.adoptionCenterId,
             model.dateAndTime
         )
