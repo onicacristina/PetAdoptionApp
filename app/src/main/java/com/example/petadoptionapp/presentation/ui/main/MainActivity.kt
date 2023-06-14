@@ -59,6 +59,21 @@ class MainActivity : BaseActivity() {
         binding.navView.setupWithNavController(navController)
     }
 
+    fun initNavigationFromAppointments() {
+        val graph = navController.navInflater.inflate(R.navigation.nav_main)
+        val startDestination = when {
+            ProfilePrefs().isLoggedIn() -> R.id.appointmentsFragment
+            !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
+            else -> R.id.languageFragment
+        }
+
+        graph.setStartDestination(startDestination)
+        navController.setGraph(graph, null)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+        binding.navView.setupWithNavController(navController)
+    }
+
     fun bottomNavigationVisibility(visibility: Int) {
         binding.navView.visibility = visibility
     }

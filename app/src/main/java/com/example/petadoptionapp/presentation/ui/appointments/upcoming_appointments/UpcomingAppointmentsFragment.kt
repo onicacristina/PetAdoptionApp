@@ -119,7 +119,7 @@ class UpcomingAppointmentsFragment :
             R.drawable.btn_rounded_red,
             getString(R.string.delete),
             positiveAction = {
-//                viewModel.
+                viewModel.deleteAppointmentRequest(data)
             },
             getString(R.string.cancel),
             negativeAction = null,

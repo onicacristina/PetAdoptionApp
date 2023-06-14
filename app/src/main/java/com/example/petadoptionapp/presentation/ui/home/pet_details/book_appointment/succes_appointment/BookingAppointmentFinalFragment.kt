@@ -52,10 +52,9 @@ class BookingAppointmentFinalFragment :
 
     private fun initListeners() {
         viewBinding.btnGoToAppointments.setOnDebounceClickListener {
-            //todo
+            getMainActivity()?.initNavigationFromAppointments()
         }
         viewBinding.btnAddToCalendar.setOnDebounceClickListener {
-            //todo
             checkCalendarPermissions()
         }
     }

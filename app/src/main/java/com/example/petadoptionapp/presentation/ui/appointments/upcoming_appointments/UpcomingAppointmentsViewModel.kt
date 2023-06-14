@@ -21,10 +21,10 @@ class UpcomingAppointmentsViewModel @Inject constructor(
 ) : BaseViewModel(),
     StateDelegate<UpcomingAppointmentsViewModel.State> by DefaultStateDelegate(State.Loading) {
     init {
-        getPastAppointments()
+        getUpcomingAppointments()
     }
 
-    private fun getPastAppointments() {
+    private fun getUpcomingAppointments() {
         viewModelScope.launch {
             val userId = ProfilePrefs().getProfile()?.id
             userId?.let { bookingRepository.getBookingsByUserId(userId = it) }?.fold(
@@ -47,8 +47,17 @@ class UpcomingAppointmentsViewModel @Inject constructor(
         }
     }
 
-    private fun deleteAppointmentRequest(data: Booking) {
-
+    fun deleteAppointmentRequest(data: Booking) {
+        viewModelScope.launch {
+            bookingRepository.deleteBooking(data.id).fold(
+                onSuccess = {
+                    getUpcomingAppointments()
+                },
+                onFailure = { error ->
+                    showError(error)
+                }
+            )
+        }
     }
 
     sealed class State {

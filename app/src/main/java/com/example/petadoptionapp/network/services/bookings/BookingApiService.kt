@@ -3,8 +3,10 @@ package com.example.petadoptionapp.network.services.bookings
 import com.example.petadoptionapp.network.models.request.NBookingParams
 import com.example.petadoptionapp.network.models.response.NBookingListResponse
 import com.example.petadoptionapp.network.models.response.NBookingResponse
+import com.example.petadoptionapp.network.models.response.NMessageResponse
 import com.example.petadoptionapp.network.models.response.NPostBookingResponse
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -20,4 +22,7 @@ interface BookingApiService {
 
     @POST("bookings")
     suspend fun addBooking(@Body data: NBookingParams): NPostBookingResponse
+
+    @DELETE("bookings/{id}")
+    suspend fun deleteBooking(@Path("id") id: String): NMessageResponse
 }

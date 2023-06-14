@@ -14,6 +14,7 @@ import com.example.petadoptionapp.network.models.Booking
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
 import com.example.petadoptionapp.presentation.ui.appointments.past_appointments.adapter.PastAppointmentsAdapter
 import com.example.petadoptionapp.presentation.ui.appointments.upcoming_appointments.adapter.AppointmentsDiffUtils
+import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -40,7 +41,9 @@ class PastAppointmentsFragment :
     }
 
     private fun initListeners() {
-
+        viewBinding.noDataFound.btnFindPets.setOnDebounceClickListener {
+            getMainActivity()?.initNavigation()
+        }
     }
 
     private fun initObservers() {
