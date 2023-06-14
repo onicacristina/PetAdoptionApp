@@ -154,7 +154,9 @@
     <string name="upcoming">Viitoare</string>
     <string name="past">Trecute</string>
     <string name="no_appointmnets">Nu aveți încă programări înregistrate</string>
-    <string name="view_details">Vexi detalii</string>
+    <string name="view_details">Vezi detalii</string>
+    <string name="delete_appointment">Ștergeți programarea</string>
+    <string name="delete_appointment_description">Sunteți sigur că doriți să ștergeți această programare?</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>

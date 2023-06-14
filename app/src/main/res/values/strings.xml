@@ -152,6 +152,8 @@
     <string name="past">Past</string>
     <string name="no_appointmnets">You don\'t have any appointments yet</string>
     <string name="view_details">View details</string>
+    <string name="delete_appointment">Delete appointment</string>
+    <string name="delete_appointment_description">Are you sure you want to delete this appointment?</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>
