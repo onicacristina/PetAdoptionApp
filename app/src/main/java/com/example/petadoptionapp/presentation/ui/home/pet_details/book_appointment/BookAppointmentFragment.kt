@@ -88,7 +88,7 @@ class BookAppointmentFragment :
     }
 
     private fun onEvent(event: BookAppointmentViewModel.Event) {
-        when(event) {
+        when (event) {
             BookAppointmentViewModel.Event.SUCCESS -> {
                 openSuccessBookingAppointmentScreen(
                     petName = args.pet?.name ?: "",
@@ -96,12 +96,12 @@ class BookAppointmentFragment :
                     location = args.adoptionCenter?.getFullAddress() ?: ""
                 )
             }
-            BookAppointmentViewModel.Event.FAILURE -> { }
+            BookAppointmentViewModel.Event.FAILURE -> {}
             BookAppointmentViewModel.Event.SELECT_HOUR -> {
                 showErrorPopup(getString(R.string.error_select_hour))
             }
             BookAppointmentViewModel.Event.TIME_SELECTED -> {
-//                viewModel.addBooking()
+                viewModel.addBooking()
                 Timber.e("yay booking")
             }
         }

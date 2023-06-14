@@ -104,16 +104,21 @@ class BookAppointmentViewModel @Inject constructor(
     }
 
     private fun getAppointmentTime(): String {
-        val appointmentDateFormat = SimpleDateFormat("MMM d, yyyy", Locale.getDefault())
+        val appointmentDateFormat = SimpleDateFormat("MMMM d, yyyy", Locale.US)
         val formattedAppointmentDate = appointmentDateFormat.format(appointmentDate)
         // Combine the formatted date with the selected time
         return "$formattedAppointmentDate, ${selectedHour.hour}"
     }
 
+
     fun addBooking() {
         val userId = ProfilePrefs().getProfile()?.id
         val adoptionCenterId = navArgs.adoptionCenter?.id
         val timestamp = getAppointmentTime()
+
+        Timber.e("booking userId: $userId")
+        Timber.e("booking adoptionCenterId: $adoptionCenterId")
+        Timber.e("booking timestamp: $timestamp")
 
         viewModelScope.launch {
             userId?.let { userId ->
@@ -134,22 +139,21 @@ class BookAppointmentViewModel @Inject constructor(
                         onFailure = { error ->
                             Timber.e("booking failure")
                             showError(error)
+                            sendEvent(Event.FAILURE)
                         }
                     )
                 }
         }
     }
 
-    fun checkSelectedHour () {
+    fun checkSelectedHour() {
         if (isHourSelected()) {
             sendEvent(Event.TIME_SELECTED)
-            sendEvent(Event.SUCCESS)
-        }
-        else
+        } else
             sendEvent(Event.SELECT_HOUR)
     }
 
-   private fun isHourSelected(): Boolean {
+    private fun isHourSelected(): Boolean {
         return selectedHour.hour.isNotEmpty()
     }
 
