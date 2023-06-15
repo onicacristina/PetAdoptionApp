@@ -1,7 +1,45 @@
 package com.example.petadoptionapp.presentation.select_user_role
 
-import androidx.lifecycle.ViewModel
+import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
+import com.example.petadoptionapp.presentation.utils.DefaultStateDelegate
+import com.example.petadoptionapp.presentation.utils.EventDelegate
+import com.example.petadoptionapp.presentation.utils.StateDelegate
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SelectUserRoleViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+@HiltViewModel
+class SelectUserRoleViewModel @Inject constructor() : BaseViewModel(),
+    StateDelegate<SelectUserRoleViewModel.State> by DefaultStateDelegate(State.default),
+    EventDelegate<SelectUserRoleViewModel.Event> by DefaultEventDelegate() {
+
+    fun onNormalUserSelected() {
+        currentState = currentState.copy(normalUserSelected = true, adoptionCenterSelected = false)
+    }
+
+    fun onAdoptionCenterSelected() {
+        currentState = currentState.copy(normalUserSelected = false, adoptionCenterSelected = true)
+    }
+
+    fun onContinueClicked() {
+        if (currentState.normalUserSelected || currentState.adoptionCenterSelected)
+            sendEvent(Event.SELECTED)
+        else
+            sendEvent(Event.UNSELECTED)
+    }
+
+    data class State(
+        val normalUserSelected: Boolean,
+        val adoptionCenterSelected: Boolean,
+    ) {
+        companion object {
+            val default: State
+                get() = State(normalUserSelected = false, adoptionCenterSelected = false)
+        }
+    }
+
+    enum class Event {
+        SELECTED,
+        UNSELECTED
+    }
 }

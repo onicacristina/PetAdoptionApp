@@ -172,4 +172,26 @@
     <string name="copyright_description">•  Conținutul aplicației, inclusiv texte, imagini și logo-uri, este protejat de drepturile de autor și nu poate fi utilizat în scopuri comerciale fără permisiunea noastră.</string>
     <string name="terms_general_description2">Vă rugăm să rețineți că acești termeni și condiții pot fi actualizați periodic. Utilizarea continuă a aplicației după modificările termenilor și condițiilor reprezintă acceptul dumneavoastră pentru noile prevederi.\n\nVă mulțumim pentru utilizarea aplicației noastre și vă dorim o experiență plăcută în procesul de adopție a animalelor!
     </string>
+
+    <!-- Admin Adoption Centers -->
+    <!-- add adoption center details -->
+    <string name="add_adoption_center">Adaugă centru de adopție</string>
+    <string name="name">Nume</string>
+    <string name="phone">Telefon</string>
+    <string name="address">Adresă</string>
+    <string name="city">Oraș</string>
+    <string name="set_start_end_time">Setează intervalul de timp pentru programări</string>
+    <string name="start_time">Ora de început</string>
+    <string name="end_time">Ora de sfârșit</string>
+    <string name="select_start_time">Selectează ora de început</string>
+    <string name="select_end_time">Selectează ora de sfârșit</string>
+
+    <!-- select user type -->
+    <string name="title_choose_user_type">Selectează Tipul de Utilizator</string>
+    <string name="user_type_normal">Utilizator Normal</string>
+    <string name="user_type_normal_description">Dacă ești o persoană interesată să adopți un animal de companie.</string>
+    <string name="user_type_adoption_center">Centru de Adopție</string>
+    <string name="user_type_adoption_center_description">Dacă ești o organizație sau adăpost pentru animale care oferă animale spre adopție.</string>
+    <string name="select_tip">Selectează un Tip</string>
+
 </resources>

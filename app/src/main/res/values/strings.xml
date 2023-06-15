@@ -182,4 +182,13 @@
     <string name="end_time">End time</string>
     <string name="select_start_time">Select start time</string>
     <string name="select_end_time">Select end time</string>
+
+    <!-- select user type -->
+    <string name="title_choose_user_type">Select User Type</string>
+    <string name="user_type_normal">Normal User</string>
+    <string name="user_type_normal_description">If you are a person interested in adopting a pet.</string>
+    <string name="user_type_adoption_center">Adoption Center</string>
+    <string name="user_type_adoption_center_description">If you represent an organization or shelter that offers animals for adoption.</string>
+    <string name="select_tip">Select a Type</string>
+
 </resources>
