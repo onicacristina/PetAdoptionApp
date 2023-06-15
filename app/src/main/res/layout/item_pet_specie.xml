@@ -30,6 +30,7 @@
             android:layout_height="85dp"
             android:contentDescription="@null"
             android:src="@drawable/img_pets"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvPetSpecie"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

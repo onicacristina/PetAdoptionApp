@@ -206,8 +206,22 @@ class BookingAppointmentFinalFragment :
         contentResolver.insert(CalendarContract.Reminders.CONTENT_URI, reminderValues2)
     }
 
+//    private fun transformDateFormat(inputDate: String): String {
+//        val inputFormatter = DateTimeFormatter.ofPattern("MMM dd, yyyy, HH:mm")
+//        val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+//        val localDateTime = LocalDateTime.parse(inputDate, inputFormatter)
+//        return localDateTime.format(outputFormatter)
+//    }
+
+//    private fun transformDateFormat(inputDate: String): String {
+//        val inputFormatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy, HH:mm", Locale.ENGLISH)
+//        val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+//        val localDateTime = LocalDateTime.parse(inputDate, inputFormatter)
+//        return localDateTime.format(outputFormatter)
+//    }
+
     private fun transformDateFormat(inputDate: String): String {
-        val inputFormatter = DateTimeFormatter.ofPattern("MMM dd, yyyy, HH:mm")
+        val inputFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy, HH:mm", Locale.ENGLISH)
         val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
         val localDateTime = LocalDateTime.parse(inputDate, inputFormatter)
         return localDateTime.format(outputFormatter)
