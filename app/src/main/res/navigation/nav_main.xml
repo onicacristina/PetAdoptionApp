@@ -178,6 +178,21 @@
             android:id="@+id/action_upcomingAppointmentsFragment_to_petDetailsFragment"
             app:destination="@id/petDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/selectEndHourFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.select_available_hours.SelectEndHourFragment"
+        android:label="fragment_select_end_hour"
+        tools:layout="@layout/fragment_select_end_hour" />
+    <fragment
+        android:id="@+id/selectStartHourFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.select_available_hours.SelectStartHourFragment"
+        android:label="fragment_select_start_hour"
+        tools:layout="@layout/fragment_select_start_hour" />
+    <fragment
+        android:id="@+id/selectUserRoleFragment"
+        android:name="com.example.petadoptionapp.presentation.select_user_role.SelectUserRoleFragment"
+        android:label="fragment_select_user_role"
+        tools:layout="@layout/fragment_select_user_role" />
 
     <!--    <action-->
     <!--        android:id="@+id/startPetDetails"-->

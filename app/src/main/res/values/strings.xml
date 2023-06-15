@@ -168,4 +168,18 @@
     <string name="copyright_title">5. Copyright:</string>
     <string name="copyright_description">•  The content of the application, including text, images, and logos, is protected by copyright and may not be used for commercial purposes without our permission.</string>
     <string name="terms_general_description2">Please note that these terms and conditions may be updated periodically. Your continued use of the application after the changes to the terms and conditions constitutes your acceptance of the new provisions.\n\nThank you for using our application, and we wish you a pleasant experience in the pet adoption process!</string>
+
+
+    <!-- Admin Adoption Centers -->
+    <!-- add adoption center details -->
+    <string name="add_adoption_center">Add adoption center</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="set_start_end_time">Set the start and end time for appointments</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+    <string name="select_start_time">Select start time</string>
+    <string name="select_end_time">Select end time</string>
 </resources>
