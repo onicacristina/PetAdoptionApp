@@ -16,10 +16,4 @@ object SelectTimeDiffUtils : DiffUtil.ItemCallback<Hour>() {
         return oldItem.hour == newItem.hour
     }
 
-    override fun getChangePayload(
-        oldItem: Hour,
-        newItem: Hour
-    ): Any? {
-        return super.getChangePayload(oldItem, newItem)
-    }
 }
