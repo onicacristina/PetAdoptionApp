@@ -191,4 +191,18 @@
     <string name="user_type_adoption_center_description">If you represent an organization or shelter that offers animals for adoption.</string>
     <string name="select_tip">Select a Type</string>
 
+    <!-- add pet -->
+    <string name="publish_pet_for_adoption">Publish a pet for adoption</string>
+    <string name="pet_name">Pet name</string>
+    <string name="select_pet_specie">Select specie</string>
+    <string name="select_pet_gender">Select pet gender</string>
+    <string name="pet_breed">Breed</string>
+    <string name="pet_age">Age (in months)</string>
+    <string name="pet_vaccinated">Vaccinated</string>
+    <string name="pet_neutered">Neutered</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="pet_image">Pet image</string>
+    <string name="publish_pet">Publish pet</string>
+
 </resources>

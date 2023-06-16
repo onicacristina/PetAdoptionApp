@@ -194,4 +194,18 @@
     <string name="user_type_adoption_center_description">Dacă ești o organizație sau adăpost pentru animale care oferă animale spre adopție.</string>
     <string name="select_tip">Selectează un Tip</string>
 
+    <!-- add pet -->
+    <string name="publish_pet_for_adoption">Publică un animal de companie pentru adopție</string>
+    <string name="pet_name">Numele animalului</string>
+    <string name="select_pet_specie">Selectează specia animalului</string>
+    <string name="select_pet_gender">Selectează genul animalului</string>
+    <string name="pet_breed">Rasă</string>
+    <string name="pet_age">Vârsta (în luni)</string>
+    <string name="pet_vaccinated">Vaccinat</string>
+    <string name="pet_neutered">Sterilizat</string>
+    <string name="yes">Da</string>
+    <string name="no">Nu</string>
+    <string name="pet_image">Imaginea animalului</string>
+    <string name="publish_pet">Publică animalul</string>
+
 </resources>
