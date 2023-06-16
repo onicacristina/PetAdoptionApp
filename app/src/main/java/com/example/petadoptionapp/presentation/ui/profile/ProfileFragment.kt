@@ -55,7 +55,8 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
         }
         viewBinding.viewChangePassword.container.setOnDebounceClickListener {
 //            navController.navigate(R.id.action_profileFragment_to_changePasswordFragment)
-            navController.navigate(R.id.selectUserRoleFragment)
+//            navController.navigate(R.id.selectUserRoleFragment)
+            navController.navigate(R.id.addPetFragment)
         }
         viewBinding.viewSettings.container.setOnDebounceClickListener {
             navController.navigate(R.id.action_profileFragment_to_settingsFragment)

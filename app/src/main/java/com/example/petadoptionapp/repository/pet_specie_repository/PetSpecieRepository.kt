@@ -44,7 +44,6 @@ class PetSpecieRepository @Inject constructor(
     private fun getDummyData(): List<EPetCategory> {
         val dummyData = mutableListOf<EPetCategory>()
 
-        dummyData.add(EPetCategory.ALL)
         dummyData.add(EPetCategory.DOG)
         dummyData.add(EPetCategory.CAT)
         dummyData.add(EPetCategory.BIRD)

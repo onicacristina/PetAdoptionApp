@@ -193,6 +193,21 @@
         android:name="com.example.petadoptionapp.presentation.select_user_role.SelectUserRoleFragment"
         android:label="fragment_select_user_role"
         tools:layout="@layout/fragment_select_user_role" />
+    <dialog
+        android:id="@+id/selectPetGenderFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.select_pet_gender.SelectPetGenderFragment"
+        android:label="fragment_select_pet_gender"
+        tools:layout="@layout/fragment_select_pet_gender" />
+    <dialog
+        android:id="@+id/selectPetSpecieFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.select_pet_specie.SelectPetSpecieFragment"
+        android:label="fragment_select_pet_specie"
+        tools:layout="@layout/fragment_select_pet_specie" />
+    <fragment
+        android:id="@+id/addPetFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.AddPetFragment"
+        android:label="fragment_add_pet"
+        tools:layout="@layout/fragment_add_pet" />
 
     <!--    <action-->
     <!--        android:id="@+id/startPetDetails"-->

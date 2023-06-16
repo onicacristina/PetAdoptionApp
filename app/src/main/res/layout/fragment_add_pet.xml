@@ -139,7 +139,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilStory"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="110dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
                 app:boxStrokeWidth="0dp"
@@ -154,7 +154,9 @@
                     android:layout_height="110dp"
                     android:background="@drawable/bg_custom_inputs"
                     android:hint="@string/pet_story"
-                    android:inputType="textPassword"
+                    android:inputType="text"
+                    android:minLines="2"
+                    android:maxLines="3"
                     android:textColor="@android:color/black"
                     android:textColorLink="@color/text_black" />
             </com.google.android.material.textfield.TextInputLayout>
