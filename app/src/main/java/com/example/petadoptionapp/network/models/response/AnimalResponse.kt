@@ -63,17 +63,17 @@ data class AnimalResponse(
 
     companion object {
         val default = AnimalResponse(
-            "",
-            EPetCategory.ALL,
-            EPetGender.FEMALE,
-            "",
-            "",
-            0,
-            false,
-            false,
-            "",
-            "",
-            ""
+            id = "",
+            specie = EPetCategory.ALL,
+            gender = EPetGender.FEMALE,
+            name = "",
+            breed = "",
+            age = 0,
+            vaccinated = false,
+            neutered = false,
+            story = "",
+            imageUrl = "",
+            adoptionCenterId = ""
         )
     }
 
