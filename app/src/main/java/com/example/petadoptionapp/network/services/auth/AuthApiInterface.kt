@@ -9,4 +9,7 @@ interface AuthApiInterface {
 
     suspend fun login(loginParams: LoginParams): LoginResponse
     suspend fun register(registerParams: RegisterParams): RegisterResponse
+
+    suspend fun loginAdmin(loginParams: LoginParams): LoginResponse
+    suspend fun registerAdmin(registerParams: RegisterParams): RegisterResponse
 }

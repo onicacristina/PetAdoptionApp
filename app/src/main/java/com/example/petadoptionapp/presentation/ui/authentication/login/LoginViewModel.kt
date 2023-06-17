@@ -1,6 +1,7 @@
 package com.example.petadoptionapp.presentation.ui.authentication.login
 
 import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.network.models.LoginParams
 import com.example.petadoptionapp.network.refresh_token.RefreshTokenRepository
 import com.example.petadoptionapp.presentation.base.BaseViewModel
@@ -72,21 +73,40 @@ class LoginViewModel @Inject constructor(
     fun loginUser() {
         viewModelScope.launch {
             val loginParams = LoginParams(email, password)
-            authRepository.login(loginParams = loginParams).fold(
-                onSuccess = {
-                    ProfilePrefs().saveProfile(it.user)
-                    Timber.e("user: ${it}")
-                    refreshTokenRepository.saveRefreshToken(it.refreshToken)
-                    Timber.e("refresh token: ${it.refreshToken}")
-                    refreshTokenRepository.saveAccessToken(it.token)
-                    Timber.e("success login")
-                    _signedIn.send(Any())
-                },
-                onFailure = { error ->
-                    Timber.e("error login")
-                    showError(error)
-                })
+            val userRole = ProfilePrefs().getUserRole()
+            if (userRole == EUserRole.NORMAL_USER) {
+
+                authRepository.login(loginParams = loginParams).fold(
+                    onSuccess = {
+                        ProfilePrefs().saveProfile(it.user)
+                        Timber.e("user: ${it}")
+                        refreshTokenRepository.saveRefreshToken(it.refreshToken)
+                        Timber.e("refresh token: ${it.refreshToken}")
+                        refreshTokenRepository.saveAccessToken(it.token)
+                        Timber.e("success login")
+                        _signedIn.send(Any())
+                    },
+                    onFailure = { error ->
+                        Timber.e("error login")
+                        showError(error)
+                    })
+            }
+            if (userRole == EUserRole.ADOPTION_CENTER_USER) {
+                authRepository.loginAdmin(loginParams = loginParams).fold(
+                    onSuccess = {
+                        ProfilePrefs().saveProfile(it.user)
+                        Timber.e("user: $it")
+                        refreshTokenRepository.saveRefreshToken(it.refreshToken)
+                        refreshTokenRepository.saveAccessToken(it.token)
+                        Timber.e("success login")
+                        _signedIn.send(Any())
+                    },
+                    onFailure = { error ->
+                        Timber.e("error login")
+                        showError(error)
+                    })
+            }
         }
     }
-
 }
+

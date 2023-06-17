@@ -69,7 +69,8 @@ class OnBoardingFragment :
     private fun openLogin() {
         AppStateFlagsPrefs().tutorialShown()
         navController.popBackStack()
-        navController.navigate(R.id.loginFragment)
+        navController.navigate(R.id.selectUserRoleFragment)
+//        navController.navigate(R.id.loginFragment)
     }
 
 }

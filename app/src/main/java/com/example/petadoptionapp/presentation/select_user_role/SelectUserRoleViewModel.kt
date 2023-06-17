@@ -1,5 +1,6 @@
 package com.example.petadoptionapp.presentation.select_user_role
 
+import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
 import com.example.petadoptionapp.presentation.utils.DefaultStateDelegate
@@ -26,6 +27,14 @@ class SelectUserRoleViewModel @Inject constructor() : BaseViewModel(),
             sendEvent(Event.SELECTED)
         else
             sendEvent(Event.UNSELECTED)
+    }
+
+    fun getSelectedUserType() : EUserRole {
+        if (currentState.normalUserSelected)
+            return EUserRole.NORMAL_USER
+        if (currentState.adoptionCenterSelected)
+            return EUserRole.ADOPTION_CENTER_USER
+        return EUserRole.NONE
     }
 
     data class State(

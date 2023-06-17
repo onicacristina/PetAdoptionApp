@@ -40,7 +40,8 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Provides
-    fun provideBaseUrl() = BuildConfig.BASE_API_URL + "api/"
+    fun provideBaseUrl() = BuildConfig.BASE_API_URL
+//    fun provideBaseUrl() = BuildConfig.BASE_API_URL + "api/"
 
     @Singleton
     @Provides

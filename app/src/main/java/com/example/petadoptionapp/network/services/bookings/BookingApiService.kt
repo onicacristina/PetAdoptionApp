@@ -14,15 +14,15 @@ import retrofit2.http.Query
 
 interface BookingApiService {
 
-    @GET("bookings/{id}")
+    @GET("api/bookings/{id}")
     suspend fun getOneBookingById(@Path("id") id: String): NBookingResponse
 
-    @GET("bookings")
+    @GET("api/bookings")
     suspend fun getBookingsByUserId(@Query("userId") userId: String): NBookingListResponse
 
-    @POST("bookings")
+    @POST("api/bookings")
     suspend fun addBooking(@Body data: NBookingParams): NPostBookingResponse
 
-    @DELETE("bookings/{id}")
+    @DELETE("api/bookings/{id}")
     suspend fun deleteBooking(@Path("id") id: String): NMessageResponse
 }

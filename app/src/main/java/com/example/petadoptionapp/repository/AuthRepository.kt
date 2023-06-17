@@ -22,10 +22,27 @@ class AuthRepository @Inject constructor(
     }
 
     override suspend fun register(registerParams: RegisterParams): Result<RegisterResponse> {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             kotlin.runCatching {
                 authApiInterface.register(registerParams = registerParams)
             }
         }
     }
+
+    override suspend fun registerAdmin(registerParams: RegisterParams): Result<RegisterResponse> {
+        return withContext(Dispatchers.IO) {
+            kotlin.runCatching {
+                authApiInterface.registerAdmin(registerParams = registerParams)
+            }
+        }
+    }
+
+    override suspend fun loginAdmin(loginParams: LoginParams): Result<LoginResponse> {
+        return withContext(Dispatchers.IO) {
+            kotlin.runCatching {
+                authApiInterface.loginAdmin(loginParams = loginParams)
+            }
+        }
+    }
+
 }

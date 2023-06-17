@@ -8,7 +8,10 @@ import retrofit2.http.Header
 
 interface RefreshTokenService {
 
-    @GET("auth/refresh-token")
+    @GET("api/auth/refresh-token")
     fun refreshToken(@Header(JwtTokenInterceptor.AUTHORIZATION_KEY) header: String): Call<LoginResponse>
+
+    @GET("admin/auth/refresh-token")
+    fun refreshTokenAdmin(@Header(JwtTokenInterceptor.AUTHORIZATION_KEY) header: String): Call<LoginResponse>
 
 }

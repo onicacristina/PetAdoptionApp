@@ -12,4 +12,5 @@ object Constants {
     const val APPOINTMENT_LOCATION = "appointmentLocation"
     const val PET = "pet"
     const val ADOPTION_CENTER = "adoptionCenter"
+    const val NO_AUTH = "no-auth"
 }

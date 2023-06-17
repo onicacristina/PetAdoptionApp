@@ -93,7 +93,8 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
 
     private fun signedOut() {
         navController.popBackStack()
-        navController.navigate(R.id.loginFragment)
+//        navController.navigate(R.id.loginFragment)
+        navController.navigate(R.id.selectUserRoleFragment)
     }
 
     private fun initProfile(user: User) {

@@ -14,18 +14,18 @@ import retrofit2.http.Path
 
 interface AdoptionCenterService {
 
-    @GET("adoption-centers/{id}")
+    @GET("api/adoption-centers/{id}")
     suspend fun getOneAdoptionCenterById(@Path("id") id: String) : NAdoptionCenterResponse
 
-    @GET("adoption-centers")
+    @GET("api/adoption-centers")
     suspend fun getAllAdoptionCenters(): NAdoptionCentersListResponse
 
-    @POST("adoption-centers")
+    @POST("api/adoption-centers")
     suspend fun addAdoptionCenter(@Body data: NAdoptionCenterParams): NPostAdoptionCenter
 
-    @PUT("adoption-centers/{id}")
+    @PUT("api/adoption-centers/{id}")
     suspend fun editAdoptionCenter(@Path("id") id: String, @Body data: NAdoptionCenterParams): NPostAdoptionCenter
 
-    @DELETE("adoption-centers/{id}")
+    @DELETE("api/adoption-centers/{id}")
     suspend fun deleteAdoptionCenter(@Path("id") id: String): NMessageResponse
 }

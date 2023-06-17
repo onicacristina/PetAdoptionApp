@@ -14,21 +14,21 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface AnimalsApiService {
-    @GET("animals/{id}")
+    @GET("api/animals/{id}")
     suspend fun getOneAnimalById(@Path("id") id: String): NAnimalResponse
 
-    @GET("animals")
+    @GET("api/animals")
     suspend fun getAllAnimals(): NAnimalsListResponse
 
-    @GET("animals")
+    @GET("api/animals")
     suspend fun getAnimalsBySpecie(@Query("specie") specie: String): NAnimalsListResponse
 
-    @POST("animals")
+    @POST("api/animals")
     suspend fun addAnimal(@Body data: NAnimalParam): NPostAnimalResponse
 
-    @PUT("animals/{id}")
+    @PUT("api/animals/{id}")
     suspend fun editAnimal(@Path("id") id: String, @Body data: NAnimalParam): NPostAnimalResponse
 
-    @DELETE("animals/{id}")
+    @DELETE("api/animals/{id}")
     suspend fun deleteAnimal(@Path("id") id: String): NMessageResponse
 }

@@ -11,6 +11,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentSelectUserRoleBinding
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -81,12 +82,18 @@ class SelectUserRoleFragment :
     private fun onEvent(event: SelectUserRoleViewModel.Event) {
         when (event) {
             SelectUserRoleViewModel.Event.SELECTED -> {
-//                navController.navigate(R.id.ad)
+                onSelectedUserType()
             }
             SelectUserRoleViewModel.Event.UNSELECTED -> {
                 showErrorPopup(getString(R.string.select_tip))
             }
         }
+    }
+
+    private fun onSelectedUserType() {
+        val userRole = viewModel.getSelectedUserType()
+        ProfilePrefs().saveUserRole(userRole)
+        navController.navigate(R.id.loginFragment)
     }
 
     private fun renderState(state: SelectUserRoleViewModel.State) {

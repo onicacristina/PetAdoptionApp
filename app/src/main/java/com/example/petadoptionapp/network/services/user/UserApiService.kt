@@ -9,10 +9,10 @@ import retrofit2.http.Path
 
 interface UserApiService {
 
-    @GET("users/{id}")
+    @GET("api/users/{id}")
     suspend fun getUserById(@Path("id") id: String): NUserResponse
 
-    @PUT("users/{id}")
+    @PUT("api/users/{id}")
     suspend fun editUser(@Path("id") id: String, @Body data: NUserResponse): NUserEditResponse
 
 }
