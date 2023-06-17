@@ -15,14 +15,18 @@ import com.bumptech.glide.Glide
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentPetDetailsBinding
 import com.example.petadoptionapp.network.models.AdoptionCenter
+import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.presentation.utils.Constants
+import com.example.petadoptionapp.presentation.utils.LocaleHelper
 import com.example.petadoptionapp.presentation.utils.extensions.openEmail
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.showDialer
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
+import com.example.petadoptionapp.presentation.utils.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -52,7 +56,9 @@ class PetDetailsFragment :
     }
 
     private fun initViews() {
-
+        initFavoriteVisibility()
+        initBottomButtons()
+        initAdoptionCenterLayout()
     }
 
     private fun initListeners() {
@@ -86,14 +92,15 @@ class PetDetailsFragment :
         }
 
         viewBinding.tvAdoptionCenterAddress.setOnDebounceClickListener {
-//            val address = "1600 Amphitheatre Parkway, Mountain View, CA"
-            val address = viewModel.adoptionCenterData.getFullAddress()
-            val encodedAddress = Uri.encode(address)
-            val uri = "geo:0,0?q=$encodedAddress"
+            onAddressClicked()
+        }
 
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-            intent.setPackage("com.google.android.apps.maps")
-            startActivity(intent)
+        viewBinding.btnDelete.setOnDebounceClickListener {
+            showDeleteDialog()
+        }
+
+        viewBinding.btnEdit.setOnDebounceClickListener {
+            //todo
         }
     }
 
@@ -167,6 +174,7 @@ class PetDetailsFragment :
         initPetGender(data)
         initPetHealth(data)
         initPetStory(data)
+        initAddedModifiedVisibility(data)
     }
 
     private fun initPetFavoriteIcon(isFavorite: Boolean) {
@@ -234,5 +242,68 @@ class PetDetailsFragment :
     private fun initAdoptionCenterFullAddress(data: AdoptionCenter) {
         viewBinding.tvAdoptionCenterAddress.text = data.getFullAddress()
     }
+
+    private fun initFavoriteVisibility() {
+        viewBinding.ivFavorite.isVisible = !isAdmin()
+    }
+
+    private fun initBottomButtons() {
+        viewBinding.clButtonsAdmin.isVisible = isAdmin()
+        viewBinding.clButtonsNormalUser.isVisible = !isAdmin()
+    }
+
+    private fun initAdoptionCenterLayout() {
+        val isAdmin = isAdmin()
+        viewBinding.tvAdoptionCenter.isVisible = !isAdmin
+        viewBinding.tvAdoptionCenterName.isVisible = !isAdmin
+        viewBinding.tvAdoptionCenterAddress.isVisible = !isAdmin
+    }
+
+    private fun initAddedModifiedVisibility(data: AnimalResponse) {
+        val isAdmin = isAdmin()
+        if (isAdmin) {
+            viewBinding.clAddedAtInfo.isVisible = true
+            viewBinding.clLastModifiedInfo.isVisible = true
+            viewBinding.tvAddedAt.text =
+                data.getFormattedDate(LocaleHelper.getLocale().locale, data.createdAt)
+            viewBinding.tvLastModifiedAt.text =
+                data.getFormattedDate(LocaleHelper.getLocale().locale, data.updatedAt)
+        } else {
+            viewBinding.clAddedAtInfo.isVisible = false
+            viewBinding.clLastModifiedInfo.isVisible = false
+        }
+    }
+
+    private fun isAdmin(): Boolean {
+        val userRole = ProfilePrefs().getUserRole()
+        return userRole == EUserRole.ADOPTION_CENTER_USER
+    }
+
+    private fun showDeleteDialog() {
+        showDialog(
+            requireContext(),
+            getString(R.string.delete_pet),
+            getString(R.string.delete_pet_description),
+            R.drawable.btn_rounded_red,
+            getString(R.string.delete),
+            {
+//                viewModel.deleteAccount()
+            },
+            getString(R.string.cancel),
+            null,
+        )
+    }
+
+    private fun onAddressClicked() {
+        //val address = "1600 Amphitheatre Parkway, Mountain View, CA"
+        val address = viewModel.adoptionCenterData.getFullAddress()
+        val encodedAddress = Uri.encode(address)
+        val uri = "geo:0,0?q=$encodedAddress"
+
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        intent.setPackage("com.google.android.apps.maps")
+        startActivity(intent)
+    }
+
 }
 

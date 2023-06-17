@@ -212,7 +212,11 @@
         android:id="@+id/homeAdminFragment"
         android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.home_admin.HomeAdminFragment"
         android:label="fragment_home_admin"
-        tools:layout="@layout/fragment_home_admin" />
+        tools:layout="@layout/fragment_home_admin" >
+        <action
+            android:id="@+id/toPetDetailsFragment"
+            app:destination="@id/petDetailsFragment" />
+    </fragment>
 
     <!--    <action-->
     <!--        android:id="@+id/startPetDetails"-->

@@ -84,7 +84,7 @@ data class AnimalResponse(
         )
     }
 
-    fun getFormattedCreationDate(locale: Locale = Locale.getDefault()): String {
+    fun getFormattedDate(locale: Locale = Locale.getDefault(), dateToFormat: String): String {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", locale)
         val outputFormat = SimpleDateFormat("dd MMMM yyyy", locale)
 
@@ -92,7 +92,7 @@ data class AnimalResponse(
         outputFormat.dateFormatSymbols = dateFormatSymbols
 
         return try {
-            val date = inputFormat.parse(createdAt)
+            val date = inputFormat.parse(dateToFormat)
             outputFormat.format(date ?: "")
         } catch (e: Exception) {
             ""

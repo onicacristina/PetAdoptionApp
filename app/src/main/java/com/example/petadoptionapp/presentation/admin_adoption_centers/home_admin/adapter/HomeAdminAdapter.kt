@@ -49,7 +49,7 @@ class HomeAdminAdapter(
 
         private fun bindAddedAt(data: AnimalResponse) {
             val context = binding.tvAddedAt.context
-            val addedAt = data.getFormattedCreationDate(LocaleHelper.getLocale().locale)
+            val addedAt = data.getFormattedDate(LocaleHelper.getLocale().locale, data.createdAt)
             binding.tvAddedAt.text = context.getString(R.string.added_at, addedAt)
         }
 
