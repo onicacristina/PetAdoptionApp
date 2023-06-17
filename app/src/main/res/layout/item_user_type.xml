@@ -46,13 +46,15 @@
                 android:text="@string/user_type_normal"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/text_20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivImage" />
 
 
             <TextView
                 android:id="@+id/tvSubtitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_12"
                 android:layout_marginStart="@dimen/margin_10"
@@ -61,6 +63,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/text_12"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />

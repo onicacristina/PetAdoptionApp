@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.ActivityMainBinding
+import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.presentation.base.BaseActivity
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.profile.settings.EAppTheme
@@ -48,7 +49,8 @@ class MainActivity : BaseActivity() {
         val graph = navController.navInflater.inflate(R.navigation.nav_main)
         val startDestination = when {
             ProfilePrefs().isLoggedIn() -> R.id.homeFragment
-            !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
+            !AppStateFlagsPrefs().showTutorial() -> R.id.selectUserRoleFragment
+//            !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
             else -> R.id.languageFragment
         }
 
@@ -57,6 +59,8 @@ class MainActivity : BaseActivity() {
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         binding.navView.setupWithNavController(navController)
+
+        solveTabs()
     }
 
     fun initNavigationFromAppointments() {
@@ -98,4 +102,21 @@ class MainActivity : BaseActivity() {
         return ProfilePrefs().getAppTheme()
     }
 
+    private fun solveTabs() {
+        val userRole = ProfilePrefs().getUserRole()
+        if (userRole == EUserRole.NORMAL_USER)
+            switchToNormalUser()
+        if (userRole == EUserRole.ADOPTION_CENTER_USER)
+            switchToAdminUser()
+    }
+
+    private fun switchToNormalUser() {
+        binding.navView.menu.clear()
+        binding.navView.inflateMenu(R.menu.bottom_nav_menu)
+    }
+
+    private fun switchToAdminUser() {
+        binding.navView.menu.clear()
+        binding.navView.inflateMenu(R.menu.bottom_nav_menu_admin)
+    }
 }
