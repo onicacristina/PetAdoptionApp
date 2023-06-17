@@ -18,6 +18,10 @@ class BookingApiInterfaceImplementation @Inject constructor(
         return bookingApiService.getBookingsByUserId(userId)
     }
 
+    override suspend fun getBookingsByAdoptionCenterId(adoptionCenterId: String): NBookingListResponse {
+        return bookingApiService.getBookingsByAdoptionCenterId(adoptionCenterId)
+    }
+
     override suspend fun addBooking(data: NBookingParams): NPostBookingResponse {
         return bookingApiService.addBooking(data)
     }

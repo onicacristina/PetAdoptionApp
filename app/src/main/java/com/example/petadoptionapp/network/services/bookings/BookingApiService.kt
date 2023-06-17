@@ -20,6 +20,9 @@ interface BookingApiService {
     @GET("api/bookings")
     suspend fun getBookingsByUserId(@Query("userId") userId: String): NBookingListResponse
 
+    @GET("api/bookings")
+    suspend fun getBookingsByAdoptionCenterId(@Query("adoptionCenterId") adoptionCenterId: String): NBookingListResponse
+
     @POST("api/bookings")
     suspend fun addBooking(@Body data: NBookingParams): NPostBookingResponse
 
