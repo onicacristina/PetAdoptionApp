@@ -46,26 +46,26 @@ class PetDetailsViewModel @Inject constructor(
 //        checkIsSavedToFavoritesList()
     }
 
-    fun onIsSavedToFavoriteChanged() {
+    private fun onIsSavedToFavoriteChanged() {
         _isSavedToFavorites.value = !_isSavedToFavorites.value!!
     }
 
     private fun checkIsSavedToFavoritesList() {
         viewModelScope.launch {
             _isSavedToFavorites.value = favoritesRepository.isSavedToFavoritesList(animalData)
-            Timber.e("issaved ${_isSavedToFavorites.value}")
+            Timber.e("isSaved ${_isSavedToFavorites.value}")
         }
     }
 
 
     fun onFavoriteClicked() {
         if (_isSavedToFavorites.value == true) {
-            // Animalul este deja salvat în lista de favorite
+            // The animal is already saved in the favorites list
             removeFromFavoritesList()
             sendEvent(Event.REMOVED_FROM_FAVORITES)
             onIsSavedToFavoriteChanged()
         } else {
-            // Animalul nu este salvat în lista de favorite
+            // The animal is not saved in the favorites list
             addToFavoritesList()
             sendEvent(Event.SAVED_TO_FAVORITES)
             onIsSavedToFavoriteChanged()
@@ -73,17 +73,17 @@ class PetDetailsViewModel @Inject constructor(
     }
 
 
-    fun addToFavoritesList() {
+    private fun addToFavoritesList() {
         favoritesRepository.saveToFavorites(animalData)
     }
 
-    fun removeFromFavoritesList() {
+    private fun removeFromFavoritesList() {
         favoritesRepository.deleteFromFavoritesList(animalData)
     }
 
     fun getAdoptionCenterById(id: String) {
         viewModelScope.launch {
-            val response = adoptionCenterRepository.getOneAdoptionCenterById(id).fold(
+            adoptionCenterRepository.getOneAdoptionCenterById(id).fold(
                 onSuccess = { adoptionCenter ->
                     _adoptionCenterObservable.value = adoptionCenter
                     adoptionCenterData = adoptionCenter
@@ -99,7 +99,7 @@ class PetDetailsViewModel @Inject constructor(
 
     fun getAnimalDetails(id: String) {
         viewModelScope.launch {
-            val response = animalsRepository.getOneAnimalById(id).fold(
+            animalsRepository.getOneAnimalById(id).fold(
                 onSuccess = { animal ->
                     _animalObservable.value = animal
                     animalData = animal
@@ -115,8 +115,24 @@ class PetDetailsViewModel @Inject constructor(
         }
     }
 
+    fun deletePet() {
+        viewModelScope.launch {
+            animalsRepository.deleteAnimal(id = animalData.id).fold(
+                onSuccess = {
+                    Timber.e("animal was deleted")
+                    sendEvent(Event.PET_REMOVED)
+                },
+                onFailure = { error ->
+                    Timber.e("error to delete pet")
+                    showError(error)
+                }
+            )
+        }
+    }
+
     enum class Event {
         SAVED_TO_FAVORITES,
-        REMOVED_FROM_FAVORITES
+        REMOVED_FROM_FAVORITES,
+        PET_REMOVED
     }
 }

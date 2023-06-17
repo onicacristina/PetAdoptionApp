@@ -136,6 +136,7 @@ class PetDetailsFragment :
         when (event) {
             PetDetailsViewModel.Event.SAVED_TO_FAVORITES -> onSavedToFavorites()
             PetDetailsViewModel.Event.REMOVED_FROM_FAVORITES -> onRemovedFromFavorites()
+            PetDetailsViewModel.Event.PET_REMOVED -> navController.popBackStack()
         }
     }
 
@@ -287,7 +288,7 @@ class PetDetailsFragment :
             R.drawable.btn_rounded_red,
             getString(R.string.delete),
             {
-//                viewModel.deleteAccount()
+                viewModel.deletePet()
             },
             getString(R.string.cancel),
             null,
