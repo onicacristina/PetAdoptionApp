@@ -54,7 +54,7 @@ class HomeAdminFragment :
             viewModel.onSearchChanged(value.toString())
         }
 
-        viewBinding.btnAdd.setOnDebounceClickListener {
+        viewBinding.btnAddPet.setOnDebounceClickListener {
             navController.navigate(R.id.addPetFragment)
         }
     }

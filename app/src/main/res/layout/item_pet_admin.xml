@@ -45,16 +45,16 @@
                 android:id="@+id/tvPetName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_4"
                 android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_4"
                 android:fontFamily="@font/lato_bold"
                 android:paddingVertical="@dimen/margin_4"
-                android:text="Tobi"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/text_20"
                 app:layout_constraintEnd_toStartOf="@id/viewPet"
                 app:layout_constraintStart_toEndOf="@+id/ivPet"
-                app:layout_constraintTop_toTopOf="@id/ivPet" />
+                app:layout_constraintTop_toTopOf="@id/ivPet"
+                tools:text="Tobi" />
 
             <View
                 android:id="@+id/viewPet"
@@ -83,23 +83,23 @@
                 android:id="@+id/tvPetBreed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_4"
                 android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_4"
                 android:fontFamily="@font/lato_regular"
-                android:text="Labrador"
                 android:textAlignment="viewStart"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/text_14"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivPet"
-                app:layout_constraintTop_toBottomOf="@+id/tvPetName" />
+                app:layout_constraintTop_toBottomOf="@+id/tvPetName"
+                tools:text="Labrador" />
 
             <TextView
                 android:id="@+id/tvAddedAt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_4"
                 android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_4"
                 android:fontFamily="@font/lato_regular"
                 android:text="@string/added_at"
                 android:textAlignment="viewStart"
@@ -109,43 +109,74 @@
                 app:layout_constraintStart_toEndOf="@+id/ivPet"
                 app:layout_constraintTop_toBottomOf="@+id/tvPetBreed" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageView
                 android:id="@+id/btnEdit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12"
-                android:layout_marginStart="@dimen/margin_10"
-                android:background="@drawable/btn_rounded"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:padding="@dimen/margin_6"
-                android:text="@string/edit"
-                android:textAllCaps="false"
-                android:textColor="@color/text_black"
-                android:textSize="@dimen/text_14"
-                android:layout_marginBottom="@dimen/margin_12"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:background="@drawable/btn_ripple_oval_white"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="@dimen/margin_4"
+                android:src="@drawable/ic_edit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnDelete"
-                app:layout_constraintStart_toEndOf="@id/ivPet"
                 app:layout_constraintTop_toBottomOf="@id/tvAddedAt" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageView
                 android:id="@+id/btnDelete"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_12"
-                android:background="@drawable/bg_ripple_rounded_border_blue"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:padding="@dimen/margin_6"
-                android:text="@string/delete"
-                android:textAllCaps="false"
-                android:textColor="@color/blue_light"
-                android:textSize="@dimen/text_14"
-                app:layout_constraintBottom_toBottomOf="@id/btnEdit"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="@dimen/margin_8"
+                android:background="@drawable/btn_ripple_oval_white"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="@dimen/margin_4"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btnEdit"
-                app:layout_constraintTop_toTopOf="@id/btnEdit" />
+                app:layout_constraintTop_toBottomOf="@id/tvAddedAt" />
+
+
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--                android:id="@+id/btnEdit"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="@dimen/margin_10"-->
+            <!--                android:layout_marginTop="@dimen/margin_12"-->
+            <!--                android:layout_marginBottom="@dimen/margin_12"-->
+            <!--                android:background="@drawable/btn_rounded"-->
+            <!--                android:fontFamily="@font/lato_bold"-->
+            <!--                android:gravity="center"-->
+            <!--                android:padding="@dimen/margin_6"-->
+            <!--                android:text="@string/edit"-->
+            <!--                android:textAllCaps="false"-->
+            <!--                android:textColor="@color/text_black"-->
+            <!--                android:textSize="@dimen/text_14"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toStartOf="@id/btnDelete"-->
+            <!--                app:layout_constraintStart_toEndOf="@id/ivPet"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/tvAddedAt" />-->
+
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--                android:id="@+id/btnDelete"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="@dimen/margin_12"-->
+            <!--                android:background="@drawable/bg_ripple_rounded_border_blue"-->
+            <!--                android:fontFamily="@font/lato_bold"-->
+            <!--                android:gravity="center"-->
+            <!--                android:padding="@dimen/margin_6"-->
+            <!--                android:text="@string/delete"-->
+            <!--                android:textAllCaps="false"-->
+            <!--                android:textColor="@color/blue_light"-->
+            <!--                android:textSize="@dimen/text_14"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@id/btnEdit"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toEndOf="@id/btnEdit"-->
+            <!--                app:layout_constraintTop_toTopOf="@id/btnEdit" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
