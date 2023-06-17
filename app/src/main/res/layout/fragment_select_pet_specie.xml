@@ -17,7 +17,7 @@
         android:background="@drawable/bg_primary_light" />
 
     <TextView
-        android:id="@+id/tvPricePerHour"
+        android:id="@+id/tvTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vLine"
@@ -27,7 +27,7 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:paddingVertical="4dp"
-        android:text="@string/select_end_time"
+        android:text="@string/select_pet_specie"
         android:textColor="@color/black"
         android:textSize="14sp" />
 
@@ -36,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvPricePerHour"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintVertical_bias="0.0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

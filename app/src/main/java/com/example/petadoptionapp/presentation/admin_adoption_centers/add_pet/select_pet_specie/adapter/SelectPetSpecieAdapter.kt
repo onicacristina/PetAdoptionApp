@@ -3,7 +3,7 @@ package com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.s
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.petadoptionapp.databinding.ItemSelectHourBinding
+import com.example.petadoptionapp.databinding.ItemSelectSpecieBinding
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.utils.ViewBindingViewHolder
 
@@ -15,26 +15,31 @@ class SelectPetSpecieAdapter(
 ) : ListAdapter<EPetCategory, SelectPetSpecieAdapter.ViewHolder>(diffUtils) {
 
     class ViewHolder(
-        binding: ItemSelectHourBinding,
+        binding: ItemSelectSpecieBinding,
         private val onItemClickListener: OnItemClickListener
-    ) : ViewBindingViewHolder<ItemSelectHourBinding>(binding) {
+    ) : ViewBindingViewHolder<ItemSelectSpecieBinding>(binding) {
 
         fun bind(data: EPetCategory) {
             bindItem(data)
         }
 
         private fun bindItem(data: EPetCategory) {
-            bindHour(data)
+            bindName(data)
+            bindIcon(data)
             bindClick(data)
         }
 
-        private fun bindHour(data: EPetCategory) {
-            val context = binding.tvTime.context
-            binding.tvTime.text = context.getString(data.stringResource)
+        private fun bindName(data: EPetCategory) {
+            val context = binding.tvPetSpecie.context
+            binding.tvPetSpecie.text = context.getString(data.stringResource)
+        }
+
+        private fun bindIcon(data: EPetCategory) {
+            binding.ivPetImage.setImageResource(data.iconResource)
         }
 
         private fun bindClick(data: EPetCategory) {
-            binding.container.setOnClickListener {
+            binding.itemContainer.setOnClickListener {
                 onItemClickListener.invoke(data)
             }
         }
@@ -43,7 +48,7 @@ class SelectPetSpecieAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ViewHolder(
-            ItemSelectHourBinding.inflate(inflater, parent, false),
+            ItemSelectSpecieBinding.inflate(inflater, parent, false),
             onItemClickListener
         )
     }
