@@ -69,7 +69,9 @@ class FavoriteViewModel @Inject constructor(
                 story = "Hello there i am a bird and i am happy.",
                 imageUrl = "https://images.unsplash.com/photo-1580775404530-d559b4e32494?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
                 adoptionCenterId = "70aa6960-f199-11ed-9bc8-e70506774611",
-                isSaved = true
+                "",
+                "",
+                isSaved = true,
             ),
             AnimalResponse(
                 "0af23460-f372-11ed-93ea-13cb0af60365",
@@ -83,6 +85,8 @@ class FavoriteViewModel @Inject constructor(
                 story = "Hello there i am a bird and i am happy.",
                 imageUrl = "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
                 adoptionCenterId = "70aa6960-f199-11ed-9bc8-e70506774611",
+                "",
+                "",
                 isSaved = true
             )
         )

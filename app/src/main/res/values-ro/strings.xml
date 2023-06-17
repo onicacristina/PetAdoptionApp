@@ -209,4 +209,11 @@
     <string name="pet_image">Imaginea animalului</string>
     <string name="publish_pet">Publică animalul</string>
 
+    <string name="edit">Editează</string>
+    <string name="added_at">Adăugat la: %1$s</string>
+    <string name="add_pet">Adăugă</string>
+    <string name="delete_pet">Șterge animalul de companie</string>
+    <string name="delete_pet_description">Sunteți sigur că doriți să ștergi acest animal de companie?</string>
+
+
 </resources>

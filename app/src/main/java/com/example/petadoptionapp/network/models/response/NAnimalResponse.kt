@@ -12,4 +12,6 @@ data class NAnimalResponse(
     val story: String,
     val imageUrl: String,
     val adoptionCenterId: String,
+    val createdAt: String,
+    val updatedAt: String,
 )

@@ -48,7 +48,7 @@ class MainActivity : BaseActivity() {
     fun initNavigation() {
         val graph = navController.navInflater.inflate(R.navigation.nav_main)
         val startDestination = when {
-            ProfilePrefs().isLoggedIn() -> R.id.homeFragment
+            ProfilePrefs().isLoggedIn() -> goToHome()
             !AppStateFlagsPrefs().showTutorial() -> R.id.selectUserRoleFragment
 //            !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
             else -> R.id.languageFragment
@@ -118,5 +118,12 @@ class MainActivity : BaseActivity() {
     private fun switchToAdminUser() {
         binding.navView.menu.clear()
         binding.navView.inflateMenu(R.menu.bottom_nav_menu_admin)
+    }
+
+    private fun goToHome(): Int {
+        val userRole = ProfilePrefs().getUserRole()
+        if (userRole == EUserRole.ADOPTION_CENTER_USER)
+            return R.id.homeAdminFragment
+        return R.id.homeFragment
     }
 }

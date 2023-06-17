@@ -206,4 +206,12 @@
     <string name="pet_image">Pet image</string>
     <string name="publish_pet">Publish pet</string>
 
+
+    <string name="edit">Edit</string>
+    <string name="added_at">Added at: %1$s</string>
+    <string name="add_pet">Add</string>
+    <string name="delete_pet">Delete pet</string>
+    <string name="delete_pet_description">Are you sure you want to delete this pet?</string>
+
+
 </resources>

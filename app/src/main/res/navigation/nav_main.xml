@@ -208,6 +208,11 @@
         android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.AddPetFragment"
         android:label="fragment_add_pet"
         tools:layout="@layout/fragment_add_pet" />
+    <fragment
+        android:id="@+id/homeAdminFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.home_admin.HomeAdminFragment"
+        android:label="fragment_home_admin"
+        tools:layout="@layout/fragment_home_admin" />
 
     <!--    <action-->
     <!--        android:id="@+id/startPetDetails"-->

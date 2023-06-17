@@ -6,6 +6,9 @@ import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
+import java.text.DateFormatSymbols
+import java.text.SimpleDateFormat
+import java.util.*
 
 @Serializable
 @Parcelize
@@ -21,6 +24,8 @@ data class AnimalResponse(
     val story: String,
     val imageUrl: String,
     val adoptionCenterId: String,
+    val createdAt: String,
+    val updatedAt: String,
     val isSaved: Boolean = false
 ) : Parcelable {
     fun getAgeCategory(animal: AnimalResponse): AgeCategory {
@@ -73,8 +78,25 @@ data class AnimalResponse(
             neutered = false,
             story = "",
             imageUrl = "",
-            adoptionCenterId = ""
+            adoptionCenterId = "",
+            createdAt = "",
+            updatedAt = ""
         )
+    }
+
+    fun getFormattedCreationDate(locale: Locale = Locale.getDefault()): String {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", locale)
+        val outputFormat = SimpleDateFormat("dd MMMM yyyy", locale)
+
+        val dateFormatSymbols = DateFormatSymbols.getInstance(locale)
+        outputFormat.dateFormatSymbols = dateFormatSymbols
+
+        return try {
+            val date = inputFormat.parse(createdAt)
+            outputFormat.format(date ?: "")
+        } catch (e: Exception) {
+            ""
+        }
     }
 
     override fun equals(other: Any?): Boolean {
