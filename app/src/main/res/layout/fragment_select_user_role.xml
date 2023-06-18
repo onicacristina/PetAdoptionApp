@@ -72,7 +72,7 @@
         android:backgroundTint="@null"
         android:fontFamily="@font/lato_bold"
         android:gravity="center"
-        android:text="@string/save_changes"
+        android:text="@string/btn_continue"
         android:textAllCaps="false"
         android:textColor="@drawable/selector_button_text"
         android:textSize="@dimen/text_18"
