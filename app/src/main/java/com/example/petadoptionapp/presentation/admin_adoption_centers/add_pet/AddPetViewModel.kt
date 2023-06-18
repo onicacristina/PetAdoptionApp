@@ -1,6 +1,7 @@
 package com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet
 
 import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.request.NAnimalParam
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
@@ -8,19 +9,22 @@ import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
 import com.example.petadoptionapp.presentation.utils.DefaultStateDelegate
 import com.example.petadoptionapp.presentation.utils.EventDelegate
 import com.example.petadoptionapp.presentation.utils.StateDelegate
+import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import com.example.petadoptionapp.repository.pet_gender_repository.PetGenderRepository
 import com.example.petadoptionapp.repository.pet_specie_repository.PetSpecieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 
 @HiltViewModel
 class AddPetViewModel @Inject constructor(
     private val genderRepository: PetGenderRepository,
-    private val specieRepository: PetSpecieRepository
+    private val specieRepository: PetSpecieRepository,
+    private val animalsRepository: AnimalsRepository
 ) : BaseViewModel(),
     StateDelegate<AddPetViewModel.State> by DefaultStateDelegate(State.default),
     EventDelegate<AddPetViewModel.Event> by DefaultEventDelegate() {
@@ -47,6 +51,36 @@ class AddPetViewModel @Inject constructor(
                     onSpecieChanged(it)
                 }
             }.collect()
+        }
+    }
+
+    fun addPet() {
+        val extraData = mapOf("" to  "")
+        val param = NAnimalParam(
+            currentState.name,
+            currentState.specie.getPetCategoryString(),
+            currentState.gender.getPetGenderString(),
+            currentState.breed,
+            currentState.age.toInt(),
+            currentState.vaccinated,
+            currentState.neutered,
+            currentState.story,
+            currentState.image,
+            extraData,
+            currentState.adoptionCenterId
+        )
+
+        viewModelScope.launch {
+            animalsRepository.addAnimal(param).fold(
+                onSuccess = {
+                    Timber.e("success add pet")
+                    sendEvent(Event.SUCCESS)
+                },
+                onFailure = {
+                    Timber.e("error add pet")
+                    showError(it)
+                }
+            )
         }
     }
 
@@ -144,8 +178,8 @@ class AddPetViewModel @Inject constructor(
                     vaccinated = false,
                     neutered = false,
                     story = "",
-                    image = "",
-                    adoptionCenterId = ""
+                    image = "https://images.unsplash.com/photo-1556596187-c3d988ea368c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80",
+                    adoptionCenterId = "70aa6960-f199-11ed-9bc8-e70506774611"
                 )
         }
 

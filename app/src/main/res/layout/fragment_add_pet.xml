@@ -154,6 +154,7 @@
                     android:layout_height="110dp"
                     android:background="@drawable/bg_custom_inputs"
                     android:hint="@string/pet_story"
+                    android:gravity="top|left"
                     android:inputType="text"
                     android:minLines="2"
                     android:maxLines="3"

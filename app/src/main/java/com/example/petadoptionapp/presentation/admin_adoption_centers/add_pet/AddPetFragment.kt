@@ -64,6 +64,7 @@ class AddPetFragment :
 
         viewBinding.btnSave.setOnDebounceClickListener {
             //todo
+            viewModel.addPet()
         }
 
         viewBinding.tvGender.setOnDebounceClickListener {
@@ -99,7 +100,9 @@ class AddPetFragment :
 
     private fun onEvent(event: AddPetViewModel.Event) {
         when (event) {
-            AddPetViewModel.Event.SUCCESS -> TODO()
+            AddPetViewModel.Event.SUCCESS -> {
+                navController.popBackStack()
+            }
         }
     }
 
