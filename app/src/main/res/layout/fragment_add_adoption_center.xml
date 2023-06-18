@@ -178,7 +178,7 @@
                 android:layout_marginTop="@dimen/margin_12"
                 android:background="@drawable/selector_yellow_button"
                 android:backgroundTint="@null"
-                android:text="@string/save"
+                android:text="@string/btn_continue"
                 android:textAllCaps="false"
                 android:textColor="@drawable/selector_button_text"
                 android:textSize="18sp"

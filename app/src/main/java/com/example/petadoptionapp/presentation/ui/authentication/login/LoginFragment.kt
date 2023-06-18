@@ -17,6 +17,7 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentLoginBinding
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.utils.extensions.addClickableLink
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
@@ -123,8 +124,13 @@ class LoginFragment : NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.
         viewBinding.clInfoOrError.isVisible = false
     }
 
-    private fun openHome(){
-        navController.navigate(R.id.homeFragment)
+    private fun openHome() {
+//        val user = ProfilePrefs().getProfile()
+//        if (user?.role == 0)
+//            navController.navigate(R.id.homeFragment)
+//        if (user?.role == 1)
+//            navController.navigate(R.id.homeAdminFragment)
+        getMainActivity()?.initNavigation()
     }
 
 }

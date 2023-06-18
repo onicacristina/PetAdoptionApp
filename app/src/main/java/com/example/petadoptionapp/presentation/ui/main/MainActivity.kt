@@ -10,7 +10,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.ActivityMainBinding
-import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.presentation.base.BaseActivity
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.profile.settings.EAppTheme
@@ -78,6 +77,7 @@ class MainActivity : BaseActivity() {
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         binding.navView.setupWithNavController(navController)
+        solveTabs()
     }
 
     fun bottomNavigationVisibility(visibility: Int) {
@@ -105,10 +105,10 @@ class MainActivity : BaseActivity() {
     }
 
     private fun solveTabs() {
-        val userRole = ProfilePrefs().getUserRole()
-        if (userRole == EUserRole.NORMAL_USER)
+        val userRole = ProfilePrefs().getProfile()
+        if (userRole?.role == 0)
             switchToNormalUser()
-        if (userRole == EUserRole.ADOPTION_CENTER_USER)
+        if (userRole?.role == 1)
             switchToAdminUser()
     }
 
@@ -123,8 +123,8 @@ class MainActivity : BaseActivity() {
     }
 
     private fun goToHome(): Int {
-        val userRole = ProfilePrefs().getUserRole()
-        if (userRole == EUserRole.ADOPTION_CENTER_USER)
+        val userRole = ProfilePrefs().getProfile()
+        if (userRole?.role == 1)
             return R.id.homeAdminFragment
         return R.id.homeFragment
     }

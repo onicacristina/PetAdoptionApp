@@ -11,6 +11,7 @@
         android:layout_marginHorizontal="@dimen/margin_8"
         android:layout_marginVertical="@dimen/margin_8"
         app:cardCornerRadius="@dimen/margin_12"
+        android:minHeight="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
