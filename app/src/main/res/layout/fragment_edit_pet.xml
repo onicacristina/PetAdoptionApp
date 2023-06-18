@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.admin_adoption_centers.edit_pet.EditPetFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/tvPetName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:layout_marginBottom="@dimen/margin_4"
+                android:fontFamily="@font/lato_regular"
+                android:paddingVertical="@dimen/margin_4"
+                android:text="@string/pet_name"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etPetName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:autofillHints="First Name"
+                android:background="@drawable/bg_custom_inputs"
+                android:fontFamily="@font/lato_regular"
+                android:hint="@string/pet_name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:paddingHorizontal="@dimen/margin_12"
+                android:textColor="@color/text_black"
+                android:textColorHint="@color/grey_input_text_hint"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPetName" />
+
+            <TextView
+                android:id="@+id/tvPetBreed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginBottom="@dimen/margin_4"
+                android:fontFamily="@font/lato_regular"
+                android:paddingVertical="@dimen/margin_4"
+                android:text="@string/pet_breed"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etPetName" />
+
+            <EditText
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:autofillHints="First Name"
+                android:background="@drawable/bg_custom_inputs"
+                android:fontFamily="@font/lato_regular"
+                android:hint="@string/pet_breed"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:paddingHorizontal="@dimen/margin_12"
+                android:textColor="@color/text_black"
+                android:textColorHint="@color/grey_input_text_hint"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPetBreed" />
+
+            <TextView
+                android:id="@+id/tvSpecie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginBottom="@dimen/margin_4"
+                android:fontFamily="@font/lato_regular"
+                android:paddingVertical="@dimen/margin_4"
+                android:text="@string/select_pet_specie"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etLastName" />
+
+            <TextView
+                android:id="@+id/tvSpecieSelected"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:background="@drawable/bg_custom_inputs"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/margin_12"
+                android:text="@string/select_pet_specie"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSpecie"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginBottom="@dimen/margin_4"
+                android:fontFamily="@font/lato_regular"
+                android:paddingVertical="@dimen/margin_4"
+                android:text="@string/select_pet_gender"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSpecieSelected" />
+
+            <TextView
+                android:id="@+id/tvGenderSelected"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:background="@drawable/bg_custom_inputs"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/margin_12"
+                android:text="@string/select_pet_gender"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGender"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvPetAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginBottom="@dimen/margin_4"
+                android:fontFamily="@font/lato_regular"
+                android:paddingVertical="@dimen/margin_4"
+                android:text="@string/pet_age"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGenderSelected" />
+
+            <EditText
+                android:id="@+id/etPetAge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:autofillHints="First Name"
+                android:background="@drawable/bg_custom_inputs"
+                android:fontFamily="@font/lato_regular"
+                android:hint="@string/pet_age"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:paddingHorizontal="@dimen/margin_12"
+                android:textColor="@color/text_black"
+                android:textColorHint="@color/grey_input_text_hint"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPetAge" />
+
+            <TextView
+                android:id="@+id/tvPetStory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginBottom="@dimen/margin_4"
+                android:fontFamily="@font/lato_regular"
+                android:paddingVertical="@dimen/margin_4"
+                android:text="@string/pet_story"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etPetAge" />
+
+            <EditText
+                android:id="@+id/etPetStory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:autofillHints="First Name"
+                android:background="@drawable/bg_custom_inputs"
+                android:fontFamily="@font/lato_regular"
+                android:hint="@string/pet_story"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:paddingHorizontal="@dimen/margin_12"
+                android:textColor="@color/text_black"
+                android:textColorHint="@color/grey_input_text_hint"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPetStory" />
+
+            <TextView
+                android:id="@+id/tvVaccinated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/pet_vaccinated"
+                android:textColor="@color/text_black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/etPetStory"
+                app:layout_constraintTop_toBottomOf="@id/ivPetImage" />
+
+            <Switch
+                android:id="@+id/btnSwitchVaccinated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/tvVaccinated"
+                app:layout_constraintEnd_toEndOf="@id/etPetStory"
+                app:layout_constraintTop_toTopOf="@id/tvVaccinated"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:id="@+id/tvNeutered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/pet_neutered"
+                android:textColor="@color/text_black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/etPetStory"
+                app:layout_constraintTop_toBottomOf="@id/tvVaccinated" />
+
+            <Switch
+                android:id="@+id/btnSwitchNeutered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/tvNeutered"
+                app:layout_constraintEnd_toEndOf="@id/etPetStory"
+                app:layout_constraintTop_toTopOf="@id/tvNeutered"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:id="@+id/tvSelectImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_20"
+                android:layout_marginTop="@dimen/margin_12"
+                android:text="@string/pet_image"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etPetStory" />
+
+            <ImageView
+                android:id="@+id/ivPetImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:contentDescription="@null"
+                android:src="@drawable/bg_custom_inputs"
+                app:layout_constraintStart_toStartOf="@id/tvSelectImage"
+                app:layout_constraintTop_toBottomOf="@id/tvSelectImage" />
+
+            <ImageView
+                android:id="@+id/ivCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_camera"
+                app:layout_constraintBottom_toBottomOf="@id/ivPetImage"
+                app:layout_constraintEnd_toEndOf="@id/ivPetImage"
+                app:layout_constraintStart_toStartOf="@id/ivPetImage"
+                app:layout_constraintTop_toTopOf="@id/ivPetImage" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="@dimen/margin_24"
+                android:layout_marginTop="@dimen/margin_20"
+                android:layout_marginBottom="@dimen/margin_24"
+                android:background="@drawable/selector_yellow_button"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center"
+                android:text="@string/save_changes"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_button_text"
+                android:textSize="@dimen/text_18"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNeutered" />
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:id="@+id/clJoinedInfo"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/viewAvatar">-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvJoinedLabel"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="@dimen/margin_12"-->
+            <!--                    android:layout_marginBottom="@dimen/margin_4"-->
+            <!--                    android:fontFamily="@font/lato_regular"-->
+            <!--                    android:text="@string/joined"-->
+            <!--                    android:textColor="@color/text_black"-->
+            <!--                    android:textSize="@dimen/text_14"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@id/tvJoined"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvJoined"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="@dimen/margin_4"-->
+            <!--                    android:fontFamily="@font/lato_bold"-->
+            <!--                    android:textColor="@color/text_black"-->
+            <!--                    android:textSize="14sp"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toEndOf="@id/tvJoinedLabel"-->
+            <!--                    app:layout_constraintTop_toTopOf="@id/tvJoinedLabel"-->
+            <!--                    tools:text="24 mai 2023" />-->
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

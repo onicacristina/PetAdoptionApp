@@ -213,6 +213,6 @@
     <string name="delete_pet">Delete pet</string>
     <string name="delete_pet_description">Are you sure you want to delete this pet?</string>
     <string name="last_modified">Last modified at: </string>
-
+    <string name="edit_pet">Edit pet</string>
 
 </resources>

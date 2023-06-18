@@ -215,6 +215,7 @@
     <string name="delete_pet">Șterge animalul de companie</string>
     <string name="delete_pet_description">Sunteți sigur că doriți să ștergi acest animal de companie?</string>
     <string name="last_modified">Modificat ultima dată la: </string>
+    <string name="edit_pet">Editează animalul</string>
 
 
 </resources>

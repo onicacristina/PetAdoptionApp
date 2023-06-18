@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.main
 
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
@@ -24,6 +25,7 @@ class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val navController: NavController by lazy { findNavController(R.id.nav_host_fragment) }
+    private val viewModel: MainViewModel by viewModels()
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -41,7 +43,7 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
         initNavigation()
         setAppMode()
-        //TODO("add refresh token if needed")
+        viewModel.clearCaches()
         solveRefreshTokenIfNeeded()
     }
 
