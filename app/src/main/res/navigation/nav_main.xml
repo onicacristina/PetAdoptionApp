@@ -78,6 +78,9 @@
         <action
             android:id="@+id/action_petDetailsFragment_to_bookAppointmentFragment"
             app:destination="@id/bookAppointmentFragment" />
+        <action
+            android:id="@+id/action_petDetailsFragment_to_editPetFragment"
+            app:destination="@id/editPetFragment" />
     </fragment>
     <fragment
         android:id="@+id/petImageDetailsFragment"

@@ -100,7 +100,7 @@ class PetDetailsFragment :
         }
 
         viewBinding.btnEdit.setOnDebounceClickListener {
-            //todo
+            openEditPetScreen()
         }
     }
 
@@ -278,6 +278,14 @@ class PetDetailsFragment :
     private fun isAdmin(): Boolean {
         val userRole = ProfilePrefs().getUserRole()
         return userRole == EUserRole.ADOPTION_CENTER_USER
+    }
+
+    private fun openEditPetScreen() {
+        val pet = viewModel.animalData
+        navController.navigate(
+            R.id.action_petDetailsFragment_to_editPetFragment,
+            bundleOf(Constants.PET_DETAILS_TO_EDIT to pet)
+        )
     }
 
     private fun showDeleteDialog() {
