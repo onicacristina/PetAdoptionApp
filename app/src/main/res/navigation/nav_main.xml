@@ -216,6 +216,20 @@
         <action
             android:id="@+id/toPetDetailsFragment"
             app:destination="@id/petDetailsFragment" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_editPetFragment"
+            app:destination="@id/editPetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPetFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.edit_pet.EditPetFragment"
+        android:label="fragment_edit_pet"
+        tools:layout="@layout/fragment_edit_pet" >
+
+        <argument
+            android:name="petDetailsToEdit"
+            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"
+             />
     </fragment>
 
     <!--    <action-->

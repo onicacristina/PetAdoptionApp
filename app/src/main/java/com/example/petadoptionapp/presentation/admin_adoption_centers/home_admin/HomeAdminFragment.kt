@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.admin_adoption_centers.home_admi
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
@@ -106,8 +107,11 @@ class HomeAdminFragment :
                 bundle.putString(Constants.PET_ID, it.id)
                 navController.navigate(R.id.toPetDetailsFragment, bundle)
             },
-            onEditClickListener = {
-
+            onEditClickListener = { pet ->
+                navController.navigate(
+                    R.id.action_homeAdminFragment_to_editPetFragment,
+                    bundleOf(Constants.PET_DETAILS_TO_EDIT to pet)
+                )
             },
             onDeleteClickListener = {
                 showDeleteDialog()

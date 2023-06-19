@@ -87,7 +87,7 @@ class LoginViewModel @Inject constructor(
                         _signedIn.send(Any())
                     },
                     onFailure = { error ->
-                        Timber.e("error login")
+                        Timber.e("error login ${error.message}")
                         showError(error)
                     })
             }
