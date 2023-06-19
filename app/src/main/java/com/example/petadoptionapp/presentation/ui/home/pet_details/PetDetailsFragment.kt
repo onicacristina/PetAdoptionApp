@@ -314,5 +314,10 @@ class PetDetailsFragment :
         startActivity(intent)
     }
 
+    override fun onResume() {
+        super.onResume()
+//        viewModel.getAnimalDetails(viewModel.animalData.id)
+    }
+
 }
 
