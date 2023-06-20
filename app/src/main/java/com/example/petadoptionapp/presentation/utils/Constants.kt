@@ -14,4 +14,6 @@ object Constants {
     const val ADOPTION_CENTER = "adoptionCenter"
     const val NO_AUTH = "no-auth"
     const val PET_DETAILS_TO_EDIT = "petDetailsToEdit"
+    const val USER_NAME = "userName"
+    const val USER_EMAIL  = "userEmail"
 }

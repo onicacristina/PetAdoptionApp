@@ -3,6 +3,7 @@ package com.example.petadoptionapp.network.services.auth
 import com.example.petadoptionapp.network.models.LoginParams
 import com.example.petadoptionapp.network.models.RegisterParams
 import com.example.petadoptionapp.network.models.request.NChangePasswordParams
+import com.example.petadoptionapp.network.models.request.NLinkAdminToAdoptionCenterParam
 import com.example.petadoptionapp.network.models.response.LoginResponse
 import com.example.petadoptionapp.network.models.response.NMessageResponse
 import com.example.petadoptionapp.network.models.response.RegisterResponse
@@ -39,8 +40,8 @@ class AuthApiInterfaceImplementation @Inject constructor(
         return authApiService.changePasswordAdmin(changePasswordParams = changePasswordParams)
     }
 
-    override suspend fun linkAdminUserToAdoptionCenter(adoptionCenterId: String): NMessageResponse {
-        return authApiService.linkAdminUserToAdoptionCenter(adoptionCenterId = adoptionCenterId)
+    override suspend fun linkAdminUserToAdoptionCenter(linkAdminToAdoptionCenterParam: NLinkAdminToAdoptionCenterParam): NMessageResponse {
+        return authApiService.linkAdminUserToAdoptionCenter(linkAdminToAdoptionCenterParam)
     }
 
     override suspend fun deleteAccountAdmin(): NMessageResponse {

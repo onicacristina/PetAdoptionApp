@@ -3,6 +3,7 @@ package com.example.petadoptionapp.network.services.auth
 import com.example.petadoptionapp.network.models.LoginParams
 import com.example.petadoptionapp.network.models.RegisterParams
 import com.example.petadoptionapp.network.models.request.NChangePasswordParams
+import com.example.petadoptionapp.network.models.request.NLinkAdminToAdoptionCenterParam
 import com.example.petadoptionapp.network.models.response.LoginResponse
 import com.example.petadoptionapp.network.models.response.NMessageResponse
 import com.example.petadoptionapp.network.models.response.RegisterResponse
@@ -46,7 +47,7 @@ interface AuthApiService {
     suspend fun changePasswordAdmin(@Body changePasswordParams: NChangePasswordParams): NMessageResponse
 
     @PUT("admin/users/link-to-adoption-center")
-    suspend fun linkAdminUserToAdoptionCenter(@Body adoptionCenterId: String) : NMessageResponse // todo check this
+    suspend fun linkAdminUserToAdoptionCenter(@Body linkAdminToAdoptionCenterParam: NLinkAdminToAdoptionCenterParam) : NMessageResponse // todo check this
 
     @DELETE("admin/auth/terminate")
     suspend fun deleteAccountAdmin(): NMessageResponse

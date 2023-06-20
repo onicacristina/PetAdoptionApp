@@ -3,6 +3,7 @@ package com.example.petadoptionapp.presentation.ui.authentication.register
 import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.network.models.RegisterParams
+import com.example.petadoptionapp.network.refresh_token.RefreshTokenRepository
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
@@ -20,12 +21,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val refreshTokenRepository: RefreshTokenRepository
 ) : BaseViewModel() {
 
     private var firstName = ""
-    private var lastName = ""
-    private var email = ""
+    var lastName = ""
+    var email = ""
     private var password = ""
     var isPasswordVisible = false
     private var isAcceptedTermsAndConditions = false
@@ -98,12 +100,6 @@ class RegisterViewModel @Inject constructor(
         validateFieldsNotEmpty()
     }
 
-//    fun sendSignInEvent(event: ValidationEventSignIn){
-//        viewModelScope.launch {
-//            _event.send(event)
-//        }
-//    }
-
     private fun validateFieldsNotEmpty() {
         _buttonState.value =
             isNotEmptyFirstName() && isNotEmptyLastName() && isNotEmptyEmail() && isNotEmptyPassword() && isAcceptedTermsAndConditions
@@ -152,6 +148,10 @@ class RegisterViewModel @Inject constructor(
                 authRepository.registerAdmin(registerParams = registerParams).fold(
                     onSuccess = {
                         Timber.e("success register ")
+
+                        refreshTokenRepository.saveRefreshToken(it.refreshToken)
+                        refreshTokenRepository.saveAccessToken(it.token)
+
                         _signedUp.send(Any())
                     },
                     onFailure = { error ->

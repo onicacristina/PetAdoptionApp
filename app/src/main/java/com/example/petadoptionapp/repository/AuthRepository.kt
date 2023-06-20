@@ -3,6 +3,7 @@ package com.example.petadoptionapp.repository
 import com.example.petadoptionapp.network.models.LoginParams
 import com.example.petadoptionapp.network.models.RegisterParams
 import com.example.petadoptionapp.network.models.request.NChangePasswordParams
+import com.example.petadoptionapp.network.models.request.NLinkAdminToAdoptionCenterParam
 import com.example.petadoptionapp.network.models.response.LoginResponse
 import com.example.petadoptionapp.network.models.response.NMessageResponse
 import com.example.petadoptionapp.network.models.response.RegisterResponse
@@ -73,10 +74,10 @@ class AuthRepository @Inject constructor(
         }
     }
 
-    override suspend fun linkAdminUserToAdoptionCenter(adoptionCenterId: String): Result<NMessageResponse> {
+    override suspend fun linkAdminUserToAdoptionCenter(linkAdminToAdoptionCenterParam: NLinkAdminToAdoptionCenterParam): Result<NMessageResponse> {
         return withContext(Dispatchers.IO) {
             kotlin.runCatching {
-                authApiInterface.linkAdminUserToAdoptionCenter(adoptionCenterId = adoptionCenterId)
+                authApiInterface.linkAdminUserToAdoptionCenter(linkAdminToAdoptionCenterParam)
             }
         }
     }

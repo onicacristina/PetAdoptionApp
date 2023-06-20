@@ -34,9 +34,9 @@ class AddAdoptionCenterFragment :
     }
 
     private fun initListeners() {
-        viewBinding.etName.doAfterTextChanged { text ->
-            viewModel.onNameChanges(text.toString())
-        }
+//        viewBinding.etName.doAfterTextChanged { text ->
+//            viewModel.onNameChanges(text.toString())
+//        }
         viewBinding.etPhone.doAfterTextChanged { text ->
             viewModel.onPhoneNumberChanged(text.toString())
         }
@@ -48,7 +48,7 @@ class AddAdoptionCenterFragment :
         }
 
         viewBinding.btnSave.setOnDebounceClickListener {
-            //todo
+            viewModel.addAdoptionCenter()
         }
         viewBinding.tvStartTime.setOnClickListener {
             navController.navigate(R.id.selectStartHourFragment)
@@ -77,8 +77,17 @@ class AddAdoptionCenterFragment :
 
     private fun onEvent(event: AddAdoptionCenterViewModel.Event) {
         when (event) {
-            AddAdoptionCenterViewModel.Event.SUCCESS -> {}
+            AddAdoptionCenterViewModel.Event.SUCCESS_ADD_ADOPTION_CENTER -> {
+                viewModel.linkAdminUserToAdoptionCenter()
+            }
+            AddAdoptionCenterViewModel.Event.SUCCESS_LINK -> {
+                openLoginScreen()
+            }
         }
+    }
+
+    private fun openLoginScreen() {
+        navController.navigate(R.id.loginFragment)
     }
 
     private fun render(state: AddAdoptionCenterViewModel.State) {

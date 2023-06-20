@@ -1,7 +1,7 @@
 package com.example.petadoptionapp.network.models.request
 
 data class NAdoptionCenterParams(
-    val id: String,
+//    val id: String,
     val name: String,
     val email: String,
     val phone: String,

@@ -33,28 +33,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitle">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etName"
-                    android:layout_width="match_parent"
-                    android:layout_height="54dp"
-                    android:background="@drawable/bg_custom_inputs"
-                    android:hint="@string/name"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/black"
-                    android:textColorLink="@color/text_black" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilPhone"
@@ -66,7 +44,7 @@
                 app:boxStrokeWidthFocused="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilName">
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPhone"
@@ -74,7 +52,7 @@
                     android:layout_height="54dp"
                     android:background="@drawable/bg_custom_inputs"
                     android:hint="@string/phone"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:textColor="@android:color/black"
                     android:textColorLink="@color/text_black" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -97,7 +75,7 @@
                     android:layout_height="54dp"
                     android:background="@drawable/bg_custom_inputs"
                     android:hint="@string/address"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:textColor="@android:color/black"
                     android:textColorLink="@color/text_black" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +98,7 @@
                     android:layout_height="54dp"
                     android:background="@drawable/bg_custom_inputs"
                     android:hint="@string/city"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:textColor="@android:color/black"
                     android:textColorLink="@color/text_black" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -142,7 +120,7 @@
                 android:id="@+id/tvStartTime"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
-                android:layout_marginHorizontal="26dp"
+                android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_12"
                 android:background="@drawable/bg_custom_inputs"
                 android:gravity="center_vertical"
@@ -158,7 +136,7 @@
                 android:id="@+id/tvEndTime"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
-                android:layout_marginHorizontal="26dp"
+                android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_12"
                 android:background="@drawable/bg_custom_inputs"
                 android:gravity="center_vertical"
@@ -174,7 +152,7 @@
                 android:id="@+id/btnSave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="26dp"
+                android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginVertical="@dimen/margin_12"
                 android:background="@drawable/selector_yellow_button"
                 android:backgroundTint="@null"

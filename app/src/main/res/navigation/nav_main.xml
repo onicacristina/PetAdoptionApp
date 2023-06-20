@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_registerFragment_to_termsAndConditionsFragment"
             app:destination="@id/termsAndConditionsFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_addAdoptionCenterFragment"
+            app:destination="@id/addAdoptionCenterFragment" />
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
@@ -233,6 +236,22 @@
             android:name="petDetailsToEdit"
             app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"
              />
+    </fragment>
+    <fragment
+        android:id="@+id/addAdoptionCenterFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_adoption_center_details.AddAdoptionCenterFragment"
+        android:label="fragment_add_adoption_center"
+        tools:layout="@layout/fragment_add_adoption_center" >
+
+        <argument
+            android:name="userName"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="userEmail"
+            android:defaultValue=""
+            app:argType="string" />
+
     </fragment>
 
     <!--    <action-->
