@@ -25,9 +25,47 @@ class PastAppointmentsViewModel @Inject constructor(
     }
 
     private fun getPastAppointments() {
+        val userRole = ProfilePrefs().getProfile()
+
+        if (userRole?.role == 0)
+            getPastAppointmentsUser()
+
+        if (userRole?.role == 1)
+            getPastAppointmentsAdmin()
+    }
+
+    private fun getPastAppointmentsUser() {
         viewModelScope.launch {
             val userId = ProfilePrefs().getProfile()?.id
             userId?.let { bookingRepository.getBookingsByUserId(userId = it) }?.fold(
+                onSuccess = { data ->
+                    val appointmentDateFormat = DateTimeFormatter.ofPattern(
+                        "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                        Locale.getDefault()
+                    )
+                    val currentDate = LocalDate.now()
+                    val pastAppointments = data.filter { appointment ->
+                        val appointmentDate =
+                            LocalDate.parse(appointment.dateAndTime, appointmentDateFormat)
+                        appointmentDate.isBefore(currentDate)
+                    }
+
+                    currentState = if (pastAppointments.isEmpty()) State.Empty else State.Value(
+                        pastAppointments
+                    )
+                },
+                onFailure = { error ->
+                    showError(error)
+                    Timber.e("Error fetching bookings")
+                }
+            )
+        }
+    }
+
+    private fun getPastAppointmentsAdmin() {
+        viewModelScope.launch {
+            val adoptionCenterId = ProfilePrefs().getProfile()?.adoptionCenterId
+            adoptionCenterId?.let { bookingRepository.getBookingsByAdoptionCenterId(adoptionCenterId = it) }?.fold(
                 onSuccess = { data ->
                     val appointmentDateFormat = DateTimeFormatter.ofPattern(
                         "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",

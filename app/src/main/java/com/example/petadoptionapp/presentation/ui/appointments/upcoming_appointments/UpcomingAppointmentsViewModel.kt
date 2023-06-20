@@ -25,25 +25,75 @@ class UpcomingAppointmentsViewModel @Inject constructor(
     }
 
     private fun getUpcomingAppointments() {
+        val userRole = ProfilePrefs().getProfile()
+
+        if (userRole?.role == 0)
+            getUpcomingAppointmentsUser()
+
+        if (userRole?.role == 1)
+            getUpcomingAppointmentsAdmin()
+    }
+
+
+    private fun getUpcomingAppointmentsUser() {
         viewModelScope.launch {
             val userId = ProfilePrefs().getProfile()?.id
             userId?.let { bookingRepository.getBookingsByUserId(userId = it) }?.fold(
                 onSuccess = { data ->
-                    val appointmentDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+                    val appointmentDateFormat = DateTimeFormatter.ofPattern(
+                        "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                        Locale.getDefault()
+                    )
                     val currentDate = LocalDate.now()
                     val upcomingAppointments = data.filter { appointment ->
-                        val appointmentDate = LocalDate.parse(appointment.dateAndTime, appointmentDateFormat)
+                        val appointmentDate =
+                            LocalDate.parse(appointment.dateAndTime, appointmentDateFormat)
                         // Check if the appointment date is in the present or future
                         appointmentDate.isEqual(currentDate) || appointmentDate.isAfter(currentDate)
                     }
 
-                    currentState = if (upcomingAppointments.isEmpty()) State.Empty else State.Value(upcomingAppointments)
+                    currentState = if (upcomingAppointments.isEmpty()) State.Empty else State.Value(
+                        upcomingAppointments
+                    )
                 },
                 onFailure = { error ->
                     showError(error)
                     Timber.e("Error fetching bookings")
                 }
             )
+        }
+    }
+
+    private fun getUpcomingAppointmentsAdmin() {
+        viewModelScope.launch {
+            val adoptionCenterId = ProfilePrefs().getProfile()?.adoptionCenterId
+            adoptionCenterId?.let { bookingRepository.getBookingsByAdoptionCenterId(adoptionCenterId = it) }
+                ?.fold(
+                    onSuccess = { data ->
+                        val appointmentDateFormat = DateTimeFormatter.ofPattern(
+                            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                            Locale.getDefault()
+                        )
+                        val currentDate = LocalDate.now()
+                        val upcomingAppointments = data.filter { appointment ->
+                            val appointmentDate =
+                                LocalDate.parse(appointment.dateAndTime, appointmentDateFormat)
+                            // Check if the appointment date is in the present or future
+                            appointmentDate.isEqual(currentDate) || appointmentDate.isAfter(
+                                currentDate
+                            )
+                        }
+
+                        currentState =
+                            if (upcomingAppointments.isEmpty()) State.Empty else State.Value(
+                                upcomingAppointments
+                            )
+                    },
+                    onFailure = { error ->
+                        showError(error)
+                        Timber.e("Error fetching bookings")
+                    }
+                )
         }
     }
 

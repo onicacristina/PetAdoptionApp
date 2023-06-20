@@ -11,7 +11,8 @@ data class User(
     var lastName: String? = null,
     var phone: String? = null,
     val email: String? = null,
-    val createdAt: String? = null
+    val createdAt: String? = null,
+    val adoptionCenterId: String? = null
 ) {
     fun getFullName():String {
         return "$firstName $lastName"
