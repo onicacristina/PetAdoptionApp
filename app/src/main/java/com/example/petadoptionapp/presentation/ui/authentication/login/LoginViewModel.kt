@@ -74,8 +74,8 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             val loginParams = LoginParams(email, password)
             val userRole = ProfilePrefs().getUserRole()
-            if (userRole == EUserRole.NORMAL_USER) {
 
+            if (userRole == EUserRole.NORMAL_USER) {
                 authRepository.login(loginParams = loginParams).fold(
                     onSuccess = {
                         ProfilePrefs().saveProfile(it.user)

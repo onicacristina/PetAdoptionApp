@@ -1,9 +1,11 @@
 package com.example.petadoptionapp.presentation.ui.authentication.register
 
 import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.network.models.RegisterParams
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.utils.Constants.PATTERN
 import com.example.petadoptionapp.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -122,19 +124,44 @@ class RegisterViewModel @Inject constructor(
     }
 
     fun registerUser() {
-        viewModelScope.launch {
-            val registerParams = RegisterParams(firstName, lastName, email, password)
-            authRepository.register(registerParams = registerParams).fold(
-                onSuccess = {
-                    Timber.e("succes register ")
-                    _signedUp.send(Any())
-                },
-                onFailure = { error ->
-                    Timber.e("error register")
-                    showError(error)
-                }
-            )
+        val registerParams = RegisterParams(
+            firstName = firstName,
+            lastName = lastName,
+            email = email,
+            password = password
+        )
+        val userRole = ProfilePrefs().getUserRole()
+
+        if (userRole == EUserRole.NORMAL_USER) {
+            viewModelScope.launch {
+                authRepository.register(registerParams = registerParams).fold(
+                    onSuccess = {
+                        Timber.e("success register ")
+                        _signedUp.send(Any())
+                    },
+                    onFailure = { error ->
+                        Timber.e("error register")
+                        showError(error)
+                    }
+                )
+            }
         }
+
+        if (userRole == EUserRole.ADOPTION_CENTER_USER) {
+            viewModelScope.launch {
+                authRepository.registerAdmin(registerParams = registerParams).fold(
+                    onSuccess = {
+                        Timber.e("success register ")
+                        _signedUp.send(Any())
+                    },
+                    onFailure = { error ->
+                        Timber.e("error register")
+                        showError(error)
+                    }
+                )
+            }
+        }
+
     }
 
 }

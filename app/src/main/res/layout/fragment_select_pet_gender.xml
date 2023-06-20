@@ -27,7 +27,7 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:paddingVertical="4dp"
-        android:text="@string/select_end_time"
+        android:text="@string/select_pet_gender"
         android:textColor="@color/black"
         android:textSize="14sp" />
 
