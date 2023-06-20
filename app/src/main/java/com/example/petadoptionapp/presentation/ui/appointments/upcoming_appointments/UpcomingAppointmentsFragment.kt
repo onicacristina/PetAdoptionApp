@@ -70,7 +70,7 @@ class UpcomingAppointmentsFragment :
             },
             onViewDetailsItemClickListener = {
                 val bundle = Bundle()
-                bundle.putString(Constants.ADOPTION_CENTER_ID, it.adoptionCenterId)
+                bundle.putString(Constants.ADOPTION_CENTER_ID, it.adoptionCenter.id)
                 bundle.putString(Constants.PET_ID, it.id)
                 navController.navigate(R.id.toPetDetailsFragment, bundle)
             }

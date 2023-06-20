@@ -21,11 +21,14 @@ class UpcomingAppointmentsViewModel @Inject constructor(
 ) : BaseViewModel(),
     StateDelegate<UpcomingAppointmentsViewModel.State> by DefaultStateDelegate(State.Loading) {
     init {
-        getUpcomingAppointments()
+//        getUpcomingAppointments()
+//        getUpcomingAppointmentsAdmin()
+        getUpcomingAppointmentsUser()
     }
 
     private fun getUpcomingAppointments() {
         val userRole = ProfilePrefs().getProfile()
+        Timber.e("userRole: $userRole")
 
         if (userRole?.role == 0)
             getUpcomingAppointmentsUser()

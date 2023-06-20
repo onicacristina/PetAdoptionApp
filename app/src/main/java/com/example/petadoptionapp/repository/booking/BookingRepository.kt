@@ -37,7 +37,7 @@ class BookingRepository @Inject constructor(
     override suspend fun getBookingsByAdoptionCenterId(adoptionCenterId: String): Result<List<Booking>> {
         return withContext(Dispatchers.IO) {
             kotlin.runCatching {
-                apiBookingInterface.getBookingsByUserId(adoptionCenterId).results.map {
+                apiBookingInterface.getBookingsByAdoptionCenterId(adoptionCenterId).results.map {
                     NBookingResponseMapper().map(
                         it
                     )
