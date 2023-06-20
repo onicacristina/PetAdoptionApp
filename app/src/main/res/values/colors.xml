@@ -11,6 +11,7 @@
     <color name="grey">#CFCFCF</color>
     <color name="grey_bg_unselected">#E8E6E6</color>
     <color name="silver_grey">#A5A5A5</color>
+    <color name="grey_dark_mode">#424242</color>
 
     <color name="divider">#E9E9E9</color>
 

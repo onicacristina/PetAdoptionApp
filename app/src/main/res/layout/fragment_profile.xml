@@ -38,12 +38,12 @@
 
     <TextView
         android:id="@+id/tvFullName"
+        style="@style/CustomTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_12"
         android:fontFamily="@font/lato_bold"
         android:gravity="center"
-        android:textColor="@color/text_black"
         android:textSize="@dimen/text_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,11 +52,11 @@
 
     <TextView
         android:id="@+id/tvEmail"
+        style="@style/CustomTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_regular"
         android:gravity="center"
-        android:textColor="@color/text_black"
         android:textSize="@dimen/text_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -51,6 +51,8 @@
         <item name="android:minHeight">@dimen/edittext_height</item>
         <item name="android:importantForAutofill">no</item>
         <item name="android:textColorHint">@color/text_grey</item>
+        <item name="android:textColorLink">@color/text_black</item>
+        <item name="android:textColor">@color/text_black</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
     </style>
@@ -81,6 +83,14 @@
         <item name="behavior_fitToContents">true</item>
         <item name="behavior_peekHeight">1000dp</item>
         <item name="behavior_hideable">true</item>
+    </style>
+
+    <style name="CustomTextStyle" parent="">
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="CustomIconStyle">
+        <item name="android:tint">@color/text_black</item>
     </style>
 
 </resources>
