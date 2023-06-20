@@ -12,7 +12,7 @@ class HourRepository @Inject constructor(
 ) : HourRepositoryInterface {
 
     init {
-        cache.saveZonesAndDurations(getDummyData()) // TODO load from the api
+        cache.saveZonesAndDurations(getDummyData())
     }
 
     override suspend fun getHoursList(): Result<List<Hour>> {
@@ -53,15 +53,32 @@ class HourRepository @Inject constructor(
         cache.clearCache()
     }
 
+//    private fun getDummyData(): List<Hour> {
+//        val dummyData = mutableListOf<Hour>()
+//
+//        for (hour in 8..18) {
+//            val hourString = String.format("%02d:00", hour)
+//            val hourItem = Hour(hour, hourString)
+//            dummyData.add(hourItem)
+//        }
+//
+//        return dummyData
+//    }
+
     private fun getDummyData(): List<Hour> {
         val dummyData = mutableListOf<Hour>()
 
-        for (hour in 8..18) {
+        for (hour in 8..17) { // Reduce range to 17 instead of 18 since we are adding minutes
             val hourString = String.format("%02d:00", hour)
             val hourItem = Hour(hour, hourString)
             dummyData.add(hourItem)
+
+            val halfHourString = String.format("%02d:30", hour)
+            val halfHourItem = Hour(hour, halfHourString)
+            dummyData.add(halfHourItem)
         }
 
         return dummyData
     }
+
 }
