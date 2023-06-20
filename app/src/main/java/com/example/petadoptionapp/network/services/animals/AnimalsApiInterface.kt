@@ -10,6 +10,7 @@ interface AnimalsApiInterface {
     suspend fun getOneAnimalById(id: String): NAnimalResponse
     suspend fun getAllAnimals(): NAnimalsListResponse
     suspend fun getAnimalsBySpecie(specie: String): NAnimalsListResponse
+    suspend fun getAnimalsByAdoptionCenterId(adoptionCenterId: String): NAnimalsListResponse
 
     suspend fun addAnimal(data: NAnimalParam): NPostAnimalResponse
     suspend fun editAnimal(id: String, data: NAnimalParam): NPostAnimalResponse

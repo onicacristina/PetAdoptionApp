@@ -8,6 +8,7 @@ interface AnimalsRepositoryInterface {
     suspend fun getOneAnimalById(id: String): Result<AnimalResponse>
     suspend fun getAllAnimals(): Result<List<AnimalResponse>>
     suspend fun getAnimalsBySpecie(specie: String): Result<List<AnimalResponse>>
+    suspend fun getAnimalsByAdoptionCenterId(adoptionCenterId: String): Result<List<AnimalResponse>>
 
     suspend fun addAnimal(data: NAnimalParam): Result<NPostAnimalResponse>
     suspend fun editAnimal(id: String, data: NAnimalParam): Result<NPostAnimalResponse>

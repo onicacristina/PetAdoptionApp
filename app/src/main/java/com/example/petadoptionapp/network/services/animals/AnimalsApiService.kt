@@ -23,6 +23,9 @@ interface AnimalsApiService {
     @GET("api/animals")
     suspend fun getAnimalsBySpecie(@Query("specie") specie: String): NAnimalsListResponse
 
+    @GET("api/animals")
+    suspend fun getAnimalsByAdoptionCenterId(@Query("adoptionCenterId") adoptionCenterId: String): NAnimalsListResponse
+
     @POST("api/animals")
     suspend fun addAnimal(@Body data: NAnimalParam): NPostAnimalResponse
 

@@ -35,9 +35,17 @@ class AnimalsRepository @Inject constructor(
         return withContext(Dispatchers.IO) {
             kotlin.runCatching {
                 apiAnimalsInterface.getAnimalsBySpecie(specie).results.map {
-                    NAnimalResponseMapper().map(
-                        it
-                    )
+                    NAnimalResponseMapper().map(it)
+                }
+            }
+        }
+    }
+
+    override suspend fun getAnimalsByAdoptionCenterId(adoptionCenterId: String): Result<List<AnimalResponse>> {
+        return withContext(Dispatchers.IO) {
+            kotlin.runCatching {
+                apiAnimalsInterface.getAnimalsByAdoptionCenterId(adoptionCenterId).results.map {
+                    NAnimalResponseMapper().map(it)
                 }
             }
         }

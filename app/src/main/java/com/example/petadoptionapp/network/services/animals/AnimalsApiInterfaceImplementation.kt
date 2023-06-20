@@ -22,6 +22,10 @@ class AnimalsApiInterfaceImplementation @Inject constructor(
         return animalsApiService.getAnimalsBySpecie(specie)
     }
 
+    override suspend fun getAnimalsByAdoptionCenterId(adoptionCenterId: String): NAnimalsListResponse {
+        return animalsApiService.getAnimalsByAdoptionCenterId(adoptionCenterId)
+    }
+
     override suspend fun addAnimal(data: NAnimalParam): NPostAnimalResponse {
         return animalsApiService.addAnimal(data)
     }
