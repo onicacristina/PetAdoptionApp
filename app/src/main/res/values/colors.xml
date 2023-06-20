@@ -12,8 +12,14 @@
     <color name="grey_bg_unselected">#E8E6E6</color>
     <color name="silver_grey">#A5A5A5</color>
     <color name="grey_dark_mode">#424242</color>
+    <color name="user_type_bg_unselected">#FFFFFFFF</color>
+    <color name="user_type_bg_selected">#E8E6E6</color>
 
     <color name="divider">#E9E9E9</color>
+
+    <color name="pet_card_color">#FFFFFFFF</color>
+    <color name="color_pet_specie_bg">#E8E6E6</color>
+    <color name="text_pet_specie">#242424</color>
 
 
     <color name="blue_light">#35A2F1</color>

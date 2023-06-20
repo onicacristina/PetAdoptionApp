@@ -98,10 +98,10 @@ class SelectUserRoleFragment :
 
     private fun renderState(state: SelectUserRoleViewModel.State) {
 
-        val colorUnselect = ContextCompat.getColor(requireContext(), R.color.white)
+        val colorUnselect = ContextCompat.getColor(requireContext(), R.color.user_type_bg_unselected)
         val colorUnselectStateList = ColorStateList.valueOf(colorUnselect)
 
-        val colorSelected = ContextCompat.getColor(requireContext(), R.color.grey_bg_unselected)
+        val colorSelected = ContextCompat.getColor(requireContext(), R.color.user_type_bg_selected)
         val colorSelectedStateList = ColorStateList.valueOf(colorSelected)
 
         if (state.normalUserSelected) {

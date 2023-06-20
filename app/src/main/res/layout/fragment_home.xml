@@ -28,7 +28,7 @@
         android:layout_marginBottom="6dp"
         android:fontFamily="@font/lato_bold"
         android:text="@string/pet_categories"
-        android:textColor="@color/text_black"
+        style="@style/CustomTextStyle"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/rvPetCategory"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/edittext_height"
             style="@style/Widget.PetAdoptionApp.EditText"
-            android:hint="@string/search_by_name"
-            android:textColor="@android:color/black"
-            android:textColorLink="@color/text_black" />
+            android:hint="@string/search_by_name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

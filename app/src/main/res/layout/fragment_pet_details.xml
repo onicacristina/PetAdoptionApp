@@ -75,7 +75,7 @@
                 android:layout_marginVertical="8dp"
                 android:layout_marginTop="10dp"
                 android:elevation="16dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/pet_card_color"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="12dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTV"
@@ -94,7 +94,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lato_bold"
-                        android:textColor="@color/text_black"
+                        style="@style/CustomTextStyle"
                         android:textSize="26sp"
                         app:layout_constraintEnd_toStartOf="@id/ivPetGender"
                         app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +107,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="4dp"
                         android:fontFamily="@font/lato_regular"
-                        android:textColor="@color/text_black"
+                        style="@style/CustomTextStyle"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvPetName"
@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:background="@drawable/bg_item_pet_category_gray"
+                        android:background="@drawable/bg_pet_details_fields"
                         android:fontFamily="@font/lato_regular"
                         android:padding="8dp"
                         android:textColor="@color/text_grey"
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
-                        android:background="@drawable/bg_item_pet_category_gray"
+                        android:background="@drawable/bg_pet_details_fields"
                         android:fontFamily="@font/lato_regular"
                         android:padding="8dp"
                         android:textColor="@color/text_grey"
@@ -187,7 +187,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/lato_bold"
                     android:text="@string/pet_health"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="22sp" />
 
                 <TextView
@@ -197,7 +197,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="16sp"
                     tools:text="@string/vaccinated" />
 
@@ -208,7 +208,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="16sp"
                     tools:text="@string/neutered" />
 
@@ -219,7 +219,7 @@
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/lato_bold"
                     android:text="@string/pet_story"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="22sp" />
 
                 <TextView
@@ -229,7 +229,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups." />
 
@@ -248,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lato_regular"
                         android:text="@string/joined"
-                        android:textColor="@color/text_black"
+                        style="@style/CustomTextStyle"
                         android:textSize="@dimen/text_16"
                         app:layout_constraintEnd_toStartOf="@id/tvAddedAt"
                         app:layout_constraintStart_toStartOf="parent"
@@ -260,7 +260,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_4"
                         android:fontFamily="@font/lato_bold"
-                        android:textColor="@color/text_black"
+                        style="@style/CustomTextStyle"
                         android:textSize="@dimen/text_16"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -284,7 +284,7 @@
                         android:layout_marginTop="@dimen/margin_6"
                         android:fontFamily="@font/lato_regular"
                         android:text="@string/last_modified"
-                        android:textColor="@color/text_black"
+                        style="@style/CustomTextStyle"
                         android:textSize="@dimen/text_16"
                         app:layout_constraintEnd_toStartOf="@id/tvLastModifiedAt"
                         app:layout_constraintStart_toStartOf="parent"
@@ -296,7 +296,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_4"
                         android:fontFamily="@font/lato_bold"
-                        android:textColor="@color/text_black"
+                        style="@style/CustomTextStyle"
                         android:textSize="@dimen/text_16"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -312,7 +312,7 @@
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/lato_bold"
                     android:text="@string/adoption_center"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="22sp" />
 
                 <TextView
@@ -322,7 +322,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="16sp"
                     tools:text="Name: Adotion Center nr 2" />
 
@@ -335,7 +335,7 @@
                     android:drawablePadding="4dp"
                     android:fontFamily="@font/lato_regular"
                     android:gravity="center_vertical"
-                    android:textColor="@color/text_black"
+                    style="@style/CustomTextStyle"
                     android:textSize="16sp"
                     app:drawableStartCompat="@drawable/ic_location_pin"
                     tools:text="Strada Nufarul, nr.2, Oradea" />

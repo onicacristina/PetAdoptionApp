@@ -17,12 +17,12 @@
 
     <TextView
         android:id="@+id/tvDate"
+        style="@style/CustomTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_12"
         android:fontFamily="@font/lato_bold"
         android:text="@string/appointment_date"
-        android:textColor="@color/text_black"
         android:textSize="@dimen/text_20"
         app:layout_constraintBottom_toTopOf="@id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
         android:layout_margin="@dimen/margin_12"
         android:fontFamily="@font/lato_bold"
         android:text="@string/available_time"
-        android:textColor="@color/text_black"
+        style="@style/CustomTextStyle"
         android:textSize="@dimen/text_20"
         app:layout_constraintBottom_toTopOf="@id/rvAvailableTime"
         app:layout_constraintEnd_toEndOf="parent"
