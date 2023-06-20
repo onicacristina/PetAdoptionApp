@@ -49,7 +49,6 @@
                 android:layout_marginTop="@dimen/margin_16"
                 android:fontFamily="@font/lato_regular"
                 android:gravity="center"
-                android:textColor="@color/text_grey"
                 android:textSize="@dimen/text_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

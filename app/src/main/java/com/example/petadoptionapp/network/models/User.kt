@@ -20,12 +20,20 @@ data class User(
 
     fun getInitials(): String {
         val initials = StringBuilder()
-
-        firstName?.let { initials.append(it.first().uppercase()) }
-        lastName?.let { initials.append(".").append(it.first().uppercase()).append(".") }
+        firstName?.let {
+            if (it.isNotEmpty()) {
+                initials.append(it.first().uppercase())
+            }
+        }
+        lastName?.let {
+            if (it.isNotEmpty()) {
+                initials.append(".").append(it.first().uppercase()).append(".")
+            }
+        }
 
         return initials.toString()
     }
+
 
     fun getFormattedCreationDate(locale: Locale = Locale.getDefault()): String {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", locale)
