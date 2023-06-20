@@ -1,18 +1,22 @@
 package com.example.petadoptionapp.presentation.ui.profile.change_password
 
 import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.request.NChangePasswordParams
 import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
 import com.example.petadoptionapp.presentation.utils.DefaultStateDelegate
 import com.example.petadoptionapp.presentation.utils.EventDelegate
 import com.example.petadoptionapp.presentation.utils.StateDelegate
+import com.example.petadoptionapp.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class ChangePasswordViewModel @Inject constructor(
-
+    private val authRepository: AuthRepository
 ) : BaseViewModel(),
     StateDelegate<ChangePasswordViewModel.State> by DefaultStateDelegate(State.default),
     EventDelegate<ChangePasswordViewModel.Event> by DefaultEventDelegate() {
@@ -22,17 +26,54 @@ class ChangePasswordViewModel @Inject constructor(
             val password = currentState.password
             val newPassword = currentState.newPassword
             val confirmNewPassword = currentState.confirmNewPassword
+            val params = NChangePasswordParams(
+                oldPassword = password,
+                newPassword = newPassword,
+                confirmPassword = confirmNewPassword
+            )
 
             if (!isCompletedCorrect(password, newPassword, confirmNewPassword)) {
                 return@launch
             }
 
-            //todo: request to backend
+            val userRole = ProfilePrefs().getProfile()
 
+            if (userRole?.role == 0) {
+                val result = authRepository.changePassword(params)
+                result.fold(
+                    onSuccess = {
+                        Timber.e("success change password")
+                        sendEvent(Event.SUCCESS)
+                    },
+                    onFailure = { error ->
+                        Timber.e("error change password")
+                        showError(error)
+                    }
+                )
+            }
+
+            if (userRole?.role == 1) {
+                val result = authRepository.changePasswordAdmin(params)
+                result.fold(
+                    onSuccess = {
+                        Timber.e("success change password")
+                        sendEvent(Event.SUCCESS)
+
+                    },
+                    onFailure = { error ->
+                        Timber.e("error change password")
+                        showError(error)
+                    }
+                )
+            }
         }
     }
 
-    private fun isCompletedCorrect(currentPassword: String, newPassword: String, confirmNewPassword: String): Boolean {
+    private fun isCompletedCorrect(
+        currentPassword: String,
+        newPassword: String,
+        confirmNewPassword: String
+    ): Boolean {
         return when {
             currentPassword.length < 8 || newPassword.length < 8 || confirmNewPassword.length < 8 -> {
                 sendEvent(Event.SHORT_PASSWORD)
@@ -71,9 +112,11 @@ class ChangePasswordViewModel @Inject constructor(
     }
 
     private fun validateFieldsNotEmpty() {
-        val isFieldsNotEmpty = isNotEmptyPassword() && isNotEmptyNewPassword() && isNotEmptyConfirmNewPassword()
+        val isFieldsNotEmpty =
+            isNotEmptyPassword() && isNotEmptyNewPassword() && isNotEmptyConfirmNewPassword()
         currentState = currentState.copy(isEnabledSaveButton = isFieldsNotEmpty)
     }
+
     fun onPasswordChanged(data: String) {
         currentState = currentState.copy(password = data)
         validateFieldsNotEmpty()

@@ -11,7 +11,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentChangePasswordBinding
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
-import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,7 +51,6 @@ class ChangePasswordFragment :
         }
 
         viewBinding.btnSave.setOnDebounceClickListener {
-            //todo
             viewModel.changePassword()
         }
     }
@@ -75,7 +73,7 @@ class ChangePasswordFragment :
     }
 
     private fun onEvent(event: ChangePasswordViewModel.Event) {
-        when(event) {
+        when (event) {
             ChangePasswordViewModel.Event.SUCCESS -> {
                 hideInfoOrError()
                 navController.popBackStack()
@@ -83,7 +81,9 @@ class ChangePasswordFragment :
             ChangePasswordViewModel.Event.SHORT_PASSWORD -> showInfoOrError(getString(R.string.password_length_rule))
             ChangePasswordViewModel.Event.NO_MATCH_PASSWORD -> showInfoOrError(getString(R.string.passwords_do_not_match))
             ChangePasswordViewModel.Event.CHANGE_FAILURE -> TODO()
-            ChangePasswordViewModel.Event.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER -> showInfoOrError(getString(R.string.password_rules))
+            ChangePasswordViewModel.Event.PASSWORD_ONE_UPPERCASE_AND_ONE_NUMBER -> showInfoOrError(
+                getString(R.string.password_rules)
+            )
         }
     }
 
