@@ -173,7 +173,7 @@
 
     <!-- Admin Adoption Centers -->
     <!-- add adoption center details -->
-    <string name="add_adoption_center">Add adoption center</string>
+    <string name="add_adoption_center">Complete the details for registering the adoption center.</string>
     <string name="name">Name</string>
     <string name="phone">Phone</string>
     <string name="address">Address</string>

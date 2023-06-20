@@ -176,7 +176,7 @@
 
     <!-- Admin Adoption Centers -->
     <!-- add adoption center details -->
-    <string name="add_adoption_center">Adaugă centru de adopție</string>
+    <string name="add_adoption_center">Completați detaliile pentru înregistrarea centrului de adopție</string>
     <string name="name">Nume</string>
     <string name="phone">Telefon</string>
     <string name="address">Adresă</string>

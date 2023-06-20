@@ -175,7 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="26dp"
-                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginVertical="@dimen/margin_12"
                 android:background="@drawable/selector_yellow_button"
                 android:backgroundTint="@null"
                 android:text="@string/btn_continue"
@@ -183,6 +183,7 @@
                 android:textColor="@drawable/selector_button_text"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvEndTime" />
