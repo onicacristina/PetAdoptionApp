@@ -28,7 +28,7 @@
         android:gravity="center"
         android:paddingVertical="4dp"
         android:text="@string/select_pet_specie"
-        android:textColor="@color/black"
+        style="@style/CustomTextStyle"
         android:textSize="14sp" />
 
     <androidx.recyclerview.widget.RecyclerView
