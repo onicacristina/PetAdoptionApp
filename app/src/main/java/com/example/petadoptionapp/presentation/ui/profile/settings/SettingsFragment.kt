@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.BuildConfig
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentSettingsBinding
@@ -13,6 +16,7 @@ import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceCli
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import com.example.petadoptionapp.presentation.utils.showDialog
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SettingsFragment :
@@ -77,7 +81,24 @@ class SettingsFragment :
     }
 
     private fun initObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                launch {
+                    viewModel.event.collect { value ->
+                        onEvent(value)
+                    }
+                }
+            }
+        }
+    }
 
+    private fun onEvent(event: SettingsViewModel.Event) {
+        when(event) {
+            SettingsViewModel.Event.SUCCESS -> {
+                ProfilePrefs().clearUserProfile()
+                getMainActivity()?.initNavigation()
+            }
+        }
     }
 
     private fun initSwitch() {
@@ -99,7 +120,7 @@ class SettingsFragment :
             R.drawable.btn_rounded_red,
             getString(R.string.delete),
             {
-//                viewModel.deleteAccount()
+                viewModel.deleteAccount()
             },
             getString(R.string.cancel),
             null,
