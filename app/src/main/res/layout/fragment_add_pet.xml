@@ -153,11 +153,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:background="@drawable/bg_custom_inputs"
-                    android:hint="@string/pet_story"
                     android:gravity="top|left"
+                    android:hint="@string/pet_story"
                     android:inputType="text"
-                    android:minLines="2"
                     android:maxLines="3"
+                    android:minLines="2"
                     android:textColor="@android:color/black"
                     android:textColorLink="@color/text_black" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -168,9 +168,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_20"
                 android:text="@string/pet_vaccinated"
-                android:textStyle="bold"
                 android:textColor="@color/text_black"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tilStory"
                 app:layout_constraintTop_toBottomOf="@id/ivPetImage" />
 
@@ -188,10 +188,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_20"
-                android:textStyle="bold"
                 android:text="@string/pet_neutered"
                 android:textColor="@color/text_black"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/tilStory"
                 app:layout_constraintTop_toBottomOf="@id/tvVaccinated" />
 
@@ -218,14 +218,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilStory" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivPetImage"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:contentDescription="@null"
-                android:src="@drawable/bg_custom_inputs"
+                android:layout_marginVertical="@dimen/margin_10"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:padding="1dp"
+                android:scaleType="centerCrop"
+                android:src="@color/grey_bg_unselected"
                 app:layout_constraintStart_toStartOf="@id/tvSelectImage"
-                app:layout_constraintTop_toBottomOf="@id/tvSelectImage" />
+                app:layout_constraintTop_toBottomOf="@id/tvSelectImage"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                app:strokeColor="@color/grey_bg_unselected"
+                app:strokeWidth="1dp" />
 
             <ImageView
                 android:id="@+id/ivCamera"
