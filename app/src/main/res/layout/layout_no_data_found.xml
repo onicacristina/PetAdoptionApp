@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,15 +32,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginEnd="35dp"
-            android:fontFamily="@font/lato_bold"
             android:gravity="center"
+            android:text="@string/no_data_found"
             android:textColor="@color/text_black"
             android:textSize="@dimen/text_14"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivNoDataFound"
-            android:text="@string/no_data_found" />
+            app:layout_constraintTop_toBottomOf="@+id/ivNoDataFound" />
     </LinearLayout>
 
 </LinearLayout>

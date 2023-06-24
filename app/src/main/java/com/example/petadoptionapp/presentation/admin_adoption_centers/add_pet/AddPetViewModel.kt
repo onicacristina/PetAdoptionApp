@@ -3,6 +3,7 @@ package com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet
 import androidx.lifecycle.viewModelScope
 import com.example.petadoptionapp.network.models.request.NAnimalParam
 import com.example.petadoptionapp.presentation.base.BaseViewModel
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.presentation.utils.DefaultEventDelegate
@@ -179,7 +180,7 @@ class AddPetViewModel @Inject constructor(
                     neutered = false,
                     story = "",
                     image = "https://images.unsplash.com/photo-1556596187-c3d988ea368c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80",
-                    adoptionCenterId = "70aa6960-f199-11ed-9bc8-e70506774611"
+                    adoptionCenterId = ProfilePrefs().getProfile()?.adoptionCenterId ?: ""
                 )
         }
 

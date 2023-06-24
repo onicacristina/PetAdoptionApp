@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_8"
         android:layout_marginVertical="@dimen/margin_8"
-        app:cardCornerRadius="@dimen/margin_12"
         android:minHeight="300dp"
+        app:cardCornerRadius="@dimen/margin_12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,34 +38,33 @@
 
             <TextView
                 android:id="@+id/tvTitle"
+                style="@style/CustomTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_12"
                 android:layout_marginStart="@dimen/margin_10"
-                android:fontFamily="@font/lato_bold"
                 android:paddingVertical="@dimen/margin_4"
                 android:text="@string/user_type_normal"
                 android:textSize="@dimen/text_20"
-                style="@style/CustomTextStyle"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/tvTitle"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivImage" />
 
 
             <TextView
                 android:id="@+id/tvSubtitle"
+                style="@style/CustomTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_12"
                 android:layout_marginStart="@dimen/margin_10"
-                android:fontFamily="@font/lato_regular"
                 android:text="@string/user_type_normal_description"
                 android:textAlignment="viewStart"
                 android:textSize="@dimen/text_12"
-                style="@style/CustomTextStyle"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 

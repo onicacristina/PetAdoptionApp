@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/bg_item_pet_category_gray"
-        android:fontFamily="@font/lato_regular"
         android:padding="8dp"
         android:textColor="@color/text_black"
         android:textSize="16sp"

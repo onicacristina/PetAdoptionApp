@@ -29,27 +29,25 @@
 
             <TextView
                 android:id="@+id/tvPetName"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:layout_marginBottom="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:paddingVertical="@dimen/margin_4"
                 android:text="@string/pet_name"
                 android:textSize="@dimen/text_14"
-                style="@style/CustomTextStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etPetName"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:autofillHints="First Name"
-                style="@style/Widget.PetAdoptionApp.EditText"
-                android:fontFamily="@font/lato_regular"
                 android:hint="@string/pet_name"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
@@ -61,27 +59,25 @@
 
             <TextView
                 android:id="@+id/tvPetBreed"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:layout_marginTop="@dimen/margin_12"
                 android:layout_marginBottom="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:paddingVertical="@dimen/margin_4"
                 android:text="@string/pet_breed"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etPetName" />
 
             <EditText
                 android:id="@+id/etBreed"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:autofillHints="First Name"
-                style="@style/Widget.PetAdoptionApp.EditText"
-                android:fontFamily="@font/lato_regular"
                 android:hint="@string/pet_breed"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
@@ -93,25 +89,24 @@
 
             <TextView
                 android:id="@+id/tvSpecie"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:layout_marginTop="@dimen/margin_12"
                 android:layout_marginBottom="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:paddingVertical="@dimen/margin_4"
                 android:text="@string/select_pet_specie"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etBreed" />
 
             <TextView
                 android:id="@+id/tvSpecieSelected"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
                 android:layout_marginHorizontal="@dimen/margin_24"
-                style="@style/Widget.PetAdoptionApp.EditText"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/margin_12"
                 android:text="@string/select_pet_specie"
@@ -123,25 +118,24 @@
 
             <TextView
                 android:id="@+id/tvGender"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:layout_marginTop="@dimen/margin_12"
                 android:layout_marginBottom="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:paddingVertical="@dimen/margin_4"
                 android:text="@string/select_pet_gender"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSpecieSelected" />
 
             <TextView
                 android:id="@+id/tvGenderSelected"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
                 android:layout_marginHorizontal="@dimen/margin_24"
-                style="@style/Widget.PetAdoptionApp.EditText"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/margin_12"
                 android:text="@string/select_pet_gender"
@@ -153,27 +147,25 @@
 
             <TextView
                 android:id="@+id/tvPetAge"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:layout_marginTop="@dimen/margin_12"
                 android:layout_marginBottom="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:paddingVertical="@dimen/margin_4"
                 android:text="@string/pet_age"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvGenderSelected" />
 
             <EditText
                 android:id="@+id/etPetAge"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:autofillHints="First Name"
-                style="@style/Widget.PetAdoptionApp.EditText"
-                android:fontFamily="@font/lato_regular"
                 android:hint="@string/pet_age"
                 android:imeOptions="actionNext"
                 android:inputType="phone"
@@ -185,31 +177,29 @@
 
             <TextView
                 android:id="@+id/tvPetStory"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:layout_marginTop="@dimen/margin_12"
                 android:layout_marginBottom="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:paddingVertical="@dimen/margin_4"
                 android:text="@string/pet_story"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etPetAge" />
 
             <EditText
                 android:id="@+id/etPetStory"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edittext_height"
-                android:minHeight="@dimen/edittext_height"
                 android:layout_marginHorizontal="@dimen/margin_24"
                 android:autofillHints="First Name"
-                android:fontFamily="@font/lato_regular"
-                style="@style/Widget.PetAdoptionApp.EditText"
                 android:hint="@string/pet_story"
                 android:imeOptions="actionNext"
                 android:inputType="textLongMessage"
+                android:minHeight="@dimen/edittext_height"
                 android:paddingHorizontal="@dimen/margin_12"
                 android:textSize="@dimen/text_14"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -218,13 +208,13 @@
 
             <TextView
                 android:id="@+id/tvVaccinated"
+                style="@style/CustomTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_20"
-                android:fontFamily="@font/lato_bold"
                 android:text="@string/pet_vaccinated"
-                style="@style/CustomTextStyle"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/etPetStory"
                 app:layout_constraintTop_toBottomOf="@id/ivPetImage" />
 
@@ -239,13 +229,13 @@
 
             <TextView
                 android:id="@+id/tvNeutered"
+                style="@style/CustomTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_20"
-                android:fontFamily="@font/lato_bold"
                 android:text="@string/pet_neutered"
-                style="@style/CustomTextStyle"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/etPetStory"
                 app:layout_constraintTop_toBottomOf="@id/tvVaccinated" />
 
@@ -260,12 +250,12 @@
 
             <TextView
                 android:id="@+id/tvSelectImage"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_20"
                 android:layout_marginTop="@dimen/margin_12"
                 android:text="@string/pet_image"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_16"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -283,11 +273,11 @@
 
             <ImageView
                 android:id="@+id/ivCamera"
+                style="@style/CustomIconStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_camera"
-                style="@style/CustomIconStyle"
                 app:layout_constraintBottom_toBottomOf="@id/ivPetImage"
                 app:layout_constraintEnd_toEndOf="@id/ivPetImage"
                 app:layout_constraintStart_toStartOf="@id/ivPetImage"
@@ -302,12 +292,12 @@
                 android:layout_marginBottom="@dimen/margin_24"
                 android:background="@drawable/selector_yellow_button"
                 android:backgroundTint="@null"
-                android:fontFamily="@font/lato_bold"
                 android:gravity="center"
                 android:text="@string/save_changes"
                 android:textAllCaps="false"
                 android:textColor="@drawable/selector_button_text"
                 android:textSize="@dimen/text_18"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -11,10 +11,10 @@
         layout="@layout/layout_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/scrollView"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -33,10 +33,9 @@
 
             <TextView
                 android:id="@+id/generalDescription"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
-                style="@style/CustomTextStyle"
                 android:text="@string/terms_general_description"
                 android:textSize="@dimen/text_16" />
 
@@ -44,111 +43,105 @@
                 android:id="@+id/tvPurpose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_bold"
                 android:layout_marginTop="@dimen/margin_24"
                 android:text="@string/purpose_of_the_application_title"
                 android:textColor="@color/blue_light"
-                android:textSize="@dimen/text_18" />
+                android:textSize="@dimen/text_18"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvPurposeDescription"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
                 android:layout_marginTop="@dimen/margin_12"
                 android:text="@string/purpose_of_the_application_description"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_16" />
 
             <TextView
                 android:id="@+id/tvResponsibilities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_bold"
                 android:layout_marginTop="@dimen/margin_24"
                 android:text="@string/responsibilities_and_obligations_title"
                 android:textColor="@color/blue_light"
-                android:textSize="@dimen/text_18" />
+                android:textSize="@dimen/text_18"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvResponsibilitiesDescription"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
                 android:layout_marginTop="@dimen/margin_12"
                 android:text="@string/responsibilities_and_obligations_description"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_16" />
 
             <TextView
                 android:id="@+id/tvAdoptionProcess"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_bold"
                 android:layout_marginTop="@dimen/margin_24"
                 android:text="@string/adoption_process_title"
                 android:textColor="@color/blue_light"
-                android:textSize="@dimen/text_18" />
+                android:textSize="@dimen/text_18"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvAdoptionProcessDescription"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
                 android:layout_marginTop="@dimen/margin_12"
                 android:text="@string/adoption_process_description"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_16" />
 
             <TextView
                 android:id="@+id/tvPrivacy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_bold"
                 android:layout_marginTop="@dimen/margin_24"
                 android:text="@string/privacy_title"
                 android:textColor="@color/blue_light"
-                android:textSize="@dimen/text_18" />
+                android:textSize="@dimen/text_18"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvPrivacyDescription"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
                 android:layout_marginTop="@dimen/margin_12"
                 android:text="@string/privacy_description"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_16" />
 
             <TextView
                 android:id="@+id/tvCopyright"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_bold"
                 android:layout_marginTop="@dimen/margin_24"
                 android:text="@string/copyright_title"
                 android:textColor="@color/blue_light"
-                android:textSize="@dimen/text_18" />
+                android:textSize="@dimen/text_18"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvCopyrightDescription"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
                 android:layout_marginTop="@dimen/margin_12"
                 android:text="@string/copyright_description"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_16" />
 
             <TextView
                 android:id="@+id/generalDescriptionBottom"
+                style="@style/CustomTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
                 android:layout_marginTop="@dimen/margin_30"
                 android:layout_marginBottom="@dimen/margin_40"
                 android:text="@string/terms_general_description2"
-                style="@style/CustomTextStyle"
                 android:textSize="@dimen/text_16" />
         </LinearLayout>
     </ScrollView>

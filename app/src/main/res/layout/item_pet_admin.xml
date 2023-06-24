@@ -43,14 +43,14 @@
 
             <TextView
                 android:id="@+id/tvPetName"
+                style="@style/CustomTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_10"
                 android:layout_marginTop="@dimen/margin_4"
-                android:fontFamily="@font/lato_bold"
                 android:paddingVertical="@dimen/margin_4"
                 android:textSize="@dimen/text_20"
-                style="@style/CustomTextStyle"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/viewPet"
                 app:layout_constraintStart_toEndOf="@+id/ivPet"
                 app:layout_constraintTop_toTopOf="@id/ivPet"
@@ -81,14 +81,13 @@
 
             <TextView
                 android:id="@+id/tvPetBreed"
+                style="@style/CustomTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_10"
                 android:layout_marginTop="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:textAlignment="viewStart"
                 android:textSize="@dimen/text_14"
-                style="@style/CustomTextStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivPet"
                 app:layout_constraintTop_toBottomOf="@+id/tvPetName"
@@ -96,15 +95,14 @@
 
             <TextView
                 android:id="@+id/tvAddedAt"
+                style="@style/CustomTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_10"
                 android:layout_marginTop="@dimen/margin_4"
-                android:fontFamily="@font/lato_regular"
                 android:text="@string/added_at"
                 android:textAlignment="viewStart"
                 android:textSize="@dimen/text_14"
-                style="@style/CustomTextStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivPet"
                 app:layout_constraintTop_toBottomOf="@+id/tvPetBreed" />

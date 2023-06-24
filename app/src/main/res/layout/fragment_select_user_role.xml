@@ -11,75 +11,75 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="26dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="@dimen/margin_16"
-        android:fontFamily="@font/lato_bold"
-        android:gravity="start"
-        android:text="@string/title_choose_user_type"
-        android:textSize="28sp"
-        style="@style/CustomTextStyle"
-        app:layout_constraintBottom_toTopOf="@id/normalUser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/CustomTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:gravity="start"
+            android:text="@string/title_choose_user_type"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/normalUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/normalUser"
-        layout="@layout/item_user_type"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/bottomSpace"
-        app:layout_constraintEnd_toStartOf="@id/adoptionCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintVertical_bias="0.1" />
+        <include
+            android:id="@+id/normalUser"
+            layout="@layout/item_user_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/bottomSpace"
+            app:layout_constraintEnd_toStartOf="@id/adoptionCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintVertical_bias="0.1" />
 
-    <include
-        android:id="@+id/adoptionCenter"
-        layout="@layout/item_user_type"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@id/normalUser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/normalUser"
-        app:layout_constraintTop_toTopOf="@id/normalUser"
-        app:layout_constraintVertical_bias="0.1" />
+        <include
+            android:id="@+id/adoptionCenter"
+            layout="@layout/item_user_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/normalUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/normalUser"
+            app:layout_constraintTop_toTopOf="@id/normalUser"
+            app:layout_constraintVertical_bias="0.1" />
 
-    <androidx.legacy.widget.Space
-        android:id="@+id/bottomSpace"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/btnContinue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/normalUser"
-        app:layout_constraintVertical_weight="2" />
+        <androidx.legacy.widget.Space
+            android:id="@+id/bottomSpace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/btnContinue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/normalUser"
+            app:layout_constraintVertical_weight="2" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnContinue"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="@dimen/margin_24"
-        android:layout_marginBottom="@dimen/margin_24"
-        android:background="@drawable/selector_yellow_button"
-        android:backgroundTint="@null"
-        android:fontFamily="@font/lato_bold"
-        android:gravity="center"
-        android:text="@string/btn_continue"
-        android:textAllCaps="false"
-        android:textColor="@drawable/selector_button_text"
-        android:textSize="@dimen/text_18"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bottomSpace" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="@dimen/margin_24"
+            android:layout_marginBottom="@dimen/margin_24"
+            android:background="@drawable/selector_yellow_button"
+            android:backgroundTint="@null"
+            android:gravity="center"
+            android:text="@string/btn_continue"
+            android:textAllCaps="false"
+            android:textColor="@drawable/selector_button_text"
+            android:textSize="@dimen/text_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottomSpace" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
