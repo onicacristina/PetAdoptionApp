@@ -13,7 +13,6 @@ import com.example.petadoptionapp.presentation.utils.StateDelegate
 import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import com.example.petadoptionapp.repository.pet_gender_repository.PetGenderRepository
 import com.example.petadoptionapp.repository.pet_specie_repository.PetSpecieRepository
-import com.example.petadoptionapp.repository.user.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -78,7 +77,7 @@ class EditPetViewModel @Inject constructor(
 
     fun editUser() {
         viewModelScope.launch {
-            val extraData = mapOf("" to  "")
+            val extraData = mapOf("" to "")
             val pet = NAnimalParam(
                 name = currentState.name,
                 specie = currentState.specie.getPetCategoryString(),
@@ -88,7 +87,7 @@ class EditPetViewModel @Inject constructor(
                 vaccinated = currentState.vaccinated,
                 neutered = currentState.neutered,
                 story = currentState.story,
-                imageUrl = currentState.image,
+                imageUrl = currentState.image ?: State.default.image,
                 extraData = extraData,
                 adoptionCenterId = currentState.adoptionCenterId
             )
@@ -109,7 +108,7 @@ class EditPetViewModel @Inject constructor(
 
     private fun validateFieldsNotEmpty() {
         val isFieldsNotEmpty =
-            currentState.name.isNotEmpty() && isNotEmptySpecie() && isNotEmptyGender() && currentState.breed.isNotEmpty() && currentState.age.isNotEmpty() && currentState.story.isNotEmpty() && currentState.image.isNotEmpty()
+            currentState.name.isNotEmpty() && isNotEmptySpecie() && isNotEmptyGender() && currentState.breed.isNotEmpty() && currentState.age.isNotEmpty() && currentState.story.isNotEmpty() && currentState.image?.isNotEmpty() == true
         currentState = currentState.copy(isEnabledButton = isFieldsNotEmpty)
     }
 
@@ -178,7 +177,7 @@ class EditPetViewModel @Inject constructor(
         val vaccinated: Boolean,
         val neutered: Boolean,
         val story: String,
-        val image: String,
+        val image: String? = "",
         val adoptionCenterId: String,
         val isEnabledButton: Boolean = false
     ) {

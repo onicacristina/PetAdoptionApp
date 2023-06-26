@@ -89,6 +89,11 @@
     <string name="animal_added_to_favorites">Animal added to favorites</string>
     <string name="animal_removed_from_favorites">Animal removed from favorites</string>
     <string name="clear_favorites">Clear Favorites</string>
+    <string name="popup_clear_list_message">Are you sure you want to clear all items from your favorites list?</string>
+    <string name="popup_clear_list_title">Clear Favorites List</string>
+    <string name="popup_delete_animal_message">Are you sure you want to remove this animal from the favorites list?</string>
+    <string name="popup_delete_animal_title">Delete Animal from List</string>
+
 
 
     <!-- popup -->

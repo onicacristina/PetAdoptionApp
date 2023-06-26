@@ -17,6 +17,7 @@ import com.example.petadoptionapp.presentation.ui.favorite.adapter.FavoritesDiff
 import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
+import com.example.petadoptionapp.presentation.utils.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -50,7 +51,8 @@ class FavoriteFragment :
             getMainActivity()?.initNavigation()
         }
         viewBinding.btnClearFavorites.setOnDebounceClickListener {
-            viewModel.clearFavoritesList()
+//            viewModel.clearFavoritesList()
+            showDeleteAllElementsFromListDialog()
         }
     }
 
@@ -80,7 +82,8 @@ class FavoriteFragment :
                 navController.navigate(R.id.toPetDetailsFragment, bundle)
             },
             onFavoriteButtonClickListener = {
-                viewModel.deleteFromFavoritesList(it)
+//                viewModel.deleteFromFavoritesList(it)
+                showDeleteDialog(it)
             }
         )
         recyclerView.adapter = adapter
@@ -120,5 +123,35 @@ class FavoriteFragment :
             is FavoriteViewModel.State.Loading -> renderLoadingState()
             else -> renderEmptyState()
         }
+    }
+
+    private fun showDeleteDialog(animalResponse: AnimalResponse) {
+        showDialog(
+            requireContext(),
+            getString(R.string.popup_delete_animal_title),
+            getString(R.string.popup_delete_animal_message),
+            R.drawable.btn_rounded_red,
+            getString(R.string.delete),
+            {
+                viewModel.deleteFromFavoritesList(animalResponse)
+            },
+            getString(R.string.cancel),
+            null,
+        )
+    }
+
+    private fun showDeleteAllElementsFromListDialog() {
+        showDialog(
+            requireContext(),
+            getString(R.string.popup_clear_list_title),
+            getString(R.string.popup_clear_list_message),
+            R.drawable.btn_rounded_red,
+            getString(R.string.delete),
+            {
+                viewModel.clearFavoritesList()
+            },
+            getString(R.string.cancel),
+            null,
+        )
     }
 }

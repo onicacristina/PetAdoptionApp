@@ -92,6 +92,11 @@
     <string name="animal_added_to_favorites">Animal adăugat la favorite</string>
     <string name="animal_removed_from_favorites">Animal scos din favorite</string>
     <string name="clear_favorites">Golește Lista de Favorite</string>
+    <string name="popup_clear_list_message">Sigur dorești să ștergi toate articolele din lista ta de favorite?</string>
+    <string name="popup_clear_list_title">Golire listă favorite</string>
+    <string name="popup_delete_animal_message">Sigur doriți să eliminați acest animal din lista de favorite?</string>
+    <string name="popup_delete_animal_title">Ștergere animal din listă</string>
+
 
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>

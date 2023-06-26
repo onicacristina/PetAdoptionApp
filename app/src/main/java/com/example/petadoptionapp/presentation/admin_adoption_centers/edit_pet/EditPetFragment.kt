@@ -122,7 +122,7 @@ class EditPetFragment :
         viewBinding.etPetStory.setSelection(state.story.length)
 
 
-        initPetImage(state.image)
+        state.image?.let { initPetImage(it) }
         updateSaveButton(state.isEnabledButton)
 
         viewBinding.tvGenderSelected.text = getString(state.gender.stringResource)
