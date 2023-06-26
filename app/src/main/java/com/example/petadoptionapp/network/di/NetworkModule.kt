@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.petadoptionapp.BuildConfig
 import com.example.petadoptionapp.network.interceptor.DefaultHeaderInterceptor
 import com.example.petadoptionapp.network.interceptor.JwtTokenInterceptor
+import com.example.petadoptionapp.network.interceptor.LanguageInterceptor
 import com.example.petadoptionapp.network.interceptor.RefreshAuthenticator
 import com.example.petadoptionapp.network.refresh_token.RefreshTokenEndpoint
 import com.example.petadoptionapp.network.refresh_token.RefreshTokenRepository
@@ -22,6 +23,7 @@ import com.example.petadoptionapp.network.services.bookings.BookingApiService
 import com.example.petadoptionapp.network.services.user.UserApiInterface
 import com.example.petadoptionapp.network.services.user.UserApiInterfaceImplementation
 import com.example.petadoptionapp.network.services.user.UserApiService
+import com.example.petadoptionapp.presentation.utils.LocaleHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,12 +52,14 @@ object NetworkModule {
         jwtTokenInterceptor: JwtTokenInterceptor,
         refreshAuthenticator: RefreshAuthenticator,
         loggingInterceptor: HttpLoggingInterceptor,
+        languageInterceptor: LanguageInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .authenticator(refreshAuthenticator)
             .addInterceptor(defaultHeaderInterceptor)
             .addInterceptor(jwtTokenInterceptor)
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(languageInterceptor)
 //            .connectTimeout(30, TimeUnit.SECONDS)
 //            .writeTimeout(10, TimeUnit.SECONDS)
 //            .readTimeout(10, TimeUnit.SECONDS)
@@ -79,6 +83,13 @@ object NetworkModule {
     @Singleton
     fun provideJwtTokenInterceptor(tokenRepository: RefreshTokenRepository): JwtTokenInterceptor {
         return JwtTokenInterceptor(tokenRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLanguageInterceptor(): LanguageInterceptor {
+        val languageString = LocaleHelper.getLocale().languageString
+        return LanguageInterceptor(language = languageString)
     }
 
     @Provides
