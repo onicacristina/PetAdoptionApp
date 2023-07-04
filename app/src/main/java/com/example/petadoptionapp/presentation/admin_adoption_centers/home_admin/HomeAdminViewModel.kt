@@ -77,6 +77,7 @@ class HomeAdminViewModel @Inject constructor(
                     Timber.e("Failed to fetch pets for specie: $specie, error: $error")
                 },
                 onSuccess = { pets ->
+                    Timber.e("pets : $pets")
                     val filteredPets = if (searchQuery.isNotBlank()) {
                         pets.filter { it.name.contains(searchQuery, ignoreCase = true) }
                     } else {
