@@ -1,6 +1,7 @@
 package com.example.petadoptionapp.network.models.response
 
 import android.os.Parcelable
+import com.example.petadoptionapp.network.models.UploadedAssets
 import com.example.petadoptionapp.presentation.ui.home.AgeCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
@@ -22,8 +23,9 @@ data class AnimalResponse(
     val vaccinated: Boolean,
     val neutered: Boolean,
     val story: String,
-    val imageUrl: String? = null,
+//    val imageUrl: String? = null,
     val adoptionCenterId: String,
+    val uploadedAssets: List<UploadedAssets>,
     val createdAt: String,
     val updatedAt: String,
     val isSaved: Boolean = false
@@ -77,8 +79,9 @@ data class AnimalResponse(
             vaccinated = false,
             neutered = false,
             story = "",
-            imageUrl = "",
+//            imageUrl = "",
             adoptionCenterId = "",
+            uploadedAssets = listOf(),
             createdAt = "",
             updatedAt = ""
         )

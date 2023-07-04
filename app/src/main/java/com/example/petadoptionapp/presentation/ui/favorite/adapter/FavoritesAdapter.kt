@@ -42,7 +42,7 @@ class FavoritesAdapter(
         }
 
         private fun bindImage(data: AnimalResponse) {
-            Glide.with(binding.ivPetImage.context).load(data.imageUrl).into(binding.ivPetImage)
+//            Glide.with(binding.ivPetImage.context).load(data.imageUrl).into(binding.ivPetImage)
         }
 
         private fun bindPetName(data: AnimalResponse) {

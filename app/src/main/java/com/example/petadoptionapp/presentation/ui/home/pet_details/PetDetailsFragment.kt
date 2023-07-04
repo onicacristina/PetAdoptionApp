@@ -64,7 +64,7 @@ class PetDetailsFragment :
     private fun initListeners() {
         viewBinding.ivPetImage.setOnDebounceClickListener {
             val bundle = Bundle()
-            bundle.putString(Constants.PET_IMAGE_URL, viewModel.animalData.imageUrl)
+//            bundle.putString(Constants.PET_IMAGE_URL, viewModel.animalData.imageUrl)
             navController.navigate(
                 R.id.action_petDetailsFragment_to_petImageDetailsFragment,
                 bundle
@@ -84,7 +84,9 @@ class PetDetailsFragment :
             openEmail(viewModel.adoptionCenterData.email)
         }
         viewBinding.btnAdoptNow.setOnDebounceClickListener {
-            openBookAppointmentScreen(pet = pet, adoptionCenter = adoptionCenter)
+            val adoptionCenterDetails = AdoptionCenter("81925700-13af-11ee-85fb-a932987c84ca", name = "Adăpostul Grivei Oradea", email = "grivei.oradea@yahoo.com", phone = "0745678900", address = "Strada Corneliu Baba 19", city = "Oradea", availableStart= "2023-06-26T09:00:00.654Z", availableEnd= "2023-06-26T16:00:00.654Z" )
+            openBookAppointmentScreen(pet = pet, adoptionCenter = adoptionCenterDetails)
+//            openBookAppointmentScreen(pet = pet, adoptionCenter = adoptionCenter)
 //            navController.navigate(R.id.action_petDetailsFragment_to_bookAppointmentFragment)
         }
         viewBinding.tvAdoptionCenter.setOnDebounceClickListener {
@@ -189,7 +191,9 @@ class PetDetailsFragment :
     }
 
     private fun initPetImage(data: AnimalResponse) {
-        Glide.with(viewBinding.ivPetImage.context).load(data.imageUrl).into(viewBinding.ivPetImage)
+//        Glide.with(viewBinding.ivPetImage.context).load(data.imageUrl).into(viewBinding.ivPetImage)
+        val imageUrl = "https://images.unsplash.com/photo-1554693190-383dd5302125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"
+        Glide.with(viewBinding.ivPetImage.context).load(imageUrl).into(viewBinding.ivPetImage)
     }
 
     private fun initPetName(data: AnimalResponse) {
@@ -241,7 +245,8 @@ class PetDetailsFragment :
     }
 
     private fun initAdoptionCenterFullAddress(data: AdoptionCenter) {
-        viewBinding.tvAdoptionCenterAddress.text = data.getFullAddress()
+//        viewBinding.tvAdoptionCenterAddress.text = data.getFullAddress()
+        viewBinding.tvAdoptionCenterAddress.text = "Strada Corneliu Baba 19, Oradea"
     }
 
     private fun initFavoriteVisibility() {
@@ -305,7 +310,8 @@ class PetDetailsFragment :
 
     private fun onAddressClicked() {
         //val address = "1600 Amphitheatre Parkway, Mountain View, CA"
-        val address = viewModel.adoptionCenterData.getFullAddress()
+//        val address = viewModel.adoptionCenterData.getFullAddress()
+        val address = "Strada Corneliu Baba 19, Oradea"
         val encodedAddress = Uri.encode(address)
         val uri = "geo:0,0?q=$encodedAddress"
 

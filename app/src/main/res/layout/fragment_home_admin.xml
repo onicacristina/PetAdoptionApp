@@ -42,6 +42,19 @@
             android:textColorLink="@color/text_black" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/totalNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CustomTextStyle"
+        tools:text="total: 23"
+        android:textSize="@dimen/text_14"
+        android:layout_marginVertical="@dimen/margin_4"
+        app:layout_constraintTop_toBottomOf="@id/tilSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/margin_16"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
@@ -69,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilSearch">
+        app:layout_constraintTop_toBottomOf="@+id/totalNumber">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPets"

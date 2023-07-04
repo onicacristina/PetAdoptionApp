@@ -145,6 +145,7 @@ class HomeAdminFragment :
             viewBinding.noDataFound.container.isVisible = true
             viewBinding.pbLoading.isVisible = false
             viewBinding.swipeRefreshLayout.isRefreshing = false
+            viewBinding.totalNumber.isVisible = false
             setList(emptyList()) // Clear the list when in empty state
         }
 
@@ -153,6 +154,8 @@ class HomeAdminFragment :
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = false
             viewBinding.swipeRefreshLayout.isRefreshing = false
+            viewBinding.totalNumber.isVisible = true
+            viewBinding.totalNumber.text = getString(R.string.total_pets, data.size.toString())
             setList(data)
         }
 
@@ -161,6 +164,7 @@ class HomeAdminFragment :
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = true
             viewBinding.swipeRefreshLayout.isRefreshing = false
+            viewBinding.totalNumber.isVisible = false
         }
 
         when (state) {

@@ -35,7 +35,7 @@ class PastAppointmentsAdapter(
         }
 
         private fun bindIcon(data: Booking) {
-            Glide.with(binding.ivPet.context).load(data.animal.imageUrl).into(binding.ivPet)
+//            Glide.with(binding.ivPet.context).load(data.animal.imageUrl).into(binding.ivPet)
 
         }
 

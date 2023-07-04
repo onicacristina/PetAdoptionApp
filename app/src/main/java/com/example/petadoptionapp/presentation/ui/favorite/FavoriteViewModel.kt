@@ -26,8 +26,8 @@ class FavoriteViewModel @Inject constructor(
     EventDelegate<FavoriteViewModel.Event> by DefaultEventDelegate() {
 
     init {
-//        getFavoritesList()
-        subscribeToDataObservables()
+        getFavoritesList()
+//        subscribeToDataObservables()
     }
 
     fun deleteFromFavoritesList(data: AnimalResponse) {
@@ -55,41 +55,72 @@ class FavoriteViewModel @Inject constructor(
     }
 
     private fun getFavoritesList() {
-//        val favorites =  emptyList<AnimalResponse>()
-        val favorites = listOf<AnimalResponse>(
-            AnimalResponse(
-                "0af23460-f372-11ed-93ea-13cb0af60365",
-                specie = EPetCategory.BIRD,
-                gender = EPetGender.MALE,
-                name = "Birda",
-                breed = "breed",
-                age = 0,
-                vaccinated = true,
-                neutered = false,
-                story = "Hello there i am a bird and i am happy.",
-                imageUrl = "https://images.unsplash.com/photo-1580775404530-d559b4e32494?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                adoptionCenterId = "70aa6960-f199-11ed-9bc8-e70506774611",
-                "",
-                "",
-                isSaved = true,
-            ),
-            AnimalResponse(
-                "0af23460-f372-11ed-93ea-13cb0af60365",
-                specie = EPetCategory.DOG,
-                gender = EPetGender.MALE,
-                name = "Birda",
-                breed = "breed",
-                age = 0,
-                vaccinated = true,
-                neutered = false,
-                story = "Hello there i am a bird and i am happy.",
-                imageUrl = "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                adoptionCenterId = "70aa6960-f199-11ed-9bc8-e70506774611",
-                "",
-                "",
-                isSaved = true
-            )
-        )
+        val favorites =  emptyList<AnimalResponse>()
+
+//        val a2 = AnimalResponse(
+//            "2",
+//            EPetCategory.DOG,
+//            EPetGender.FEMALE,
+//            name = "Bella",
+//            breed = "Corgi",
+//            age = 24,
+//            vaccinated = true,
+//            neutered = true,
+//            story = "Corgis are loving, loyal, and extremely friendly, often referred to as \"little royals\" due to their regal and charismatic demeanor. With their perpetual smile and wagging tail, corgis have the ability to melt hearts with their charm. Whether they're seeking adventures or learning new tricks, corgis are always ready to embrace life and provide unconditional love.",
+//            imageUrl = "https://images.unsplash.com/photo-1554693190-383dd5302125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80",
+//            adoptionCenterId = "81925700-13af-11ee-85fb-a932987c84ca",
+//            createdAt = "2023-06-25T23:25:00.912Z",
+//            updatedAt = "2023-06-25T23:25:00.912Z"
+//        )
+//
+//        val a3 = AnimalResponse(
+//            "3",
+//            EPetCategory.BIRD,
+//            EPetGender.FEMALE,
+//            name = "Henrietta",
+//            breed = "Common breed",
+//            age = 2,
+//            vaccinated = false,
+//            neutered = false,
+//            story = "Henrietta is a chicken with shiny golden feathers and a wise eye. She has been through a lot in her life, and now it's time for her to find a family who will welcome her with open arms.",
+//            imageUrl = "https://images.unsplash.com/photo-1580866177074-5c0b1b924d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+//            adoptionCenterId = "81925700-13af-11ee-85fb-a932987c84ca",
+//            createdAt = "2023-06-25T23:25:00.912Z",
+//            updatedAt = "2023-06-25T23:25:00.912Z"
+//        )
+//
+//        val favorites = listOf<AnimalResponse>(
+//            AnimalResponse(
+//                "2",
+//                EPetCategory.DOG,
+//                EPetGender.FEMALE,
+//                name = "Bella",
+//                breed = "Corgi",
+//                age = 24,
+//                vaccinated = true,
+//                neutered = true,
+//                story = "Corgis are loving, loyal, and extremely friendly, often referred to as \"little royals\" due to their regal and charismatic demeanor. With their perpetual smile and wagging tail, corgis have the ability to melt hearts with their charm. Whether they're seeking adventures or learning new tricks, corgis are always ready to embrace life and provide unconditional love.",
+//                imageUrl = "https://images.unsplash.com/photo-1554693190-383dd5302125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80",
+//                adoptionCenterId = "81925700-13af-11ee-85fb-a932987c84ca",
+//                createdAt = "2023-06-25T23:25:00.912Z",
+//                updatedAt = "2023-06-25T23:25:00.912Z"
+//            ),
+//            AnimalResponse(
+//                "3",
+//                EPetCategory.BIRD,
+//                EPetGender.FEMALE,
+//                name = "Henrietta",
+//                breed = "Common breed",
+//                age = 2,
+//                vaccinated = false,
+//                neutered = false,
+//                story = "Henrietta is a chicken with shiny golden feathers and a wise eye. She has been through a lot in her life, and now it's time for her to find a family who will welcome her with open arms.",
+//                imageUrl = "https://images.unsplash.com/photo-1580866177074-5c0b1b924d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+//                adoptionCenterId = "81925700-13af-11ee-85fb-a932987c84ca",
+//                createdAt = "2023-06-25T23:25:00.912Z",
+//                updatedAt = "2023-06-25T23:25:00.912Z"
+//            )
+//        )
         currentState = if (favorites.isEmpty()) State.Empty else State.Value(favorites)
     }
 

@@ -70,8 +70,8 @@ class EditPetViewModel @Inject constructor(
             vaccinated = navArgs.petDetailsToEdit.vaccinated,
             neutered = navArgs.petDetailsToEdit.neutered,
             story = navArgs.petDetailsToEdit.story,
-            image = navArgs.petDetailsToEdit.imageUrl,
-            adoptionCenterId = navArgs.petDetailsToEdit.adoptionCenterId
+//            image = navArgs.petDetailsToEdit.imageUrl,
+            adoptionCenterId = navArgs.petDetailsToEdit.adoptionCenterId,
         )
     }
 

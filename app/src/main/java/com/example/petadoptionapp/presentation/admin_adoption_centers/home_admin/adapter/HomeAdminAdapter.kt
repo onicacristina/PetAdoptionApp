@@ -53,9 +53,19 @@ class HomeAdminAdapter(
             binding.tvAddedAt.text = context.getString(R.string.added_at, addedAt)
         }
 
+//        private fun bindImage(data: AnimalResponse) {
+//            Glide.with(binding.ivPet.context).load(data.imageUrl).into(binding.ivPet)
+//        }
+
         private fun bindImage(data: AnimalResponse) {
-            Glide.with(binding.ivPet.context).load(data.imageUrl).into(binding.ivPet)
+            if (data.uploadedAssets.isNotEmpty()) {
+                val imageUrl = data.uploadedAssets[0].path
+                Glide.with(binding.ivPet.context).load(imageUrl).into(binding.ivPet)
+            } else {
+                // Logic pentru încărcarea unei imagini alternative sau afișarea unui placeholder
+            }
         }
+
 
         private fun bindPetName(data: AnimalResponse) {
             binding.tvPetName.text = data.name

@@ -46,6 +46,7 @@ class RegisterFragment :
             linkText = SpannableString(getString(R.string.terms_and_conditions)),
             context = requireContext(),
             isBolded = true,
+            isUnderlined = true,
             textColor = R.color.blue_light
         ) {
 //            Toast.makeText(activity, "t&c", Toast.LENGTH_SHORT).show()
@@ -56,9 +57,26 @@ class RegisterFragment :
             linkText = SpannableString(getString(R.string.register_desc)),
             context = requireContext(),
             isBolded = true,
+            isUnderlined = true,
             textColor = R.color.blue_light
         ) {
             navController.navigate(R.id.loginFragment)
+        }
+        initViewsUserType()
+    }
+
+    private fun initViewsUserType() {
+        val userRole = ProfilePrefs().getUserRole()
+
+        if (userRole == EUserRole.ADOPTION_CENTER_USER) {
+            viewBinding.tilFirstName.isVisible = false
+            viewBinding.tilLastName.hint = getString(R.string.name_adoption_center)
+            viewModel.onFirstNameChanged(getString(R.string.adoption_center))
+        }
+        else {
+            viewBinding.tilFirstName.isVisible = true
+            viewBinding.etLastName.hint = getString(R.string.last_name)
+            viewBinding.tilLastName.hint = getString(R.string.last_name)
         }
     }
 

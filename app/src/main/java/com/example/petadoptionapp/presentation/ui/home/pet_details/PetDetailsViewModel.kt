@@ -99,7 +99,7 @@ class PetDetailsViewModel @Inject constructor(
 
     fun getAnimalDetails(id: String) {
         viewModelScope.launch {
-            animalsRepository.getOneAnimalById(id).fold(
+            animalsRepository.getOneAnimalById("82612ec0-146a-11ee-85fb-a932987c84ca").fold(
                 onSuccess = { animal ->
                     _animalObservable.value = animal
                     animalData = animal

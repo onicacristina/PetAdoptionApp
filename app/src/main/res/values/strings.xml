@@ -42,6 +42,7 @@
     <string name="go_to_register">Don\'t have an account yet? Register</string>
     <string name="login_subtitle">To access your account, please enter your password and email</string>
     <string name="register_subtitle">Please enter your details to create an account in the application</string>
+    <string name="name_adoption_center">Adoption center name</string>
 
     <!-- Questionnaire -->
     <string name="questionnaire">Questionnaire</string>
@@ -68,6 +69,7 @@
     <string name="pet_categories">Pet Categories</string>
 
     <string name="search_by_name">Search by name</string>
+    <string name="total_pets">Total pets: %1$s</string>
 
     <!-- Pet Details -->
     <string name="vaccinated">• Vaccinated</string>

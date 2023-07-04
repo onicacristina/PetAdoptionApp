@@ -39,7 +39,9 @@ class UpcomingAppointmentsAdapter(
         }
 
         private fun bindIcon(data: Booking) {
-            Glide.with(binding.ivPet.context).load(data.animal.imageUrl).into(binding.ivPet)
+//            Glide.with(binding.ivPet.context).load(data.animal.imageUrl).into(binding.ivPet)
+            val imageUrl = "https://images.unsplash.com/photo-1554693190-383dd5302125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"
+            Glide.with(binding.ivPet.context).load(imageUrl).into(binding.ivPet)
         }
 
         private fun bindName(data: Booking) {

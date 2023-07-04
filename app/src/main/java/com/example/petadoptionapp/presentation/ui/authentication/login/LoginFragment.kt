@@ -42,6 +42,7 @@ class LoginFragment : NoBottomNavigationFragment<FragmentLoginBinding>(R.layout.
             linkText = SpannableString(getString(R.string.log_in)),
             context = requireContext(),
             isBolded = true,
+            isUnderlined = true,
             textColor = R.color.blue_light
         ) {
             navController.navigate(R.id.registerFragment)

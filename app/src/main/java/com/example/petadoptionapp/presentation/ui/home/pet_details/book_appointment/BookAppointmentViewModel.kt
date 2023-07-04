@@ -156,6 +156,7 @@ class BookAppointmentViewModel @Inject constructor(
     sealed class State {
         object Loading : State()
         object Empty : State()
+
         data class Value(val petsList: List<AvailableHour>) : State()
     }
 
