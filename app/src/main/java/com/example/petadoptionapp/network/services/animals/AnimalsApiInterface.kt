@@ -1,10 +1,8 @@
 package com.example.petadoptionapp.network.services.animals
 
 import com.example.petadoptionapp.network.models.request.NAnimalParam
-import com.example.petadoptionapp.network.models.response.NAnimalResponse
-import com.example.petadoptionapp.network.models.response.NAnimalsListResponse
-import com.example.petadoptionapp.network.models.response.NMessageResponse
-import com.example.petadoptionapp.network.models.response.NPostAnimalResponse
+import com.example.petadoptionapp.network.models.response.*
+import okhttp3.RequestBody
 
 interface AnimalsApiInterface {
     suspend fun getOneAnimalById(id: String): NAnimalResponse
@@ -13,7 +11,7 @@ interface AnimalsApiInterface {
     suspend fun getAnimalsByAdoptionCenterId(adoptionCenterId: String): NAnimalsListResponse
 
     suspend fun addAnimal(data: NAnimalParam): NPostAnimalResponse
+    suspend fun uploadAnimalImage(id: String, image: RequestBody): NUploadAsset
     suspend fun editAnimal(id: String, data: NAnimalParam): NPostAnimalResponse
-
     suspend fun deleteAnimal(id: String): NMessageResponse
 }

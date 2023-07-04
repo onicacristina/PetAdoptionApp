@@ -1,10 +1,8 @@
 package com.example.petadoptionapp.network.services.animals
 
 import com.example.petadoptionapp.network.models.request.NAnimalParam
-import com.example.petadoptionapp.network.models.response.NAnimalResponse
-import com.example.petadoptionapp.network.models.response.NAnimalsListResponse
-import com.example.petadoptionapp.network.models.response.NMessageResponse
-import com.example.petadoptionapp.network.models.response.NPostAnimalResponse
+import com.example.petadoptionapp.network.models.response.*
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 class AnimalsApiInterfaceImplementation @Inject constructor(
@@ -28,6 +26,10 @@ class AnimalsApiInterfaceImplementation @Inject constructor(
 
     override suspend fun addAnimal(data: NAnimalParam): NPostAnimalResponse {
         return animalsApiService.addAnimal(data)
+    }
+
+    override suspend fun uploadAnimalImage(id: String, image: RequestBody): NUploadAsset {
+        return animalsApiService.uploadAnimalImage(id = id, imageData = image)
     }
 
     override suspend fun editAnimal(id: String, data: NAnimalParam): NPostAnimalResponse {

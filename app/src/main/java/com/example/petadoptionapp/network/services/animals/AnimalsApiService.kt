@@ -1,10 +1,8 @@
 package com.example.petadoptionapp.network.services.animals
 
 import com.example.petadoptionapp.network.models.request.NAnimalParam
-import com.example.petadoptionapp.network.models.response.NAnimalResponse
-import com.example.petadoptionapp.network.models.response.NAnimalsListResponse
-import com.example.petadoptionapp.network.models.response.NMessageResponse
-import com.example.petadoptionapp.network.models.response.NPostAnimalResponse
+import com.example.petadoptionapp.network.models.response.*
+import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -28,6 +26,9 @@ interface AnimalsApiService {
 
     @POST("api/animals")
     suspend fun addAnimal(@Body data: NAnimalParam): NPostAnimalResponse
+
+    @POST("api/animals/{id}/upload")
+    suspend fun uploadAnimalImage(@Path("id") id: String, @Body imageData: RequestBody): NUploadAsset
 
     @PUT("api/animals/{id}")
     suspend fun editAnimal(@Path("id") id: String, @Body data: NAnimalParam): NPostAnimalResponse
