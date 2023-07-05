@@ -65,8 +65,8 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
 //            currentState = State.Loading
             val response = if (specie != EPetCategory.ALL) {
-//                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
-                animalsRepository.getAllAnimals()
+                animalsRepository.getAnimalsBySpecie(specie.getPetCategoryString())
+//                animalsRepository.getAllAnimals()
 
             } else {
                 animalsRepository.getAllAnimals()

@@ -23,4 +23,8 @@
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_2">2dp</dimen>
     <dimen name="button_height">48dp</dimen>
+
+    <dimen name="pet_image_width">200dp</dimen>
+    <dimen name="pet_image_height">150dp</dimen>
+
 </resources>

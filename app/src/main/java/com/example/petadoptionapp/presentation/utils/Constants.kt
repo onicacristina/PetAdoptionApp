@@ -16,4 +16,5 @@ object Constants {
     const val PET_DETAILS_TO_EDIT = "petDetailsToEdit"
     const val USER_NAME = "userName"
     const val USER_EMAIL  = "userEmail"
+    const val PLACEHOLDER_PET_IMAGE = "https://www.crossdogs.org/images/dog-placeholder.png"
 }

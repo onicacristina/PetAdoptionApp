@@ -25,8 +25,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivPetImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/pet_image_width"
+                android:layout_height="@dimen/pet_image_height"
                 android:adjustViewBounds="true"
                 android:cropToPadding="true"
                 android:src="@drawable/pet_image"
