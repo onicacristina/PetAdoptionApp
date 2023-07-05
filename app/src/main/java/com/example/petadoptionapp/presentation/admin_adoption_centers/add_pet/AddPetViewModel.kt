@@ -94,25 +94,8 @@ class AddPetViewModel @Inject constructor(
 
 
     private fun uploadAnimalImage(id: String, image: String) {
-        val file = File(image).asRequestBody("image/*".toMediaType())
-//        val file = File(image.path)
-//        val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
-//        val requestBody = MultipartBody.Part.createFormData("image", file.name, requestFile)
-
-//        val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
-
-//        val requestFile = file.asRequestBody("image/*".toMediaType())
-//        val requestFile = file.asRequestBody("image/*".toMediaType())
-//        val reqfile = file.asRequestBody()
-//        val imageData = RequestBody.create(fi)createFormData("image", file.name, requestFile)
-
-//        val requestBody: RequestBody = MultipartBody.Builder()
-//            .setType(MultipartBody.FORM)
-//            .addFormDataPart("param1", param1)
-//            .addFormDataPart("param2", param2)
-//            .build()
-
         viewModelScope.launch {
+            val file = File(image)
             val response = animalsRepository.uploadImage(id, image = file).fold(
                 onFailure = { error ->
                     showError(error)

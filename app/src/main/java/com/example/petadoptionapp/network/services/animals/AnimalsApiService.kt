@@ -22,11 +22,11 @@ interface AnimalsApiService {
     @POST("api/animals")
     suspend fun addAnimal(@Body data: NAnimalParam): NPostAnimalResponse
 
-    @FormUrlEncoded
+    @Multipart
     @PUT("api/animals/{id}/upload-image")
     suspend fun uploadAnimalImage(
         @Path("id") id: String,
-        @Part("image") image : RequestBody
+        @Part image: MultipartBody.Part
     ): NUploadAsset
 
     @PUT("api/animals/{id}")

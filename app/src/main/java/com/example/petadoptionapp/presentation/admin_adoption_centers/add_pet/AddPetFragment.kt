@@ -7,9 +7,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
@@ -91,7 +93,6 @@ class AddPetFragment :
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 
-
     private fun initObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -148,49 +149,58 @@ class AddPetFragment :
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-            val selectedImageUri: Uri? = data.data
-//            val selectedImageUri: Uri? = Uri.parse(data?.data.toString())
-
-//            val selectedImageUri: Uri? = data.
-
+            val selectedImageUri: Uri = data.data ?: return
             // Perform further operations with the selected image URI, such as uploading to a server
             // or displaying it in an ImageView.
-//            uploadImage(selectedImageUri)
-            if (selectedImageUri != null) {
-                viewModel.onImageChanged(getRealPathFromUri(requireContext(), selectedImageUri))
-//                viewModel.onImageChanged(Uri.parse(selectedImageUri?.toString()))
 
-            }
+            viewModel.onImageChanged(getRealPathFromUri(requireContext(), selectedImageUri))
             viewBinding.ivPetImage.setImageURI(selectedImageUri)
         }
     }
 
     private fun checkStoragePermission() {
-        if (ContextCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            )
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    requireActivity(),
-                    Manifest.permission.READ_EXTERNAL_STORAGE
+
+        fun checkPermission(permission: String) {
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    permission
                 )
+                != PackageManager.PERMISSION_GRANTED
             ) {
-                ActivityCompat.requestPermissions(
-                    requireActivity(),
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                    STORAGE_PERMISSION_REQUEST_CODE
-                )
+                if (ActivityCompat.shouldShowRequestPermissionRationale(
+                        requireActivity(),
+                        permission
+                    )
+                ) {
+                    ActivityCompat.requestPermissions(
+                        requireActivity(),
+                        arrayOf(permission),
+                        STORAGE_PERMISSION_REQUEST_CODE
+                    )
+                } else {
+                    ActivityCompat.requestPermissions(
+                        requireActivity(),
+                        arrayOf(permission),
+                        STORAGE_PERMISSION_REQUEST_CODE
+                    )
+                }
             } else {
-                ActivityCompat.requestPermissions(
-                    requireActivity(),
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                    STORAGE_PERMISSION_REQUEST_CODE
-                )
+                onImageClicked()
             }
-        } else {
-            onImageClicked()
+        }
+
+        @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+        fun checkNewApi() {
+            checkPermission(Manifest.permission.READ_MEDIA_IMAGES)
+        }
+
+        fun checkLegacyApi() {
+            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+
+        when(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            true -> checkNewApi()
+            false -> checkLegacyApi()
         }
     }
 

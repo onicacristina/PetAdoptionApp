@@ -12,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import java.io.File
 import javax.inject.Inject
 
 class AnimalsRepository @Inject constructor(
@@ -65,7 +66,7 @@ class AnimalsRepository @Inject constructor(
         }
     }
 
-    override suspend fun uploadImage(id: String, image: RequestBody): Result<NUploadAsset> {
+    override suspend fun uploadImage(id: String, image: File): Result<NUploadAsset> {
         return withContext(Dispatchers.IO) {
             kotlin.runCatching {
                 apiAnimalsInterface.uploadAnimalImage(id = id, image = image)
