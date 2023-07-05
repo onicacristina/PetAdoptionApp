@@ -21,9 +21,9 @@ class UpcomingAppointmentsViewModel @Inject constructor(
 ) : BaseViewModel(),
     StateDelegate<UpcomingAppointmentsViewModel.State> by DefaultStateDelegate(State.Loading) {
     init {
-//        getUpcomingAppointments()
+        getUpcomingAppointments()
 //        getUpcomingAppointmentsAdmin()
-        getUpcomingAppointmentsUser()
+//        getUpcomingAppointmentsUser()
     }
 
     private fun getUpcomingAppointments() {

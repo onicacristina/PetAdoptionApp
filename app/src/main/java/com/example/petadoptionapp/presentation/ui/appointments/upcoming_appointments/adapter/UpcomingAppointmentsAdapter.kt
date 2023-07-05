@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import com.example.petadoptionapp.databinding.ItemAppointmentBinding
 import com.example.petadoptionapp.network.models.Booking
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.ViewBindingViewHolder
 
 typealias OnViewDetailsItemClickListener = (Booking) -> Unit
@@ -39,8 +40,7 @@ class UpcomingAppointmentsAdapter(
         }
 
         private fun bindIcon(data: Booking) {
-//            Glide.with(binding.ivPet.context).load(data.animal.imageUrl).into(binding.ivPet)
-            val imageUrl = "https://images.unsplash.com/photo-1554693190-383dd5302125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"
+            val imageUrl = if (data.animal.uploadedAssets.isNotEmpty()) data.animal.uploadedAssets.first().path else Constants.PLACEHOLDER_PET_IMAGE
             Glide.with(binding.ivPet.context).load(imageUrl).into(binding.ivPet)
         }
 
