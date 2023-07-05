@@ -6,9 +6,6 @@ import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
-import java.text.DateFormatSymbols
-import java.text.SimpleDateFormat
-import java.util.*
 
 @Serializable
 @Parcelize
@@ -23,7 +20,7 @@ data class Animal(
     val neutered: Boolean,
     val story: String,
     val adoptionCenterId: String,
-    val uploadedAssets: String? = null,
+    val uploadedAssets: String,
     val createdAt: String,
     val updatedAt: String,
     val isSaved: Boolean = false
@@ -77,27 +74,11 @@ data class Animal(
             vaccinated = false,
             neutered = false,
             story = "",
-//            imageUrl = "",
             adoptionCenterId = "",
             uploadedAssets = "",
             createdAt = "",
             updatedAt = ""
         )
-    }
-
-    fun getFormattedDate(locale: Locale = Locale.getDefault(), dateToFormat: String): String {
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", locale)
-        val outputFormat = SimpleDateFormat("dd MMMM yyyy", locale)
-
-        val dateFormatSymbols = DateFormatSymbols.getInstance(locale)
-        outputFormat.dateFormatSymbols = dateFormatSymbols
-
-        return try {
-            val date = inputFormat.parse(dateToFormat)
-            outputFormat.format(date ?: "")
-        } catch (e: Exception) {
-            ""
-        }
     }
 
     override fun equals(other: Any?): Boolean {

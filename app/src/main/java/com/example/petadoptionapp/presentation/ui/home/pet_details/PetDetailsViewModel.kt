@@ -9,6 +9,7 @@ import com.example.petadoptionapp.presentation.utils.EventDelegate
 import com.example.petadoptionapp.repository.adoption_center_repository.AdoptionCenterRepository
 import com.example.petadoptionapp.repository.animals_repository.AnimalsRepository
 import com.example.petadoptionapp.repository.favorites_repository.FavoritesRepository
+import com.example.petadoptionapp.repository.mapper.responses.AnimalMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -52,7 +53,8 @@ class PetDetailsViewModel @Inject constructor(
 
     private fun checkIsSavedToFavoritesList() {
         viewModelScope.launch {
-            _isSavedToFavorites.value = favoritesRepository.isSavedToFavoritesList(animalData)
+            val data = AnimalMapper().map(animalData)
+            _isSavedToFavorites.value = favoritesRepository.isSavedToFavoritesList(data)
             Timber.e("isSaved ${_isSavedToFavorites.value}")
         }
     }
@@ -74,11 +76,13 @@ class PetDetailsViewModel @Inject constructor(
 
 
     private fun addToFavoritesList() {
-        favoritesRepository.saveToFavorites(animalData)
+        val data = AnimalMapper().map(animalData)
+        favoritesRepository.saveToFavorites(data)
     }
 
     private fun removeFromFavoritesList() {
-        favoritesRepository.deleteFromFavoritesList(animalData)
+        val data = AnimalMapper().map(animalData)
+        favoritesRepository.deleteFromFavoritesList(data)
     }
 
     fun getAdoptionCenterById(id: String) {
