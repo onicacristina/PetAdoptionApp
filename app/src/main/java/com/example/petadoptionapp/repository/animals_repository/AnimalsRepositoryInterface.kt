@@ -4,6 +4,7 @@ import com.example.petadoptionapp.network.models.request.NAnimalParam
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.network.models.response.NPostAnimalResponse
 import com.example.petadoptionapp.network.models.response.NUploadAsset
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
 interface AnimalsRepositoryInterface {

@@ -10,6 +10,7 @@ import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.repository.mapper.responses.NAnimalResponseMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject
 

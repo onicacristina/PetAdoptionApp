@@ -35,6 +35,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+import kotlin.time.DurationUnit
 
 
 @Module
@@ -63,6 +64,12 @@ object NetworkModule {
 //            .connectTimeout(30, TimeUnit.SECONDS)
 //            .writeTimeout(10, TimeUnit.SECONDS)
 //            .readTimeout(10, TimeUnit.SECONDS)
+            .pingInterval(3, TimeUnit.SECONDS)
+//            .connectTimeout(5, TimeUnit.MINUTES) // connect timeout
+//            .writeTimeout(5, TimeUnit.MINUTES) // write timeout
+//            .readTimeout(5, TimeUnit.MINUTES) // read timeout
+            .callTimeout(100, TimeUnit.SECONDS)
+
             .retryOnConnectionFailure(true)
             .protocols(listOf(Protocol.HTTP_1_1))
             .connectionPool(ConnectionPool(0, 2, TimeUnit.MINUTES))

@@ -87,7 +87,7 @@ class EditPetViewModel @Inject constructor(
                 vaccinated = currentState.vaccinated,
                 neutered = currentState.neutered,
                 story = currentState.story,
-                imageUrl = currentState.image ?: State.default.image,
+//                imageUrl = currentState.image ?: State.default.image,
                 extraData = extraData,
                 adoptionCenterId = currentState.adoptionCenterId
             )

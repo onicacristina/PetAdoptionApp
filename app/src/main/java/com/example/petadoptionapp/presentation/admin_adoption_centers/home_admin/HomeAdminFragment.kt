@@ -114,7 +114,7 @@ class HomeAdminFragment :
                 )
             },
             onDeleteClickListener = {
-                showDeleteDialog()
+                showDeleteDialog(it.id)
             }
         )
         recyclerView.adapter = petsAdapter
@@ -174,7 +174,7 @@ class HomeAdminFragment :
         }
     }
 
-    private fun showDeleteDialog() {
+    private fun showDeleteDialog(id: String) {
         showDialog(
             requireContext(),
             getString(R.string.delete_pet),
@@ -182,7 +182,7 @@ class HomeAdminFragment :
             R.drawable.btn_rounded_red,
             getString(R.string.delete),
             {
-//                viewModel.deleteAccount()
+                viewModel.deleteAnimal(id)
             },
             getString(R.string.cancel),
             null,

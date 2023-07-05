@@ -9,7 +9,7 @@ data class NAnimalParam(
     val vaccinated: Boolean,
     val neutered: Boolean,
     val story: String,
-    val imageUrl: String?,
+//    val imageUrl: String?,
     val extraData: Map<String, Any>,
     val adoptionCenterId: String,
 )

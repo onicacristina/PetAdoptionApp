@@ -17,7 +17,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import timber.log.Timber
+import java.io.File
 import javax.inject.Inject
 
 
@@ -66,7 +71,7 @@ class AddPetViewModel @Inject constructor(
             currentState.vaccinated,
             currentState.neutered,
             currentState.story,
-            currentState.image,
+//            currentState.image,
             extraData,
             currentState.adoptionCenterId
         )
@@ -75,11 +80,47 @@ class AddPetViewModel @Inject constructor(
             animalsRepository.addAnimal(param).fold(
                 onSuccess = {
                     Timber.e("success add pet")
-                    sendEvent(Event.SUCCESS)
+//                    sendEvent(Event.SUCCESS)
+                    currentState.image?.let { it1 -> uploadAnimalImage(it.animal.id, it1) }
                 },
                 onFailure = {
                     Timber.e("error add pet")
                     showError(it)
+                }
+            )
+        }
+    }
+
+
+
+    private fun uploadAnimalImage(id: String, image: String) {
+        val file = File(image).asRequestBody("image/*".toMediaType())
+//        val file = File(image.path)
+//        val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
+//        val requestBody = MultipartBody.Part.createFormData("image", file.name, requestFile)
+
+//        val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
+
+//        val requestFile = file.asRequestBody("image/*".toMediaType())
+//        val requestFile = file.asRequestBody("image/*".toMediaType())
+//        val reqfile = file.asRequestBody()
+//        val imageData = RequestBody.create(fi)createFormData("image", file.name, requestFile)
+
+//        val requestBody: RequestBody = MultipartBody.Builder()
+//            .setType(MultipartBody.FORM)
+//            .addFormDataPart("param1", param1)
+//            .addFormDataPart("param2", param2)
+//            .build()
+
+        viewModelScope.launch {
+            val response = animalsRepository.uploadImage(id, image = file).fold(
+                onFailure = { error ->
+                    showError(error)
+                    Timber.e("error upload image: $error")
+                },
+                onSuccess = {
+                    Timber.e("success upload image")
+                    sendEvent(Event.SUCCESS)
                 }
             )
         }
@@ -92,7 +133,7 @@ class AddPetViewModel @Inject constructor(
                 currentState.breed.isNotEmpty() &&
                 currentState.age.isNotEmpty() &&
                 currentState.story.isNotEmpty() &&
-                currentState.image.isNotEmpty()
+                currentState.image != null
         currentState = currentState.copy(isEnabledButton = isFieldsNotEmpty)
     }
 
@@ -163,7 +204,7 @@ class AddPetViewModel @Inject constructor(
         val vaccinated: Boolean,
         val neutered: Boolean,
         val story: String,
-        val image: String,
+        val image: String?,
         val adoptionCenterId: String,
         val isEnabledButton: Boolean = false
     ) {
@@ -179,7 +220,8 @@ class AddPetViewModel @Inject constructor(
                     vaccinated = false,
                     neutered = false,
                     story = "",
-                    image = "https://images.unsplash.com/photo-1556596187-c3d988ea368c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80",
+//                    image = "https://images.unsplash.com/photo-1556596187-c3d988ea368c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80",
+                    image = null,
                     adoptionCenterId = ProfilePrefs().getProfile()?.adoptionCenterId ?: ""
                 )
         }

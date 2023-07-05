@@ -123,6 +123,20 @@ class HomeAdminViewModel @Inject constructor(
         )
     }
 
+    fun deleteAnimal(id: String) {
+        viewModelScope.launch {
+            animalsRepository.deleteAnimal(id).fold(
+                onFailure = { error ->
+                    Timber.e("error delete animal")
+                    showError(error)
+                },
+                onSuccess = {
+                    Timber.e("success delete animal")
+                    getPetsBySpecie(specieSelected)
+                }
+            )
+        }
+    }
     sealed class State {
         object Loading : State()
         object Empty : State()

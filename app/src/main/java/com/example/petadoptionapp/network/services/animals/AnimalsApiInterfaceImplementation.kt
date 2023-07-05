@@ -2,6 +2,7 @@ package com.example.petadoptionapp.network.services.animals
 
 import com.example.petadoptionapp.network.models.request.NAnimalParam
 import com.example.petadoptionapp.network.models.response.*
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject
 
@@ -29,7 +30,7 @@ class AnimalsApiInterfaceImplementation @Inject constructor(
     }
 
     override suspend fun uploadAnimalImage(id: String, image: RequestBody): NUploadAsset {
-        return animalsApiService.uploadAnimalImage(id = id, imageData = image)
+        return animalsApiService.uploadAnimalImage(id = id, image = image)
     }
 
     override suspend fun editAnimal(id: String, data: NAnimalParam): NPostAnimalResponse {
