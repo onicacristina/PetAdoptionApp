@@ -17,4 +17,14 @@ data class Booking(
         val dateString = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault()).parse(dateAndTime)
         return dateFormatter.format(dateString)
     }
+
+    companion object {
+        val default = Booking(
+            id = "",
+            user = User(),
+            adoptionCenter = AdoptionCenter.default,
+            animal = AnimalResponse.default,
+            dateAndTime = ""
+        )
+    }
 }
