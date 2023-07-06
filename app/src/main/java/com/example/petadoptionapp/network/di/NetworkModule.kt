@@ -35,7 +35,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
-import kotlin.time.DurationUnit
 
 
 @Module
@@ -44,7 +43,6 @@ object NetworkModule {
 
     @Provides
     fun provideBaseUrl() = BuildConfig.BASE_API_URL
-//    fun provideBaseUrl() = BuildConfig.BASE_API_URL + "api/"
 
     @Singleton
     @Provides

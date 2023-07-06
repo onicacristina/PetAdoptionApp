@@ -17,10 +17,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.asRequestBody
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
@@ -61,7 +57,7 @@ class AddPetViewModel @Inject constructor(
     }
 
     fun addPet() {
-        val extraData = mapOf("" to  "")
+        val extraData = mapOf("" to "")
         val param = NAnimalParam(
             currentState.name,
             currentState.specie.getPetCategoryString(),
@@ -80,7 +76,6 @@ class AddPetViewModel @Inject constructor(
             animalsRepository.addAnimal(param).fold(
                 onSuccess = {
                     Timber.e("success add pet")
-//                    sendEvent(Event.SUCCESS)
                     currentState.image?.let { it1 -> uploadAnimalImage(it.animal.id, it1) }
                 },
                 onFailure = {
@@ -92,11 +87,10 @@ class AddPetViewModel @Inject constructor(
     }
 
 
-
     private fun uploadAnimalImage(id: String, image: String) {
         viewModelScope.launch {
             val file = File(image)
-            val response = animalsRepository.uploadImage(id, image = file).fold(
+            animalsRepository.uploadImage(id, image = file).fold(
                 onFailure = { error ->
                     showError(error)
                     Timber.e("error upload image: $error")

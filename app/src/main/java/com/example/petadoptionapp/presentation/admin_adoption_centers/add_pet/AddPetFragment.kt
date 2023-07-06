@@ -22,6 +22,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentAddPetBinding
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.utils.ImageHelper
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -153,7 +154,7 @@ class AddPetFragment :
             // Perform further operations with the selected image URI, such as uploading to a server
             // or displaying it in an ImageView.
 
-            viewModel.onImageChanged(getRealPathFromUri(requireContext(), selectedImageUri))
+            viewModel.onImageChanged(ImageHelper().getRealPathFromUri(requireContext(), selectedImageUri))
             viewBinding.ivPetImage.setImageURI(selectedImageUri)
         }
     }

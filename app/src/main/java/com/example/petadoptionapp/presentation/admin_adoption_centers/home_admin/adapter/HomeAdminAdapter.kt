@@ -10,6 +10,7 @@ import com.example.petadoptionapp.databinding.ItemPetAdminBinding
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.presentation.ui.home.adapter.HomePetsDiffutils
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.LocaleHelper
 import com.example.petadoptionapp.presentation.utils.ViewBindingViewHolder
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
@@ -53,17 +54,11 @@ class HomeAdminAdapter(
             binding.tvAddedAt.text = context.getString(R.string.added_at, addedAt)
         }
 
-//        private fun bindImage(data: AnimalResponse) {
-//            Glide.with(binding.ivPet.context).load(data.imageUrl).into(binding.ivPet)
-//        }
-
         private fun bindImage(data: AnimalResponse) {
-            if (data.uploadedAssets.isNotEmpty()) {
-                val imageUrl = data.uploadedAssets[0].path
-                Glide.with(binding.ivPet.context).load(imageUrl).into(binding.ivPet)
-            } else {
-                // Logic pentru încărcarea unei imagini alternative sau afișarea unui placeholder
-            }
+            val dataUploadedAssets = data.uploadedAssets
+            val imageUrl =
+                if (dataUploadedAssets.isNotEmpty()) dataUploadedAssets.first().path else Constants.PLACEHOLDER_PET_IMAGE
+            Glide.with(binding.ivPet.context).load(imageUrl).into(binding.ivPet)
         }
 
 

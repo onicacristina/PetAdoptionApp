@@ -17,6 +17,7 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentEditPetBinding
 import com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.PICK_IMAGE_REQUEST
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.utils.ImageHelper
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -79,7 +80,7 @@ class EditPetFragment :
         }
 
         viewBinding.btnSave.setOnDebounceClickListener {
-            viewModel.editUser()
+            viewModel.editAnimal()
         }
 
     }
@@ -153,11 +154,12 @@ class EditPetFragment :
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-            val selectedImageUri: Uri? = data.data
+            val selectedImageUri: Uri = data.data ?: return
 
             // Perform further operations with the selected image URI, such as uploading to a server
             // or displaying it in an ImageView.
 //            uploadImage(selectedImageUri)
+            viewModel.onImageChanged(ImageHelper().getRealPathFromUri(requireContext(), selectedImageUri))
             viewBinding.ivPetImage.setImageURI(selectedImageUri)
         }
     }

@@ -11,6 +11,7 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentProfileBinding
 import com.example.petadoptionapp.network.models.User
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.utils.LocaleHelper
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
@@ -93,13 +94,13 @@ class ProfileFragment : BaseViewBindingFragment<FragmentProfileBinding>(R.layout
 
     private fun signedOut() {
         navController.popBackStack()
-//        navController.navigate(R.id.loginFragment)
         navController.navigate(R.id.selectUserRoleFragment)
     }
 
     private fun initProfile(user: User) {
+        val userRole = ProfilePrefs().getProfile()?.role
         viewBinding.tvAvatar.text = user.getInitials()
-        viewBinding.tvFullName.text = user.getFullName()
+        viewBinding.tvFullName.text = if (userRole == 0) user.getFullName() else user.lastName
         viewBinding.tvEmail.text = user.email
         Timber.e("joined ${user.getFormattedCreationDate(LocaleHelper.getLocale().locale)}")
     }
