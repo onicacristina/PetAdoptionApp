@@ -1,9 +1,12 @@
 package com.example.petadoptionapp.network.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
+@Parcelize
 data class User(
     val id: String = "",
     val role: Int = 0,
@@ -13,8 +16,8 @@ data class User(
     val email: String? = null,
     val createdAt: String? = null,
     val adoptionCenterId: String? = null
-) {
-    fun getFullName():String {
+) : Parcelable {
+    fun getFullName(): String {
         return "$firstName $lastName"
     }
 

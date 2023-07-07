@@ -1,7 +1,5 @@
 package com.example.petadoptionapp.presentation.ui.home.pet_details
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -22,10 +20,7 @@ import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.LocaleHelper
-import com.example.petadoptionapp.presentation.utils.extensions.openEmail
-import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
-import com.example.petadoptionapp.presentation.utils.extensions.showDialer
-import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
+import com.example.petadoptionapp.presentation.utils.extensions.*
 import com.example.petadoptionapp.presentation.utils.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -95,7 +90,7 @@ class PetDetailsFragment :
         }
 
         viewBinding.tvAdoptionCenterAddress.setOnDebounceClickListener {
-            onAddressClicked()
+            openGoogleMaps(viewModel.adoptionCenterData.getFullAddress())
         }
 
         viewBinding.btnDelete.setOnDebounceClickListener {
@@ -310,17 +305,6 @@ class PetDetailsFragment :
             getString(R.string.cancel),
             null,
         )
-    }
-
-    private fun onAddressClicked() {
-        //val address = "1600 Amphitheatre Parkway, Mountain View, CA"
-        val address = viewModel.adoptionCenterData.getFullAddress()
-        val encodedAddress = Uri.encode(address)
-        val uri = "geo:0,0?q=$encodedAddress"
-
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-        intent.setPackage("com.google.android.apps.maps")
-        startActivity(intent)
     }
 
     override fun onResume() {

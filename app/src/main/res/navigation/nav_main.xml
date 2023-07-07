@@ -183,6 +183,9 @@
         <action
             android:id="@+id/action_upcomingAppointmentsFragment_to_petDetailsFragment"
             app:destination="@id/petDetailsFragment" />
+        <action
+            android:id="@+id/action_upcomingAppointmentsFragment_to_appointmentDetailsFragment"
+            app:destination="@id/appointmentDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectEndHourFragment"
@@ -252,6 +255,22 @@
             android:defaultValue=""
             app:argType="string" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentDetailsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.appointments.appointment_details.AppointmentDetailsFragment"
+        android:label="fragment_appointment_details"
+        tools:layout="@layout/fragment_appointment_details" >
+
+        <argument
+            android:name="appointmentDetails"
+            android:defaultValue="@null"
+            app:argType="com.example.petadoptionapp.network.models.Booking"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_petDetailsFragment"
+            app:destination="@id/petDetailsFragment" />
     </fragment>
 
     <!--    <action-->
