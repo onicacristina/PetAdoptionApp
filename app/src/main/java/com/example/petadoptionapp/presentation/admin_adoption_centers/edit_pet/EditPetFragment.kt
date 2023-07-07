@@ -156,9 +156,6 @@ class EditPetFragment :
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
             val selectedImageUri: Uri = data.data ?: return
 
-            // Perform further operations with the selected image URI, such as uploading to a server
-            // or displaying it in an ImageView.
-//            uploadImage(selectedImageUri)
             viewModel.onImageChanged(ImageHelper().getRealPathFromUri(requireContext(), selectedImageUri))
             viewBinding.ivPetImage.setImageURI(selectedImageUri)
         }

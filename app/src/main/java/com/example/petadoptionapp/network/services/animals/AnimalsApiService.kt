@@ -3,7 +3,6 @@ package com.example.petadoptionapp.network.services.animals
 import com.example.petadoptionapp.network.models.request.NAnimalParam
 import com.example.petadoptionapp.network.models.response.*
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface AnimalsApiService {
@@ -28,6 +27,12 @@ interface AnimalsApiService {
         @Path("id") id: String,
         @Part image: MultipartBody.Part
     ): NUploadAsset
+
+    @PUT("api/animals/ {id}/delete-image/{assetId}")
+    suspend fun deleteAnimalImage(
+        @Path("id") id: String,
+        @Path("assetId") assetId: String
+    ): NMessageResponse
 
     @PUT("api/animals/{id}")
     suspend fun editAnimal(@Path("id") id: String, @Body data: NAnimalParam): NPostAnimalResponse

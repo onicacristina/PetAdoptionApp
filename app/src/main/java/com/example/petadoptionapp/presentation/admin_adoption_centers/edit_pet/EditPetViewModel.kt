@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.admin_adoption_centers.edit_pet
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.models.UploadedAssets
 import com.example.petadoptionapp.network.models.request.NAnimalParam
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
@@ -74,6 +75,7 @@ class EditPetViewModel @Inject constructor(
             neutered = navArgs.petDetailsToEdit.neutered,
             story = navArgs.petDetailsToEdit.story,
             image = petImage,
+            uploadedAssets = navArgs.petDetailsToEdit.uploadedAssets,
             adoptionCenterId = navArgs.petDetailsToEdit.adoptionCenterId,
         )
     }
@@ -109,9 +111,32 @@ class EditPetViewModel @Inject constructor(
 
     private fun imageChangedActions() {
         if (isImageChanged) {
-            currentState.image?.let { uploadAnimalImage(currentState.id, it) }
+            if (currentState.uploadedAssets.isEmpty()) {
+                currentState.image?.let { uploadAnimalImage(currentState.id, it) }
+            } else {
+                deleteImage()
+            }
+
         } else {
             sendEvent(Event.SUCCESS)
+        }
+    }
+
+    private fun deleteImage() {
+        val assetId = currentState.uploadedAssets.first().id
+        viewModelScope.launch {
+            animalsRepository.deleteAnimalImage(id = currentState.id, assetId = assetId).fold(
+                onSuccess = {
+                    currentState.image?.let { uploadAnimalImage(currentState.id, it) }
+                    Timber.e("success delete image: $error")
+
+                },
+                onFailure = { error ->
+                    showError(error)
+                    Timber.e("error delete image: $error")
+
+                }
+            )
         }
     }
 
@@ -205,6 +230,7 @@ class EditPetViewModel @Inject constructor(
         val neutered: Boolean,
         val story: String,
         val image: String? = "",
+        val uploadedAssets: List<UploadedAssets>,
         val adoptionCenterId: String,
         val isEnabledButton: Boolean = false
     ) {
@@ -222,6 +248,7 @@ class EditPetViewModel @Inject constructor(
                     neutered = false,
                     story = "",
                     image = Constants.PLACEHOLDER_PET_IMAGE,
+                    uploadedAssets = listOf(),
                     adoptionCenterId = "70aa6960-f199-11ed-9bc8-e70506774611"
                 )
         }

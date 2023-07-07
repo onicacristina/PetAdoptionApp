@@ -4,7 +4,6 @@ import com.example.petadoptionapp.network.models.request.NAnimalParam
 import com.example.petadoptionapp.network.models.response.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import javax.inject.Inject
@@ -36,6 +35,10 @@ class AnimalsApiInterfaceImplementation @Inject constructor(
         val multipartBody = MultipartBody.Part
             .createFormData("image", image.name, image.asRequestBody("image/*".toMediaType()))
         return animalsApiService.uploadAnimalImage(id = id, image = multipartBody)
+    }
+
+    override suspend fun deleteAnimalImage(id: String, assetId: String): NMessageResponse {
+        return animalsApiService.deleteAnimalImage(id = id, assetId = assetId)
     }
 
     override suspend fun editAnimal(id: String, data: NAnimalParam): NPostAnimalResponse {

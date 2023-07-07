@@ -5,13 +5,9 @@ import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.network.models.response.NPostAnimalResponse
 import com.example.petadoptionapp.network.models.response.NUploadAsset
 import com.example.petadoptionapp.network.services.animals.AnimalsApiInterface
-import com.example.petadoptionapp.presentation.ui.home.EPetCategory
-import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.repository.mapper.responses.NAnimalResponseMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import java.io.File
 import javax.inject.Inject
 
@@ -70,6 +66,14 @@ class AnimalsRepository @Inject constructor(
         return withContext(Dispatchers.IO) {
             kotlin.runCatching {
                 apiAnimalsInterface.uploadAnimalImage(id = id, image = image)
+            }
+        }
+    }
+
+    override suspend fun deleteAnimalImage(id: String, assetId: String): Result<Any> {
+        return withContext(Dispatchers.IO) {
+            kotlin.runCatching {
+                apiAnimalsInterface.deleteAnimalImage(id = id, assetId = assetId)
             }
         }
     }

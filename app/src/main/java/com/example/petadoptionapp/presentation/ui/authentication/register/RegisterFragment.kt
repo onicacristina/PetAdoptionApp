@@ -49,7 +49,6 @@ class RegisterFragment :
             isUnderlined = true,
             textColor = R.color.blue_light
         ) {
-//            Toast.makeText(activity, "t&c", Toast.LENGTH_SHORT).show()
             openTermsAndConditions()
         }
         viewBinding.goToLogin.addClickableLink(
@@ -75,7 +74,6 @@ class RegisterFragment :
         }
         else {
             viewBinding.tilFirstName.isVisible = true
-            viewBinding.etLastName.hint = getString(R.string.last_name)
             viewBinding.tilLastName.hint = getString(R.string.last_name)
         }
     }
