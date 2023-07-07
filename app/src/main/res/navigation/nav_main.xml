@@ -12,10 +12,18 @@
         tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_termsAndConditionsFragment"
-            app:destination="@id/termsAndConditionsFragment" />
+            app:destination="@id/termsAndConditionsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_registerFragment_to_addAdoptionCenterFragment"
-            app:destination="@id/addAdoptionCenterFragment" />
+            app:destination="@id/addAdoptionCenterFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
@@ -34,7 +42,11 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/toPetDetailsFragment"
-            app:destination="@id/petDetailsFragment" />
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -43,7 +55,11 @@
         tools:layout="@layout/fragment_favorite">
         <action
             android:id="@+id/toPetDetailsFragment"
-            app:destination="@id/petDetailsFragment" />
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -52,13 +68,25 @@
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_changePasswordFragment"
-            app:destination="@id/changePasswordFragment" />
+            app:destination="@id/changePasswordFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/petDetailsFragment"
@@ -66,24 +94,27 @@
         android:label="fragment_pet_details"
         tools:layout="@layout/fragment_pet_details">
 
-        <!--        <argument-->
-        <!--            android:name="petId"-->
-        <!--            app:argType="string" />-->
-
-        <!--        <argument-->
-        <!--            android:name="petDetails"-->
-        <!--            android:defaultValue="@null"-->
-        <!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
-        <!--            app:nullable="true" />-->
         <action
             android:id="@+id/action_petDetailsFragment_to_petImageDetailsFragment"
-            app:destination="@id/petImageDetailsFragment" />
+            app:destination="@id/petImageDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_petDetailsFragment_to_bookAppointmentFragment"
-            app:destination="@id/bookAppointmentFragment" />
+            app:destination="@id/bookAppointmentFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_petDetailsFragment_to_editPetFragment"
-            app:destination="@id/editPetFragment" />
+            app:destination="@id/editPetFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/petImageDetailsFragment"
@@ -109,7 +140,11 @@
 
         <action
             android:id="@+id/action_bookAppointmentFragment_to_bookingAppointmentFinalFragment"
-            app:destination="@id/bookingAppointmentFinalFragment" />
+            app:destination="@id/bookingAppointmentFinalFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/languageFragment"
@@ -128,10 +163,18 @@
         tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_languageSettingsFragment"
-            app:destination="@id/languageSettingsFragment" />
+            app:destination="@id/languageSettingsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_settingsFragment_to_termsAndConditionsFragment"
-            app:destination="@id/termsAndConditionsFragment" />
+            app:destination="@id/termsAndConditionsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
@@ -170,22 +213,34 @@
     <fragment
         android:id="@+id/appointmentsFragment"
         android:name="com.example.petadoptionapp.presentation.ui.appointments.AppointmentsFragment"
-        android:label="AppointmentsFragment" >
+        android:label="AppointmentsFragment">
         <action
             android:id="@+id/action_appointmentsFragment_to_petDetailsFragment"
-            app:destination="@id/petDetailsFragment" />
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/upcomingAppointmentsFragment"
         android:name="com.example.petadoptionapp.presentation.ui.appointments.upcoming_appointments.UpcomingAppointmentsFragment"
         android:label="fragment_upcoming_appointments"
-        tools:layout="@layout/fragment_upcoming_appointments" >
+        tools:layout="@layout/fragment_upcoming_appointments">
         <action
             android:id="@+id/action_upcomingAppointmentsFragment_to_petDetailsFragment"
-            app:destination="@id/petDetailsFragment" />
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_upcomingAppointmentsFragment_to_appointmentDetailsFragment"
-            app:destination="@id/appointmentDetailsFragment" />
+            app:destination="@id/appointmentDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/selectEndHourFragment"
@@ -221,30 +276,37 @@
         android:id="@+id/homeAdminFragment"
         android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.home_admin.HomeAdminFragment"
         android:label="fragment_home_admin"
-        tools:layout="@layout/fragment_home_admin" >
+        tools:layout="@layout/fragment_home_admin">
         <action
             android:id="@+id/toPetDetailsFragment"
-            app:destination="@id/petDetailsFragment" />
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_homeAdminFragment_to_editPetFragment"
-            app:destination="@id/editPetFragment" />
+            app:destination="@id/editPetFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/editPetFragment"
         android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.edit_pet.EditPetFragment"
         android:label="fragment_edit_pet"
-        tools:layout="@layout/fragment_edit_pet" >
+        tools:layout="@layout/fragment_edit_pet">
 
         <argument
             android:name="petDetailsToEdit"
-            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"
-             />
+            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse" />
     </fragment>
     <fragment
         android:id="@+id/addAdoptionCenterFragment"
         android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_adoption_center_details.AddAdoptionCenterFragment"
         android:label="fragment_add_adoption_center"
-        tools:layout="@layout/fragment_add_adoption_center" >
+        tools:layout="@layout/fragment_add_adoption_center">
 
         <argument
             android:name="userName"
@@ -260,7 +322,7 @@
         android:id="@+id/appointmentDetailsFragment"
         android:name="com.example.petadoptionapp.presentation.ui.appointments.appointment_details.AppointmentDetailsFragment"
         android:label="fragment_appointment_details"
-        tools:layout="@layout/fragment_appointment_details" >
+        tools:layout="@layout/fragment_appointment_details">
 
         <argument
             android:name="appointmentDetails"
@@ -270,16 +332,11 @@
 
         <action
             android:id="@+id/action_appointmentDetailsFragment_to_petDetailsFragment"
-            app:destination="@id/petDetailsFragment" />
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
     </fragment>
 
-    <!--    <action-->
-    <!--        android:id="@+id/startPetDetails"-->
-    <!--        app:destination="@+id/petDetailsFragment">-->
-    <!--        <argument-->
-    <!--            android:name="petDetails"-->
-    <!--            android:defaultValue="@null"-->
-    <!--            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"-->
-    <!--            app:nullable="true" />-->
-    <!--    </action>-->
 </navigation>
