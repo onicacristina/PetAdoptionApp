@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.ItemPetSpecieBinding
@@ -40,10 +41,17 @@ class PetCategoryAdapterNew(
         }
 
         private fun bindSelectedItem(data: PetCategoryModel) {
+            val context = binding.viewPet.context
+            val textBlack = ContextCompat.getColor(context, R.color.text_black)
+            val textNormal = ContextCompat.getColor(context, R.color.text_pet_specie)
+
             if (data.isSelected) {
                 binding.viewPet.setBackgroundResource(R.drawable.bg_item_pet_category_yellow)
-            } else
+                binding.tvPetSpecie.setTextColor(textBlack)
+            } else {
                 binding.viewPet.setBackgroundResource(R.drawable.bg_item_pet_category_gray)
+                binding.tvPetSpecie.setTextColor(textNormal)
+            }
         }
 
         private fun bindClick(data: PetCategoryModel) {

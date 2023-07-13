@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="user_type_bg_unselected">#424242</color>
+    <color name="user_type_bg_selected">#242424</color>
+
+    <color name="pet_card_color">#424242</color>
+    <color name="color_pet_specie_bg">#424242</color>
+    <color name="text_pet_specie">#FFFFFFFF</color>
+
+
+</resources>

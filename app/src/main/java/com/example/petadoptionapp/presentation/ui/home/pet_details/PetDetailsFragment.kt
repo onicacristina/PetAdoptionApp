@@ -1,7 +1,5 @@
 package com.example.petadoptionapp.presentation.ui.home.pet_details
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -15,14 +13,15 @@ import com.bumptech.glide.Glide
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentPetDetailsBinding
 import com.example.petadoptionapp.network.models.AdoptionCenter
+import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import com.example.petadoptionapp.presentation.utils.Constants
-import com.example.petadoptionapp.presentation.utils.extensions.openEmail
-import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
-import com.example.petadoptionapp.presentation.utils.extensions.showDialer
-import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
+import com.example.petadoptionapp.presentation.utils.LocaleHelper
+import com.example.petadoptionapp.presentation.utils.extensions.*
+import com.example.petadoptionapp.presentation.utils.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -52,13 +51,20 @@ class PetDetailsFragment :
     }
 
     private fun initViews() {
-
+        initFavoriteVisibility()
+        initBottomButtons()
+        initAdoptionCenterLayout()
     }
 
     private fun initListeners() {
         viewBinding.ivPetImage.setOnDebounceClickListener {
             val bundle = Bundle()
-            bundle.putString(Constants.PET_IMAGE_URL, viewModel.animalData.imageUrl)
+            val imageUrl = if (viewModel.animalData.uploadedAssets.isNotEmpty()) {
+                viewModel.animalData.uploadedAssets.first().path
+            } else {
+                Constants.PLACEHOLDER_PET_IMAGE
+            }
+            bundle.putString(Constants.PET_IMAGE_URL, imageUrl)
             navController.navigate(
                 R.id.action_petDetailsFragment_to_petImageDetailsFragment,
                 bundle
@@ -68,7 +74,6 @@ class PetDetailsFragment :
             navController.popBackStack()
         }
         viewBinding.ivFavorite.setOnDebounceClickListener {
-//            viewModel.addToFavoritesList()
             viewModel.onFavoriteClicked()
         }
         viewBinding.ivCall.setOnDebounceClickListener {
@@ -79,21 +84,21 @@ class PetDetailsFragment :
         }
         viewBinding.btnAdoptNow.setOnDebounceClickListener {
             openBookAppointmentScreen(pet = pet, adoptionCenter = adoptionCenter)
-//            navController.navigate(R.id.action_petDetailsFragment_to_bookAppointmentFragment)
         }
         viewBinding.tvAdoptionCenter.setOnDebounceClickListener {
             //todo
         }
 
         viewBinding.tvAdoptionCenterAddress.setOnDebounceClickListener {
-//            val address = "1600 Amphitheatre Parkway, Mountain View, CA"
-            val address = viewModel.adoptionCenterData.getFullAddress()
-            val encodedAddress = Uri.encode(address)
-            val uri = "geo:0,0?q=$encodedAddress"
+            openGoogleMaps(viewModel.adoptionCenterData.getFullAddress())
+        }
 
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-            intent.setPackage("com.google.android.apps.maps")
-            startActivity(intent)
+        viewBinding.btnDelete.setOnDebounceClickListener {
+            showDeleteDialog()
+        }
+
+        viewBinding.btnEdit.setOnDebounceClickListener {
+            openEditPetScreen()
         }
     }
 
@@ -129,6 +134,7 @@ class PetDetailsFragment :
         when (event) {
             PetDetailsViewModel.Event.SAVED_TO_FAVORITES -> onSavedToFavorites()
             PetDetailsViewModel.Event.REMOVED_FROM_FAVORITES -> onRemovedFromFavorites()
+            PetDetailsViewModel.Event.PET_REMOVED -> navController.popBackStack()
         }
     }
 
@@ -167,6 +173,7 @@ class PetDetailsFragment :
         initPetGender(data)
         initPetHealth(data)
         initPetStory(data)
+        initAddedModifiedVisibility(data)
     }
 
     private fun initPetFavoriteIcon(isFavorite: Boolean) {
@@ -180,7 +187,13 @@ class PetDetailsFragment :
     }
 
     private fun initPetImage(data: AnimalResponse) {
-        Glide.with(viewBinding.ivPetImage.context).load(data.imageUrl).into(viewBinding.ivPetImage)
+        if (data.uploadedAssets.isNotEmpty()) {
+            val imageUrl = data.uploadedAssets.first().path ?: ""
+            Glide.with(viewBinding.ivPetImage.context).load(imageUrl).into(viewBinding.ivPetImage)
+        } else {
+            Glide.with(viewBinding.ivPetImage.context).load(Constants.PLACEHOLDER_PET_IMAGE)
+                .into(viewBinding.ivPetImage)
+        }
     }
 
     private fun initPetName(data: AnimalResponse) {
@@ -234,5 +247,70 @@ class PetDetailsFragment :
     private fun initAdoptionCenterFullAddress(data: AdoptionCenter) {
         viewBinding.tvAdoptionCenterAddress.text = data.getFullAddress()
     }
+
+    private fun initFavoriteVisibility() {
+        viewBinding.ivFavorite.isVisible = !isAdmin()
+    }
+
+    private fun initBottomButtons() {
+        viewBinding.clButtonsAdmin.isVisible = isAdmin()
+        viewBinding.clButtonsNormalUser.isVisible = !isAdmin()
+    }
+
+    private fun initAdoptionCenterLayout() {
+        val isAdmin = isAdmin()
+        viewBinding.tvAdoptionCenter.isVisible = !isAdmin
+        viewBinding.tvAdoptionCenterName.isVisible = !isAdmin
+        viewBinding.tvAdoptionCenterAddress.isVisible = !isAdmin
+    }
+
+    private fun initAddedModifiedVisibility(data: AnimalResponse) {
+        val isAdmin = isAdmin()
+        if (isAdmin) {
+            viewBinding.clAddedAtInfo.isVisible = true
+            viewBinding.clLastModifiedInfo.isVisible = true
+            viewBinding.tvAddedAt.text =
+                data.getFormattedDate(LocaleHelper.getLocale().locale, data.createdAt)
+            viewBinding.tvLastModifiedAt.text =
+                data.getFormattedDate(LocaleHelper.getLocale().locale, data.updatedAt)
+        } else {
+            viewBinding.clAddedAtInfo.isVisible = false
+            viewBinding.clLastModifiedInfo.isVisible = false
+        }
+    }
+
+    private fun isAdmin(): Boolean {
+        val userRole = ProfilePrefs().getUserRole()
+        return userRole == EUserRole.ADOPTION_CENTER_USER
+    }
+
+    private fun openEditPetScreen() {
+        val pet = viewModel.animalData
+        navController.navigate(
+            R.id.action_petDetailsFragment_to_editPetFragment,
+            bundleOf(Constants.PET_DETAILS_TO_EDIT to pet)
+        )
+    }
+
+    private fun showDeleteDialog() {
+        showDialog(
+            requireContext(),
+            getString(R.string.delete_pet),
+            getString(R.string.delete_pet_description),
+            R.drawable.btn_rounded_red,
+            getString(R.string.delete),
+            {
+                viewModel.deletePet()
+            },
+            getString(R.string.cancel),
+            null,
+        )
+    }
+
+    override fun onResume() {
+        super.onResume()
+//        viewModel.getAnimalDetails(viewModel.animalData.id)
+    }
+
 }
 

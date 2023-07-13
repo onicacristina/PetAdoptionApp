@@ -3,8 +3,10 @@ package com.example.petadoptionapp.presentation.ui.appointments.upcoming_appoint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
+import com.bumptech.glide.Glide
 import com.example.petadoptionapp.databinding.ItemAppointmentBinding
 import com.example.petadoptionapp.network.models.Booking
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.ViewBindingViewHolder
 
 typealias OnViewDetailsItemClickListener = (Booking) -> Unit
@@ -38,24 +40,24 @@ class UpcomingAppointmentsAdapter(
         }
 
         private fun bindIcon(data: Booking) {
-//            Glide.with(binding.ivPet.context).load(data.imageUrl).into(binding.ivPet)
-
+            val imageUrl = if (data.animal.uploadedAssets.isNotEmpty()) data.animal.uploadedAssets.first().path else Constants.PLACEHOLDER_PET_IMAGE
+            Glide.with(binding.ivPet.context).load(imageUrl).into(binding.ivPet)
         }
 
         private fun bindName(data: Booking) {
-//            binding.tvPetName.text = data.name
+            binding.tvPetName.text = data.animal.name
         }
 
         private fun bindBreed(data: Booking) {
-//            binding.tvPetBreed.text = data.name
+            binding.tvPetBreed.text = data.animal.breed
         }
 
         private fun bindLocation(data: Booking) {
-//            binding.tvLocation.text = data.name
+            binding.tvLocation.text = data.adoptionCenter.getFullAddress()
         }
 
         private fun bindTime(data: Booking) {
-//            binding.tvTime.text = data.name
+            binding.tvTime.text = data.getFormattedDate()
         }
 
         private fun bindViewDetailsClick(data: Booking) {

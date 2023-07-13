@@ -10,13 +10,14 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentFavoriteBinding
-import com.example.petadoptionapp.network.models.response.AnimalResponse
+import com.example.petadoptionapp.network.models.Animal
 import com.example.petadoptionapp.presentation.base.BaseViewBindingFragment
 import com.example.petadoptionapp.presentation.ui.favorite.adapter.FavoritesAdapter
 import com.example.petadoptionapp.presentation.ui.favorite.adapter.FavoritesDiffUtils
 import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
+import com.example.petadoptionapp.presentation.utils.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -50,7 +51,7 @@ class FavoriteFragment :
             getMainActivity()?.initNavigation()
         }
         viewBinding.btnClearFavorites.setOnDebounceClickListener {
-            viewModel.clearFavoritesList()
+            showDeleteAllElementsFromListDialog()
         }
     }
 
@@ -80,13 +81,13 @@ class FavoriteFragment :
                 navController.navigate(R.id.toPetDetailsFragment, bundle)
             },
             onFavoriteButtonClickListener = {
-                viewModel.deleteFromFavoritesList(it)
+                showDeleteDialog(it)
             }
         )
         recyclerView.adapter = adapter
     }
 
-    private fun setList(data: List<AnimalResponse>) {
+    private fun setList(data: List<Animal>) {
         adapter.submitList(data)
     }
 
@@ -99,7 +100,7 @@ class FavoriteFragment :
             setList(emptyList()) // Clear the list when in empty state
         }
 
-        fun renderListState(data: List<AnimalResponse>) {
+        fun renderListState(data: List<Animal>) {
             viewBinding.rvFavorites.isVisible = true
             viewBinding.noDataFound.container.isVisible = false
             viewBinding.pbLoading.isVisible = false
@@ -120,5 +121,35 @@ class FavoriteFragment :
             is FavoriteViewModel.State.Loading -> renderLoadingState()
             else -> renderEmptyState()
         }
+    }
+
+    private fun showDeleteDialog(animalResponse: Animal) {
+        showDialog(
+            requireContext(),
+            getString(R.string.popup_delete_animal_title),
+            getString(R.string.popup_delete_animal_message),
+            R.drawable.btn_rounded_red,
+            getString(R.string.delete),
+            {
+                viewModel.deleteFromFavoritesList(animalResponse)
+            },
+            getString(R.string.cancel),
+            null,
+        )
+    }
+
+    private fun showDeleteAllElementsFromListDialog() {
+        showDialog(
+            requireContext(),
+            getString(R.string.popup_clear_list_title),
+            getString(R.string.popup_clear_list_message),
+            R.drawable.btn_rounded_red,
+            getString(R.string.delete),
+            {
+                viewModel.clearFavoritesList()
+            },
+            getString(R.string.cancel),
+            null,
+        )
     }
 }

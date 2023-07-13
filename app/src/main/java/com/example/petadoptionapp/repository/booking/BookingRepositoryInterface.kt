@@ -7,6 +7,8 @@ import com.example.petadoptionapp.network.models.response.NPostBookingResponse
 interface BookingRepositoryInterface {
     suspend fun getOneBookingById(id: String): Result<Booking>
     suspend fun getBookingsByUserId(userId: String): Result<List<Booking>>
+    suspend fun getBookingsByAdoptionCenterId(adoptionCenterId: String): Result<List<Booking>>
+
     suspend fun addBooking(data: NBookingParams): Result<NPostBookingResponse>
 
     suspend fun deleteBooking(id: String): Result<Any>

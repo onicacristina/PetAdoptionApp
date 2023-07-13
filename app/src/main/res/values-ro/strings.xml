@@ -3,6 +3,7 @@
     <string name="app_name">Adopet</string>
 
     <string name="discover">Descoperă</string>
+    <string name="home">Acasă</string>
 
     <string name="skip">Omite</string>
     <string name="btn_continue">Continuă</string>
@@ -43,6 +44,7 @@
     <string name="go_to_register">Încă nu aveți cont? Înregistrați-vă</string>
     <string name="login_subtitle">Pentru a putea intra în contul dumneavoastră, vă rugăm să introduceți parola și adresa de email</string>
     <string name="register_subtitle">Vă rugăm să introduceți datele pentru a vă crea un cont în aplicație</string>
+    <string name="name_adoption_center">Numele centrului de adopție</string>
 
     <!-- Questionnaire -->
     <string name="questionnaire">Chestionar</string>
@@ -69,6 +71,7 @@
     <string name="pet_categories">Categorii de animale de companie</string>
 
     <string name="search_by_name">Caută după nume</string>
+    <string name="total_pets">Total animale: %1$s</string>
 
 
     <!-- Pet Details -->
@@ -91,6 +94,11 @@
     <string name="animal_added_to_favorites">Animal adăugat la favorite</string>
     <string name="animal_removed_from_favorites">Animal scos din favorite</string>
     <string name="clear_favorites">Golește Lista de Favorite</string>
+    <string name="popup_clear_list_message">Sigur dorești să ștergi toate articolele din lista ta de favorite?</string>
+    <string name="popup_clear_list_title">Golire listă favorite</string>
+    <string name="popup_delete_animal_message">Sigur doriți să eliminați acest animal din lista de favorite?</string>
+    <string name="popup_delete_animal_title">Ștergere animal din listă</string>
+
 
     <!-- popup -->
     <string name="something_went_wrong">Ceva nu a mers bine</string>
@@ -157,6 +165,8 @@
     <string name="view_details">Vezi detalii</string>
     <string name="delete_appointment">Ștergeți programarea</string>
     <string name="delete_appointment_description">Sunteți sigur că doriți să ștergeți această programare?</string>
+    <string name="person_details">Informații Persoană</string>
+    <string name="appointment_details">Detalii programare</string>
 
     <!-- Terms and conditions -->
     <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>
@@ -172,4 +182,49 @@
     <string name="copyright_description">•  Conținutul aplicației, inclusiv texte, imagini și logo-uri, este protejat de drepturile de autor și nu poate fi utilizat în scopuri comerciale fără permisiunea noastră.</string>
     <string name="terms_general_description2">Vă rugăm să rețineți că acești termeni și condiții pot fi actualizați periodic. Utilizarea continuă a aplicației după modificările termenilor și condițiilor reprezintă acceptul dumneavoastră pentru noile prevederi.\n\nVă mulțumim pentru utilizarea aplicației noastre și vă dorim o experiență plăcută în procesul de adopție a animalelor!
     </string>
+
+    <!-- Admin Adoption Centers -->
+    <!-- add adoption center details -->
+    <string name="add_adoption_center">Completați detaliile pentru înregistrarea centrului de adopție</string>
+    <string name="name">Nume</string>
+    <string name="phone">Telefon</string>
+    <string name="address">Adresă</string>
+    <string name="city">Oraș</string>
+    <string name="set_start_end_time">Setează intervalul de timp pentru programări</string>
+    <string name="start_time">Ora de început</string>
+    <string name="end_time">Ora de sfârșit</string>
+    <string name="select_start_time">Selectează ora de început</string>
+    <string name="select_end_time">Selectează ora de sfârșit</string>
+
+    <!-- select user type -->
+    <string name="title_choose_user_type">Selectează Tipul de Utilizator</string>
+    <string name="user_type_normal">Utilizator Normal</string>
+    <string name="user_type_normal_description">Dacă ești o persoană interesată să adopți un animal de companie.</string>
+    <string name="user_type_adoption_center">Centru de Adopție</string>
+    <string name="user_type_adoption_center_description">Dacă ești o organizație sau adăpost pentru animale care oferă animale spre adopție.</string>
+    <string name="select_tip">Selectează un Tip</string>
+
+    <!-- add pet -->
+    <string name="publish_pet_for_adoption">Publică un animal de companie pentru adopție</string>
+    <string name="pet_name">Numele animalului</string>
+    <string name="select_pet_specie">Selectează specia animalului</string>
+    <string name="select_pet_gender">Selectează genul animalului</string>
+    <string name="pet_breed">Rasă</string>
+    <string name="pet_age">Vârsta (în luni)</string>
+    <string name="pet_vaccinated">Vaccinat</string>
+    <string name="pet_neutered">Sterilizat</string>
+    <string name="yes">Da</string>
+    <string name="no">Nu</string>
+    <string name="pet_image">Imaginea animalului</string>
+    <string name="publish_pet">Publică animalul</string>
+
+    <string name="edit">Editează</string>
+    <string name="added_at">Adăugat la: %1$s</string>
+    <string name="add_pet">Adăugă</string>
+    <string name="delete_pet">Șterge animalul de companie</string>
+    <string name="delete_pet_description">Sunteți sigur că doriți să ștergi acest animal de companie?</string>
+    <string name="last_modified">Modificat ultima dată la: </string>
+    <string name="edit_pet">Editează animalul</string>
+
+
 </resources>

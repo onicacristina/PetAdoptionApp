@@ -3,6 +3,7 @@ package com.example.petadoptionapp.presentation.ui.home
 import com.example.petadoptionapp.R
 
 enum class EPetCategory(val stringResource: Int, val iconResource: Int) {
+    NONE(0, 0),
     ALL(R.string.all_pet_category, R.drawable.img_pets),
     DOG(R.string.dog_pet_category, R.drawable.img_dog2),
     CAT(R.string.cat_pet_category, R.drawable.img_cat),

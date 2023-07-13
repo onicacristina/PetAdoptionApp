@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:fontFamily="@font/lato_bold"
-        android:textSize="20sp"
-        android:visibility="gone"
         android:textColor="@color/text_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,14 +22,14 @@
 
     <TextView
         android:id="@+id/tvPetCategories"
+        style="@style/CustomTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginBottom="6dp"
-        android:fontFamily="@font/lato_bold"
         android:text="@string/pet_categories"
-        android:textColor="@color/text_black"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rvPetCategory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,19 +55,17 @@
         android:layout_marginTop="@dimen/margin_20"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
-        app:startIconDrawable="@drawable/ic_search"
         app:endIconMode="clear_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvPetCategory">
+        app:layout_constraintTop_toBottomOf="@id/rvPetCategory"
+        app:startIconDrawable="@drawable/ic_search">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etSearch"
+            style="@style/Widget.PetAdoptionApp.EditText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/edittext_height"
-            style="@style/Widget.PetAdoptionApp.EditText"
-            android:hint="@string/search_by_name"
-            android:textColor="@android:color/black"
-            android:textColorLink="@color/text_black" />
+            android:hint="@string/search_by_name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

@@ -93,7 +93,8 @@ class BookAppointmentFragment :
                 openSuccessBookingAppointmentScreen(
                     petName = args.pet?.name ?: "",
                     bookingTime = viewModel.appointmentTimeFinal,
-                    location = args.adoptionCenter?.getFullAddress() ?: ""
+                    location = args.adoptionCenter?.getFullAddress() ?: "",
+//                    petId = args.
                 )
             }
             BookAppointmentViewModel.Event.FAILURE -> {}
@@ -140,14 +141,16 @@ class BookAppointmentFragment :
     private fun openSuccessBookingAppointmentScreen(
         petName: String,
         bookingTime: String,
-        location: String
+        location: String,
+//        petId: String
     ) {
         navController.navigate(
             R.id.bookingAppointmentFinalFragment,
             bundleOf(
                 Constants.PET_NAME to petName,
                 Constants.BOOKING_TIME to bookingTime,
-                Constants.APPOINTMENT_LOCATION to location
+                Constants.APPOINTMENT_LOCATION to location,
+//                Constants.PET_ID to petId
             )
         )
     }

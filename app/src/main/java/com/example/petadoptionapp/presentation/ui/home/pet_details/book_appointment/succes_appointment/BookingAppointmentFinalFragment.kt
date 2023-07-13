@@ -82,7 +82,7 @@ class BookingAppointmentFinalFragment :
             context = requireContext(),
             isBolded = true,
             isUnderlined = false,
-            textColor = R.color.text_black
+            textColor = R.color.text_pet_specie
         ) {}
     }
 

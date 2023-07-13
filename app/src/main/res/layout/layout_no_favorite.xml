@@ -30,14 +30,13 @@
 
         <TextView
             android:id="@+id/tvTitle"
+            style="@style/CustomTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginEnd="35dp"
-            android:fontFamily="@font/lato_regular"
             android:gravity="center"
             android:text="@string/you_do_not_have_favorite"
-            android:textColor="@color/text_black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -51,13 +50,13 @@
             android:layout_marginHorizontal="@dimen/margin_40"
             android:layout_marginTop="@dimen/margin_20"
             android:background="@drawable/btn_rounded"
-            android:fontFamily="@font/lato_bold"
             android:gravity="center"
             android:paddingHorizontal="24dp"
             android:text="@string/find_pets"
             android:textAllCaps="false"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/text_16" />
+            android:textSize="@dimen/text_16"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

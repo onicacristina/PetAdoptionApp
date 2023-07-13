@@ -1,6 +1,7 @@
 package com.example.petadoptionapp.presentation.ui.profile
 
 import androidx.lifecycle.viewModelScope
+import com.example.petadoptionapp.network.ApiException
 import com.example.petadoptionapp.network.models.User
 import com.example.petadoptionapp.presentation.base.BaseViewModel
 import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
@@ -41,8 +42,15 @@ class ProfileViewModel @Inject constructor(
                         //                    getOfflineUser()
                     },
                     onFailure = { error ->
-                        Timber.e("user failure")
+                        Timber.e("user failure ${error.localizedMessage}")
+                        Timber.e("user failure ${error.message}")
+                        Timber.e("user failure ${error.cause?.message}")
                         showError(error)
+                        if (error is ApiException){
+                        Timber.e("error is api exception ${error.response?.globalErrors?.first()}")
+
+                        }
+
                     }
                 )
             }

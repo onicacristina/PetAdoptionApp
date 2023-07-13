@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.appointments.upcoming_appoint
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -68,11 +69,17 @@ class UpcomingAppointmentsFragment :
             onCancelClickListener = {
                 showDeleteDialog(it)
             },
-            onViewDetailsItemClickListener = {
-                val bundle = Bundle()
-                bundle.putString(Constants.ADOPTION_CENTER_ID, it.adoptionCenterId)
-                bundle.putString(Constants.PET_ID, it.id)
-                navController.navigate(R.id.toPetDetailsFragment, bundle)
+            onViewDetailsItemClickListener = { booking ->
+//                val bundle = Bundle()
+//                bundle.putString(Constants.ADOPTION_CENTER_ID, it.adoptionCenter.id)
+//                bundle.putString(Constants.PET_ID, it.id)
+//                navController.navigate(R.id.toPetDetailsFragment, bundle)
+                navController.navigate(
+                    R.id.appointmentDetailsFragment,
+                    bundleOf(
+                        Constants.APPOINTMENT_DETAILS to booking,
+                    )
+                )
             }
         )
         recyclerView.adapter = adapter

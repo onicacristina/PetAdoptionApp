@@ -1,11 +1,15 @@
 package com.example.petadoptionapp.network.models.response
 
 import android.os.Parcelable
+import com.example.petadoptionapp.network.models.UploadedAssets
 import com.example.petadoptionapp.presentation.ui.home.AgeCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetCategory
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
+import java.text.DateFormatSymbols
+import java.text.SimpleDateFormat
+import java.util.*
 
 @Serializable
 @Parcelize
@@ -19,8 +23,11 @@ data class AnimalResponse(
     val vaccinated: Boolean,
     val neutered: Boolean,
     val story: String,
-    val imageUrl: String,
+//    val imageUrl: String? = null,
     val adoptionCenterId: String,
+    val uploadedAssets: List<UploadedAssets>,
+    val createdAt: String,
+    val updatedAt: String,
     val isSaved: Boolean = false
 ) : Parcelable {
     fun getAgeCategory(animal: AnimalResponse): AgeCategory {
@@ -63,18 +70,36 @@ data class AnimalResponse(
 
     companion object {
         val default = AnimalResponse(
-            "",
-            EPetCategory.ALL,
-            EPetGender.FEMALE,
-            "",
-            "",
-            0,
-            false,
-            false,
-            "",
-            "",
-            ""
+            id = "",
+            specie = EPetCategory.ALL,
+            gender = EPetGender.FEMALE,
+            name = "",
+            breed = "",
+            age = 0,
+            vaccinated = false,
+            neutered = false,
+            story = "",
+//            imageUrl = "",
+            adoptionCenterId = "",
+            uploadedAssets = listOf(),
+            createdAt = "",
+            updatedAt = ""
         )
+    }
+
+    fun getFormattedDate(locale: Locale = Locale.getDefault(), dateToFormat: String): String {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", locale)
+        val outputFormat = SimpleDateFormat("dd MMMM yyyy", locale)
+
+        val dateFormatSymbols = DateFormatSymbols.getInstance(locale)
+        outputFormat.dateFormatSymbols = dateFormatSymbols
+
+        return try {
+            val date = inputFormat.parse(dateToFormat)
+            outputFormat.format(date ?: "")
+        } catch (e: Exception) {
+            ""
+        }
     }
 
     override fun equals(other: Any?): Boolean {

@@ -12,4 +12,10 @@ object Constants {
     const val APPOINTMENT_LOCATION = "appointmentLocation"
     const val PET = "pet"
     const val ADOPTION_CENTER = "adoptionCenter"
+    const val NO_AUTH = "no-auth"
+    const val PET_DETAILS_TO_EDIT = "petDetailsToEdit"
+    const val USER_NAME = "userName"
+    const val USER_EMAIL  = "userEmail"
+    const val PLACEHOLDER_PET_IMAGE = "https://www.crossdogs.org/images/dog-placeholder.png"
+    const val APPOINTMENT_DETAILS = "appointmentDetails"
 }

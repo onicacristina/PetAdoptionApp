@@ -38,7 +38,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:fontFamily="@font/lato_regular"
             android:maxLines="2"
             android:textAlignment="center"
             android:textColor="@color/black"

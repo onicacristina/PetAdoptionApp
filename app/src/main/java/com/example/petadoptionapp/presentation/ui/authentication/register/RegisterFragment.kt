@@ -7,6 +7,7 @@ import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
@@ -15,8 +16,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.FragmentRegisterBinding
+import com.example.petadoptionapp.network.models.EUserRole
 import com.example.petadoptionapp.presentation.base.NoBottomNavigationFragment
 import com.example.petadoptionapp.presentation.ui.authentication.InfoOrErrorAuthentication
+import com.example.petadoptionapp.presentation.ui.authentication.ProfilePrefs
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.extensions.addClickableLink
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 import com.example.petadoptionapp.presentation.utils.extensions.viewBinding
@@ -42,9 +46,9 @@ class RegisterFragment :
             linkText = SpannableString(getString(R.string.terms_and_conditions)),
             context = requireContext(),
             isBolded = true,
+            isUnderlined = true,
             textColor = R.color.blue_light
         ) {
-//            Toast.makeText(activity, "t&c", Toast.LENGTH_SHORT).show()
             openTermsAndConditions()
         }
         viewBinding.goToLogin.addClickableLink(
@@ -52,9 +56,25 @@ class RegisterFragment :
             linkText = SpannableString(getString(R.string.register_desc)),
             context = requireContext(),
             isBolded = true,
+            isUnderlined = true,
             textColor = R.color.blue_light
         ) {
             navController.navigate(R.id.loginFragment)
+        }
+        initViewsUserType()
+    }
+
+    private fun initViewsUserType() {
+        val userRole = ProfilePrefs().getUserRole()
+
+        if (userRole == EUserRole.ADOPTION_CENTER_USER) {
+            viewBinding.tilFirstName.isVisible = false
+            viewBinding.tilLastName.hint = getString(R.string.name_adoption_center)
+            viewModel.onFirstNameChanged(getString(R.string.adoption_center))
+        }
+        else {
+            viewBinding.tilFirstName.isVisible = true
+            viewBinding.tilLastName.hint = getString(R.string.last_name)
         }
     }
 
@@ -118,7 +138,7 @@ class RegisterFragment :
                 }
                 launch {
                     viewModel.signedUp.collect {
-                        openLoginScreen()
+                        openNextScreen()
                     }
                 }
             }
@@ -154,8 +174,25 @@ class RegisterFragment :
         viewBinding.clInfoOrError.isVisible = false
     }
 
+    private fun openNextScreen() {
+        val userRole = ProfilePrefs().getUserRole()
+        if (userRole == EUserRole.NORMAL_USER)
+            openLoginScreen()
+        if (userRole == EUserRole.ADOPTION_CENTER_USER)
+            openAddAdoptionCenterDetailsScreen()
+    }
+
     private fun openLoginScreen() {
         navController.navigate(R.id.loginFragment)
     }
 
+    private fun openAddAdoptionCenterDetailsScreen() {
+        navController.navigate(
+            R.id.action_registerFragment_to_addAdoptionCenterFragment,
+            bundleOf(
+                Constants.USER_NAME to viewModel.lastName,
+                Constants.USER_EMAIL to viewModel.email
+            )
+        )
+    }
 }

@@ -12,27 +12,27 @@
 
         <TextView
             android:id="@+id/tvTitle"
+            style="@style/CustomTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="26dp"
             android:layout_marginTop="50dp"
-            android:fontFamily="@font/lato_bold"
             android:gravity="start"
             android:text="@string/register"
-            android:textColor="@color/text_black"
             android:textSize="28sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvSubtitle"
+            style="@style/CustomTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="26dp"
             android:layout_marginTop="8dp"
             android:text="@string/register_subtitle"
-            android:textColor="@color/text_black"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/clInfoOrError"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginVertical="2dp"
-                android:fontFamily="@font/lato_regular"
                 android:textAlignment="center"
                 android:textColor="@color/yellow_text"
                 android:textSize="14sp"
@@ -99,13 +98,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFirstName"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:background="@drawable/bg_custom_inputs"
                 android:hint="@string/first_name"
-                android:inputType="textPersonName"
-                android:textColor="@android:color/black"
-                android:textColorLink="@color/text_black" />
+                android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -123,13 +120,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etLastName"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:background="@drawable/bg_custom_inputs"
-                android:hint="@string/last_name"
-                android:inputType="textPersonName"
-                android:textColor="@android:color/black"
-                android:textColorLink="@color/text_black" />
+                android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -147,13 +141,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:background="@drawable/bg_custom_inputs"
                 android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:textColor="@android:color/black"
-                android:textColorLink="@color/text_black" />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -171,17 +163,16 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
+                style="@style/Widget.PetAdoptionApp.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:background="@drawable/bg_custom_inputs"
                 android:hint="@string/password"
-                android:inputType="textPassword"
-                android:textColor="@android:color/black"
-                android:textColorLink="@color/text_black" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
             android:id="@+id/btnTogglePasswordMask"
+            style="@style/CustomIconStyle"
             android:layout_width="wrap_content"
             android:layout_height="54dp"
             android:background="@drawable/btn_ripple_oval_mask"
@@ -201,7 +192,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:buttonTint="@drawable/checkbox_filter_tint"
-            android:fontFamily="@font/lato_regular"
             android:text="@string/agree_to_the_terms_and_conditions"
             android:textColor="@color/text_grey"
             android:textSize="12sp"
@@ -214,31 +204,31 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnRegister"
+            style="@style/CustomTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/selector_yellow_button"
             android:backgroundTint="@null"
-            android:fontFamily="@font/lato_bold"
             android:text="@string/register"
             android:textAllCaps="false"
             android:textColor="@drawable/selector_button_text"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbTermsAndConditions" />
 
         <TextView
             android:id="@+id/goToLogin"
+            style="@style/CustomTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="22dp"
             android:layout_marginTop="26dp"
             android:layout_marginBottom="30dp"
-            android:fontFamily="@font/lato_regular"
             android:gravity="center"
             android:text="@string/go_to_login"
-            android:textColor="@color/text_black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

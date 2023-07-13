@@ -1,5 +1,7 @@
 package com.example.petadoptionapp.network.models.response
 
+import com.example.petadoptionapp.network.models.UploadedAssets
+
 data class NAnimalResponse(
     val id: String,
     val specie: String,
@@ -10,6 +12,9 @@ data class NAnimalResponse(
     val vaccinated: Boolean,
     val neutered: Boolean,
     val story: String,
-    val imageUrl: String,
+//    val imageUrl: String,
     val adoptionCenterId: String,
+    val uploadedAssets: List<UploadedAssets>,
+    val createdAt: String,
+    val updatedAt: String,
 )

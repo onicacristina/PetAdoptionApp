@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.main
 
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
@@ -23,6 +24,7 @@ class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val navController: NavController by lazy { findNavController(R.id.nav_host_fragment) }
+    private val viewModel: MainViewModel by viewModels()
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -40,15 +42,16 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
         initNavigation()
         setAppMode()
-        //TODO("add refresh token if needed")
+        viewModel.clearCaches()
         solveRefreshTokenIfNeeded()
     }
 
     fun initNavigation() {
         val graph = navController.navInflater.inflate(R.navigation.nav_main)
         val startDestination = when {
-            ProfilePrefs().isLoggedIn() -> R.id.homeFragment
-            !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
+            ProfilePrefs().isLoggedIn() -> goToHome()
+            !AppStateFlagsPrefs().showTutorial() -> R.id.selectUserRoleFragment
+//            !AppStateFlagsPrefs().showTutorial() -> R.id.loginFragment
             else -> R.id.languageFragment
         }
 
@@ -57,6 +60,8 @@ class MainActivity : BaseActivity() {
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         binding.navView.setupWithNavController(navController)
+
+        solveTabs()
     }
 
     fun initNavigationFromAppointments() {
@@ -72,6 +77,7 @@ class MainActivity : BaseActivity() {
 
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         binding.navView.setupWithNavController(navController)
+        solveTabs()
     }
 
     fun bottomNavigationVisibility(visibility: Int) {
@@ -90,7 +96,7 @@ class MainActivity : BaseActivity() {
         when (getAppThemeFromPrefs()) {
             EAppTheme.LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             EAppTheme.DARK -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            EAppTheme.SYSTEM_DEFAULT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            else -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         }
     }
 
@@ -98,4 +104,28 @@ class MainActivity : BaseActivity() {
         return ProfilePrefs().getAppTheme()
     }
 
+    private fun solveTabs() {
+        val userRole = ProfilePrefs().getProfile()
+        if (userRole?.role == 0)
+            switchToNormalUser()
+        if (userRole?.role == 1)
+            switchToAdminUser()
+    }
+
+    private fun switchToNormalUser() {
+        binding.navView.menu.clear()
+        binding.navView.inflateMenu(R.menu.bottom_nav_menu)
+    }
+
+    private fun switchToAdminUser() {
+        binding.navView.menu.clear()
+        binding.navView.inflateMenu(R.menu.bottom_nav_menu_admin)
+    }
+
+    private fun goToHome(): Int {
+        val userRole = ProfilePrefs().getProfile()
+        if (userRole?.role == 1)
+            return R.id.homeAdminFragment
+        return R.id.homeFragment
+    }
 }

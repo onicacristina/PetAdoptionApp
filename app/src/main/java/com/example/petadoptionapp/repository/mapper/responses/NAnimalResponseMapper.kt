@@ -18,8 +18,11 @@ class NAnimalResponseMapper : ModelMapper<NAnimalResponse, AnimalResponse> {
             model.vaccinated,
             model.neutered,
             model.story,
-            model.imageUrl,
-            model.adoptionCenterId
+//            model.imageUrl,
+            model.adoptionCenterId,
+            model.uploadedAssets,
+            model.createdAt,
+            model.updatedAt
         )
     }
 }

@@ -9,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/clBottomButtons"
+        app:layout_constraintBottom_toTopOf="@+id/llBottomButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,11 +23,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:contentDescription="@null"
-                tools:src="@drawable/pet_image"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/pet_image" />
 
             <ImageView
                 android:id="@+id/ivBack"
@@ -75,7 +75,7 @@
                 android:layout_marginVertical="8dp"
                 android:layout_marginTop="10dp"
                 android:elevation="16dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/pet_card_color"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="12dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTV"
@@ -91,11 +91,11 @@
 
                     <TextView
                         android:id="@+id/tvPetName"
+                        style="@style/CustomTextStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/lato_bold"
-                        android:textColor="@color/text_black"
                         android:textSize="26sp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toStartOf="@id/ivPetGender"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -103,11 +103,10 @@
 
                     <TextView
                         android:id="@+id/tvPetBreed"
+                        style="@style/CustomTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="4dp"
-                        android:fontFamily="@font/lato_regular"
-                        android:textColor="@color/text_black"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvPetName"
@@ -118,8 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:background="@drawable/bg_item_pet_category_gray"
-                        android:fontFamily="@font/lato_regular"
+                        android:background="@drawable/bg_pet_details_fields"
                         android:padding="8dp"
                         android:textColor="@color/text_grey"
                         android:textSize="16sp"
@@ -133,8 +131,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
-                        android:background="@drawable/bg_item_pet_category_gray"
-                        android:fontFamily="@font/lato_regular"
+                        android:background="@drawable/bg_pet_details_fields"
                         android:padding="8dp"
                         android:textColor="@color/text_grey"
                         android:textSize="16sp"
@@ -182,88 +179,150 @@
 
                 <TextView
                     android:id="@+id/tvHealth"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/lato_bold"
                     android:text="@string/pet_health"
-                    android:textColor="@color/text_black"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvVaccinated"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
-                    android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
                     android:textSize="16sp"
                     tools:text="@string/vaccinated" />
 
                 <TextView
                     android:id="@+id/tvNeutered"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
-                    android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
                     android:textSize="16sp"
                     tools:text="@string/neutered" />
 
                 <TextView
                     android:id="@+id/tvPetStory"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:fontFamily="@font/lato_bold"
                     android:text="@string/pet_story"
-                    android:textColor="@color/text_black"
                     android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/tvStory"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
-                    android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups." />
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clAddedAtInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewAvatar">
+
+                    <TextView
+                        android:id="@+id/tvAddedAtLabel"
+                        style="@style/CustomTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/joined"
+                        android:textSize="@dimen/text_16"
+                        app:layout_constraintEnd_toStartOf="@id/tvAddedAt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvAddedAt"
+                        style="@style/CustomTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_4"
+                        android:textSize="@dimen/text_16"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvAddedAtLabel"
+                        app:layout_constraintTop_toTopOf="@id/tvAddedAtLabel"
+                        tools:text="24 mai 2023" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clLastModifiedInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewAvatar">
+
+                    <TextView
+                        android:id="@+id/tvLastModifiedLabel"
+                        style="@style/CustomTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_6"
+                        android:text="@string/last_modified"
+                        android:textSize="@dimen/text_16"
+                        app:layout_constraintEnd_toStartOf="@id/tvLastModifiedAt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvLastModifiedAt"
+                        style="@style/CustomTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_4"
+                        android:textSize="@dimen/text_16"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvLastModifiedLabel"
+                        app:layout_constraintTop_toTopOf="@id/tvLastModifiedLabel"
+                        tools:text="24 mai 2023" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <TextView
                     android:id="@+id/tvAdoptionCenter"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:fontFamily="@font/lato_bold"
                     android:text="@string/adoption_center"
-                    android:textColor="@color/text_black"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvAdoptionCenterName"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
-                    android:fontFamily="@font/lato_regular"
-                    android:textColor="@color/text_black"
                     android:textSize="16sp"
                     tools:text="Name: Adotion Center nr 2" />
 
                 <TextView
                     android:id="@+id/tvAdoptionCenterAddress"
+                    style="@style/CustomTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
                     android:drawablePadding="4dp"
-                    android:fontFamily="@font/lato_regular"
                     android:gravity="center_vertical"
-                    android:textColor="@color/text_black"
                     android:textSize="16sp"
                     app:drawableStartCompat="@drawable/ic_location_pin"
                     tools:text="Strada Nufarul, nr.2, Oradea" />
@@ -272,57 +331,111 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clBottomButtons"
+    <LinearLayout
+        android:id="@+id/llBottomButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/ivCall"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="20dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_call"
-            app:layout_constraintBottom_toBottomOf="@id/btnAdoptNow"
-            app:layout_constraintEnd_toStartOf="@id/ivChat"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btnAdoptNow" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clButtonsNormalUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivChat"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="20dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_chat_dot_round"
-            app:layout_constraintBottom_toBottomOf="@id/btnAdoptNow"
-            app:layout_constraintEnd_toStartOf="@id/btnAdoptNow"
-            app:layout_constraintStart_toEndOf="@id/ivCall"
-            app:layout_constraintTop_toTopOf="@id/btnAdoptNow" />
+            <ImageView
+                android:id="@+id/ivCall"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_call"
+                app:layout_constraintBottom_toBottomOf="@id/btnAdoptNow"
+                app:layout_constraintEnd_toStartOf="@id/ivChat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnAdoptNow" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAdoptNow"
-            android:layout_width="0dp"
+            <ImageView
+                android:id="@+id/ivChat"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_chat_dot_round"
+                app:layout_constraintBottom_toBottomOf="@id/btnAdoptNow"
+                app:layout_constraintEnd_toStartOf="@id/btnAdoptNow"
+                app:layout_constraintStart_toEndOf="@id/ivCall"
+                app:layout_constraintTop_toTopOf="@id/btnAdoptNow" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAdoptNow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/selector_yellow_button"
+                android:backgroundTint="@null"
+                android:gravity="center"
+                android:text="@string/adopt_now"
+                android:textAllCaps="false"
+                android:textColor="@drawable/selector_button_text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivChat"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clButtonsAdmin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/selector_yellow_button"
-            android:backgroundTint="@null"
-            android:fontFamily="@font/lato_bold"
-            android:text="@string/adopt_now"
-            android:textAllCaps="false"
-            android:textColor="@drawable/selector_button_text"
-            android:textSize="18sp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivChat"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginHorizontal="@dimen/margin_20"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                android:layout_marginBottom="@dimen/margin_12"
+                android:background="@drawable/btn_rounded"
+                android:gravity="center"
+                android:padding="@dimen/margin_6"
+                android:text="@string/edit"
+                android:textAllCaps="false"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_14"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnDelete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_12"
+                android:background="@drawable/bg_ripple_rounded_border_blue"
+                android:gravity="center"
+                android:padding="@dimen/margin_6"
+                android:text="@string/delete"
+                android:textAllCaps="false"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/text_14"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/btnEdit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnEdit"
+                app:layout_constraintTop_toTopOf="@id/btnEdit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.petadoptionapp.presentation.ui.home.pet_details.book_appoint
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.ItemAvailableTimeAppointmentBinding
@@ -31,10 +32,19 @@ class AvailableAppointmentsHoursAdapter(
 
         private fun bindHour(data: AvailableHour) {
             binding.tvTime.text = data.hour
+            val context = binding.tvTime.context
+            val textBlack = ContextCompat.getColor(context, R.color.text_black)
+            val textNormal = ContextCompat.getColor(context, R.color.text_pet_specie)
+
             if (data.isSelected) {
                 binding.tvTime.setBackgroundResource(R.drawable.bg_item_pet_category_yellow)
+                binding.tvTime.setTextColor(textBlack)
+
             } else
+            {
+                binding.tvTime.setTextColor(textNormal)
                 binding.tvTime.setBackgroundResource(R.drawable.bg_item_pet_category_gray)
+            }
         }
 
         private fun bindClick(data: AvailableHour) {

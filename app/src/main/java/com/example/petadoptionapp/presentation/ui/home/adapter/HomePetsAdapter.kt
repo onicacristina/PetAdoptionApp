@@ -9,6 +9,7 @@ import com.example.petadoptionapp.R
 import com.example.petadoptionapp.databinding.ItemPetsBinding
 import com.example.petadoptionapp.network.models.response.AnimalResponse
 import com.example.petadoptionapp.presentation.ui.home.EPetGender
+import com.example.petadoptionapp.presentation.utils.Constants
 import com.example.petadoptionapp.presentation.utils.ViewBindingViewHolder
 import com.example.petadoptionapp.presentation.utils.extensions.setOnDebounceClickListener
 
@@ -37,8 +38,13 @@ class HomePetsAdapter(
         }
 
         private fun bindImage(data: AnimalResponse) {
-//            Glide.with(binding.ivPetImage.context).load("https://plus.unsplash.com/premium_photo-1664371206019-a82ba8d7c2e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80").into(binding.ivPetImage)
-            Glide.with(binding.ivPetImage.context).load(data.imageUrl).into(binding.ivPetImage)
+            if (data.uploadedAssets.isNotEmpty()) {
+                val imageUrl = data.uploadedAssets[0].path
+                Glide.with(binding.ivPetImage.context).load(imageUrl).into(binding.ivPetImage)
+            } else {
+                Glide.with(binding.ivPetImage.context).load(Constants.PLACEHOLDER_PET_IMAGE)
+                    .into(binding.ivPetImage)
+            }
         }
 
         private fun bindPetName(data: AnimalResponse) {

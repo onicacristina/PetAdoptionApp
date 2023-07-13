@@ -112,37 +112,33 @@ class BookAppointmentViewModel @Inject constructor(
 
 
     fun addBooking() {
-        val userId = ProfilePrefs().getProfile()?.id
-        val adoptionCenterId = navArgs.adoptionCenter?.id
+        val userId = ProfilePrefs().getProfile()?.id ?: ""
+        val adoptionCenterId = navArgs.adoptionCenter?.id ?: ""
+        val animalId = navArgs.pet?.id ?: ""
         val timestamp = getAppointmentTime()
+        val params = NBookingParams(
+            userId = userId,
+            adoptionCenterId = adoptionCenterId,
+            animalId = animalId,
+            timestamp = timestamp
+        )
 
         Timber.e("booking userId: $userId")
         Timber.e("booking adoptionCenterId: $adoptionCenterId")
         Timber.e("booking timestamp: $timestamp")
 
         viewModelScope.launch {
-            userId?.let { userId ->
-                adoptionCenterId?.let { adoptionCenterId ->
-                    NBookingParams(
-                        userId = userId,
-                        adoptionCenterId = adoptionCenterId,
-                        timestamp = timestamp
-                    )
+            bookingRepository.addBooking(params).fold(
+                onSuccess = {
+                    sendEvent(Event.SUCCESS)
+                    Timber.e("booking success")
+                },
+                onFailure = { error ->
+                    Timber.e("booking failure")
+                    showError(error)
+                    sendEvent(Event.FAILURE)
                 }
-            }
-                ?.let {
-                    bookingRepository.addBooking(it).fold(
-                        onSuccess = {
-                            sendEvent(Event.SUCCESS)
-                            Timber.e("booking success")
-                        },
-                        onFailure = { error ->
-                            Timber.e("booking failure")
-                            showError(error)
-                            sendEvent(Event.FAILURE)
-                        }
-                    )
-                }
+            )
         }
     }
 
@@ -160,6 +156,7 @@ class BookAppointmentViewModel @Inject constructor(
     sealed class State {
         object Loading : State()
         object Empty : State()
+
         data class Value(val petsList: List<AvailableHour>) : State()
     }
 
