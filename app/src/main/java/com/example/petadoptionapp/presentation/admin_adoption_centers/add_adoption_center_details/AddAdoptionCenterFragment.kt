@@ -30,6 +30,7 @@ class AddAdoptionCenterFragment :
         initObservers()
     }
 
+
     private fun initViews() {
     }
 
