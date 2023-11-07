@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_12"
+        android:layout_marginVertical="@dimen/margin_12"
+        app:cardBackgroundColor="@color/pet_card_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="@dimen/margin_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_8">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivPet"
+                android:layout_width="120dp"
+                android:layout_height="130dp"
+                android:layout_marginVertical="@dimen/margin_10"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:padding="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pet_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                app:strokeColor="@color/grey_bg_unselected"
+                app:strokeWidth="1dp" />
+
+            <TextView
+                android:id="@+id/tvPetName"
+                style="@style/CustomTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_4"
+                android:paddingVertical="@dimen/margin_4"
+                android:textSize="@dimen/text_20"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/viewPet"
+                app:layout_constraintStart_toEndOf="@+id/ivPet"
+                app:layout_constraintTop_toTopOf="@id/ivPet"
+                tools:text="Tobi" />
+
+            <View
+                android:id="@+id/viewPet"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="@dimen/margin_10"
+                android:background="@drawable/bg_female_gender"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPetName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tvPetName"
+                app:layout_constraintTop_toTopOf="@+id/tvPetName" />
+
+            <ImageView
+                android:id="@+id/ivPetGender"
+                android:layout_width="20dp"
+                android:layout_height="26dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_female_gender_symbol"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPetName"
+                app:layout_constraintEnd_toEndOf="@id/viewPet"
+                app:layout_constraintStart_toStartOf="@+id/viewPet"
+                app:layout_constraintTop_toTopOf="@+id/tvPetName" />
+
+            <TextView
+                android:id="@+id/tvPetBreed"
+                style="@style/CustomTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_4"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivPet"
+                app:layout_constraintTop_toBottomOf="@+id/tvPetName"
+                tools:text="Labrador" />
+
+            <TextView
+                android:id="@+id/tvAddedAt"
+                style="@style/CustomTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_4"
+                android:text="@string/added_at"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivPet"
+                app:layout_constraintTop_toBottomOf="@+id/tvPetBreed" />
+
+            <ImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:background="@drawable/btn_ripple_oval_white"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="@dimen/margin_4"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnDelete"
+                app:layout_constraintTop_toBottomOf="@id/tvAddedAt" />
+
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="@dimen/margin_8"
+                android:background="@drawable/btn_ripple_oval_white"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="@dimen/margin_4"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddedAt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

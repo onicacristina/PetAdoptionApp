@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
+<!--    <color name="purple_500">#FF6200EE</color>-->
+<!--    <color name="purple_700">#FF3700B3</color>-->
+    <color name="teal_200">#FECE52</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_transparent">#B7FFFFFF</color>
+    <color name="grey">#CFCFCF</color>
+    <color name="grey_bg_unselected">#E8E6E6</color>
+    <color name="silver_grey">#A5A5A5</color>
+    <color name="grey_dark_mode">#424242</color>
+    <color name="user_type_bg_unselected">#FFFFFFFF</color>
+    <color name="user_type_bg_selected">#E8E6E6</color>
+
+    <color name="divider">#E9E9E9</color>
+
+    <color name="pet_card_color">#FFFFFFFF</color>
+    <color name="color_pet_specie_bg">#E8E6E6</color>
+    <color name="text_pet_specie">#242424</color>
+
+
+    <color name="blue_light">#35A2F1</color>
+    <color name="yellow">#FECE52</color>
+    <color name="text_black">#242424</color>
+    <color name="bg_white">#F8F6F2</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="grey_input_text_hint">#ADB5BF</color>
+    <color name="text_grey">#747980</color>
+    <color name="yellow_text">#C69214</color>
+    <color name="yellow_info">#F9F4E7</color>
+    <color name="yellow_info_border">#F1E4C4</color>
+
+    <color name="blue_bg">#227C8F</color>
+    <color name="red_bg">#97150D</color>
+    <color name="green_background">#E9F3ED</color>
+    <color name="red_background">#FDC4C1</color>
+    <color name="btn_red">#F9423A</color>
+
+
+
+
 </resources>

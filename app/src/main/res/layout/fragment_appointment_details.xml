@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.appointments.appointment_details.AppointmentDetailsFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/ivPet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivPet"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginVertical="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_12"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:padding="1dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pet_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        app:strokeColor="@color/grey_bg_unselected"
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/tvPetName"
+        style="@style/CustomTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_12"
+        android:layout_marginStart="@dimen/margin_10"
+        android:paddingVertical="@dimen/margin_4"
+        android:text="Tobi"
+        android:textSize="@dimen/text_20"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivPet"
+        app:layout_constraintTop_toTopOf="@id/ivPet" />
+
+    <TextView
+        android:id="@+id/tvPetBreed"
+        style="@style/CustomTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_12"
+        android:layout_marginStart="@dimen/margin_10"
+        android:text="Labrador"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/text_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivPet"
+        app:layout_constraintTop_toBottomOf="@+id/tvPetName" />
+
+    <LinearLayout
+        android:id="@+id/llDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginVertical="@dimen/margin_10"
+        android:orientation="vertical"
+        app:layout_constraintCircleRadius="@dimen/margin_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivPet">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_12"
+            android:layout_marginBottom="@dimen/margin_12">
+
+            <ImageView
+                android:id="@+id/ivClock"
+                style="@style/CustomIconStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_20"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_clock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                style="@style/CustomTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_4"
+                android:text="Monday, June 2023, at 14:00"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="@id/ivClock"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivClock"
+                app:layout_constraintTop_toTopOf="@id/ivClock" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llAdoptionCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvAdoptionCenter"
+                style="@style/CustomTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:text="@string/adoption_center"
+                android:textSize="@dimen/text_20"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvAdoptionCenterName"
+                style="@style/CustomTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_12"
+                android:layout_marginTop="6dp"
+                android:textSize="16sp"
+                tools:text="Name: Adotion Center nr 2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_6">
+
+                <ImageView
+                    android:id="@+id/ivEmail"
+                    style="@style/CustomIconStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_30"
+                    android:layout_marginEnd="@dimen/margin_4"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_email"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseAppTint" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    style="@style/CustomTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:text="Str. Lavandrei, nr. 2, Oradea"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toBottomOf="@id/ivEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivEmail"
+                    app:layout_constraintTop_toTopOf="@id/ivEmail" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_12">
+
+                <ImageView
+                    android:id="@+id/ivPhone"
+                    style="@style/CustomIconStyle"
+                    android:layout_width="@dimen/margin_24"
+                    android:layout_height="@dimen/margin_24"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_call"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseAppTint" />
+
+                <TextView
+                    android:id="@+id/tvPhoneNumber"
+                    style="@style/CustomTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:text="Str. Lavandrei, nr. 2, Oradea"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toBottomOf="@id/ivPhone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivPhone"
+                    app:layout_constraintTop_toTopOf="@id/ivPhone" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_12">
+
+                <ImageView
+                    android:id="@+id/ivLocation"
+                    style="@style/CustomIconStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_24"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_location_pin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseAppTint" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    style="@style/CustomTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:text="Str. Lavandrei, nr. 2, Oradea"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toBottomOf="@id/ivLocation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivLocation"
+                    app:layout_constraintTop_toTopOf="@id/ivLocation" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llPersonDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPersonDetails"
+                style="@style/CustomTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:text="@string/person_details"
+                android:textSize="@dimen/text_20"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPersonName"
+                style="@style/CustomTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="@dimen/margin_10"
+                android:textSize="16sp"
+                tools:text="Name: Adotion Center nr 2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPersonEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_6">
+
+                <ImageView
+                    android:id="@+id/ivPersonEmail"
+                    style="@style/CustomIconStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_30"
+                    android:layout_marginEnd="@dimen/margin_4"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_email"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseAppTint" />
+
+                <TextView
+                    android:id="@+id/tvPersonEmail"
+                    style="@style/CustomTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:text="Str. Lavandrei, nr. 2, Oradea"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toBottomOf="@id/ivPersonEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivPersonEmail"
+                    app:layout_constraintTop_toTopOf="@id/ivPersonEmail" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPersonPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_12">
+
+                <ImageView
+                    android:id="@+id/ivPersonPhone"
+                    style="@style/CustomIconStyle"
+                    android:layout_width="@dimen/margin_24"
+                    android:layout_height="@dimen/margin_24"
+                    android:contentDescription="@null"
+                    android:layout_marginStart="@dimen/margin_12"
+                    android:src="@drawable/ic_call"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UseAppTint" />
+
+                <TextView
+                    android:id="@+id/tvPersonPhoneNumber"
+                    style="@style/CustomTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:text="Str. Lavandrei, nr. 2, Oradea"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toBottomOf="@id/ivPersonPhone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivPersonPhone"
+                    app:layout_constraintTop_toTopOf="@id/ivPersonPhone" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnViewPetDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_12"
+        android:layout_marginEnd="@dimen/margin_12"
+        android:background="@drawable/btn_rounded"
+        android:gravity="center"
+        android:text="@string/view_details"
+        android:textAllCaps="false"
+        android:paddingHorizontal="@dimen/margin_16"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_16"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/ivPet"
+        app:layout_constraintTop_toBottomOf="@id/tvPetBreed" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

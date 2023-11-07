@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Adopet</string>
+
+    <string name="discover">Descoperă</string>
+    <string name="home">Acasă</string>
+
+    <string name="skip">Omite</string>
+    <string name="btn_continue">Continuă</string>
+    <string name="btn_get_started">Începeți</string>
+
+    <string name="no_data_found">Nu au fost găsite date</string>
+
+
+    <!-- Language -->
+    <string name="welcome">Bun venit!</string>
+    <string name="choose_language_app">Alegeți limba aplicației</string>
+    <string name="english_language">English</string>
+    <string name="romanian_language">Română</string>
+
+    <!-- Onboarding -->
+    <string name="slide_1_title">Fiecare animal de companie merită un cămin</string>
+    <string name="slide_1_description">În fiecare an, mii de animale ajung în adăposturi unde au vieți complicate.</string>
+    <string name="slide_2_title">Găsiți-vă viitorii prieteni</string>
+    <string name="slide_2_description">Animalele de companie din adăposturi au atât de multă dragoste de oferit, și nu se vor opri niciodată să o ofere odată ce le lăsați în inima voastră!</string>
+    <string name="slide_3_title">Bun venit la Adopet</string>
+    <string name="slide_3_description">Noi vă ajutăm să găsiți noul vostru cel mai bun prieten care să se potrivească stilului vostru de viață și personalității.</string>
+
+    <!-- Authentication -->
+    <string name="login">Autentificare</string>
+    <string name="register">Înregistrare</string>
+    <string name="agree_to_the_terms_and_conditions">Sunt de acord cu <u>Termenii și condițiile</u>.</string>
+    <string name="terms_and_conditions">Termenii și condițiile</string>
+    <string name="invalid_email_address">Ați introdus o adresă de email invalidă!</string>
+    <string name="password_length_rule">Parola trebuie să aibă cel puțin 8 caractere!</string>
+    <string name="password_rules">Parola trebuie să conțină cel puțin o literă mare și o cifră.</string>
+    <string name="first_name">Prenume</string>
+    <string name="last_name">Nume</string>
+    <string name="email">Email</string>
+    <string name="password">Parolă</string>
+    <string name="go_to_login">Aveți deja un cont? Conectați-vă</string>
+    <string name="register_desc">Conectați-vă</string>
+    <string name="log_in">Înregistrați-vă</string>
+    <string name="go_to_register">Încă nu aveți cont? Înregistrați-vă</string>
+    <string name="login_subtitle">Pentru a putea intra în contul dumneavoastră, vă rugăm să introduceți parola și adresa de email</string>
+    <string name="register_subtitle">Vă rugăm să introduceți datele pentru a vă crea un cont în aplicație</string>
+    <string name="name_adoption_center">Numele centrului de adopție</string>
+
+    <!-- Questionnaire -->
+    <string name="questionnaire">Chestionar</string>
+    <string name="questionnaire_description">Pentru a găsi cel mai bun animal de companie pentru tine, va trebui să răspunzi la câteva întrebări.</string>
+    <string name="btn_start_now">Începeți acum</string>
+    <string name="btn_ask_me_later">Întreabă-mă mai târziu</string>
+
+    <!-- Home -->
+    <string name="all_pet_category">Toate</string>
+    <string name="cat_pet_category">Pisică</string>
+    <string name="dog_pet_category">Câine</string>
+    <string name="bird_pet_category">Pasăre</string>
+    <string name="rabbit_pet_category">Iepure</string>
+
+    <string name="pet_puppy">Cățeluș</string>
+    <string name="pet_kitten">Pui de pisică</string>
+    <string name="pet_chick">Pui de pasăre</string>
+    <string name="pet_bunny">Iepuraș</string>
+    <string name="pet_young">Tânăr</string>
+    <string name="pet_adult">Adult</string>
+    <string name="pet_senior">Bătrân</string>
+    <string name="breed_age">%1$s • %2$s</string>
+    <string name="hello_user">Bună, %1$s</string>
+    <string name="pet_categories">Categorii de animale de companie</string>
+
+    <string name="search_by_name">Caută după nume</string>
+    <string name="total_pets">Total animale: %1$s</string>
+
+
+    <!-- Pet Details -->
+    <string name="vaccinated">• Vaccinat</string>
+    <string name="neutered">• Sterilizat</string>
+    <string name="adopt_now">Adoptă acum</string>
+    <string name="pet_story">Povestea animalului</string>
+    <string name="adoption_center">Centru de adopție</string>
+    <string name="pet_health">Sănătate</string>
+    <string name="adoption_center_name">Nume: %1$s</string>
+    <string name="pet_age_in_months">%1$s luni</string>
+    <string name="gender_male">Masculin</string>
+    <string name="gender_female">Feminin</string>
+
+
+    <!-- Favorite -->
+    <string name="you_do_not_have_favorite">Încă nu aveți nimic în lista de favorite</string>
+    <string name="find_pets">Găsiți animale de companie</string>
+    <string name="favorites">Favorite</string>
+    <string name="animal_added_to_favorites">Animal adăugat la favorite</string>
+    <string name="animal_removed_from_favorites">Animal scos din favorite</string>
+    <string name="clear_favorites">Golește Lista de Favorite</string>
+    <string name="popup_clear_list_message">Sigur dorești să ștergi toate articolele din lista ta de favorite?</string>
+    <string name="popup_clear_list_title">Golire listă favorite</string>
+    <string name="popup_delete_animal_message">Sigur doriți să eliminați acest animal din lista de favorite?</string>
+    <string name="popup_delete_animal_title">Ștergere animal din listă</string>
+
+
+    <!-- popup -->
+    <string name="something_went_wrong">Ceva nu a mers bine</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Închide</string>
+
+    <!-- Profile -->
+    <string name="profile">Profil</string>
+    <string name="edit_profile">Editează profilul</string>
+    <string name="change_password">Schimbă parola</string>
+    <string name="settings">Setări</string>
+    <string name="log_out">Deconectare</string>
+
+    <!-- Edit profile -->
+    <string name="phone_number">Număr de telefon</string>
+    <string name="joined">Înregistrat la</string>
+
+    <!-- Change password -->
+    <string name="current_password">Parola actuală</string>
+    <string name="new_password">Parolă nouă</string>
+    <string name="confirm_new_password">Confirmă parola nouă</string>
+    <string name="save">Salvează</string>
+    <string name="passwords_do_not_match">Parolele nu se potrivesc</string>
+
+
+    <!-- Settings -->
+    <string name="dark_mode">Mod întunecat</string>
+    <string name="language">Limba</string>
+    <string name="delete_account">Șterge contul</string>
+    <string name="version">Versiunea %1$s</string>
+    <string name="delete_account_subtitle">Sigur doriți să ștergeți contul? Această acțiune nu poate fi anulată.</string>
+    <string name="cancel">Anulează</string>
+    <string name="delete">Șterge</string>
+
+    <!-- Language -->
+    <string name="save_changes">Salvează modificările</string>
+    <string name="language_settings">Setări limbă</string>
+    <string name="change_the_system_language">Aici poți schimba limba sistemului pentru această aplicație.</string>
+
+    <!-- Book appointments -->
+    <string name="book_appointment">Rezervă programare</string>
+    <string name="appointment_date">Data</string>
+    <string name="available_time">Ore disponibile</string>
+    <string name="pet">Animal de companie</string>
+    <string name="confirm_schedule">Confirmă programarea</string>
+    <string name="your_appointment_has_been_booked">Programarea dvs. a fost rezervată</string>
+    <string name="waiting_for_you">%1$s vă așteaptă</string>
+    <string name="booking_time">%1$s la %2$s</string>
+    <string name="add_appointment_to_google_calendar">+ Adăugați programarea în calendar</string>
+    <string name="go_to_my_appointments">Accesați programările mele</string>
+    <string name="calendar_appointment_title">Programare vizionare animal de companie</string>
+    <string name="calendar_appointment_description">Programare pentru vizionarea animalului de companie în cadrul procesului de adopție.\n\nNumele animalului de companie: %1$s</string>
+    <string name="event_added_to_calendar">Eveniment adăugat în calendar</string>
+    <string name="failed_to_add_event_to_calendar">Nu s-a reușit adăugarea evenimentului în calendar</string>
+    <string name="invalid_start_time_format">Formatul de începere invalid al timpului</string>
+    <string name="calendar_permission_denied">Permisiunea pentru calendar a fost refuzată</string>
+    <string name="error_select_hour">Vă rugăm să selectați o oră pentru programare.</string>
+
+    <!-- Appointments -->
+    <string name="appointments">Programări</string>
+    <string name="upcoming">Viitoare</string>
+    <string name="past">Trecute</string>
+    <string name="no_appointmnets">Nu aveți încă programări înregistrate</string>
+    <string name="view_details">Vezi detalii</string>
+    <string name="delete_appointment">Ștergeți programarea</string>
+    <string name="delete_appointment_description">Sunteți sigur că doriți să ștergeți această programare?</string>
+    <string name="person_details">Informații Persoană</string>
+    <string name="appointment_details">Detalii programare</string>
+
+    <!-- Terms and conditions -->
+    <string name="terms_general_description">Bine ați venit la aplicația noastră de adoptare a animalelor! Înainte de a utiliza aplicația, vă rugăm să citiți și să acceptați termenii și condițiile de mai jos:</string>
+    <string name="purpose_of_the_application_title">1. Scopul aplicației:</string>
+    <string name="purpose_of_the_application_description">•  Aplicația noastră facilitează procesul de adopție a animalelor de companie. Ne asumăm angajamentul de a conecta persoanele interesate de adopție cu animalele disponibile pentru adopție în adăposturile partenere.</string>
+    <string name="responsibilities_and_obligations_title">2. Responsabilități și obligații:</string>
+    <string name="responsibilities_and_obligations_description">•  Utilizatorii trebuie să furnizeze informații corecte și valide în timpul procesului de înregistrare și adopție.\n\n•  Utilizatorii trebuie să trateze animalele cu respect și să le ofere îngrijire adecvată.\n\n•  Aplicația nu își asumă responsabilitatea pentru comportamentul sau acțiunile utilizatorilor.</string>
+    <string name="adoption_process_title">3. Procesul de adopție:</string>
+    <string name="adoption_process_description">•  Utilizatorii trebuie să respecte procedurile și regulile stabilite de adăpostul partenere în timpul procesului de adopție.\n\n•  Aplicația nu garantează disponibilitatea animalelor și nu este responsabilă pentru rezultatele procesului de adopție.</string>
+    <string name="privacy_title">4. Confidențialitate:</string>
+    <string name="privacy_description">•  Aplicația colectează și stochează informații personale în conformitate cu politica sa de confidențialitate.\n\n•  Informațiile personale nu vor fi distribuite terților fără acordul utilizatorului.</string>
+    <string name="copyright_title">5. Drepturi de autor:</string>
+    <string name="copyright_description">•  Conținutul aplicației, inclusiv texte, imagini și logo-uri, este protejat de drepturile de autor și nu poate fi utilizat în scopuri comerciale fără permisiunea noastră.</string>
+    <string name="terms_general_description2">Vă rugăm să rețineți că acești termeni și condiții pot fi actualizați periodic. Utilizarea continuă a aplicației după modificările termenilor și condițiilor reprezintă acceptul dumneavoastră pentru noile prevederi.\n\nVă mulțumim pentru utilizarea aplicației noastre și vă dorim o experiență plăcută în procesul de adopție a animalelor!
+    </string>
+
+    <!-- Admin Adoption Centers -->
+    <!-- add adoption center details -->
+    <string name="add_adoption_center">Completați detaliile pentru înregistrarea centrului de adopție</string>
+    <string name="name">Nume</string>
+    <string name="phone">Telefon</string>
+    <string name="address">Adresă</string>
+    <string name="city">Oraș</string>
+    <string name="set_start_end_time">Setează intervalul de timp pentru programări</string>
+    <string name="start_time">Ora de început</string>
+    <string name="end_time">Ora de sfârșit</string>
+    <string name="select_start_time">Selectează ora de început</string>
+    <string name="select_end_time">Selectează ora de sfârșit</string>
+
+    <!-- select user type -->
+    <string name="title_choose_user_type">Selectează Tipul de Utilizator</string>
+    <string name="user_type_normal">Utilizator Normal</string>
+    <string name="user_type_normal_description">Dacă ești o persoană interesată să adopți un animal de companie.</string>
+    <string name="user_type_adoption_center">Centru de Adopție</string>
+    <string name="user_type_adoption_center_description">Dacă ești o organizație sau adăpost pentru animale care oferă animale spre adopție.</string>
+    <string name="select_tip">Selectează un Tip</string>
+
+    <!-- add pet -->
+    <string name="publish_pet_for_adoption">Publică un animal de companie pentru adopție</string>
+    <string name="pet_name">Numele animalului</string>
+    <string name="select_pet_specie">Selectează specia animalului</string>
+    <string name="select_pet_gender">Selectează genul animalului</string>
+    <string name="pet_breed">Rasă</string>
+    <string name="pet_age">Vârsta (în luni)</string>
+    <string name="pet_vaccinated">Vaccinat</string>
+    <string name="pet_neutered">Sterilizat</string>
+    <string name="yes">Da</string>
+    <string name="no">Nu</string>
+    <string name="pet_image">Imaginea animalului</string>
+    <string name="publish_pet">Publică animalul</string>
+
+    <string name="edit">Editează</string>
+    <string name="added_at">Adăugat la: %1$s</string>
+    <string name="add_pet">Adăugă</string>
+    <string name="delete_pet">Șterge animalul de companie</string>
+    <string name="delete_pet_description">Sunteți sigur că doriți să ștergi acest animal de companie?</string>
+    <string name="last_modified">Modificat ultima dată la: </string>
+    <string name="edit_pet">Editează animalul</string>
+
+
+</resources>

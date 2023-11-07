@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/onBoardingFragment">
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.authentication.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_termsAndConditionsFragment"
+            app:destination="@id/termsAndConditionsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_registerFragment_to_addAdoptionCenterFragment"
+            app:destination="@id/addAdoptionCenterFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.onboarding.OnBoardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.authentication.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/toPetDetailsFragment"
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/toPetDetailsFragment"
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/petDetailsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.PetDetailsFragment"
+        android:label="fragment_pet_details"
+        tools:layout="@layout/fragment_pet_details">
+
+        <action
+            android:id="@+id/action_petDetailsFragment_to_petImageDetailsFragment"
+            app:destination="@id/petImageDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_petDetailsFragment_to_bookAppointmentFragment"
+            app:destination="@id/bookAppointmentFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_petDetailsFragment_to_editPetFragment"
+            app:destination="@id/editPetFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/petImageDetailsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.pet_image_details.PetImageDetailsFragment"
+        android:label="fragment_pet_image_details"
+        tools:layout="@layout/fragment_pet_image_details" />
+    <fragment
+        android:id="@+id/bookAppointmentFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.BookAppointmentFragment"
+        android:label="fragment_book_appointment"
+        tools:layout="@layout/fragment_book_appointment">
+
+        <argument
+            android:name="pet"
+            android:defaultValue="@null"
+            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse"
+            app:nullable="true" />
+        <argument
+            android:name="adoptionCenter"
+            android:defaultValue="@null"
+            app:argType="com.example.petadoptionapp.network.models.AdoptionCenter"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_bookAppointmentFragment_to_bookingAppointmentFinalFragment"
+            app:destination="@id/bookingAppointmentFinalFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.language.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.change_password.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_languageSettingsFragment"
+            app:destination="@id/languageSettingsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_settingsFragment_to_termsAndConditionsFragment"
+            app:destination="@id/termsAndConditionsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.edit_profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/languageSettingsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.settings.language_settings.LanguageSettingsFragment"
+        android:label="fragment_language_settings"
+        tools:layout="@layout/fragment_language_settings" />
+    <fragment
+        android:id="@+id/termsAndConditionsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.profile.settings.terms_and_conditions.TermsAndConditionsFragment"
+        android:label="fragment_terms_and_conditions"
+        tools:layout="@layout/fragment_terms_and_conditions" />
+    <fragment
+        android:id="@+id/bookingAppointmentFinalFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.home.pet_details.book_appointment.succes_appointment.BookingAppointmentFinalFragment"
+        android:label="fragment_booking_appointment_final"
+        tools:layout="@layout/fragment_booking_appointment_final">
+
+        <argument
+            android:name="petName"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="appointmentTime"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="appointmentLocation"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.appointments.AppointmentsFragment"
+        android:label="AppointmentsFragment">
+        <action
+            android:id="@+id/action_appointmentsFragment_to_petDetailsFragment"
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/upcomingAppointmentsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.appointments.upcoming_appointments.UpcomingAppointmentsFragment"
+        android:label="fragment_upcoming_appointments"
+        tools:layout="@layout/fragment_upcoming_appointments">
+        <action
+            android:id="@+id/action_upcomingAppointmentsFragment_to_petDetailsFragment"
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_upcomingAppointmentsFragment_to_appointmentDetailsFragment"
+            app:destination="@id/appointmentDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectEndHourFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.select_available_hours.SelectEndHourFragment"
+        android:label="fragment_select_end_hour"
+        tools:layout="@layout/fragment_select_end_hour" />
+    <fragment
+        android:id="@+id/selectStartHourFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.select_available_hours.SelectStartHourFragment"
+        android:label="fragment_select_start_hour"
+        tools:layout="@layout/fragment_select_start_hour" />
+    <fragment
+        android:id="@+id/selectUserRoleFragment"
+        android:name="com.example.petadoptionapp.presentation.select_user_role.SelectUserRoleFragment"
+        android:label="fragment_select_user_role"
+        tools:layout="@layout/fragment_select_user_role" />
+    <dialog
+        android:id="@+id/selectPetGenderFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.select_pet_gender.SelectPetGenderFragment"
+        android:label="fragment_select_pet_gender"
+        tools:layout="@layout/fragment_select_pet_gender" />
+    <dialog
+        android:id="@+id/selectPetSpecieFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.select_pet_specie.SelectPetSpecieFragment"
+        android:label="fragment_select_pet_specie"
+        tools:layout="@layout/fragment_select_pet_specie" />
+    <fragment
+        android:id="@+id/addPetFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_pet.AddPetFragment"
+        android:label="fragment_add_pet"
+        tools:layout="@layout/fragment_add_pet" />
+    <fragment
+        android:id="@+id/homeAdminFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.home_admin.HomeAdminFragment"
+        android:label="fragment_home_admin"
+        tools:layout="@layout/fragment_home_admin">
+        <action
+            android:id="@+id/toPetDetailsFragment"
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_editPetFragment"
+            app:destination="@id/editPetFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPetFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.edit_pet.EditPetFragment"
+        android:label="fragment_edit_pet"
+        tools:layout="@layout/fragment_edit_pet">
+
+        <argument
+            android:name="petDetailsToEdit"
+            app:argType="com.example.petadoptionapp.network.models.response.AnimalResponse" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAdoptionCenterFragment"
+        android:name="com.example.petadoptionapp.presentation.admin_adoption_centers.add_adoption_center_details.AddAdoptionCenterFragment"
+        android:label="fragment_add_adoption_center"
+        tools:layout="@layout/fragment_add_adoption_center">
+
+        <argument
+            android:name="userName"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="userEmail"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentDetailsFragment"
+        android:name="com.example.petadoptionapp.presentation.ui.appointments.appointment_details.AppointmentDetailsFragment"
+        android:label="fragment_appointment_details"
+        tools:layout="@layout/fragment_appointment_details">
+
+        <argument
+            android:name="appointmentDetails"
+            android:defaultValue="@null"
+            app:argType="com.example.petadoptionapp.network.models.Booking"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_petDetailsFragment"
+            app:destination="@id/petDetailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pet_image_width">350dp</dimen>
+    <dimen name="pet_image_height">200dp</dimen>
+
+</resources>

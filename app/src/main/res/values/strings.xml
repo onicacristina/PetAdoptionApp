@@ -1,3 +1,228 @@
 <resources>
-    <string name="app_name">PetAdoptionApp</string>
+    <string name="app_name">Adopet</string>
+
+    <string name="discover">Discover</string>
+    <string name="home">Home</string>
+
+    <string name="skip">Skip</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_get_started">Get Started</string>
+
+    <string name="no_data_found">No data found</string>
+
+    <!-- Language -->
+    <string name="welcome">Welcome!</string>
+    <string name="choose_language_app">Choose the language of the application</string>
+    <string name="english_language">English</string>
+    <string name="romanian_language">Română</string>
+
+    <!-- Onboarding -->
+    <string name="slide_1_title">Every pet deserves a home</string>
+    <string name="slide_1_description">Every year, thousands of animals end up in shelters where they have complicated lives.</string>
+    <string name="slide_2_title">Find your future companions</string>
+    <string name="slide_2_description">Shelter pets have so much love to give, and they will never stop offering it once you let them into your heart!</string>
+    <string name="slide_3_title">Welcome to Adopet</string>
+    <string name="slide_3_description">We help you find your new best friend who fits your lifestyle and personality.</string>
+
+    <!-- Authentication -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="agree_to_the_terms_and_conditions">I agree to the <u>Terms and conditions</u>.</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="invalid_email_address">You entered an invalid email address!</string>
+    <string name="password_length_rule">The password must be at least 8 characters long!</string>
+    <string name="password_rules">The password must contain at least one uppercase letter and one digit.</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="go_to_login">Already have an account? Login</string>
+    <string name="register_desc">Login</string>
+    <string name="log_in">Register</string>
+    <string name="go_to_register">Don\'t have an account yet? Register</string>
+    <string name="login_subtitle">To access your account, please enter your password and email</string>
+    <string name="register_subtitle">Please enter your details to create an account in the application</string>
+    <string name="name_adoption_center">Adoption center name</string>
+
+    <!-- Questionnaire -->
+    <string name="questionnaire">Questionnaire</string>
+    <string name="questionnaire_description">To find the best pet for you, you will need to answer a few questions.</string>
+    <string name="btn_start_now">Start Now</string>
+    <string name="btn_ask_me_later">Ask Me Later</string>
+
+    <!-- Home -->
+    <string name="all_pet_category">All</string>
+    <string name="cat_pet_category">Cat</string>
+    <string name="dog_pet_category">Dog</string>
+    <string name="bird_pet_category">Bird</string>
+    <string name="rabbit_pet_category">Rabbit</string>
+
+    <string name="pet_puppy">Puppy</string>
+    <string name="pet_kitten">Kitten</string>
+    <string name="pet_chick">Chick</string>
+    <string name="pet_bunny">Bunny</string>
+    <string name="pet_young">Young</string>
+    <string name="pet_adult">Adult</string>
+    <string name="pet_senior">Senior</string>
+    <string name="breed_age">%1$s • %2$s</string>
+    <string name="hello_user">Hello, %1$s</string>
+    <string name="pet_categories">Pet Categories</string>
+
+    <string name="search_by_name">Search by name</string>
+    <string name="total_pets">Total pets: %1$s</string>
+
+    <!-- Pet Details -->
+    <string name="vaccinated">• Vaccinated</string>
+    <string name="neutered">• Neutered</string>
+    <string name="adopt_now">Adopt Now</string>
+    <string name="pet_story">Pet Story</string>
+    <string name="adoption_center">Adoption Center</string>
+    <string name="pet_health">Health</string>
+    <string name="adoption_center_name">Name: %1$s</string>
+    <string name="pet_age_in_months">%1$s months</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+
+
+    <!-- Favorite -->
+    <string name="you_do_not_have_favorite">You don\'t have anything in your favorites list yet</string>
+    <string name="find_pets">Find pets</string>
+    <string name="favorites">Favorites</string>
+    <string name="animal_added_to_favorites">Animal added to favorites</string>
+    <string name="animal_removed_from_favorites">Animal removed from favorites</string>
+    <string name="clear_favorites">Clear Favorites</string>
+    <string name="popup_clear_list_message">Are you sure you want to clear all items from your favorites list?</string>
+    <string name="popup_clear_list_title">Clear Favorites List</string>
+    <string name="popup_delete_animal_message">Are you sure you want to remove this animal from the favorites list?</string>
+    <string name="popup_delete_animal_title">Delete Animal from List</string>
+
+
+
+    <!-- popup -->
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Close</string>
+
+    <!-- Profile -->
+    <string name="profile">Profile</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="change_password">Change password</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log out</string>
+
+    <!-- Edit Profile -->
+    <string name="phone_number">Phone number</string>
+    <string name="joined">Joined at</string>
+
+    <!-- Change password -->
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="save">Save</string>
+    <string name="passwords_do_not_match">The passwords do not match</string>
+
+    <!-- Settings -->
+    <string name="dark_mode">Dark mode</string>
+    <string name="language">Language</string>
+    <string name="delete_account">Delete account</string>
+    <string name="version">Version %1$s</string>
+    <string name="delete_account_subtitle">Are you sure you want to delete your account? This action can\'t be undone.</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <!-- Language -->
+    <string name="save_changes">Save changes</string>
+    <string name="language_settings">Language settings</string>
+    <string name="change_the_system_language">You can change the system language of this app here.</string>
+
+    <!-- Book appointments -->
+    <string name="book_appointment">Book appointment</string>
+    <string name="appointment_date">Date</string>
+    <string name="pet">Pet</string>
+    <string name="available_time">Available hours</string>
+    <string name="confirm_schedule">Confirm Schedule</string>
+    <string name="your_appointment_has_been_booked">Your appointments has been booked</string>
+    <string name="waiting_for_you">%1$s will be waiting for you</string>
+    <string name="booking_time">%1$s at %2$s</string>
+    <string name="add_appointment_to_google_calendar">+ Add appointment to calendar</string>
+    <string name="go_to_my_appointments">Go to my appointments</string>
+    <string name="calendar_appointment_title">Pet Viewing Appointment</string>
+    <string name="calendar_appointment_description">Appointment for viewing the pet as part of the adoption process.\n\nPet name: %1$s</string>
+    <string name="event_added_to_calendar">Event added to calendar</string>
+    <string name="failed_to_add_event_to_calendar">Failed to add event to calendar</string>
+    <string name="invalid_start_time_format">Invalid start time format</string>
+    <string name="calendar_permission_denied">Calendar permission denied</string>
+    <string name="error_select_hour">Please select an appointment time.</string>
+
+    <!-- Appointments -->
+    <string name="appointments">Appointments</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="past">Past</string>
+    <string name="no_appointmnets">You don\'t have any appointments yet</string>
+    <string name="view_details">View details</string>
+    <string name="delete_appointment">Delete appointment</string>
+    <string name="delete_appointment_description">Are you sure you want to delete this appointment?</string>
+    <string name="person_details">Person Details</string>
+    <string name="appointment_details">Appointment details</string>
+
+
+    <!-- Terms and conditions -->
+    <string name="terms_general_description">Welcome to our pet adoption application! Before using the application, please read and accept the following terms and conditions:</string>
+    <string name="purpose_of_the_application_title">1. Purpose of the Application:</string>
+    <string name="purpose_of_the_application_description">•  Our application facilitates the process of pet adoption. We are committed to connecting individuals interested in adoption with the animals available for adoption in our partner shelters.</string>
+    <string name="responsibilities_and_obligations_title">2. Responsibilities and Obligations:</string>
+    <string name="responsibilities_and_obligations_description">•  Users must provide accurate and valid information during the registration and adoption process.\n\n•  Users must treat the animals with respect and provide them with proper care.\n\n•  The application is not responsible for the behavior or actions of the users.</string>
+    <string name="adoption_process_title">3. Adoption Process:</string>
+    <string name="adoption_process_description">•  Users must comply with the procedures and rules established by our partner shelters during the adoption process.\n\n•  The application does not guarantee the availability of animals and is not responsible for the outcomes of the adoption process.</string>
+    <string name="privacy_title">4. Privacy:</string>
+    <string name="privacy_description">•  The application collects and stores personal information in accordance with its privacy policy. \n\n•  Personal information will not be shared with third parties without the user\'s consent.</string>
+    <string name="copyright_title">5. Copyright:</string>
+    <string name="copyright_description">•  The content of the application, including text, images, and logos, is protected by copyright and may not be used for commercial purposes without our permission.</string>
+    <string name="terms_general_description2">Please note that these terms and conditions may be updated periodically. Your continued use of the application after the changes to the terms and conditions constitutes your acceptance of the new provisions.\n\nThank you for using our application, and we wish you a pleasant experience in the pet adoption process!</string>
+
+
+    <!-- Admin Adoption Centers -->
+    <!-- add adoption center details -->
+    <string name="add_adoption_center">Complete the details for registering the adoption center.</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="set_start_end_time">Set the start and end time for appointments</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+    <string name="select_start_time">Select start time</string>
+    <string name="select_end_time">Select end time</string>
+
+    <!-- select user type -->
+    <string name="title_choose_user_type">Select User Type</string>
+    <string name="user_type_normal">Normal User</string>
+    <string name="user_type_normal_description">If you are a person interested in adopting a pet.</string>
+    <string name="user_type_adoption_center">Adoption Center</string>
+    <string name="user_type_adoption_center_description">If you represent an organization or shelter that offers animals for adoption.</string>
+    <string name="select_tip">Select a Type</string>
+
+    <!-- add pet -->
+    <string name="publish_pet_for_adoption">Publish a pet for adoption</string>
+    <string name="pet_name">Pet name</string>
+    <string name="select_pet_specie">Select specie</string>
+    <string name="select_pet_gender">Select pet gender</string>
+    <string name="pet_breed">Breed</string>
+    <string name="pet_age">Age (in months)</string>
+    <string name="pet_vaccinated">Vaccinated</string>
+    <string name="pet_neutered">Neutered</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="pet_image">Pet image</string>
+    <string name="publish_pet">Publish pet</string>
+
+
+    <string name="edit">Edit</string>
+    <string name="added_at">Added at: %1$s</string>
+    <string name="add_pet">Add</string>
+    <string name="delete_pet">Delete pet</string>
+    <string name="delete_pet_description">Are you sure you want to delete this pet?</string>
+    <string name="last_modified">Last modified at: </string>
+    <string name="edit_pet">Edit pet</string>
+
 </resources>

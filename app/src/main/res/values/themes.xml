@@ -1,16 +1,96 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.PetAdoptionApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+
+        <!-- Material typography attributes -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.PetAdoptionApp.Headline1</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <!--        <item name="colorPrimary">@color/purple_500</item>-->
+        <item name="colorPrimaryVariant">@color/grey</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
         <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+
+
     </style>
+
+
+    <style name="CalendarDateTextAppearance" parent="TextAppearance.AppCompat">
+        <!-- Stilizare text dată selectată -->
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="Theme.Adopet.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.PetAdoptionApp</item>
+    </style>
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="CustomDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+    </style>
+
+    <style name="Widget.PetAdoptionApp.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_custom_inputs</item>
+        <item name="android:minHeight">@dimen/edittext_height</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:textColorHint">@color/text_grey</item>
+        <item name="android:textColorLink">@color/text_black</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TabStyle">
+        <item name="tabIndicatorColor">@color/yellow</item>
+        <item name="layout_anchorGravity">top</item>
+        <!--        <item name="tabRippleColor">@color/background_blue</item>-->
+        <item name="tabSelectedTextColor">@color/text_black</item>
+        <item name="tabTextColor">@color/text_black</item>
+        <item name="tabTextAppearance">@style/CustomTabTextAppearance</item>
+    </style>
+
+    <style name="CustomTabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
+        <item name="behavior_skipCollapsed">true</item>
+        <item name="behavior_fitToContents">true</item>
+        <item name="behavior_peekHeight">1000dp</item>
+        <item name="behavior_hideable">true</item>
+    </style>
+
+    <style name="CustomTextStyle" parent="">
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="CustomIconStyle">
+        <item name="android:tint">@color/text_black</item>
+    </style>
+
 </resources>
