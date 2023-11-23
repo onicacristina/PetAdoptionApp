@@ -18,17 +18,6 @@ abstract class BaseViewModel : ViewModel() {
     val error: Flow<String>
         get() = _error.receiveAsFlow()
 
-//    fun showError(failure: Throwable) = viewModelScope.launch {
-//        if (failure is ApiException){
-//            failure.response?.globalErrors?.firstOrNull()?.message?.let { _error.send(it) }
-//        }
-//        else {
-//            failure.message?.let {
-//                _error.send(it)
-//            }
-//        }
-//    }
-
     fun showError(failure: Throwable) = viewModelScope.launch {
         val errorMessage: String? = when (failure) {
             is ApiException -> failure.response?.globalErrors?.firstOrNull()?.message
@@ -52,6 +41,7 @@ abstract class BaseViewModel : ViewModel() {
                     null
                 }
             }
+
             else -> failure.message
         }
         errorMessage?.let {
