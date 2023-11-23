@@ -19,7 +19,7 @@ class App : Application() {
         init()
     }
 
-    private fun init(){
+    private fun init() {
         initHawk()
         initTimber()
     }

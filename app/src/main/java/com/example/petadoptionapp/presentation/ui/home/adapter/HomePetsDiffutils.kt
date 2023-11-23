@@ -17,7 +17,5 @@ class HomePetsDiffutils : DiffUtil.ItemCallback<AnimalResponse>() {
                 oldItem.breed == newItem.breed &&
                 oldItem.story == newItem.story &&
                 oldItem.updatedAt == newItem.updatedAt
-//                &&
-//                oldItem.imageUrl == newItem.imageUrl
     }
 }

@@ -34,9 +34,6 @@ class AddAdoptionCenterFragment :
     }
 
     private fun initListeners() {
-//        viewBinding.etName.doAfterTextChanged { text ->
-//            viewModel.onNameChanges(text.toString())
-//        }
         viewBinding.etPhone.doAfterTextChanged { text ->
             viewModel.onPhoneNumberChanged(text.toString())
         }
@@ -80,6 +77,7 @@ class AddAdoptionCenterFragment :
             AddAdoptionCenterViewModel.Event.SUCCESS_ADD_ADOPTION_CENTER -> {
                 viewModel.linkAdminUserToAdoptionCenter()
             }
+
             AddAdoptionCenterViewModel.Event.SUCCESS_LINK -> {
                 openLoginScreen()
             }

@@ -59,22 +59,13 @@ object NetworkModule {
             .addInterceptor(jwtTokenInterceptor)
             .addInterceptor(loggingInterceptor)
             .addInterceptor(languageInterceptor)
-//            .connectTimeout(30, TimeUnit.SECONDS)
-//            .writeTimeout(10, TimeUnit.SECONDS)
-//            .readTimeout(10, TimeUnit.SECONDS)
             .pingInterval(3, TimeUnit.SECONDS)
-//            .connectTimeout(5, TimeUnit.MINUTES) // connect timeout
-//            .writeTimeout(5, TimeUnit.MINUTES) // write timeout
-//            .readTimeout(5, TimeUnit.MINUTES) // read timeout
             .callTimeout(100, TimeUnit.SECONDS)
-
             .retryOnConnectionFailure(true)
             .protocols(listOf(Protocol.HTTP_1_1))
             .connectionPool(ConnectionPool(0, 2, TimeUnit.MINUTES))
             .build()
-
     }
-
 
     @Singleton
     @Provides
