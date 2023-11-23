@@ -1,4 +1,4 @@
-# AdoptAPet
+# AdoPet
 
 AdoptAPet is a mobile application dedicated to animal adoption, providing an interactive platform for users and adoption centers.
 
