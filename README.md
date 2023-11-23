@@ -9,7 +9,6 @@ This application allows users to view the list of animals available for adoption
 ## Screens
 
 - Language selection screen
-  ![language!](app/src/main/res/drawable/img_select_language.jpg)
 - App presentation and user type selection screens
 - Authentication and registration screen
 - Main screen with the list of available animals, search, and filters
