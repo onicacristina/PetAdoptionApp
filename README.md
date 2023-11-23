@@ -20,13 +20,13 @@ This application allows users to view the list of animals available for adoption
 - Dark mode of the application
 
 ## Screenshots
-![screen1!](app/src/main/res/drawable/img_group_1.png)
-![screen2!](app/src/main/res/drawable/img_group_2.png)
+![group1!](app/src/main/res/drawable/img_group_1.png)
+![group2!](app/src/main/res/drawable/img_group_2.png)
 
 
 ## Getting Started
 
-1. Clone this repository: `git clone https://github.com/username/AdoptAPet.git`
+1. Clone this repository: `git clone https://github.com/onicacristina/AdoptAPet.git`
 2. Open the project in Android Studio.
 3. Run the application on an emulator or physical device.
 
