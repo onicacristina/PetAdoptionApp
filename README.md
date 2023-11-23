@@ -19,6 +19,10 @@ This application allows users to view the list of animals available for adoption
 - App settings screen
 - Dark mode of the application
 
+## Screenshots
+![screen1!](app/src/main/res/drawable/img_group_1.png)
+
+
 ## Getting Started
 
 1. Clone this repository: `git clone https://github.com/username/AdoptAPet.git`
