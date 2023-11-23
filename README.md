@@ -21,7 +21,7 @@ This application allows users to view the list of animals available for adoption
 
 ## Screenshots
 ![screen1!](app/src/main/res/drawable/img_group_1.png)
-![screen1!](app/src/main/res/drawable/img_group_2.png)
+![screen2!](app/src/main/res/drawable/img_group_2.png)
 
 
 ## Getting Started
